@@ -2,6 +2,8 @@
 
 Creative and visual direction, films, campaigns and AI visuals.
 
+**[Visit the portfolio](https://lezoofx.github.io/portfolio/)** · **[Add or update a project](https://github.com/LeZoofx/portfolio/actions/workflows/update-project.yml)**
+
 **Start with [START-HERE.md](START-HERE.md)** for the beginner publishing and editing guide.
 
 - Two complete experiences: Normal and Fun.

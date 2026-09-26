@@ -1,22 +1,20 @@
-# Your portfolio is built
+# Your portfolio is live
 
 This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has a fast Normal experience and a Fun experience with five looping worlds. Videos load only after a visitor presses Play.
 
-## Finish the one-time publishing setup
+## Your website and editing links
 
-Your complete project is at **[github.com/LeZoofx/portfolio](https://github.com/LeZoofx/portfolio)**. The source, fonts and all 78 recovered project posters are uploaded. GitHub has successfully run the image recovery automation. Publishing is currently blocked only by the repository's Pages setting.
+**Website: [lezoofx.github.io/portfolio](https://lezoofx.github.io/portfolio/)**
 
-1. Open **[Settings → Pages](https://github.com/LeZoofx/portfolio/settings/pages)**. Under **Build and deployment → Source**, select **GitHub Actions**. You already have a publishing workflow, so skip the suggested templates.
-2. Open **[Publish portfolio](https://github.com/LeZoofx/portfolio/actions/workflows/deploy.yml)**, select **Run workflow**, keep **main**, and press the green **Run workflow** button.
-3. Wait for a green check. The completed deployment supplies the live website link. Its expected address is `https://lezoofx.github.io/portfolio/`; it is not live until that deployment succeeds.
+Your complete project is at **[github.com/LeZoofx/portfolio](https://github.com/LeZoofx/portfolio)**. The source, fonts and all 78 recovered project posters are uploaded. GitHub Pages is enabled and the first live deployment succeeded on 27 September 2026 (India time). There is no remaining setup step.
 
-After this setup, committing an edit publishes the website automatically. No code or password sharing is needed for these setup steps.
+Committing an edit publishes the website automatically. For a manual rebuild, open **[Publish portfolio](https://github.com/LeZoofx/portfolio/actions/workflows/deploy.yml)**, select **Run workflow**, keep **main**, and press the green **Run workflow** button. Wait for its green check before checking the updated site.
 
 The repository is public so GitHub Pages can host it on the free plan. Other people can view the site and source; they cannot edit your repository unless you grant them access. Keep repository collaborators empty. Publishing, project editing and image recovery also check that the person running them is the repository owner.
 
 The site has no public admin page and no password or publishing token in its browser code. Editing happens inside your authenticated GitHub account.
 
-## Add or update work after publishing
+## Add or update your work
 
 1. Open **[Add or update a project](https://github.com/LeZoofx/portfolio/actions/workflows/update-project.yml)** in your repository.
 2. Select **Run workflow**.
@@ -31,7 +29,7 @@ To update your biography, contact details or disciplines, open `content/site.jso
 
 ## Publish a separate copy from your computer (optional)
 
-Your repository already exists; use the Pages steps above to finish publishing it. The following script is only for creating a separate copy under a new repository name. Install the official **Node.js LTS**, **Git**, and **GitHub CLI** from their respective sites: https://nodejs.org/ · https://git-scm.com/ · https://cli.github.com/ .
+Your existing repository is already published. The following script is only for creating a separate copy under a new repository name. Install the official **Node.js LTS**, **Git**, and **GitHub CLI** from their respective sites: https://nodejs.org/ · https://git-scm.com/ · https://cli.github.com/ .
 
 Unzip the project. Open a terminal in the `prantik-portfolio` folder and run:
 
