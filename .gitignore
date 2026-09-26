@@ -6,3 +6,4 @@ dist/
 qa/
 _qa.html
 _preview/
+__pycache__/

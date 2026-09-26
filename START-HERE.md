@@ -2,18 +2,24 @@
 
 This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has a fast Normal experience and a Fun experience with five looping worlds. Videos load only after a visitor presses Play.
 
-## The shortest route
+## Finish the one-time publishing setup
 
-Continue with me in ChatGPT. The GitHub connection identifies your account as **LeZoofx**. I can complete the upload after GitHub's repository-creation sign-in is finished. You do not need to write code or share a password in chat.
+Your complete project is at **[github.com/LeZoofx/portfolio](https://github.com/LeZoofx/portfolio)**. The source, fonts and all 78 recovered project posters are uploaded. GitHub has successfully run the image recovery automation. Publishing is currently blocked only by the repository's Pages setting.
 
-The intended setup is a new personal repository called **portfolio**. It will be public so GitHub Pages can host it on the free plan. Other people can view the site and source; they cannot edit your repository unless you grant them access. Keep repository collaborators empty. The publishing and project-editing workflows also check that the person running them is the repository owner.
+1. Open **[Settings → Pages](https://github.com/LeZoofx/portfolio/settings/pages)**. Under **Build and deployment → Source**, select **GitHub Actions**. You already have a publishing workflow, so skip the suggested templates.
+2. Open **[Publish portfolio](https://github.com/LeZoofx/portfolio/actions/workflows/deploy.yml)**, select **Run workflow**, keep **main**, and press the green **Run workflow** button.
+3. Wait for a green check. The completed deployment supplies the live website link. Its expected address is `https://lezoofx.github.io/portfolio/`; it is not live until that deployment succeeds.
+
+After this setup, committing an edit publishes the website automatically. No code or password sharing is needed for these setup steps.
+
+The repository is public so GitHub Pages can host it on the free plan. Other people can view the site and source; they cannot edit your repository unless you grant them access. Keep repository collaborators empty. Publishing, project editing and image recovery also check that the person running them is the repository owner.
 
 The site has no public admin page and no password or publishing token in its browser code. Editing happens inside your authenticated GitHub account.
 
 ## Add or update work after publishing
 
-1. Open your repository on GitHub and select **Actions**.
-2. Select **Add or update a project**, then **Run workflow**.
+1. Open **[Add or update a project](https://github.com/LeZoofx/portfolio/actions/workflows/update-project.yml)** in your repository.
+2. Select **Run workflow**.
 3. Enter a title, project URL and category. Add your role, description and AI disclosure where applicable.
 4. Select **Feature on the home page** if desired. A new featured project moves to the front; the home page displays four.
 5. Leave **project_id** empty to add work. To update an existing project, copy its ID from the end of its website address, such as `social-short-format-03`.
@@ -23,17 +29,17 @@ When updating a project, enter all the optional text you want to keep: empty opt
 
 To update your biography, contact details or disciplines, open `content/site.json` in GitHub, click the pencil, change the text between quotation marks and commit. The site publishes automatically. To remove a project, delete its complete object from `content/projects.json`; use GitHub's Preview changes to check the edit. Ask me to handle this if you prefer.
 
-## If you prefer to publish from your computer
+## Publish a separate copy from your computer (optional)
 
-This is an optional fallback to the assisted route. Install the official **Node.js LTS**, **Git**, and **GitHub CLI** from their respective sites: https://nodejs.org/ · https://git-scm.com/ · https://cli.github.com/ .
+Your repository already exists; use the Pages steps above to finish publishing it. The following script is only for creating a separate copy under a new repository name. Install the official **Node.js LTS**, **Git**, and **GitHub CLI** from their respective sites: https://nodejs.org/ · https://git-scm.com/ · https://cli.github.com/ .
 
 Unzip the project. Open a terminal in the `prantik-portfolio` folder and run:
 
 ```sh
-node scripts/publish.mjs
+node scripts/publish.mjs portfolio-copy
 ```
 
-The script opens GitHub's secure web sign-in when needed, creates a new `portfolio` repository, uploads this folder, enables GitHub Pages and starts publishing. It never replaces an existing repository. No npm installation is needed for this publishing step; GitHub installs build dependencies itself. If the name `portfolio` is already taken in your account, run `node scripts/publish.mjs portfolio-new` from a fresh unzipped copy.
+The script opens GitHub's secure web sign-in when needed, creates a new repository with the supplied name, uploads this folder, enables GitHub Pages and starts publishing. It never replaces an existing repository. No npm installation is needed for this publishing step; GitHub installs build dependencies itself. Run it from a fresh unzipped copy.
 
 If GitHub asks for its one-time Pages setting, open **Settings → Pages → Build and deployment → Source → GitHub Actions**, then **Actions → Publish portfolio → Run workflow**. The deployment output supplies the final website URL.
 
@@ -55,6 +61,7 @@ Open the local address printed by Vite. To build the production files, run `npm 
 - Some source links and videos can require a provider login or can stop working later. Each project keeps an original-source link as a fallback. Two original brand TinyURLs could not be resolved during migration and are preserved as supplied.
 - Generic source titles remain where the old site did not supply a specific title. Per-project credits have not been invented. Replace these through the editing workflow when convenient.
 - WebGL uses the full 3D renderer. If a browser cannot create WebGL, Fun automatically uses the lightweight zoom view. Reduced-motion settings replace zoom transitions with chapter changes.
+- **[Restore missing portfolio images](https://github.com/LeZoofx/portfolio/actions/workflows/recover-media.yml)** can recover missing original posters. It keeps existing files and uses the original public image sources.
 
 ## Official references
 

@@ -24,6 +24,7 @@ Only one video iframe can be active. YouTube uses its privacy-enhanced embed hos
 - Browser: Normal homepage, project search and empty state, project modal, YouTube player loading on click, player removed on close, phone layouts at 390 × 844, and Fun compatibility scene.
 - Browser: forward chapter navigation, return from chapter five to chapter one, and two retained CSS stages after looping.
 - Fonts and project posters are self-hosted. One project without a recoverable poster has an intentional type treatment.
+- A fresh clone of the completed GitHub repository passed all four editing tests, content validation, TypeScript compilation and the `/portfolio/` production build. All 78 image files decoded successfully.
 
 The production Normal entry and its shared runtime total approximately 80 KiB compressed. The 3D chunk is approximately 240 KiB compressed and is requested only in Fun mode. These are bundle measurements, not page speed scores.
 
@@ -31,7 +32,7 @@ The production Normal entry and its shared runtime total approximately 80 KiB co
 
 The test browser disables WebGL. The WebGL renderer compiles but has not been visually or performance-tested on a graphics-enabled physical phone or laptop. The complete compatibility experience was inspected instead. Browser-level input automation is not a substitute for touch testing on actual iOS/Android devices. No field Core Web Vitals, sustained GPU-memory profile, formal accessibility audit or long-duration device battery measurement is claimed.
 
-GitHub Actions files are prepared and their local build/edit steps pass, but live workflow execution requires creating the repository and completing GitHub's sign-in. The optional local publisher is syntax-checked; its authenticated remote setup has not yet run.
+The repository is created at `https://github.com/LeZoofx/portfolio`. GitHub Actions has successfully restored and committed all missing posters; the repository now contains all 78 local project posters and both web fonts. Publication attempts reached the Pages configuration step and stopped because Pages is not yet enabled. The browser connection used for repository settings became unavailable, so the remaining one-time setting is documented in `START-HERE.md`. No live deployment is claimed. The optional local publisher is syntax-checked; its authenticated remote setup has not run.
 
 ## Owner editing
 
@@ -49,6 +50,7 @@ The personal GitHub repository is the source of truth. Public viewers get no wri
 | Bio/contact/disciplines | `content/site.json` |
 | Project data and poster paths | `content/projects.json` |
 | Media | `public/media/` |
+| Restore missing original posters | GitHub Actions → Restore missing portfolio images |
 | Layout and typography | `src/styles.css`, `src/App.tsx` |
 | WebGL scene | `src/Universe.tsx` |
 | Lightweight scene and zoom | `src/ArchiveArt.tsx`, `src/LightUniverse.tsx` |
