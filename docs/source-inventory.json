@@ -1,0 +1,4089 @@
+{
+  "source": "https://prantikdutta.myportfolio.com/",
+  "recovered_at": "2026-09-26",
+  "summary": {
+    "records": 80,
+    "embeds": 42,
+    "youtube": 41,
+    "drive": 1,
+    "inline_images": 37,
+    "css_images": 1,
+    "titles_recovered": 39,
+    "posters_downloaded": 79,
+    "statuses": {
+      "recovered": 78,
+      "source_embed_retained_poster_unavailable": 1,
+      "poster_recovered_title_unavailable": 1
+    }
+  },
+  "pages": [
+    {
+      "category": "About",
+      "slug": "about",
+      "source_url": "https://prantikdutta.myportfolio.com/about",
+      "original_order": 1,
+      "title": "Prantik Dutta - About",
+      "description": "",
+      "modules": [
+        {
+          "module_order": 1,
+          "dom_order": 23,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Prantik Dutta",
+          "record_ids": []
+        },
+        {
+          "module_order": 2,
+          "dom_order": 28,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "I make videos that create unique social identities.",
+          "record_ids": []
+        },
+        {
+          "module_order": 3,
+          "dom_order": 32,
+          "type": "js-project-module project-module module button project-module-button",
+          "text": "Check out my work!",
+          "record_ids": []
+        },
+        {
+          "module_order": 4,
+          "dom_order": 35,
+          "type": "js-project-module project-module module social_icons project-module-social_icons align-",
+          "text": "",
+          "record_ids": []
+        },
+        {
+          "module_order": 5,
+          "dom_order": 48,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Get in touch: Mail: prantikdutta1611@gmail.com Phone: +91 974 894 0484 WhatsApp: +91 974 894 0484 Please provide your contact details below to get in touch faster:",
+          "record_ids": []
+        },
+        {
+          "module_order": 6,
+          "dom_order": 66,
+          "type": "project-module module form project-module-form js-project-module-form js-js-project-module",
+          "text": "Your Name * Email Address * Message Urgency Submit Thank you for your submission! We're working on getting back to you!",
+          "record_ids": []
+        }
+      ]
+    },
+    {
+      "category": "Work",
+      "slug": "source",
+      "source_url": "https://prantikdutta.myportfolio.com/work",
+      "original_order": 2,
+      "title": "Prantik Dutta",
+      "description": "",
+      "modules": []
+    },
+    {
+      "category": "Social (YT)",
+      "slug": "social",
+      "source_url": "https://prantikdutta.myportfolio.com/social",
+      "original_order": 3,
+      "title": "Prantik Dutta - Social (YT)",
+      "description": "Social Media Content for BuzzFeed, NH7 Weekender and much more!",
+      "modules": [
+        {
+          "module_order": 1,
+          "dom_order": 90,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-01"
+          ]
+        },
+        {
+          "module_order": 2,
+          "dom_order": 94,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-02"
+          ]
+        },
+        {
+          "module_order": 3,
+          "dom_order": 98,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-03"
+          ]
+        },
+        {
+          "module_order": 4,
+          "dom_order": 102,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-04"
+          ]
+        },
+        {
+          "module_order": 5,
+          "dom_order": 106,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-05"
+          ]
+        },
+        {
+          "module_order": 6,
+          "dom_order": 110,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-06"
+          ]
+        },
+        {
+          "module_order": 7,
+          "dom_order": 114,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-07"
+          ]
+        },
+        {
+          "module_order": 8,
+          "dom_order": 118,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-08"
+          ]
+        },
+        {
+          "module_order": 9,
+          "dom_order": 122,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-09"
+          ]
+        },
+        {
+          "module_order": 10,
+          "dom_order": 126,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-10"
+          ]
+        },
+        {
+          "module_order": 11,
+          "dom_order": 130,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-11"
+          ]
+        },
+        {
+          "module_order": 12,
+          "dom_order": 134,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-12"
+          ]
+        },
+        {
+          "module_order": 13,
+          "dom_order": 138,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-13"
+          ]
+        },
+        {
+          "module_order": 14,
+          "dom_order": 142,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-14"
+          ]
+        },
+        {
+          "module_order": 15,
+          "dom_order": 146,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-15"
+          ]
+        },
+        {
+          "module_order": 16,
+          "dom_order": 150,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-16"
+          ]
+        },
+        {
+          "module_order": 17,
+          "dom_order": 154,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-17"
+          ]
+        },
+        {
+          "module_order": 18,
+          "dom_order": 158,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-18"
+          ]
+        },
+        {
+          "module_order": 19,
+          "dom_order": 162,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-19"
+          ]
+        },
+        {
+          "module_order": 20,
+          "dom_order": 166,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-20"
+          ]
+        },
+        {
+          "module_order": 21,
+          "dom_order": 170,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-21"
+          ]
+        },
+        {
+          "module_order": 22,
+          "dom_order": 174,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-22"
+          ]
+        },
+        {
+          "module_order": 23,
+          "dom_order": 178,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Social Promotions",
+          "record_ids": []
+        },
+        {
+          "module_order": 24,
+          "dom_order": 181,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "social-23",
+            "social-24"
+          ]
+        },
+        {
+          "module_order": 25,
+          "dom_order": 193,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "social-25",
+            "social-26"
+          ]
+        },
+        {
+          "module_order": 26,
+          "dom_order": 205,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "social-27",
+            "social-28"
+          ]
+        },
+        {
+          "module_order": 27,
+          "dom_order": 217,
+          "type": "project-module module image project-module-image js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "social-29"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Trailers",
+      "slug": "videos",
+      "source_url": "https://prantikdutta.myportfolio.com/videos",
+      "original_order": 4,
+      "title": "Prantik Dutta - Trailers",
+      "description": "My work with trailers and teasers for OTTs",
+      "modules": [
+        {
+          "module_order": 1,
+          "dom_order": 90,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "videos-01"
+          ]
+        },
+        {
+          "module_order": 2,
+          "dom_order": 94,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "videos-02"
+          ]
+        },
+        {
+          "module_order": 3,
+          "dom_order": 98,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "videos-03"
+          ]
+        },
+        {
+          "module_order": 4,
+          "dom_order": 102,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "videos-04"
+          ]
+        },
+        {
+          "module_order": 5,
+          "dom_order": 106,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "videos-05"
+          ]
+        },
+        {
+          "module_order": 6,
+          "dom_order": 110,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "videos-06"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Social (Short format)",
+      "slug": "social-short-format",
+      "source_url": "https://prantikdutta.myportfolio.com/social-short-format",
+      "original_order": 5,
+      "title": "Prantik Dutta - Social (Short format)",
+      "description": "",
+      "modules": [
+        {
+          "module_order": 1,
+          "dom_order": 88,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "This is a fully AI-generated video. All shots, concepts and characters are fully AI-generated. Any resemblance to any character, real or fictional is completely coincidental. This series focuses on the dramatic reinterpretation of historical events in photorealstic styles. This video contains AI Generated shots of a real person. All shots (such as bathtub, hand-shower, TV shot) and lip-sync are AI generated.",
+          "record_ids": [
+            "social-short-format-01",
+            "social-short-format-02"
+          ]
+        },
+        {
+          "module_order": 2,
+          "dom_order": 107,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "This video contains AI Generated shots of a real person. Lip-sync is AI generated. This video contains AI Generated shots of a real person. Insert shots have been generated using AI, and lip-sync uses AI in certain places.",
+          "record_ids": [
+            "social-short-format-03",
+            "social-short-format-04"
+          ]
+        },
+        {
+          "module_order": 3,
+          "dom_order": 125,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "This video contains AI Generated lip-sync shots of a real person. This video contains AI Generated lip-sync shots of a real person.",
+          "record_ids": [
+            "social-short-format-05",
+            "social-short-format-06"
+          ]
+        },
+        {
+          "module_order": 4,
+          "dom_order": 143,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "This video contains AI Generated lip-sync shots of a real person. This video contains AI Generated lip-sync shots of a real person.",
+          "record_ids": [
+            "social-short-format-07",
+            "social-short-format-08"
+          ]
+        },
+        {
+          "module_order": 5,
+          "dom_order": 161,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "This video contains AI Generated lip-sync shots of a real person. This video contains AI Generated shots of a real person. AI generated voices have been used in this video.",
+          "record_ids": [
+            "social-short-format-09",
+            "social-short-format-10"
+          ]
+        },
+        {
+          "module_order": 6,
+          "dom_order": 179,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "This video is a lip-sync made to replicate a real person.",
+          "record_ids": [
+            "social-short-format-11"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Stand-up Events",
+      "slug": "stand-up-events",
+      "source_url": "https://prantikdutta.myportfolio.com/stand-up-events",
+      "original_order": 6,
+      "title": "Prantik Dutta - Stand-up Events",
+      "description": "Bespoke content in close collaboration \nartists such as Rahul Subramanian and Biswa Kalyan Rath.",
+      "modules": [
+        {
+          "module_order": 1,
+          "dom_order": 90,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "stand-up-events-01"
+          ]
+        },
+        {
+          "module_order": 2,
+          "dom_order": 94,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "stand-up-events-02"
+          ]
+        },
+        {
+          "module_order": 3,
+          "dom_order": 98,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "stand-up-events-03"
+          ]
+        },
+        {
+          "module_order": 4,
+          "dom_order": 102,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "stand-up-events-04"
+          ]
+        },
+        {
+          "module_order": 5,
+          "dom_order": 106,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "stand-up-events-05"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Brands",
+      "slug": "brands",
+      "source_url": "https://prantikdutta.myportfolio.com/brands",
+      "original_order": 7,
+      "title": "Prantik Dutta - Brands",
+      "description": "A collection of brand films I have worked on and helped grow!",
+      "modules": [
+        {
+          "module_order": 1,
+          "dom_order": 90,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Wrapping up a great year with GROWW app!",
+          "record_ids": []
+        },
+        {
+          "module_order": 2,
+          "dom_order": 95,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "brands-01",
+            "brands-02"
+          ]
+        },
+        {
+          "module_order": 3,
+          "dom_order": 107,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Building a Premium Identity for a Nutrition Brand",
+          "record_ids": []
+        },
+        {
+          "module_order": 4,
+          "dom_order": 112,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "brands-03",
+            "brands-04"
+          ]
+        },
+        {
+          "module_order": 5,
+          "dom_order": 124,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "brands-05",
+            "brands-06"
+          ]
+        },
+        {
+          "module_order": 6,
+          "dom_order": 136,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "My campaigns with BookMyShow:",
+          "record_ids": []
+        },
+        {
+          "module_order": 7,
+          "dom_order": 142,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "LOLLAPALOOZA 2024:",
+          "record_ids": []
+        },
+        {
+          "module_order": 8,
+          "dom_order": 147,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "brands-07",
+            "brands-08"
+          ]
+        },
+        {
+          "module_order": 9,
+          "dom_order": 159,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "brands-09",
+            "brands-10"
+          ]
+        },
+        {
+          "module_order": 10,
+          "dom_order": 171,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Blockbuster Movies:",
+          "record_ids": []
+        },
+        {
+          "module_order": 11,
+          "dom_order": 177,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "'Gran Turismo' (2023) 'Killers of The Flower Moon' (2023)",
+          "record_ids": [
+            "brands-11",
+            "brands-12"
+          ]
+        },
+        {
+          "module_order": 12,
+          "dom_order": 199,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "'Asteroid City' (2023) 'Salaar' (2023)",
+          "record_ids": [
+            "brands-13",
+            "brands-14"
+          ]
+        },
+        {
+          "module_order": 13,
+          "dom_order": 222,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "IPL Promotions:",
+          "record_ids": []
+        },
+        {
+          "module_order": 14,
+          "dom_order": 227,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "brands-15"
+          ]
+        },
+        {
+          "module_order": 15,
+          "dom_order": 231,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "brands-16"
+          ]
+        },
+        {
+          "module_order": 16,
+          "dom_order": 235,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "brands-17"
+          ]
+        },
+        {
+          "module_order": 17,
+          "dom_order": 239,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "brands-18"
+          ]
+        },
+        {
+          "module_order": 18,
+          "dom_order": 243,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "brands-19"
+          ]
+        },
+        {
+          "module_order": 19,
+          "dom_order": 247,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Spreading love with Bumble India!",
+          "record_ids": []
+        },
+        {
+          "module_order": 20,
+          "dom_order": 252,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "brands-20",
+            "brands-21"
+          ]
+        },
+        {
+          "module_order": 21,
+          "dom_order": 264,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Unboxing the New OnePlus with Rahul Subramanian",
+          "record_ids": []
+        },
+        {
+          "module_order": 22,
+          "dom_order": 269,
+          "type": "project-module module image project-module-image js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "brands-22"
+          ]
+        },
+        {
+          "module_order": 23,
+          "dom_order": 273,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Lifestyle brands:",
+          "record_ids": []
+        },
+        {
+          "module_order": 24,
+          "dom_order": 279,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "brands-23",
+            "brands-24"
+          ]
+        },
+        {
+          "module_order": 25,
+          "dom_order": 291,
+          "type": "project-module module tree project-module-tree js-js-project-module e2e-site-project-module-tree",
+          "text": "",
+          "record_ids": [
+            "brands-25",
+            "brands-26"
+          ]
+        },
+        {
+          "module_order": 26,
+          "dom_order": 303,
+          "type": "project-module module image project-module-image js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "brands-27"
+          ]
+        },
+        {
+          "module_order": 27,
+          "dom_order": 307,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Marketing Swiggy's Campaign in collaboration with Cirkus (2023)",
+          "record_ids": []
+        },
+        {
+          "module_order": 28,
+          "dom_order": 313,
+          "type": "project-module module embed project-module-embed js-js-project-module",
+          "text": "",
+          "record_ids": [
+            "brands-28"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Showreel",
+      "slug": "showreel",
+      "source_url": "https://prantikdutta.myportfolio.com/showreel",
+      "original_order": 8,
+      "title": "Prantik Dutta - Showreel",
+      "description": "A comprehensive and thrilling audio-visual summary of my best work. Updates every few months!",
+      "modules": [
+        {
+          "module_order": 1,
+          "dom_order": 90,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Uh oh! Looks like this page is under maintenance. Smells like something is cooking... Come back soon!",
+          "record_ids": []
+        }
+      ]
+    },
+    {
+      "category": "Contact",
+      "slug": "contact",
+      "source_url": "https://prantikdutta.myportfolio.com/contact",
+      "original_order": 9,
+      "title": "Prantik Dutta - Contact",
+      "description": "",
+      "modules": [
+        {
+          "module_order": 1,
+          "dom_order": 87,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Mail: prantikdutta1611@gmail.com Phone: +91 974 894 0484 Whatsapp: +91 974 894 0484 Click the mail icon to write me an email.",
+          "record_ids": []
+        },
+        {
+          "module_order": 2,
+          "dom_order": 101,
+          "type": "js-project-module project-module module social_icons project-module-social_icons align-",
+          "text": "",
+          "record_ids": []
+        },
+        {
+          "module_order": 3,
+          "dom_order": 110,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "OR",
+          "record_ids": []
+        },
+        {
+          "module_order": 4,
+          "dom_order": 114,
+          "type": "project-module module text project-module-text align- js-project-module e2e-site-project-module-text",
+          "text": "Drop your query down here:",
+          "record_ids": []
+        },
+        {
+          "module_order": 5,
+          "dom_order": 119,
+          "type": "project-module module form project-module-form js-project-module-form js-js-project-module",
+          "text": "Name * Email Address * Message * Submit Thank you!",
+          "record_ids": []
+        }
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "social-01",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "What It Means To Be Afro-Latino",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=hgYRyIvkqr0",
+      "embed_url": "https://www.youtube.com/embed/hgYRyIvkqr0?si=zUq40vaOmUkBxwbw",
+      "provider": "youtube",
+      "video_id": "hgYRyIvkqr0",
+      "poster_local_path": "public/media/final-social-01.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 1,
+      "page_order": 3,
+      "module_order": 1,
+      "dom_order": 93,
+      "status": "recovered",
+      "author_name": "Pero Like",
+      "author_url": "https://www.youtube.com/@PeroLike",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DhgYRyIvkqr0&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550130>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550040>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453fb00>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 47686,
+        "download_url": "https://img.youtube.com/vi/hgYRyIvkqr0/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-02",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Glambot King Cole Walliser Talks Glambot Beginnings, Best Results, and More! | Rajen Chats | A*Pop",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=-2_PHco2PxU",
+      "embed_url": "https://www.youtube.com/embed/-2_PHco2PxU?si=IC75EVz2wpHkRDRh",
+      "provider": "youtube",
+      "video_id": "-2_PHco2PxU",
+      "poster_local_path": "public/media/final-social-02.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 2,
+      "page_order": 3,
+      "module_order": 2,
+      "dom_order": 97,
+      "status": "recovered",
+      "author_name": "A*Pop",
+      "author_url": "https://www.youtube.com/@apopofficial",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D-2_PHco2PxU&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550270>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453fc40>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550270>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 33858,
+        "download_url": "https://img.youtube.com/vi/-2_PHco2PxU/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-03",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Latina Moms Most Savage Moments",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=kI3yUWXAprw",
+      "embed_url": "https://www.youtube.com/embed/kI3yUWXAprw?si=Nur7UUT6sgLNnSao",
+      "provider": "youtube",
+      "video_id": "kI3yUWXAprw",
+      "poster_local_path": "public/media/final-social-03.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 3,
+      "page_order": 3,
+      "module_order": 3,
+      "dom_order": 101,
+      "status": "recovered",
+      "author_name": "Pero Like",
+      "author_url": "https://www.youtube.com/@PeroLike",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DkI3yUWXAprw&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc45501d0>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453f1f0>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc45501d0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 44054,
+        "download_url": "https://img.youtube.com/vi/kI3yUWXAprw/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-04",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "I Draw You Cook Season 2 Marathon",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=H4NIl6g3M6E",
+      "embed_url": "https://www.youtube.com/embed/H4NIl6g3M6E?si=-j9OcYCcSKW_I3S1",
+      "provider": "youtube",
+      "video_id": "H4NIl6g3M6E",
+      "poster_local_path": "public/media/final-social-04.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 4,
+      "page_order": 3,
+      "module_order": 4,
+      "dom_order": 105,
+      "status": "recovered",
+      "author_name": "Tasty",
+      "author_url": "https://www.youtube.com/@buzzfeedtasty",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DH4NIl6g3M6E&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550400>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453fb00>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453fa60>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 27506,
+        "download_url": "https://img.youtube.com/vi/H4NIl6g3M6E/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-05",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Best of Southerners Try Each Other's Food",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=QT0UYTB5iZg",
+      "embed_url": "https://www.youtube.com/embed/QT0UYTB5iZg?si=cI-cX-zXjAWClhiq",
+      "provider": "youtube",
+      "video_id": "QT0UYTB5iZg",
+      "poster_local_path": "public/media/final-social-05.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 5,
+      "page_order": 3,
+      "module_order": 5,
+      "dom_order": 109,
+      "status": "recovered",
+      "author_name": "Cocoa Butter",
+      "author_url": "https://www.youtube.com/@CocoaButter",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DQT0UYTB5iZg&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550360>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453f330>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550360>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 35048,
+        "download_url": "https://img.youtube.com/vi/QT0UYTB5iZg/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-06",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Best of Africans Try Each Other's Food",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=R7Rnt4cdZrQ",
+      "embed_url": "https://www.youtube.com/embed/R7Rnt4cdZrQ?si=sDvcxeS6FBXNKkzD",
+      "provider": "youtube",
+      "video_id": "R7Rnt4cdZrQ",
+      "poster_local_path": "public/media/final-social-06.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 6,
+      "page_order": 3,
+      "module_order": 6,
+      "dom_order": 113,
+      "status": "recovered",
+      "author_name": "Cocoa Butter",
+      "author_url": "https://www.youtube.com/@CocoaButter",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DR7Rnt4cdZrQ&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453f4c0>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453f470>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453f4c0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 32194,
+        "download_url": "https://img.youtube.com/vi/R7Rnt4cdZrQ/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-07",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Tamar Braxton and Ms. E Play Sibling Superlatives",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=k6MNu2JW-Tw",
+      "embed_url": "https://www.youtube.com/embed/k6MNu2JW-Tw?si=Cx3TSr9lRhlXUfUl",
+      "provider": "youtube",
+      "video_id": "k6MNu2JW-Tw",
+      "poster_local_path": "public/media/final-social-07.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 7,
+      "page_order": 3,
+      "module_order": 7,
+      "dom_order": 117,
+      "status": "recovered",
+      "author_name": "Cocoa Butter",
+      "author_url": "https://www.youtube.com/@CocoaButter",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dk6MNu2JW-Tw&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc45502c0>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453fe70>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc45502c0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 34594,
+        "download_url": "https://img.youtube.com/vi/k6MNu2JW-Tw/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-08",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "How Well Does The Cast of \"Duplicity\" Know Each Other? | Co-Star Test",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=pHQOeIKjtXI",
+      "embed_url": "https://www.youtube.com/embed/pHQOeIKjtXI?si=dp43ABNxJuc-JC04",
+      "provider": "youtube",
+      "video_id": "pHQOeIKjtXI",
+      "poster_local_path": "public/media/final-social-08.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 8,
+      "page_order": 3,
+      "module_order": 8,
+      "dom_order": 121,
+      "status": "recovered",
+      "author_name": "Cocoa Butter",
+      "author_url": "https://www.youtube.com/@CocoaButter",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DpHQOeIKjtXI&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550450>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453f1a0>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550450>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 33846,
+        "download_url": "https://img.youtube.com/vi/pHQOeIKjtXI/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-09",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "I Draw You Cook Season 4 Marathon",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=-54l9Ilet54",
+      "embed_url": "https://www.youtube.com/embed/-54l9Ilet54?si=XWYXu1al7OzChq1v",
+      "provider": "youtube",
+      "video_id": "-54l9Ilet54",
+      "poster_local_path": "public/media/final-social-09.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 9,
+      "page_order": 3,
+      "module_order": 9,
+      "dom_order": 125,
+      "status": "recovered",
+      "author_name": "Tasty",
+      "author_url": "https://www.youtube.com/@buzzfeedtasty",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D-54l9Ilet54&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550310>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453f380>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550310>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 37972,
+        "download_url": "https://img.youtube.com/vi/-54l9Ilet54/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-10",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Jekalyn Carr - How Churchy Are You? - Part 1",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=TuWZqo_RFgg",
+      "embed_url": "https://www.youtube.com/embed/TuWZqo_RFgg?si=7UnkS3Wg7n_3kTja",
+      "provider": "youtube",
+      "video_id": "TuWZqo_RFgg",
+      "poster_local_path": "public/media/final-social-10.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 10,
+      "page_order": 3,
+      "module_order": 10,
+      "dom_order": 129,
+      "status": "recovered",
+      "author_name": "Cocoa Butter",
+      "author_url": "https://www.youtube.com/@CocoaButter",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTuWZqo_RFgg&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc45503b0>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453fab0>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc45503b0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 13766,
+        "download_url": "https://img.youtube.com/vi/TuWZqo_RFgg/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-11",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Jekalyn Carr - How Churchy Are You? - Part 2",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=BnF-WVQLWcc",
+      "embed_url": "https://www.youtube.com/embed/BnF-WVQLWcc?si=DYX9VXNVYPP4NWGg",
+      "provider": "youtube",
+      "video_id": "BnF-WVQLWcc",
+      "poster_local_path": "public/media/final-social-11.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 11,
+      "page_order": 3,
+      "module_order": 11,
+      "dom_order": 133,
+      "status": "recovered",
+      "author_name": "Cocoa Butter",
+      "author_url": "https://www.youtube.com/@CocoaButter",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DBnF-WVQLWcc&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d2e30>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d35b0>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d2e30>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 10926,
+        "download_url": "https://img.youtube.com/vi/BnF-WVQLWcc/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-12",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Bacardi NH7 Weekender Pune  2017 Aftermovie",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=wDAI8UNlE4o",
+      "embed_url": "https://www.youtube.com/embed/wDAI8UNlE4o?si=DSLMbOppJE9xNzbb",
+      "provider": "youtube",
+      "video_id": "wDAI8UNlE4o",
+      "poster_local_path": "public/media/final-social-12.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 12,
+      "page_order": 3,
+      "module_order": 12,
+      "dom_order": 137,
+      "status": "recovered",
+      "author_name": "NH7",
+      "author_url": "https://www.youtube.com/@nh7dotin",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DwDAI8UNlE4o&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d38d0>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3b50>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d38d0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 15136,
+        "download_url": "https://img.youtube.com/vi/wDAI8UNlE4o/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-13",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Lost In Translation Season 3 Marathon",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=3ff0qfGPNS8",
+      "embed_url": "https://www.youtube.com/embed/3ff0qfGPNS8?si=g1d_FW3cn8AdNUtv",
+      "provider": "youtube",
+      "video_id": "3ff0qfGPNS8",
+      "poster_local_path": "public/media/final-social-13.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 13,
+      "page_order": 3,
+      "module_order": 13,
+      "dom_order": 141,
+      "status": "recovered",
+      "author_name": "Tasty",
+      "author_url": "https://www.youtube.com/@buzzfeedtasty",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D3ff0qfGPNS8&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3240>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d2f20>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3e20>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 32424,
+        "download_url": "https://img.youtube.com/vi/3ff0qfGPNS8/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-14",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "AWKWARD Dating Questions with Aisha Ahmed & Ayush Mehra || Hangout ft. Minus One Cast",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=f85tPxkkxGA",
+      "embed_url": "https://www.youtube.com/embed/f85tPxkkxGA?si=DX0THhmTH59GqkrY",
+      "provider": "youtube",
+      "video_id": "f85tPxkkxGA",
+      "poster_local_path": "public/media/final-social-14.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 14,
+      "page_order": 3,
+      "module_order": 14,
+      "dom_order": 145,
+      "status": "recovered",
+      "author_name": "Janice Sequeira",
+      "author_url": "https://www.youtube.com/@JaniceSequeira85",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Df85tPxkkxGA&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3970>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550130>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d2d40>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 31374,
+        "download_url": "https://img.youtube.com/vi/f85tPxkkxGA/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-15",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Most Likely To Ft. Sanam Band | Sanam Band Exclusive Interview | Sanam India Tour 2024",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=JAJXVmxeVo4",
+      "embed_url": "https://www.youtube.com/embed/JAJXVmxeVo4?si=vzTI_RAFwzYaDE56",
+      "provider": "youtube",
+      "video_id": "JAJXVmxeVo4",
+      "poster_local_path": "public/media/final-social-15.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 15,
+      "page_order": 3,
+      "module_order": 15,
+      "dom_order": 149,
+      "status": "recovered",
+      "author_name": "TribeVibe Live",
+      "author_url": "https://www.youtube.com/@tribevibelive9660",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJAJXVmxeVo4&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3920>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc4550040>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3920>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 33594,
+        "download_url": "https://img.youtube.com/vi/JAJXVmxeVo4/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-16",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Never Have I Ever Ft. Sanam Band | Sanam Band Exclusive Interview | Sanam India Tour 2024",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=FiVk6tdEEkQ",
+      "embed_url": "https://www.youtube.com/embed/FiVk6tdEEkQ?si=3Km09wE-FMDJz7tE",
+      "provider": "youtube",
+      "video_id": "FiVk6tdEEkQ",
+      "poster_local_path": "public/media/final-social-16.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 16,
+      "page_order": 3,
+      "module_order": 16,
+      "dom_order": 153,
+      "status": "recovered",
+      "author_name": "TribeVibe Live",
+      "author_url": "https://www.youtube.com/@tribevibelive9660",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DFiVk6tdEEkQ&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3ec0>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453fc40>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3ec0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 31810,
+        "download_url": "https://img.youtube.com/vi/FiVk6tdEEkQ/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-17",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Lateasha Lunceford “Sweet Tea” Superlatives - Part 2",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=ajESUQ2nhgY",
+      "embed_url": "https://www.youtube.com/embed/ajESUQ2nhgY?si=PAA3ZXj4vU7QX9Af",
+      "provider": "youtube",
+      "video_id": "ajESUQ2nhgY",
+      "poster_local_path": "public/media/final-social-17.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 17,
+      "page_order": 3,
+      "module_order": 17,
+      "dom_order": 157,
+      "status": "recovered",
+      "author_name": "Cocoa Butter",
+      "author_url": "https://www.youtube.com/@CocoaButter",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DajESUQ2nhgY&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3a10>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3010>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3a10>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 9360,
+        "download_url": "https://img.youtube.com/vi/ajESUQ2nhgY/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-18",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Lateasha Lunceford “Sweet Tea” Plays Superlatives",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=Ttig3M-wloc",
+      "embed_url": "https://www.youtube.com/embed/Ttig3M-wloc?si=LMYWVROMfINX0Q3y",
+      "provider": "youtube",
+      "video_id": "Ttig3M-wloc",
+      "poster_local_path": "public/media/final-social-18.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 18,
+      "page_order": 3,
+      "module_order": 18,
+      "dom_order": 161,
+      "status": "recovered",
+      "author_name": "Cocoa Butter",
+      "author_url": "https://www.youtube.com/@CocoaButter",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTtig3M-wloc&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d39c0>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3bf0>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d39c0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 12640,
+        "download_url": "https://img.youtube.com/vi/Ttig3M-wloc/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-19",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "3, 4, & 5 Ingredient Lunches",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=Nv48jvDPtx0",
+      "embed_url": "https://www.youtube.com/embed/Nv48jvDPtx0?si=OA3ZhXomJuWgavlR",
+      "provider": "youtube",
+      "video_id": "Nv48jvDPtx0",
+      "poster_local_path": "public/media/final-social-19.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 19,
+      "page_order": 3,
+      "module_order": 19,
+      "dom_order": 165,
+      "status": "recovered",
+      "author_name": "Tasty",
+      "author_url": "https://www.youtube.com/@buzzfeedtasty",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DNv48jvDPtx0&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d2d40>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3150>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3060>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 40486,
+        "download_url": "https://img.youtube.com/vi/Nv48jvDPtx0/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-20",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "22 Delectable Cookie Recipes",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=CYV_nXef9eg",
+      "embed_url": "https://www.youtube.com/embed/CYV_nXef9eg?si=Qqyo6_nS7EtKg8wU",
+      "provider": "youtube",
+      "video_id": "CYV_nXef9eg",
+      "poster_local_path": "public/media/final-social-20.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 20,
+      "page_order": 3,
+      "module_order": 20,
+      "dom_order": 169,
+      "status": "recovered",
+      "author_name": "Tasty",
+      "author_url": "https://www.youtube.com/@buzzfeedtasty",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DCYV_nXef9eg&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3060>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3100>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d2d40>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 34630,
+        "download_url": "https://img.youtube.com/vi/CYV_nXef9eg/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-21",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "Lost In Translation Season 1 - Marathon",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=9QLYHlabnt4",
+      "embed_url": "https://www.youtube.com/embed/9QLYHlabnt4?si=jE6SkE0_iQcKdxB9",
+      "provider": "youtube",
+      "video_id": "9QLYHlabnt4",
+      "poster_local_path": "public/media/final-social-21.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 21,
+      "page_order": 3,
+      "module_order": 21,
+      "dom_order": 173,
+      "status": "recovered",
+      "author_name": "Tasty",
+      "author_url": "https://www.youtube.com/@buzzfeedtasty",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D9QLYHlabnt4&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca27018f0>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2702e30>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca27028e0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 35450,
+        "download_url": "https://img.youtube.com/vi/9QLYHlabnt4/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-22",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": "My First #AskMeAnything❤️ While driving!",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.youtube.com/watch?v=jPA2NkRxD_0",
+      "embed_url": "https://www.youtube.com/embed/jPA2NkRxD_0?si=d8V5PQChW3arhkXe",
+      "provider": "youtube",
+      "video_id": "jPA2NkRxD_0",
+      "poster_local_path": "public/media/final-social-22.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 22,
+      "page_order": 3,
+      "module_order": 22,
+      "dom_order": 177,
+      "status": "recovered",
+      "author_name": "Janice Sequeira",
+      "author_url": "https://www.youtube.com/@JaniceSequeira85",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DjPA2NkRxD_0&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2701850>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0cc01d3100>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2701990>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 31100,
+        "download_url": "https://img.youtube.com/vi/jPA2NkRxD_0/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-23",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Social Promotions",
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://tinyurl.com/bd88bhvr",
+      "embed_url": null,
+      "provider": "external_link",
+      "video_id": null,
+      "poster_local_path": "public/media/social-23.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 23,
+      "page_order": 3,
+      "module_order": 24,
+      "dom_order": 187,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1b6c9968-9bd4-4574-b045-d7d12101214e.png?h=117ec42a12a0ca6be2160578caf9567c",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1b6c9968-9bd4-4574-b045-d7d12101214e_rw_600.png?h=59fc9ab4516488d60f8eaff704d0b7fd",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1b6c9968-9bd4-4574-b045-d7d12101214e.png?h=117ec42a12a0ca6be2160578caf9567c",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1b6c9968-9bd4-4574-b045-d7d12101214e_rw_600.png?h=59fc9ab4516488d60f8eaff704d0b7fd",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1b6c9968-9bd4-4574-b045-d7d12101214e_rw_600.png?h=59fc9ab4516488d60f8eaff704d0b7fd 372w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1b6c9968-9bd4-4574-b045-d7d12101214e.png?h=117ec42a12a0ca6be2160578caf9567c",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1b6c9968-9bd4-4574-b045-d7d12101214e.png?h=117ec42a12a0ca6be2160578caf9567c",
+        "width": 372,
+        "height": 673,
+        "bytes": 437031
+      },
+      "poster_info": {
+        "width": 372,
+        "height": 673,
+        "bytes": 37278
+      },
+      "resolved_source_url": "https://www.instagram.com/reel/CqDN-9wgkMx/?igsh=MTQxMjQwbTZycHYycg%3D%3D",
+      "redirect_status": "resolved",
+      "redirect_chain": [
+        {
+          "from": "https://tinyurl.com/bd88bhvr",
+          "to": "https://redirect.viglink.com/?u=https%3A%2F%2Fwww.instagram.com%2Freel%2FCqDN-9wgkMx%2F%3Figsh%3DMTQxMjQwbTZycHYycg%253D%253D&key=a7e37b5f6ff1de9cb410158b1013e54a&prodOvrd=RAC&opt=false",
+          "status": 302
+        },
+        {
+          "from": "https://redirect.viglink.com/?u=https%3A%2F%2Fwww.instagram.com%2Freel%2FCqDN-9wgkMx%2F%3Figsh%3DMTQxMjQwbTZycHYycg%253D%253D&key=a7e37b5f6ff1de9cb410158b1013e54a&prodOvrd=RAC&opt=false",
+          "to": "https://www.instagram.com/reel/CqDN-9wgkMx/?igsh=MTQxMjQwbTZycHYycg%3D%3D",
+          "status": 302
+        }
+      ],
+      "resolved_provider": "instagram"
+    },
+    {
+      "id": "social-24",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Social Promotions",
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://tinyurl.com/4wwtah3b",
+      "embed_url": null,
+      "provider": "external_link",
+      "video_id": null,
+      "poster_local_path": "public/media/social-24.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 24,
+      "page_order": 3,
+      "module_order": 24,
+      "dom_order": 192,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/ee10b7ae-d531-4156-8d6b-269759d392ed.png?h=dba945eb1d8fa3bb59668ade12e19b81",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/ee10b7ae-d531-4156-8d6b-269759d392ed_rw_600.png?h=54bb60e27d8afc53f0aa565961257e8b",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/ee10b7ae-d531-4156-8d6b-269759d392ed.png?h=dba945eb1d8fa3bb59668ade12e19b81",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/ee10b7ae-d531-4156-8d6b-269759d392ed_rw_600.png?h=54bb60e27d8afc53f0aa565961257e8b",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/ee10b7ae-d531-4156-8d6b-269759d392ed_rw_600.png?h=54bb60e27d8afc53f0aa565961257e8b 378w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/ee10b7ae-d531-4156-8d6b-269759d392ed.png?h=dba945eb1d8fa3bb59668ade12e19b81",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/ee10b7ae-d531-4156-8d6b-269759d392ed.png?h=dba945eb1d8fa3bb59668ade12e19b81",
+        "width": 378,
+        "height": 657,
+        "bytes": 224244
+      },
+      "poster_info": {
+        "width": 378,
+        "height": 657,
+        "bytes": 27796
+      },
+      "resolved_source_url": "https://www.instagram.com/reel/CyGOGEHtxIq/?igsh=MWZxNXQ5bGY4Y3lwZw%3D%3D",
+      "redirect_status": "resolved",
+      "redirect_chain": [
+        {
+          "from": "https://tinyurl.com/4wwtah3b",
+          "to": "https://redirect.viglink.com/?u=https%3A%2F%2Fwww.instagram.com%2Freel%2FCyGOGEHtxIq%2F%3Figsh%3DMWZxNXQ5bGY4Y3lwZw%253D%253D&key=a7e37b5f6ff1de9cb410158b1013e54a&prodOvrd=RAC&opt=false",
+          "status": 302
+        },
+        {
+          "from": "https://redirect.viglink.com/?u=https%3A%2F%2Fwww.instagram.com%2Freel%2FCyGOGEHtxIq%2F%3Figsh%3DMWZxNXQ5bGY4Y3lwZw%253D%253D&key=a7e37b5f6ff1de9cb410158b1013e54a&prodOvrd=RAC&opt=false",
+          "to": "https://www.instagram.com/reel/CyGOGEHtxIq/?igsh=MWZxNXQ5bGY4Y3lwZw%3D%3D",
+          "status": 302
+        }
+      ],
+      "resolved_provider": "instagram"
+    },
+    {
+      "id": "social-25",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Social Promotions",
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://tinyurl.com/yaa22my6",
+      "embed_url": null,
+      "provider": "external_link",
+      "video_id": null,
+      "poster_local_path": "public/media/social-25.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 25,
+      "page_order": 3,
+      "module_order": 25,
+      "dom_order": 199,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/54a2cf40-66d5-4c75-a1d9-a8af705493ef.png?h=39fbe1be932d2f4d5b10cc11dac195b8",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/54a2cf40-66d5-4c75-a1d9-a8af705493ef_rw_600.png?h=35ce8a058f82c5ece43013fc446230a1",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/54a2cf40-66d5-4c75-a1d9-a8af705493ef.png?h=39fbe1be932d2f4d5b10cc11dac195b8",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/54a2cf40-66d5-4c75-a1d9-a8af705493ef_rw_600.png?h=35ce8a058f82c5ece43013fc446230a1",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/54a2cf40-66d5-4c75-a1d9-a8af705493ef_rw_600.png?h=35ce8a058f82c5ece43013fc446230a1 380w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/54a2cf40-66d5-4c75-a1d9-a8af705493ef.png?h=39fbe1be932d2f4d5b10cc11dac195b8",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/54a2cf40-66d5-4c75-a1d9-a8af705493ef.png?h=39fbe1be932d2f4d5b10cc11dac195b8",
+        "width": 380,
+        "height": 670,
+        "bytes": 189957
+      },
+      "poster_info": {
+        "width": 380,
+        "height": 670,
+        "bytes": 11792
+      },
+      "resolved_source_url": "https://www.instagram.com/reel/C3NKIfTtNEB/?igsh=MThvbDVka2E4MGxsNA%3D%3D",
+      "redirect_status": "resolved",
+      "redirect_chain": [
+        {
+          "from": "https://tinyurl.com/yaa22my6",
+          "to": "https://redirect.viglink.com/?u=https%3A%2F%2Fwww.instagram.com%2Freel%2FC3NKIfTtNEB%2F%3Figsh%3DMThvbDVka2E4MGxsNA%253D%253D&key=a7e37b5f6ff1de9cb410158b1013e54a&prodOvrd=RAC&opt=false",
+          "status": 302
+        },
+        {
+          "from": "https://redirect.viglink.com/?u=https%3A%2F%2Fwww.instagram.com%2Freel%2FC3NKIfTtNEB%2F%3Figsh%3DMThvbDVka2E4MGxsNA%253D%253D&key=a7e37b5f6ff1de9cb410158b1013e54a&prodOvrd=RAC&opt=false",
+          "to": "https://www.instagram.com/reel/C3NKIfTtNEB/?igsh=MThvbDVka2E4MGxsNA%3D%3D",
+          "status": 302
+        }
+      ],
+      "resolved_provider": "instagram"
+    },
+    {
+      "id": "social-26",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Social Promotions",
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.instagram.com/reel/C3LHPiRvwHV/?igsh=ZmlqY3lsZ3ZuaXJ4",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-26.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 26,
+      "page_order": 3,
+      "module_order": 25,
+      "dom_order": 204,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1cfb99ad-b3c0-4ca7-aa81-14a433b4ba94.png?h=9aecf9ada38e5900e2743dd806b80498",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1cfb99ad-b3c0-4ca7-aa81-14a433b4ba94_rw_600.png?h=fed8ce1a9f33bd6a74c44d4970af8918",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1cfb99ad-b3c0-4ca7-aa81-14a433b4ba94.png?h=9aecf9ada38e5900e2743dd806b80498",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1cfb99ad-b3c0-4ca7-aa81-14a433b4ba94_rw_600.png?h=fed8ce1a9f33bd6a74c44d4970af8918",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1cfb99ad-b3c0-4ca7-aa81-14a433b4ba94_rw_600.png?h=fed8ce1a9f33bd6a74c44d4970af8918 376w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1cfb99ad-b3c0-4ca7-aa81-14a433b4ba94.png?h=9aecf9ada38e5900e2743dd806b80498",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1cfb99ad-b3c0-4ca7-aa81-14a433b4ba94.png?h=9aecf9ada38e5900e2743dd806b80498",
+        "width": 376,
+        "height": 674,
+        "bytes": 236859
+      },
+      "poster_info": {
+        "width": 376,
+        "height": 674,
+        "bytes": 15094
+      }
+    },
+    {
+      "id": "social-27",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Social Promotions",
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://tinyurl.com/yk4d3fum",
+      "embed_url": null,
+      "provider": "external_link",
+      "video_id": null,
+      "poster_local_path": "public/media/social-27.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 27,
+      "page_order": 3,
+      "module_order": 26,
+      "dom_order": 211,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fbab1f43-5215-412f-bdbb-8e5d3aa13305.png?h=f9f8f0733425a15501446003ee54deeb",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fbab1f43-5215-412f-bdbb-8e5d3aa13305_rw_600.png?h=34bdeed42af6522cf424cb824a9148bf",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fbab1f43-5215-412f-bdbb-8e5d3aa13305.png?h=f9f8f0733425a15501446003ee54deeb",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fbab1f43-5215-412f-bdbb-8e5d3aa13305_rw_600.png?h=34bdeed42af6522cf424cb824a9148bf",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fbab1f43-5215-412f-bdbb-8e5d3aa13305_rw_600.png?h=34bdeed42af6522cf424cb824a9148bf 373w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fbab1f43-5215-412f-bdbb-8e5d3aa13305.png?h=f9f8f0733425a15501446003ee54deeb",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fbab1f43-5215-412f-bdbb-8e5d3aa13305.png?h=f9f8f0733425a15501446003ee54deeb",
+        "width": 373,
+        "height": 672,
+        "bytes": 359440
+      },
+      "poster_info": {
+        "width": 373,
+        "height": 672,
+        "bytes": 28664
+      },
+      "resolved_source_url": "https://www.instagram.com/reel/C3X-tehoHvu/?igsh=MThoemI0NzZuaG1tbA%3D%3D",
+      "redirect_status": "resolved",
+      "redirect_chain": [
+        {
+          "from": "https://tinyurl.com/yk4d3fum",
+          "to": "https://redirect.viglink.com/?u=https%3A%2F%2Fwww.instagram.com%2Freel%2FC3X-tehoHvu%2F%3Figsh%3DMThoemI0NzZuaG1tbA%253D%253D&key=a7e37b5f6ff1de9cb410158b1013e54a&prodOvrd=RAC&opt=false",
+          "status": 302
+        },
+        {
+          "from": "https://redirect.viglink.com/?u=https%3A%2F%2Fwww.instagram.com%2Freel%2FC3X-tehoHvu%2F%3Figsh%3DMThoemI0NzZuaG1tbA%253D%253D&key=a7e37b5f6ff1de9cb410158b1013e54a&prodOvrd=RAC&opt=false",
+          "to": "https://www.instagram.com/reel/C3X-tehoHvu/?igsh=MThoemI0NzZuaG1tbA%3D%3D",
+          "status": 302
+        }
+      ],
+      "resolved_provider": "instagram"
+    },
+    {
+      "id": "social-28",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Social Promotions",
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.instagram.com/reel/CyqM--OLsEW/?igsh=dHoyYmczaHdqNHFl",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-28.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 28,
+      "page_order": 3,
+      "module_order": 26,
+      "dom_order": 216,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6ec12c34-75d5-43d5-8711-292db5b197dc.png?h=49552b409dd79e535349cf73a1b39013",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6ec12c34-75d5-43d5-8711-292db5b197dc_rw_600.png?h=a072dcc94ab0e208a68bddfb1ccee79f",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6ec12c34-75d5-43d5-8711-292db5b197dc.png?h=49552b409dd79e535349cf73a1b39013",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6ec12c34-75d5-43d5-8711-292db5b197dc_rw_600.png?h=a072dcc94ab0e208a68bddfb1ccee79f",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6ec12c34-75d5-43d5-8711-292db5b197dc_rw_600.png?h=a072dcc94ab0e208a68bddfb1ccee79f 376w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6ec12c34-75d5-43d5-8711-292db5b197dc.png?h=49552b409dd79e535349cf73a1b39013",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6ec12c34-75d5-43d5-8711-292db5b197dc.png?h=49552b409dd79e535349cf73a1b39013",
+        "width": 376,
+        "height": 674,
+        "bytes": 455344
+      },
+      "poster_info": {
+        "width": 376,
+        "height": 674,
+        "bytes": 45092
+      }
+    },
+    {
+      "id": "social-29",
+      "category": "Social (YT)",
+      "category_slug": "social",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Social Promotions",
+      "source_page": "https://prantikdutta.myportfolio.com/social",
+      "source_url": "https://www.instagram.com/reel/CzgbYcPNixJ/?igsh=cmExcjh1MzE1enV1",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-29.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 29,
+      "page_order": 3,
+      "module_order": 27,
+      "dom_order": 220,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/d57fa95c-bd5f-4685-a84e-7a36c929b697.png?h=9aed74401a9d055244425ef031261688",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/d57fa95c-bd5f-4685-a84e-7a36c929b697_rw_600.png?h=02ee10bd58d692ac82e0cff77d996904",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/d57fa95c-bd5f-4685-a84e-7a36c929b697.png?h=9aed74401a9d055244425ef031261688",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/d57fa95c-bd5f-4685-a84e-7a36c929b697_rw_600.png?h=02ee10bd58d692ac82e0cff77d996904",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/d57fa95c-bd5f-4685-a84e-7a36c929b697_rw_600.png?h=02ee10bd58d692ac82e0cff77d996904 370w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/d57fa95c-bd5f-4685-a84e-7a36c929b697.png?h=9aed74401a9d055244425ef031261688",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/d57fa95c-bd5f-4685-a84e-7a36c929b697.png?h=9aed74401a9d055244425ef031261688",
+        "width": 370,
+        "height": 668,
+        "bytes": 358041
+      },
+      "poster_info": {
+        "width": 370,
+        "height": 668,
+        "bytes": 32906
+      }
+    },
+    {
+      "id": "videos-01",
+      "category": "Trailers",
+      "category_slug": "videos",
+      "title": "Kuttey (Official Trailer) | Arjun Tabu Naseeruddin Konkona Kumud Radhika Shardul Aasmaan | 13th Jan",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/videos",
+      "source_url": "https://www.youtube.com/watch?v=76BhvV8ihRM",
+      "embed_url": "https://www.youtube.com/embed/76BhvV8ihRM?si=bkBHijDvVOa9JfEx",
+      "provider": "youtube",
+      "video_id": "76BhvV8ihRM",
+      "poster_local_path": "public/media/final-videos-01.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 1,
+      "page_order": 4,
+      "module_order": 1,
+      "dom_order": 93,
+      "status": "recovered",
+      "author_name": "T-Series",
+      "author_url": "https://www.youtube.com/@tseries",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D76BhvV8ihRM&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2702660>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2702ac0>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2702ca0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 31428,
+        "download_url": "https://img.youtube.com/vi/76BhvV8ihRM/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "videos-02",
+      "category": "Trailers",
+      "category_slug": "videos",
+      "title": "Rana Naidu | Official Trailer | Rana Daggubati, Venkatesh Daggubati, Surveen Chawla | Netflix India",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/videos",
+      "source_url": "https://www.youtube.com/watch?v=wbEWbAKo29Q",
+      "embed_url": "https://www.youtube.com/embed/wbEWbAKo29Q?si=S8dyE7fNnslHsaqk",
+      "provider": "youtube",
+      "video_id": "wbEWbAKo29Q",
+      "poster_local_path": "public/media/final-videos-02.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 2,
+      "page_order": 4,
+      "module_order": 2,
+      "dom_order": 97,
+      "status": "recovered",
+      "author_name": "Netflix India",
+      "author_url": "https://www.youtube.com/@NetflixIndiaOfficial",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DwbEWbAKo29Q&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2703100>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0ca27026b0>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca27029d0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 24420,
+        "download_url": "https://img.youtube.com/vi/wbEWbAKo29Q/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "videos-03",
+      "category": "Trailers",
+      "category_slug": "videos",
+      "title": "Darlings | Official Trailer | Alia Bhatt, Shefali Shah, Vijay Varma, Roshan Mathew | Netflix India",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/videos",
+      "source_url": "https://www.youtube.com/watch?v=Dmx5KDOpqeg",
+      "embed_url": "https://www.youtube.com/embed/Dmx5KDOpqeg?si=93BMUmrzfKvMX7Mo",
+      "provider": "youtube",
+      "video_id": "Dmx5KDOpqeg",
+      "poster_local_path": "public/media/final-videos-03.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 3,
+      "page_order": 4,
+      "module_order": 3,
+      "dom_order": 101,
+      "status": "recovered",
+      "author_name": "Netflix India",
+      "author_url": "https://www.youtube.com/@NetflixIndiaOfficial",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DDmx5KDOpqeg&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2701800>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2702b10>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2700630>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 39056,
+        "download_url": "https://img.youtube.com/vi/Dmx5KDOpqeg/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "videos-04",
+      "category": "Trailers",
+      "category_slug": "videos",
+      "title": "Khufiya | Official Trailer | Vishal Bhardwaj, Tabu, Ali Fazal, Wamiqa Gabbi",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/videos",
+      "source_url": "https://www.youtube.com/watch?v=ByojhBwG_-E",
+      "embed_url": "https://www.youtube.com/embed/ByojhBwG_-E?si=y9124i-QV-JbPsTD",
+      "provider": "youtube",
+      "video_id": "ByojhBwG_-E",
+      "poster_local_path": "public/media/final-videos-04.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 4,
+      "page_order": 4,
+      "module_order": 4,
+      "dom_order": 105,
+      "status": "recovered",
+      "author_name": "Netflix India",
+      "author_url": "https://www.youtube.com/@NetflixIndiaOfficial",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DByojhBwG_-E&format=json",
+      "oembed_status": "available",
+      "retrieval_notes": [
+        "thumbnail maxresdefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2701210>",
+        "thumbnail sddefault: cannot identify image file <_io.BytesIO object at 0x7f0ca2702890>",
+        "thumbnail hqdefault: cannot identify image file <_io.BytesIO object at 0x7f0cc453f0b0>"
+      ],
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 18400,
+        "download_url": "https://img.youtube.com/vi/ByojhBwG_-E/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "videos-05",
+      "category": "Trailers",
+      "category_slug": "videos",
+      "title": "Bhakshak | Official Teaser | Bhumi Pednekar, Sanjay Mishra & Sai Tamhankar",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/videos",
+      "source_url": "https://www.youtube.com/watch?v=TlUjhCYvHTk",
+      "embed_url": "https://www.youtube.com/embed/TlUjhCYvHTk?si=cyT6HRSUkKjDmZL7",
+      "provider": "youtube",
+      "video_id": "TlUjhCYvHTk",
+      "poster_local_path": "public/media/final-videos-05.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 5,
+      "page_order": 4,
+      "module_order": 5,
+      "dom_order": 109,
+      "status": "recovered",
+      "author_name": "Netflix India",
+      "author_url": "https://www.youtube.com/@NetflixIndiaOfficial",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DTlUjhCYvHTk&format=json",
+      "oembed_status": "available",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 21532,
+        "download_url": "https://img.youtube.com/vi/TlUjhCYvHTk/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "videos-06",
+      "category": "Trailers",
+      "category_slug": "videos",
+      "title": "Mrs. Chatterjee vs Norway | Official Trailer | Rani Mukerji | Netflix India",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/videos",
+      "source_url": "https://www.youtube.com/watch?v=1Bll53fBa9U",
+      "embed_url": "https://www.youtube.com/embed/1Bll53fBa9U?si=sjDotmoZYtOTSL7X",
+      "provider": "youtube",
+      "video_id": "1Bll53fBa9U",
+      "poster_local_path": "public/media/final-videos-06.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 6,
+      "page_order": 4,
+      "module_order": 6,
+      "dom_order": 113,
+      "status": "recovered",
+      "author_name": "Netflix India",
+      "author_url": "https://www.youtube.com/@NetflixIndiaOfficial",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D1Bll53fBa9U&format=json",
+      "oembed_status": "available",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 20844,
+        "download_url": "https://img.youtube.com/vi/1Bll53fBa9U/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-short-format-01",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": "The Morning One Nation was Split (Part 1)",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.youtube.com/watch?v=9QN3rmYNg2E",
+      "embed_url": "https://www.youtube.com/embed/9QN3rmYNg2E",
+      "provider": "youtube",
+      "video_id": "9QN3rmYNg2E",
+      "poster_local_path": "public/media/final-social-short-format-01.webp",
+      "adjacent_caption": "This is a fully AI-generated video. All shots, concepts and characters are fully AI-generated. Any resemblance to any character, real or fictional is completely coincidental. This series focuses on the dramatic reinterpretation of historical events in photorealstic styles.",
+      "ai_disclosure": "This is a fully AI-generated video. All shots, concepts and characters are fully AI-generated. Any resemblance to any character, real or fictional is completely coincidental. This series focuses on the dramatic reinterpretation of historical events in photorealstic styles.",
+      "original_order": 1,
+      "page_order": 5,
+      "module_order": 1,
+      "dom_order": 94,
+      "status": "recovered",
+      "author_name": "Prantik Dutta",
+      "author_url": "https://www.youtube.com/@PrantikDuttaVisualOdeyssey",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D9QN3rmYNg2E&format=json",
+      "oembed_status": "available",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 8352,
+        "download_url": "https://img.youtube.com/vi/9QN3rmYNg2E/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "social-short-format-02",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": "Sorted_JaquarTrilogy_AartisMarketingBreakdownPlusReviewOfTheSinger_9x16_00012124_D14122025_CC_Sound_V1_1.mp4",
+      "title_source": "public_drive_filename",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://drive.google.com/file/d/1i2dfTXXnnl4A3znHL9vLGmnNIf49tfF3/view",
+      "embed_url": "https://drive.google.com/file/d/1i2dfTXXnnl4A3znHL9vLGmnNIf49tfF3/preview",
+      "provider": "google_drive",
+      "video_id": null,
+      "poster_local_path": "public/media/final-social-short-format-02.webp",
+      "adjacent_caption": "This video contains AI Generated shots of a real person. All shots (such as bathtub, hand-shower, TV shot) and lip-sync are AI generated.",
+      "ai_disclosure": "This video contains AI Generated shots of a real person. All shots (such as bathtub, hand-shower, TV shot) and lip-sync are AI generated.",
+      "original_order": 2,
+      "page_order": 5,
+      "module_order": 1,
+      "dom_order": 103,
+      "status": "recovered",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 787,
+        "height": 1400,
+        "bytes": 69020,
+        "download_url": "https://drive.google.com/drive-viewer/AKGpiha69T77npneEO_ijOeb3hRLPUM8rqo7fjMK2i7u-l3CpUUHVOj66hbsJZScWYzsI0uvZTsF_DB2b21Y708BZLmGz4rUkMFK1oI=s1600-rw-v1",
+        "source_dimensions": [
+          900,
+          1600
+        ]
+      }
+    },
+    {
+      "id": "social-short-format-03",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.instagram.com/reels/DTehIjuDIhl/",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-short-format-03.webp",
+      "adjacent_caption": "This video contains AI Generated shots of a real person. Lip-sync is AI generated.",
+      "ai_disclosure": "This video contains AI Generated shots of a real person. Lip-sync is AI generated.",
+      "original_order": 3,
+      "page_order": 5,
+      "module_order": 2,
+      "dom_order": 113,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/84ec2c5b-c677-4a8a-bdef-4c668f606820.png?h=0611abdd711b0cd5f291d523477ffd23",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/84ec2c5b-c677-4a8a-bdef-4c668f606820_rw_1200.png?h=ac7878ab033b9dfd7eb45fa1b7461a6a",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/84ec2c5b-c677-4a8a-bdef-4c668f606820.png?h=0611abdd711b0cd5f291d523477ffd23",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/84ec2c5b-c677-4a8a-bdef-4c668f606820_rw_1200.png?h=ac7878ab033b9dfd7eb45fa1b7461a6a",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/84ec2c5b-c677-4a8a-bdef-4c668f606820_rw_600.png?h=5a8ac3aa313b2674751690ebf8c8aefd 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/84ec2c5b-c677-4a8a-bdef-4c668f606820_rw_1200.png?h=ac7878ab033b9dfd7eb45fa1b7461a6a 1174w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/84ec2c5b-c677-4a8a-bdef-4c668f606820.png?h=0611abdd711b0cd5f291d523477ffd23",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/84ec2c5b-c677-4a8a-bdef-4c668f606820.png?h=0611abdd711b0cd5f291d523477ffd23",
+        "width": 1174,
+        "height": 2108,
+        "bytes": 2796367
+      },
+      "poster_info": {
+        "width": 780,
+        "height": 1400,
+        "bytes": 81720
+      }
+    },
+    {
+      "id": "social-short-format-04",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.instagram.com/reels/DVDej4EjASV/",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-short-format-04.webp",
+      "adjacent_caption": "This video contains AI Generated shots of a real person. Insert shots have been generated using AI, and lip-sync uses AI in certain places.",
+      "ai_disclosure": "This video contains AI Generated shots of a real person. Insert shots have been generated using AI, and lip-sync uses AI in certain places.",
+      "original_order": 4,
+      "page_order": 5,
+      "module_order": 2,
+      "dom_order": 121,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/23914485-3038-48b2-a56c-ed98d0760153.png?h=b80b26df95e9be70fe6912e42d6319c0",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/23914485-3038-48b2-a56c-ed98d0760153_rw_1200.png?h=6ee6d8557422c6a58866ecfa6b890228",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/23914485-3038-48b2-a56c-ed98d0760153.png?h=b80b26df95e9be70fe6912e42d6319c0",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/23914485-3038-48b2-a56c-ed98d0760153_rw_1200.png?h=6ee6d8557422c6a58866ecfa6b890228",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/23914485-3038-48b2-a56c-ed98d0760153_rw_600.png?h=812b7b2b0860e608a40fe5726f206e88 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/23914485-3038-48b2-a56c-ed98d0760153_rw_1200.png?h=6ee6d8557422c6a58866ecfa6b890228 1182w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/23914485-3038-48b2-a56c-ed98d0760153.png?h=b80b26df95e9be70fe6912e42d6319c0",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/23914485-3038-48b2-a56c-ed98d0760153.png?h=b80b26df95e9be70fe6912e42d6319c0",
+        "width": 1182,
+        "height": 2098,
+        "bytes": 2235708
+      },
+      "poster_info": {
+        "width": 789,
+        "height": 1400,
+        "bytes": 56588
+      }
+    },
+    {
+      "id": "social-short-format-05",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.instagram.com/reels/DTt7WJPggbX/",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-short-format-05.webp",
+      "adjacent_caption": "This video contains AI Generated lip-sync shots of a real person.",
+      "ai_disclosure": "This video contains AI Generated lip-sync shots of a real person.",
+      "original_order": 5,
+      "page_order": 5,
+      "module_order": 3,
+      "dom_order": 131,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/12ce2b5c-6daf-465c-a41a-fb14fabf802b.png?h=412a432164f0809ff31199021cde5180",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/12ce2b5c-6daf-465c-a41a-fb14fabf802b_rw_1200.png?h=5b9c159accdb4afc50301f9a0f5520c8",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/12ce2b5c-6daf-465c-a41a-fb14fabf802b.png?h=412a432164f0809ff31199021cde5180",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/12ce2b5c-6daf-465c-a41a-fb14fabf802b_rw_1200.png?h=5b9c159accdb4afc50301f9a0f5520c8",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/12ce2b5c-6daf-465c-a41a-fb14fabf802b_rw_600.png?h=3fd0c304df17d88393b8f2d58bf18c3b 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/12ce2b5c-6daf-465c-a41a-fb14fabf802b_rw_1200.png?h=5b9c159accdb4afc50301f9a0f5520c8 1172w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/12ce2b5c-6daf-465c-a41a-fb14fabf802b.png?h=412a432164f0809ff31199021cde5180",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/12ce2b5c-6daf-465c-a41a-fb14fabf802b.png?h=412a432164f0809ff31199021cde5180",
+        "width": 1172,
+        "height": 2092,
+        "bytes": 2980839
+      },
+      "poster_info": {
+        "width": 784,
+        "height": 1400,
+        "bytes": 106338
+      }
+    },
+    {
+      "id": "social-short-format-06",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.instagram.com/reels/DTCRvLigsum/",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-short-format-06.webp",
+      "adjacent_caption": "This video contains AI Generated lip-sync shots of a real person.",
+      "ai_disclosure": "This video contains AI Generated lip-sync shots of a real person.",
+      "original_order": 6,
+      "page_order": 5,
+      "module_order": 3,
+      "dom_order": 139,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/910fb2e9-1fe9-4a6d-a653-98969adb68f3.png?h=1ca5a3238abe8c059b6032ac1b214b50",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/910fb2e9-1fe9-4a6d-a653-98969adb68f3_rw_1200.png?h=b0ada89662aea63cf0d84c71650ce911",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/910fb2e9-1fe9-4a6d-a653-98969adb68f3.png?h=1ca5a3238abe8c059b6032ac1b214b50",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/910fb2e9-1fe9-4a6d-a653-98969adb68f3_rw_1200.png?h=b0ada89662aea63cf0d84c71650ce911",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/910fb2e9-1fe9-4a6d-a653-98969adb68f3_rw_600.png?h=438a46d0c61269836028f4b0b2da8c76 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/910fb2e9-1fe9-4a6d-a653-98969adb68f3_rw_1200.png?h=b0ada89662aea63cf0d84c71650ce911 1180w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/910fb2e9-1fe9-4a6d-a653-98969adb68f3.png?h=1ca5a3238abe8c059b6032ac1b214b50",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/910fb2e9-1fe9-4a6d-a653-98969adb68f3.png?h=1ca5a3238abe8c059b6032ac1b214b50",
+        "width": 1180,
+        "height": 2096,
+        "bytes": 2323594
+      },
+      "poster_info": {
+        "width": 788,
+        "height": 1400,
+        "bytes": 74378
+      }
+    },
+    {
+      "id": "social-short-format-07",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.instagram.com/reels/DVYwd8HjPEu/",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-short-format-07.webp",
+      "adjacent_caption": "This video contains AI Generated lip-sync shots of a real person.",
+      "ai_disclosure": "This video contains AI Generated lip-sync shots of a real person.",
+      "original_order": 7,
+      "page_order": 5,
+      "module_order": 4,
+      "dom_order": 149,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/dd068b3e-6a00-4e02-ba45-c2a389ffcd38.png?h=04b11ffb2dc0cbdd4b4fd5fab5719fcb",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/dd068b3e-6a00-4e02-ba45-c2a389ffcd38_rw_1200.png?h=cc8fb58abe4fed8105855d21636683ea",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/dd068b3e-6a00-4e02-ba45-c2a389ffcd38.png?h=04b11ffb2dc0cbdd4b4fd5fab5719fcb",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/dd068b3e-6a00-4e02-ba45-c2a389ffcd38_rw_1200.png?h=cc8fb58abe4fed8105855d21636683ea",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/dd068b3e-6a00-4e02-ba45-c2a389ffcd38_rw_600.png?h=3357138d4dfff05692ae5e8df9e226c3 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/dd068b3e-6a00-4e02-ba45-c2a389ffcd38_rw_1200.png?h=cc8fb58abe4fed8105855d21636683ea 1184w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/dd068b3e-6a00-4e02-ba45-c2a389ffcd38.png?h=04b11ffb2dc0cbdd4b4fd5fab5719fcb",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/dd068b3e-6a00-4e02-ba45-c2a389ffcd38.png?h=04b11ffb2dc0cbdd4b4fd5fab5719fcb",
+        "width": 1184,
+        "height": 2096,
+        "bytes": 3176208
+      },
+      "poster_info": {
+        "width": 791,
+        "height": 1400,
+        "bytes": 94354
+      }
+    },
+    {
+      "id": "social-short-format-08",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.instagram.com/reels/DVctsbPgibO/",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-short-format-08.webp",
+      "adjacent_caption": "This video contains AI Generated lip-sync shots of a real person.",
+      "ai_disclosure": "This video contains AI Generated lip-sync shots of a real person.",
+      "original_order": 8,
+      "page_order": 5,
+      "module_order": 4,
+      "dom_order": 157,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/8f8ab8ed-f674-4aa8-8134-0b22326da48a.png?h=4566cf35560594c88eec5f3793895087",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/8f8ab8ed-f674-4aa8-8134-0b22326da48a_rw_1200.png?h=5ac29cfc51558878cef90e790c23b637",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/8f8ab8ed-f674-4aa8-8134-0b22326da48a.png?h=4566cf35560594c88eec5f3793895087",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/8f8ab8ed-f674-4aa8-8134-0b22326da48a_rw_1200.png?h=5ac29cfc51558878cef90e790c23b637",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/8f8ab8ed-f674-4aa8-8134-0b22326da48a_rw_600.png?h=06c9bd66e35695c4f7e479be93aded05 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/8f8ab8ed-f674-4aa8-8134-0b22326da48a_rw_1200.png?h=5ac29cfc51558878cef90e790c23b637 1176w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/8f8ab8ed-f674-4aa8-8134-0b22326da48a.png?h=4566cf35560594c88eec5f3793895087",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/8f8ab8ed-f674-4aa8-8134-0b22326da48a.png?h=4566cf35560594c88eec5f3793895087",
+        "width": 1176,
+        "height": 2096,
+        "bytes": 2284909
+      },
+      "poster_info": {
+        "width": 785,
+        "height": 1400,
+        "bytes": 79482
+      }
+    },
+    {
+      "id": "social-short-format-09",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.instagram.com/reels/DT4QqE3gvy5/",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-short-format-09.webp",
+      "adjacent_caption": "This video contains AI Generated lip-sync shots of a real person.",
+      "ai_disclosure": "This video contains AI Generated lip-sync shots of a real person.",
+      "original_order": 9,
+      "page_order": 5,
+      "module_order": 5,
+      "dom_order": 167,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4d7c3940-71d0-4601-ab3d-b0f47fcf7c08.png?h=a889c4da9358002d7e0966c64bbb0213",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4d7c3940-71d0-4601-ab3d-b0f47fcf7c08_rw_1200.png?h=eb4fcbb7773b081be932e5324e5aff92",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4d7c3940-71d0-4601-ab3d-b0f47fcf7c08.png?h=a889c4da9358002d7e0966c64bbb0213",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4d7c3940-71d0-4601-ab3d-b0f47fcf7c08_rw_1200.png?h=eb4fcbb7773b081be932e5324e5aff92",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4d7c3940-71d0-4601-ab3d-b0f47fcf7c08_rw_600.png?h=586307446703bc3f3d7e05639ece059e 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4d7c3940-71d0-4601-ab3d-b0f47fcf7c08_rw_1200.png?h=eb4fcbb7773b081be932e5324e5aff92 1176w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4d7c3940-71d0-4601-ab3d-b0f47fcf7c08.png?h=a889c4da9358002d7e0966c64bbb0213",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4d7c3940-71d0-4601-ab3d-b0f47fcf7c08.png?h=a889c4da9358002d7e0966c64bbb0213",
+        "width": 1176,
+        "height": 2096,
+        "bytes": 1490448
+      },
+      "poster_info": {
+        "width": 785,
+        "height": 1400,
+        "bytes": 55300
+      }
+    },
+    {
+      "id": "social-short-format-10",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.instagram.com/reels/DT_8WjzgvU-/",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/social-short-format-10.webp",
+      "adjacent_caption": "This video contains AI Generated shots of a real person. AI generated voices have been used in this video.",
+      "ai_disclosure": "This video contains AI Generated shots of a real person. AI generated voices have been used in this video.",
+      "original_order": 10,
+      "page_order": 5,
+      "module_order": 5,
+      "dom_order": 175,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/46431a74-7626-4af4-ace1-89154f938c20.png?h=564d6905f9eacf30adf9cdfb387068fd",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/46431a74-7626-4af4-ace1-89154f938c20_rw_1200.png?h=caee955358bd4f6d8a591221aa4807f2",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/46431a74-7626-4af4-ace1-89154f938c20.png?h=564d6905f9eacf30adf9cdfb387068fd",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/46431a74-7626-4af4-ace1-89154f938c20_rw_1200.png?h=caee955358bd4f6d8a591221aa4807f2",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/46431a74-7626-4af4-ace1-89154f938c20_rw_600.png?h=2f20a4f5c52d181bae941e8d3a3c001a 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/46431a74-7626-4af4-ace1-89154f938c20_rw_1200.png?h=caee955358bd4f6d8a591221aa4807f2 1178w,"
+      },
+      "image_info": {
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/46431a74-7626-4af4-ace1-89154f938c20.png?h=564d6905f9eacf30adf9cdfb387068fd",
+        "final_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/46431a74-7626-4af4-ace1-89154f938c20.png?h=564d6905f9eacf30adf9cdfb387068fd",
+        "width": 1178,
+        "height": 2100,
+        "bytes": 2950299
+      },
+      "poster_info": {
+        "width": 785,
+        "height": 1400,
+        "bytes": 99578
+      }
+    },
+    {
+      "id": "social-short-format-11",
+      "category": "Social (Short format)",
+      "category_slug": "social-short-format",
+      "title": "The Realistic AI trend is crazy!",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/social-short-format",
+      "source_url": "https://www.youtube.com/watch?v=UnyzEppxKlQ",
+      "embed_url": "https://www.youtube.com/embed/UnyzEppxKlQ",
+      "provider": "youtube",
+      "video_id": "UnyzEppxKlQ",
+      "poster_local_path": "public/media/final-social-short-format-11.webp",
+      "adjacent_caption": "This video is a lip-sync made to replicate a real person.",
+      "ai_disclosure": "This video is a lip-sync made to replicate a real person.",
+      "original_order": 11,
+      "page_order": 5,
+      "module_order": 6,
+      "dom_order": 182,
+      "status": "recovered",
+      "author_name": "Prantik Dutta",
+      "author_url": "https://www.youtube.com/@PrantikDuttaVisualOdeyssey",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DUnyzEppxKlQ&format=json",
+      "oembed_status": "available",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 24958,
+        "download_url": "https://img.youtube.com/vi/UnyzEppxKlQ/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "stand-up-events-01",
+      "category": "Stand-up Events",
+      "category_slug": "stand-up-events",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/stand-up-events",
+      "source_url": "https://www.youtube.com/watch?v=BfwUjNr5QCs",
+      "embed_url": "https://www.youtube.com/embed/BfwUjNr5QCs?si=LBSPA7sFf9HyVjPd",
+      "provider": "youtube",
+      "video_id": "BfwUjNr5QCs",
+      "poster_local_path": null,
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 1,
+      "page_order": 6,
+      "module_order": 1,
+      "dom_order": 93,
+      "status": "source_embed_retained_poster_unavailable",
+      "oembed_status": "unavailable",
+      "final_retrieval_notes": [
+        "metadata: HTTP Error 403: Forbidden",
+        "thumbnail: <urlopen error timed out>",
+        "final media attempt: HTTP Error 404: Not Found"
+      ]
+    },
+    {
+      "id": "stand-up-events-02",
+      "category": "Stand-up Events",
+      "category_slug": "stand-up-events",
+      "title": "Rahul Subramanian | Crowd work Special | Deleted Scenes | Amazon Prime Video",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/stand-up-events",
+      "source_url": "https://www.youtube.com/watch?v=YvLmugT3SFo",
+      "embed_url": "https://www.youtube.com/embed/YvLmugT3SFo?si=hdgD0GKPc1Ux2dP0",
+      "provider": "youtube",
+      "video_id": "YvLmugT3SFo",
+      "poster_local_path": "public/media/final-stand-up-events-02.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 2,
+      "page_order": 6,
+      "module_order": 2,
+      "dom_order": 97,
+      "status": "recovered",
+      "author_name": "Rahul Subramanian",
+      "author_url": "https://www.youtube.com/@RahulSubramanian",
+      "oembed_url": "https://www.youtube.com/oembed?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DYvLmugT3SFo&format=json",
+      "oembed_status": "available",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 14604,
+        "download_url": "https://img.youtube.com/vi/YvLmugT3SFo/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "stand-up-events-03",
+      "category": "Stand-up Events",
+      "category_slug": "stand-up-events",
+      "title": "Biswa Kalyan Rath: Mood Kharaab - Official Trailer | Prime Video India",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/stand-up-events",
+      "source_url": "https://www.youtube.com/watch?v=aigKy_7oBA4",
+      "embed_url": "https://www.youtube.com/embed/aigKy_7oBA4?si=F9PkaGFLTduG6cLJ",
+      "provider": "youtube",
+      "video_id": "aigKy_7oBA4",
+      "poster_local_path": "public/media/final-stand-up-events-03.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 3,
+      "page_order": 6,
+      "module_order": 3,
+      "dom_order": 101,
+      "status": "recovered",
+      "author_name": "Prime Video India",
+      "author_url": "https://www.youtube.com/@PrimeVideoIN",
+      "oembed_status": "available",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 27696,
+        "download_url": "https://img.youtube.com/vi/aigKy_7oBA4/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "stand-up-events-04",
+      "category": "Stand-up Events",
+      "category_slug": "stand-up-events",
+      "title": "Rahul Subramanian | Crowd work Special | Deleted Scenes 2 | Amazon Prime Video",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/stand-up-events",
+      "source_url": "https://www.youtube.com/watch?v=7dRjFxqCCQk",
+      "embed_url": "https://www.youtube.com/embed/7dRjFxqCCQk?si=oC3nRqT9U2Wq3zsk",
+      "provider": "youtube",
+      "video_id": "7dRjFxqCCQk",
+      "poster_local_path": "public/media/final-stand-up-events-04.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 4,
+      "page_order": 6,
+      "module_order": 4,
+      "dom_order": 105,
+      "status": "recovered",
+      "author_name": "Rahul Subramanian",
+      "author_url": "https://www.youtube.com/@RahulSubramanian",
+      "oembed_status": "available",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 15030,
+        "download_url": "https://img.youtube.com/vi/7dRjFxqCCQk/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "stand-up-events-05",
+      "category": "Stand-up Events",
+      "category_slug": "stand-up-events",
+      "title": "The Best of Biswa Kalyan Rath's Stand-up show 😂 | Biswa Kalyan Rath's Mood Kharaab | Prime Video IN",
+      "title_source": "youtube_oembed",
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/stand-up-events",
+      "source_url": "https://www.youtube.com/watch?v=FN6biQKu-Lo",
+      "embed_url": "https://www.youtube.com/embed/FN6biQKu-Lo?si=vkdy_sjx0V0TlCBY",
+      "provider": "youtube",
+      "video_id": "FN6biQKu-Lo",
+      "poster_local_path": "public/media/final-stand-up-events-05.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 5,
+      "page_order": 6,
+      "module_order": 5,
+      "dom_order": 109,
+      "status": "recovered",
+      "author_name": "Prime Video India",
+      "author_url": "https://www.youtube.com/@PrimeVideoIN",
+      "oembed_status": "available",
+      "final_retrieval_notes": [
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 17288,
+        "download_url": "https://img.youtube.com/vi/FN6biQKu-Lo/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "brands-01",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Wrapping up a great year with GROWW app!",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://tinyurl.com/ycxhrt9f",
+      "embed_url": null,
+      "provider": "external_link",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-01.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 1,
+      "page_order": 7,
+      "module_order": 2,
+      "dom_order": 101,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/5b8585c4-8dba-4388-b710-ffa0ce8adb27.png?h=f95b2f8c3156137a3daf3a44fb86ac00",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/5b8585c4-8dba-4388-b710-ffa0ce8adb27_rw_1200.png?h=07dcabbf0b82e6ed4fe4e8d8e6f2498b",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/5b8585c4-8dba-4388-b710-ffa0ce8adb27.png?h=f95b2f8c3156137a3daf3a44fb86ac00",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/5b8585c4-8dba-4388-b710-ffa0ce8adb27_rw_1200.png?h=07dcabbf0b82e6ed4fe4e8d8e6f2498b",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/5b8585c4-8dba-4388-b710-ffa0ce8adb27_rw_600.png?h=a1ed2ed98f8e56bc4e8357a20f623a5f 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/5b8585c4-8dba-4388-b710-ffa0ce8adb27_rw_1200.png?h=07dcabbf0b82e6ed4fe4e8d8e6f2498b 671w,"
+      },
+      "poster_info": {
+        "width": 671,
+        "height": 667,
+        "bytes": 22060,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/5b8585c4-8dba-4388-b710-ffa0ce8adb27_rw_1200.png?h=07dcabbf0b82e6ed4fe4e8d8e6f2498b",
+        "source_dimensions": [
+          671,
+          667
+        ]
+      },
+      "redirect_status": "unresolved_source_link_retained"
+    },
+    {
+      "id": "brands-02",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Wrapping up a great year with GROWW app!",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://tinyurl.com/mrxfzvj5",
+      "embed_url": null,
+      "provider": "external_link",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-02.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 2,
+      "page_order": 7,
+      "module_order": 2,
+      "dom_order": 106,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/b1bee905-b4a5-4bbc-b1a6-115d13f9727a.png?h=989c2888139ab8ecaaea68908e01c04d",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/b1bee905-b4a5-4bbc-b1a6-115d13f9727a_rw_600.png?h=c005f9f9709c3b74e2741e3a589fffc1",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/b1bee905-b4a5-4bbc-b1a6-115d13f9727a.png?h=989c2888139ab8ecaaea68908e01c04d",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/b1bee905-b4a5-4bbc-b1a6-115d13f9727a_rw_600.png?h=c005f9f9709c3b74e2741e3a589fffc1",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/b1bee905-b4a5-4bbc-b1a6-115d13f9727a_rw_600.png?h=c005f9f9709c3b74e2741e3a589fffc1 374w,"
+      },
+      "poster_info": {
+        "width": 374,
+        "height": 670,
+        "bytes": 40514,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/b1bee905-b4a5-4bbc-b1a6-115d13f9727a_rw_600.png?h=c005f9f9709c3b74e2741e3a589fffc1",
+        "source_dimensions": [
+          374,
+          670
+        ]
+      },
+      "redirect_status": "unresolved_source_link_retained"
+    },
+    {
+      "id": "brands-03",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Building a Premium Identity for a Nutrition Brand",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/DAtHoJySqh6/?igsh=NHU0d251cHh4d2N5",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-03.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 3,
+      "page_order": 7,
+      "module_order": 4,
+      "dom_order": 118,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e027c2c5-6d28-4326-8268-48a63d0456a6.png?h=6a8ad65e8d7e9e4b3b7001040013d11d",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e027c2c5-6d28-4326-8268-48a63d0456a6_rw_600.png?h=56a53cd027888074b96ba9a4305d6a86",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e027c2c5-6d28-4326-8268-48a63d0456a6.png?h=6a8ad65e8d7e9e4b3b7001040013d11d",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e027c2c5-6d28-4326-8268-48a63d0456a6_rw_600.png?h=56a53cd027888074b96ba9a4305d6a86",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e027c2c5-6d28-4326-8268-48a63d0456a6_rw_600.png?h=56a53cd027888074b96ba9a4305d6a86 377w,"
+      },
+      "poster_info": {
+        "width": 377,
+        "height": 670,
+        "bytes": 5442,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e027c2c5-6d28-4326-8268-48a63d0456a6_rw_600.png?h=56a53cd027888074b96ba9a4305d6a86",
+        "source_dimensions": [
+          377,
+          670
+        ]
+      }
+    },
+    {
+      "id": "brands-04",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Building a Premium Identity for a Nutrition Brand",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C_8v8Xoo_lh/?igsh=MW9wZDRiY3A2bWNuOA==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-04.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 4,
+      "page_order": 7,
+      "module_order": 4,
+      "dom_order": 123,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e4a86b99-309a-4e0d-b57a-3c4889f3b1ae.png?h=542451f2dbbc5199600b3303383041ef",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e4a86b99-309a-4e0d-b57a-3c4889f3b1ae_rw_600.png?h=18b6198cd18d9ee2ad37045811b55b3f",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e4a86b99-309a-4e0d-b57a-3c4889f3b1ae.png?h=542451f2dbbc5199600b3303383041ef",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e4a86b99-309a-4e0d-b57a-3c4889f3b1ae_rw_600.png?h=18b6198cd18d9ee2ad37045811b55b3f",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e4a86b99-309a-4e0d-b57a-3c4889f3b1ae_rw_600.png?h=18b6198cd18d9ee2ad37045811b55b3f 375w,"
+      },
+      "poster_info": {
+        "width": 375,
+        "height": 666,
+        "bytes": 28744,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e4a86b99-309a-4e0d-b57a-3c4889f3b1ae_rw_600.png?h=18b6198cd18d9ee2ad37045811b55b3f",
+        "source_dimensions": [
+          375,
+          666
+        ]
+      }
+    },
+    {
+      "id": "brands-05",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Building a Premium Identity for a Nutrition Brand",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/DABSFMby8a4/?igsh=OWZ0ZGVoeGwwajFm",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-05.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 5,
+      "page_order": 7,
+      "module_order": 5,
+      "dom_order": 130,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/032d0545-b0c9-4312-b209-2a7e58b3cbe8.png?h=78917f68a8d1036fdb6ae4cd5118f55e",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/032d0545-b0c9-4312-b209-2a7e58b3cbe8_rw_600.png?h=1f9a529b3315399df1feea96c29b3016",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/032d0545-b0c9-4312-b209-2a7e58b3cbe8.png?h=78917f68a8d1036fdb6ae4cd5118f55e",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/032d0545-b0c9-4312-b209-2a7e58b3cbe8_rw_600.png?h=1f9a529b3315399df1feea96c29b3016",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/032d0545-b0c9-4312-b209-2a7e58b3cbe8_rw_600.png?h=1f9a529b3315399df1feea96c29b3016 377w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 377,
+        "height": 671,
+        "bytes": 45314,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/032d0545-b0c9-4312-b209-2a7e58b3cbe8.png?h=78917f68a8d1036fdb6ae4cd5118f55e",
+        "source_dimensions": [
+          377,
+          671
+        ]
+      }
+    },
+    {
+      "id": "brands-06",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Building a Premium Identity for a Nutrition Brand",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/DAaGDdvtJmd/?igsh=dm4waHZkZ3hmMGkx",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-06.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 6,
+      "page_order": 7,
+      "module_order": 5,
+      "dom_order": 135,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/86ca4288-26ea-4cdf-bdc6-157a306784cb.png?h=dac3b09e396d95e4076048bea526ab4b",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/86ca4288-26ea-4cdf-bdc6-157a306784cb_rw_600.png?h=031a63d7b0014d0d6463492a489a1421",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/86ca4288-26ea-4cdf-bdc6-157a306784cb.png?h=dac3b09e396d95e4076048bea526ab4b",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/86ca4288-26ea-4cdf-bdc6-157a306784cb_rw_600.png?h=031a63d7b0014d0d6463492a489a1421",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/86ca4288-26ea-4cdf-bdc6-157a306784cb_rw_600.png?h=031a63d7b0014d0d6463492a489a1421 375w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 375,
+        "height": 671,
+        "bytes": 20252,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/86ca4288-26ea-4cdf-bdc6-157a306784cb.png?h=dac3b09e396d95e4076048bea526ab4b",
+        "source_dimensions": [
+          375,
+          671
+        ]
+      }
+    },
+    {
+      "id": "brands-07",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "LOLLAPALOOZA 2024:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C0tFOrxICgZ/?igsh=MWVpYWc0YTYwNXN3eg==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-07.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 7,
+      "page_order": 7,
+      "module_order": 8,
+      "dom_order": 153,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/590ce1d7-efae-4c45-a2f2-a5be8dfa79c8.png?h=300691875c3acbd2e03e1872575088bf",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/590ce1d7-efae-4c45-a2f2-a5be8dfa79c8_rw_600.png?h=3d96ced5190a3a1f6c26e7eeb0f74dd3",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/590ce1d7-efae-4c45-a2f2-a5be8dfa79c8.png?h=300691875c3acbd2e03e1872575088bf",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/590ce1d7-efae-4c45-a2f2-a5be8dfa79c8_rw_600.png?h=3d96ced5190a3a1f6c26e7eeb0f74dd3",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/590ce1d7-efae-4c45-a2f2-a5be8dfa79c8_rw_600.png?h=3d96ced5190a3a1f6c26e7eeb0f74dd3 372w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 372,
+        "height": 669,
+        "bytes": 52346,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/590ce1d7-efae-4c45-a2f2-a5be8dfa79c8.png?h=300691875c3acbd2e03e1872575088bf",
+        "source_dimensions": [
+          372,
+          669
+        ]
+      }
+    },
+    {
+      "id": "brands-08",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "LOLLAPALOOZA 2024:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C1B_GHEoTfK/?igsh=MXc0NGJrNDJ3bTNncg==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-08.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 8,
+      "page_order": 7,
+      "module_order": 8,
+      "dom_order": 158,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4ed8ed8d-0459-4343-a538-46e84b0c2214.png?h=9f06aa4f0c9d5e12ed821d89189666a5",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4ed8ed8d-0459-4343-a538-46e84b0c2214_rw_600.png?h=2f8b0abe91d014f9b9b04df3db0affe8",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4ed8ed8d-0459-4343-a538-46e84b0c2214.png?h=9f06aa4f0c9d5e12ed821d89189666a5",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4ed8ed8d-0459-4343-a538-46e84b0c2214_rw_600.png?h=2f8b0abe91d014f9b9b04df3db0affe8",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4ed8ed8d-0459-4343-a538-46e84b0c2214_rw_600.png?h=2f8b0abe91d014f9b9b04df3db0affe8 373w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 373,
+        "height": 668,
+        "bytes": 33612,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4ed8ed8d-0459-4343-a538-46e84b0c2214.png?h=9f06aa4f0c9d5e12ed821d89189666a5",
+        "source_dimensions": [
+          373,
+          668
+        ]
+      }
+    },
+    {
+      "id": "brands-09",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "LOLLAPALOOZA 2024:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C19mORVoiSM/?igsh=MXYxcXRiNG9lbGpsYQ==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-09.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 9,
+      "page_order": 7,
+      "module_order": 9,
+      "dom_order": 165,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1f5b155c-48a1-4355-bf3d-7e0b6a1e6cd9.png?h=677425b423987d580115d78319277cf3",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1f5b155c-48a1-4355-bf3d-7e0b6a1e6cd9_rw_600.png?h=7c41000da02dc5452c150a58b334bb86",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1f5b155c-48a1-4355-bf3d-7e0b6a1e6cd9.png?h=677425b423987d580115d78319277cf3",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1f5b155c-48a1-4355-bf3d-7e0b6a1e6cd9_rw_600.png?h=7c41000da02dc5452c150a58b334bb86",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1f5b155c-48a1-4355-bf3d-7e0b6a1e6cd9_rw_600.png?h=7c41000da02dc5452c150a58b334bb86 375w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 375,
+        "height": 669,
+        "bytes": 16296,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/1f5b155c-48a1-4355-bf3d-7e0b6a1e6cd9.png?h=677425b423987d580115d78319277cf3",
+        "source_dimensions": [
+          375,
+          669
+        ]
+      }
+    },
+    {
+      "id": "brands-10",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "LOLLAPALOOZA 2024:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C0WeeIYoz2z/?igsh=OWgzMnVmNnYxYzdl",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-10.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 10,
+      "page_order": 7,
+      "module_order": 9,
+      "dom_order": 170,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/c26528b4-079f-411d-8094-b109ec61debc.png?h=c28e4ecab79572d2fe1ccbb84aa3323a",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/c26528b4-079f-411d-8094-b109ec61debc_rw_600.png?h=51e9f5410a0df8582dadd59e198826a7",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/c26528b4-079f-411d-8094-b109ec61debc.png?h=c28e4ecab79572d2fe1ccbb84aa3323a",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/c26528b4-079f-411d-8094-b109ec61debc_rw_600.png?h=51e9f5410a0df8582dadd59e198826a7",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/c26528b4-079f-411d-8094-b109ec61debc_rw_600.png?h=51e9f5410a0df8582dadd59e198826a7 377w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 377,
+        "height": 675,
+        "bytes": 25320,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/c26528b4-079f-411d-8094-b109ec61debc.png?h=c28e4ecab79572d2fe1ccbb84aa3323a",
+        "source_dimensions": [
+          377,
+          675
+        ]
+      }
+    },
+    {
+      "id": "brands-11",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "'Gran Turismo' (2023)",
+      "title_source": "portfolio_caption",
+      "section_heading": "Blockbuster Movies:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/CyBNmrFoNxK/?igsh=MXcyZDNwNm15cTRzMg==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-11.webp",
+      "adjacent_caption": "'Gran Turismo' (2023)",
+      "ai_disclosure": null,
+      "original_order": 11,
+      "page_order": 7,
+      "module_order": 11,
+      "dom_order": 183,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/611c40cc-929f-46b8-8db7-376de8085f51.png?h=2288c22cc01d1287bc2d9276eba843c5",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/611c40cc-929f-46b8-8db7-376de8085f51_rw_600.png?h=3f9ca325479aa156af4266fcd418f157",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/611c40cc-929f-46b8-8db7-376de8085f51.png?h=2288c22cc01d1287bc2d9276eba843c5",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/611c40cc-929f-46b8-8db7-376de8085f51_rw_600.png?h=3f9ca325479aa156af4266fcd418f157",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/611c40cc-929f-46b8-8db7-376de8085f51_rw_600.png?h=3f9ca325479aa156af4266fcd418f157 374w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 374,
+        "height": 673,
+        "bytes": 45182,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/611c40cc-929f-46b8-8db7-376de8085f51.png?h=2288c22cc01d1287bc2d9276eba843c5",
+        "source_dimensions": [
+          374,
+          673
+        ]
+      }
+    },
+    {
+      "id": "brands-12",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "'Killers of The Flower Moon' (2023)",
+      "title_source": "portfolio_caption",
+      "section_heading": "Blockbuster Movies:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C0eISygI5vc/?igsh=MTE2MWRidnI0cGc5bw==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-12.webp",
+      "adjacent_caption": "'Killers of The Flower Moon' (2023)",
+      "ai_disclosure": null,
+      "original_order": 12,
+      "page_order": 7,
+      "module_order": 11,
+      "dom_order": 193,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/77e4a99e-09da-4d31-b72a-b876619b7ca3.png?h=cf1309a5db410e5d9d98d2a48c22e9cd",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/77e4a99e-09da-4d31-b72a-b876619b7ca3_rw_600.png?h=9512b77ca957c6cf28dc0f882c437701",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/77e4a99e-09da-4d31-b72a-b876619b7ca3.png?h=cf1309a5db410e5d9d98d2a48c22e9cd",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/77e4a99e-09da-4d31-b72a-b876619b7ca3_rw_600.png?h=9512b77ca957c6cf28dc0f882c437701",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/77e4a99e-09da-4d31-b72a-b876619b7ca3_rw_600.png?h=9512b77ca957c6cf28dc0f882c437701 375w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 375,
+        "height": 672,
+        "bytes": 22432,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/77e4a99e-09da-4d31-b72a-b876619b7ca3.png?h=cf1309a5db410e5d9d98d2a48c22e9cd",
+        "source_dimensions": [
+          375,
+          672
+        ]
+      }
+    },
+    {
+      "id": "brands-13",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "'Asteroid City' (2023)",
+      "title_source": "portfolio_caption",
+      "section_heading": "Blockbuster Movies:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/CyEKISvI5uj/?igsh=MTRlMHJlYXFva2V1bQ==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-13.webp",
+      "adjacent_caption": "'Asteroid City' (2023)",
+      "ai_disclosure": null,
+      "original_order": 13,
+      "page_order": 7,
+      "module_order": 12,
+      "dom_order": 205,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/efda504a-19db-486f-99a7-adb2d59a2a39.png?h=eea6c72f41164564c30ec7f90bc01907",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/efda504a-19db-486f-99a7-adb2d59a2a39_rw_600.png?h=511791635ba060d9126cb36f8902a5b6",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/efda504a-19db-486f-99a7-adb2d59a2a39.png?h=eea6c72f41164564c30ec7f90bc01907",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/efda504a-19db-486f-99a7-adb2d59a2a39_rw_600.png?h=511791635ba060d9126cb36f8902a5b6",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/efda504a-19db-486f-99a7-adb2d59a2a39_rw_600.png?h=511791635ba060d9126cb36f8902a5b6 375w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 375,
+        "height": 668,
+        "bytes": 28844,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/efda504a-19db-486f-99a7-adb2d59a2a39.png?h=eea6c72f41164564c30ec7f90bc01907",
+        "source_dimensions": [
+          375,
+          668
+        ]
+      }
+    },
+    {
+      "id": "brands-14",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "'Salaar' (2023)",
+      "title_source": "portfolio_caption",
+      "section_heading": "Blockbuster Movies:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C1JyLUwNke6/?igsh=emF2M2J5MzFlenlv",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-14.webp",
+      "adjacent_caption": "'Salaar' (2023)",
+      "ai_disclosure": null,
+      "original_order": 14,
+      "page_order": 7,
+      "module_order": 12,
+      "dom_order": 215,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fef5c6fc-ea44-4e5d-92e6-009609aa0745.png?h=506db052db8b5e841110fcfd4d8008b7",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fef5c6fc-ea44-4e5d-92e6-009609aa0745_rw_600.png?h=3dea884b08ba75df54fa8ce8a37e0cdf",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fef5c6fc-ea44-4e5d-92e6-009609aa0745.png?h=506db052db8b5e841110fcfd4d8008b7",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fef5c6fc-ea44-4e5d-92e6-009609aa0745_rw_600.png?h=3dea884b08ba75df54fa8ce8a37e0cdf",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fef5c6fc-ea44-4e5d-92e6-009609aa0745_rw_600.png?h=3dea884b08ba75df54fa8ce8a37e0cdf 371w,"
+      },
+      "final_retrieval_notes": [
+        "source: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 371,
+        "height": 669,
+        "bytes": 21208,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fef5c6fc-ea44-4e5d-92e6-009609aa0745.png?h=506db052db8b5e841110fcfd4d8008b7",
+        "source_dimensions": [
+          371,
+          669
+        ]
+      }
+    },
+    {
+      "id": "brands-15",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "2 Truths & a Lie ft. Rohit Sharma | Mumbai Indians",
+      "title_source": "youtube_oembed",
+      "section_heading": "IPL Promotions:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.youtube.com/watch?v=Q1EQXb4Bgxk",
+      "embed_url": "https://www.youtube.com/embed/Q1EQXb4Bgxk?si=qeEanybpxuHF04Me",
+      "provider": "youtube",
+      "video_id": "Q1EQXb4Bgxk",
+      "poster_local_path": "public/media/final-brands-15.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 15,
+      "page_order": 7,
+      "module_order": 14,
+      "dom_order": 230,
+      "status": "recovered",
+      "author_name": "Mumbai Indians",
+      "author_url": "https://www.youtube.com/@MumbaiIndians",
+      "oembed_status": "available",
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 26698,
+        "download_url": "https://img.youtube.com/vi/Q1EQXb4Bgxk/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "brands-16",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "Regional Slangs in Cricket | Mumbai Indians",
+      "title_source": "youtube_oembed",
+      "section_heading": "IPL Promotions:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.youtube.com/watch?v=BS1yu7Hb0Uw",
+      "embed_url": "https://www.youtube.com/embed/BS1yu7Hb0Uw?si=xDYjMwibN2uv_aHL",
+      "provider": "youtube",
+      "video_id": "BS1yu7Hb0Uw",
+      "poster_local_path": "public/media/final-brands-16.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 16,
+      "page_order": 7,
+      "module_order": 15,
+      "dom_order": 234,
+      "status": "recovered",
+      "author_name": "Mumbai Indians",
+      "author_url": "https://www.youtube.com/@MumbaiIndians",
+      "oembed_status": "available",
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 54438,
+        "download_url": "https://img.youtube.com/vi/BS1yu7Hb0Uw/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "brands-17",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "Know Arshad Khan with Slice | Mumbai Indians",
+      "title_source": "youtube_oembed",
+      "section_heading": "IPL Promotions:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.youtube.com/watch?v=z0OCGkif8Fc",
+      "embed_url": "https://www.youtube.com/embed/z0OCGkif8Fc?si=Z1g_oyTbQTqtX6jl",
+      "provider": "youtube",
+      "video_id": "z0OCGkif8Fc",
+      "poster_local_path": "public/media/final-brands-17.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 17,
+      "page_order": 7,
+      "module_order": 16,
+      "dom_order": 238,
+      "status": "recovered",
+      "author_name": "Mumbai Indians",
+      "author_url": "https://www.youtube.com/@MumbaiIndians",
+      "oembed_status": "available",
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 20634,
+        "download_url": "https://img.youtube.com/vi/z0OCGkif8Fc/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "brands-18",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "How well do you know Ramandeep with Slice | Mumbai Indians",
+      "title_source": "youtube_oembed",
+      "section_heading": "IPL Promotions:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.youtube.com/watch?v=006r3SkwbGs",
+      "embed_url": "https://www.youtube.com/embed/006r3SkwbGs?si=8t40F82PDPSn1jMf",
+      "provider": "youtube",
+      "video_id": "006r3SkwbGs",
+      "poster_local_path": "public/media/final-brands-18.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 18,
+      "page_order": 7,
+      "module_order": 17,
+      "dom_order": 242,
+      "status": "recovered",
+      "author_name": "Mumbai Indians",
+      "author_url": "https://www.youtube.com/@MumbaiIndians",
+      "oembed_status": "available",
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 19162,
+        "download_url": "https://img.youtube.com/vi/006r3SkwbGs/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "brands-19",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": "What's in The Box? - Part 2 | Mumbai Indians",
+      "title_source": "youtube_oembed",
+      "section_heading": "IPL Promotions:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.youtube.com/watch?v=_orr6vu1ejU",
+      "embed_url": "https://www.youtube.com/embed/_orr6vu1ejU?si=bNfnLHBQEbIVC-tH",
+      "provider": "youtube",
+      "video_id": "_orr6vu1ejU",
+      "poster_local_path": "public/media/final-brands-19.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 19,
+      "page_order": 7,
+      "module_order": 18,
+      "dom_order": 246,
+      "status": "recovered",
+      "author_name": "Mumbai Indians",
+      "author_url": "https://www.youtube.com/@MumbaiIndians",
+      "oembed_status": "available",
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 19728,
+        "download_url": "https://img.youtube.com/vi/_orr6vu1ejU/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      }
+    },
+    {
+      "id": "brands-20",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Spreading love with Bumble India!",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/Cmtl3isBUru/?igsh=czJ4ZDZpbmZlbGQ2",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-20.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 20,
+      "page_order": 7,
+      "module_order": 20,
+      "dom_order": 258,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fdc7a1f3-7d6b-4c80-b2d4-94b0d6483eee.png?h=1a2e280e8230eb8d7205931486e2ee2b",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fdc7a1f3-7d6b-4c80-b2d4-94b0d6483eee_rw_600.png?h=8333999b1d9695dbce88427b11500922",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fdc7a1f3-7d6b-4c80-b2d4-94b0d6483eee.png?h=1a2e280e8230eb8d7205931486e2ee2b",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fdc7a1f3-7d6b-4c80-b2d4-94b0d6483eee_rw_600.png?h=8333999b1d9695dbce88427b11500922",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fdc7a1f3-7d6b-4c80-b2d4-94b0d6483eee_rw_600.png?h=8333999b1d9695dbce88427b11500922 375w,"
+      },
+      "poster_info": {
+        "width": 375,
+        "height": 671,
+        "bytes": 30182,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/fdc7a1f3-7d6b-4c80-b2d4-94b0d6483eee_rw_600.png?h=8333999b1d9695dbce88427b11500922",
+        "source_dimensions": [
+          375,
+          671
+        ]
+      }
+    },
+    {
+      "id": "brands-21",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Spreading love with Bumble India!",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/CnZbGgkh5pW/?igsh=eGdhMHM5aHhzbWRv",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-21.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 21,
+      "page_order": 7,
+      "module_order": 20,
+      "dom_order": 263,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/144ca6a1-c06d-4edd-81ab-785bb00e9782.png?h=11200ec9862e150d20e72655fb5f3e43",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/144ca6a1-c06d-4edd-81ab-785bb00e9782_rw_600.png?h=ad5e5ad994476c87e05ae8e269bb4df6",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/144ca6a1-c06d-4edd-81ab-785bb00e9782.png?h=11200ec9862e150d20e72655fb5f3e43",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/144ca6a1-c06d-4edd-81ab-785bb00e9782_rw_600.png?h=ad5e5ad994476c87e05ae8e269bb4df6",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/144ca6a1-c06d-4edd-81ab-785bb00e9782_rw_600.png?h=ad5e5ad994476c87e05ae8e269bb4df6 376w,"
+      },
+      "poster_info": {
+        "width": 376,
+        "height": 670,
+        "bytes": 25692,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/144ca6a1-c06d-4edd-81ab-785bb00e9782_rw_600.png?h=ad5e5ad994476c87e05ae8e269bb4df6",
+        "source_dimensions": [
+          376,
+          670
+        ]
+      }
+    },
+    {
+      "id": "brands-22",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Unboxing the New OnePlus with Rahul Subramanian",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/CpPqsBnKkoT/?igsh=MTl1dTUwc3l2cXk2eQ==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-22.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 22,
+      "page_order": 7,
+      "module_order": 22,
+      "dom_order": 272,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/be18a21e-2488-4302-a1e0-a72ccf68a9c0.png?h=f11e6ca6b62983d409d5acbdc6e9b20a",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/be18a21e-2488-4302-a1e0-a72ccf68a9c0_rw_600.png?h=646c6a4793b02cbe222fd856578e87c5",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/be18a21e-2488-4302-a1e0-a72ccf68a9c0.png?h=f11e6ca6b62983d409d5acbdc6e9b20a",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/be18a21e-2488-4302-a1e0-a72ccf68a9c0_rw_600.png?h=646c6a4793b02cbe222fd856578e87c5",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/be18a21e-2488-4302-a1e0-a72ccf68a9c0_rw_600.png?h=646c6a4793b02cbe222fd856578e87c5 372w,"
+      },
+      "poster_info": {
+        "width": 372,
+        "height": 667,
+        "bytes": 26526,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/be18a21e-2488-4302-a1e0-a72ccf68a9c0_rw_600.png?h=646c6a4793b02cbe222fd856578e87c5",
+        "source_dimensions": [
+          372,
+          667
+        ]
+      }
+    },
+    {
+      "id": "brands-23",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Lifestyle brands:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C1cDOI5oZPK/?igsh=MW1uY3dtZ2xjdm9nOA==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-23.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 23,
+      "page_order": 7,
+      "module_order": 24,
+      "dom_order": 285,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/0e5db60d-55f5-465f-b975-6fb8b0bfbcba.png?h=f68d7dfc4535f69635b9e186d5abeb44",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/0e5db60d-55f5-465f-b975-6fb8b0bfbcba_rw_1200.png?h=b2c5c3643044c4e562bf330afcaa967e",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/0e5db60d-55f5-465f-b975-6fb8b0bfbcba.png?h=f68d7dfc4535f69635b9e186d5abeb44",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/0e5db60d-55f5-465f-b975-6fb8b0bfbcba_rw_1200.png?h=b2c5c3643044c4e562bf330afcaa967e",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/0e5db60d-55f5-465f-b975-6fb8b0bfbcba_rw_600.png?h=3439b306086429a3514e5a7dbb212724 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/0e5db60d-55f5-465f-b975-6fb8b0bfbcba_rw_1200.png?h=b2c5c3643044c4e562bf330afcaa967e 669w,"
+      },
+      "poster_info": {
+        "width": 669,
+        "height": 672,
+        "bytes": 34270,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/0e5db60d-55f5-465f-b975-6fb8b0bfbcba_rw_1200.png?h=b2c5c3643044c4e562bf330afcaa967e",
+        "source_dimensions": [
+          669,
+          672
+        ]
+      }
+    },
+    {
+      "id": "brands-24",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Lifestyle brands:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/Cyao5CcIjr1/?igsh=YzU2cnIwbnZ3ZDJ4",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-24.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 24,
+      "page_order": 7,
+      "module_order": 24,
+      "dom_order": 290,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e94b4183-8015-4351-8e14-8d08b05f2ccd.png?h=9cca19e9035454f3c02ea4340431c37c",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e94b4183-8015-4351-8e14-8d08b05f2ccd_rw_1200.png?h=e52cf239f70c4176d49e884dc968db81",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e94b4183-8015-4351-8e14-8d08b05f2ccd.png?h=9cca19e9035454f3c02ea4340431c37c",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e94b4183-8015-4351-8e14-8d08b05f2ccd_rw_1200.png?h=e52cf239f70c4176d49e884dc968db81",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e94b4183-8015-4351-8e14-8d08b05f2ccd_rw_600.png?h=e3f93dcf45bfe824ef68ee5e0e2bee37 600w,https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e94b4183-8015-4351-8e14-8d08b05f2ccd_rw_1200.png?h=e52cf239f70c4176d49e884dc968db81 671w,"
+      },
+      "poster_info": {
+        "width": 671,
+        "height": 670,
+        "bytes": 36100,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/e94b4183-8015-4351-8e14-8d08b05f2ccd_rw_1200.png?h=e52cf239f70c4176d49e884dc968db81",
+        "source_dimensions": [
+          671,
+          670
+        ]
+      }
+    },
+    {
+      "id": "brands-25",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Lifestyle brands:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C7MIeUxBnwB/?igsh=cWpqbWx3Ym85dGkw",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-25.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 25,
+      "page_order": 7,
+      "module_order": 25,
+      "dom_order": 297,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/3646affe-1d82-444f-b0d7-817a1181ee3f.png?h=716d6bb76cfa034f246674085ab31596",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/3646affe-1d82-444f-b0d7-817a1181ee3f_rw_600.png?h=8cbad24f66322f0d7a6d55ce9d52ce90",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/3646affe-1d82-444f-b0d7-817a1181ee3f.png?h=716d6bb76cfa034f246674085ab31596",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/3646affe-1d82-444f-b0d7-817a1181ee3f_rw_600.png?h=8cbad24f66322f0d7a6d55ce9d52ce90",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/3646affe-1d82-444f-b0d7-817a1181ee3f_rw_600.png?h=8cbad24f66322f0d7a6d55ce9d52ce90 378w,"
+      },
+      "poster_info": {
+        "width": 378,
+        "height": 669,
+        "bytes": 21498,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/3646affe-1d82-444f-b0d7-817a1181ee3f_rw_600.png?h=8cbad24f66322f0d7a6d55ce9d52ce90",
+        "source_dimensions": [
+          378,
+          669
+        ]
+      }
+    },
+    {
+      "id": "brands-26",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Lifestyle brands:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/Cw7r1XXBEgG/?igsh=MnpnYXQ4c2R3MjQ4",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-26.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 26,
+      "page_order": 7,
+      "module_order": 25,
+      "dom_order": 302,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6aaacf7d-7ce7-482e-a4c9-8305938ea9d9.png?h=d7ef9bc74b72dfe92cecfdc19507f649",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6aaacf7d-7ce7-482e-a4c9-8305938ea9d9_rw_600.png?h=f5e328e163d18d78cf65a40c70175784",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6aaacf7d-7ce7-482e-a4c9-8305938ea9d9.png?h=d7ef9bc74b72dfe92cecfdc19507f649",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6aaacf7d-7ce7-482e-a4c9-8305938ea9d9_rw_600.png?h=f5e328e163d18d78cf65a40c70175784",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6aaacf7d-7ce7-482e-a4c9-8305938ea9d9_rw_600.png?h=f5e328e163d18d78cf65a40c70175784 378w,"
+      },
+      "poster_info": {
+        "width": 378,
+        "height": 666,
+        "bytes": 36302,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/6aaacf7d-7ce7-482e-a4c9-8305938ea9d9_rw_600.png?h=f5e328e163d18d78cf65a40c70175784",
+        "source_dimensions": [
+          378,
+          666
+        ]
+      }
+    },
+    {
+      "id": "brands-27",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Lifestyle brands:",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.instagram.com/reel/C4fmVFeold7/?igsh=MWRiYnYwcGR1NHd5bA==",
+      "embed_url": null,
+      "provider": "instagram",
+      "video_id": null,
+      "poster_local_path": "public/media/final-brands-27.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 27,
+      "page_order": 7,
+      "module_order": 26,
+      "dom_order": 306,
+      "status": "recovered",
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4cd75736-b2a1-4cc7-8132-e1e4764f23ea.png?h=c28e27a2124fd481472a579c2a717ea5",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4cd75736-b2a1-4cc7-8132-e1e4764f23ea_rw_600.png?h=e4ac48a410a9a37ef1db3d740cf84c42",
+      "image_source_variants": {
+        "original": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4cd75736-b2a1-4cc7-8132-e1e4764f23ea.png?h=c28e27a2124fd481472a579c2a717ea5",
+        "display": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4cd75736-b2a1-4cc7-8132-e1e4764f23ea_rw_600.png?h=e4ac48a410a9a37ef1db3d740cf84c42",
+        "srcset": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4cd75736-b2a1-4cc7-8132-e1e4764f23ea_rw_600.png?h=e4ac48a410a9a37ef1db3d740cf84c42 375w,"
+      },
+      "poster_info": {
+        "width": 375,
+        "height": 667,
+        "bytes": 22488,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/4cd75736-b2a1-4cc7-8132-e1e4764f23ea_rw_600.png?h=e4ac48a410a9a37ef1db3d740cf84c42",
+        "source_dimensions": [
+          375,
+          667
+        ]
+      }
+    },
+    {
+      "id": "brands-28",
+      "category": "Brands",
+      "category_slug": "brands",
+      "title": null,
+      "title_source": null,
+      "section_heading": "Marketing Swiggy's Campaign in collaboration with Cirkus (2023)",
+      "source_page": "https://prantikdutta.myportfolio.com/brands",
+      "source_url": "https://www.youtube.com/watch?v=BwLlKGFGc1A",
+      "embed_url": "https://www.youtube.com/embed/BwLlKGFGc1A?si=A8KDV484OKH2hwUY",
+      "provider": "youtube",
+      "video_id": "BwLlKGFGc1A",
+      "poster_local_path": "public/media/final-brands-28.webp",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 28,
+      "page_order": 7,
+      "module_order": 28,
+      "dom_order": 316,
+      "status": "poster_recovered_title_unavailable",
+      "final_retrieval_notes": [
+        "metadata: <urlopen error timed out>",
+        "thumbnail: <urlopen error timed out>"
+      ],
+      "poster_info": {
+        "width": 480,
+        "height": 360,
+        "bytes": 16514,
+        "download_url": "https://img.youtube.com/vi/BwLlKGFGc1A/hqdefault.jpg",
+        "source_dimensions": [
+          480,
+          360
+        ]
+      },
+      "oembed_status": "unavailable"
+    },
+    {
+      "id": "about-background",
+      "category": "About",
+      "category_slug": "about",
+      "title": null,
+      "title_source": null,
+      "section_heading": null,
+      "source_page": "https://prantikdutta.myportfolio.com/about",
+      "source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/07ac39fa-408c-4958-9891-04e52a645201_rwc_22x0x3335x1890x4096.png?h=f57d556f3cabbcc9afb2143a345295fe",
+      "embed_url": null,
+      "provider": "image",
+      "poster_local_path": null,
+      "image_source_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/07ac39fa-408c-4958-9891-04e52a645201_rwc_22x0x3335x1890x4096.png?h=f57d556f3cabbcc9afb2143a345295fe",
+      "image_rendition_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/07ac39fa-408c-4958-9891-04e52a645201_rwc_22x0x3335x1890x4096.png?h=f57d556f3cabbcc9afb2143a345295fe",
+      "adjacent_caption": null,
+      "ai_disclosure": null,
+      "original_order": 0,
+      "page_order": 1,
+      "module_order": 0,
+      "dom_order": 0,
+      "status": "recovered",
+      "note": "Visually inspected: blue, cyan, and pink marbled texture. No portrait was present in the source About HTML or CSS.",
+      "poster_info": {
+        "width": 1400,
+        "height": 793,
+        "bytes": 230178,
+        "download_url": "https://cdn.myportfolio.com/b80a7ac7-e7a2-43c0-ada2-2f7e755f8352/07ac39fa-408c-4958-9891-04e52a645201_rwc_22x0x3335x1890x4096.png?h=f57d556f3cabbcc9afb2143a345295fe",
+        "source_dimensions": [
+          3335,
+          1890
+        ]
+      },
+      "asset_role": "page_background"
+    }
+  ],
+  "complete": true
+}

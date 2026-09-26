@@ -1,0 +1,72 @@
+name: Add or update a project
+concurrency:
+  group: portfolio-content-edit
+  cancel-in-progress: false
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Project title
+        required: true
+        type: string
+      url:
+        description: YouTube, Instagram, Google Drive or project URL
+        required: true
+        type: string
+      category:
+        description: Work category
+        required: true
+        type: choice
+        options: [short-form, brands, youtube, trailers, events]
+      description:
+        description: A short description (optional)
+        type: string
+      role:
+        description: Your specific role (optional)
+        type: string
+      disclosure:
+        description: AI-generation disclosure, if applicable
+        type: string
+      featured:
+        description: Feature on the home page
+        type: boolean
+        default: false
+      project_id:
+        description: Existing project ID to update; leave blank to add
+        type: string
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  edit:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Update project
+        run: node scripts/update-project.mjs
+        env:
+          INPUT_TITLE: ${{ inputs.title }}
+          INPUT_URL: ${{ inputs.url }}
+          INPUT_CATEGORY: ${{ inputs.category }}
+          INPUT_DESCRIPTION: ${{ inputs.description }}
+          INPUT_ROLE: ${{ inputs.role }}
+          INPUT_DISCLOSURE: ${{ inputs.disclosure }}
+          INPUT_FEATURED: ${{ inputs.featured }}
+          INPUT_PROJECT_ID: ${{ inputs.project_id }}
+      - name: Save your change
+        run: |
+          git config user.name "Portfolio update"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add content/projects.json public/media
+          git diff --cached --quiet || git commit -m "Update portfolio project"
+          git push origin main
+  publish:
+    needs: edit
+    uses: ./.github/workflows/deploy.yml

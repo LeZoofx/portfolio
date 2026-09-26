@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.server/
+.env*
+.DS_Store
+qa/
+_qa.html
+_preview/

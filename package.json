@@ -1,0 +1,33 @@
+{
+  "name": "prantik-dutta-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "typecheck": "tsc --noEmit",
+    "validate": "node scripts/validate-content.mjs",
+    "build": "npm run validate && npm run typecheck && vite build && vite build --ssr src/entry-server.tsx --outDir .server && node scripts/prerender.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "update-project": "node scripts/update-project.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "publish:github": "node scripts/publish.mjs"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.183.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "typescript": "^5.9.3",
+    "vite": "8.3.1"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
