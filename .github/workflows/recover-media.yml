@@ -1,0 +1,38 @@
+name: Restore missing portfolio images
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/recover-media.py
+      - .github/workflows/recover-media.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: portfolio-media-recovery
+  cancel-in-progress: false
+jobs:
+  recover:
+    if: github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: main
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow==11.3.0
+      - run: python scripts/recover-media.py
+      - name: Save recovered images
+        run: |
+          git config user.name "Portfolio media recovery"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/media
+          git diff --cached --quiet || git commit -m "Restore portfolio media from original sources"
+          git push origin main
+  publish:
+    needs: recover
+    uses: ./.github/workflows/deploy.yml
