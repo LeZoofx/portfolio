@@ -1,6 +1,6 @@
 {
   "name": "Prantik Dutta",
-  "title": "Creative & visual direction",
+  "title": "Prantik Dutta's Portfolio",
   "location": "Mumbai, India",
   "email": "prantikdutta1611@gmail.com",
   "phone": "+919748940484",
@@ -8,5 +8,12 @@
   "sourcePortfolio": "https://prantikdutta.myportfolio.com/",
   "intro": "I shape the idea, the image and the edit. Films, campaigns and AI visuals — from the first thought to the final frame.",
   "about": "My work moves between creative direction, production and post-production. I build visual approaches, guide editors and designers, and stay close to the decisions that make a piece work: the hook, the rhythm, the image and the feeling.",
-  "disciplines": ["Creative direction", "Video production", "Post-production direction", "AI visuals & VFX", "Campaign development", "Team & workflow direction"]
+  "disciplines": [
+    "Creative direction",
+    "Video production",
+    "Post-production direction",
+    "AI visuals & VFX",
+    "Campaign development",
+    "Team & workflow direction"
+  ]
 }

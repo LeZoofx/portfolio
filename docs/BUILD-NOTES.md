@@ -6,11 +6,15 @@ Updated 27 September 2026. The implementation brief is [CREATIVE-DIRECTION-v2.md
 
 Normal mode is pre-rendered React HTML with searchable projects, category filters, selected work, About and Contact. GitHub Pages receives 89 static pages plus a 404 page. A scrolling Clients & collaborators strip begins Google, Netflix and Lollapalooza, with the remaining names supplied by the owner, the original portfolio and the résumé. The opening starts with Darlings and has a randomized seven-project deck. It pauses on hover/focus and under reduced-motion preferences. The résumé contributes two attributed results: 5.2M views in one month at Trunativ and 305% viewership growth at Schbang. The archive count comes from the project data.
 
-Fun mode combines native vertical scrolling with five different compositions: frosted Glass, concrete Mass, anti-design Cut, the retro 1998 desktop, and photographic Afterimage. Each composition has different spatial transitions, typography, colors, borders and image treatments. The camera follows a closed curve through low-poly geometry; pointer input affects geometry, frames and individual name characters. A bounded scroll track rebases at its ends, and only two foreground compositions and their backgrounds are retained. Direct navigation takes the shortest route through the loop. Browser zoom remains available.
+Overview and Explore both use a complete, native portfolio scroll. All 79 projects appear exactly once across 15 sections, after a curated opening of the major-name work. The remaining projects are grouped and interleaved by film, campaigns, short form, YouTube and live events. Six layout arrangements and five internal visual treatments provide variety. Public labels describe the work; design-process labels are not shown. New projects automatically join the sequence.
+
+The opening shuffle advances roughly every two seconds. A moving thumbnail strip includes the complete archive before the client marquee. The browser title and social metadata use “Prantik Dutta's Portfolio”.
+
+Explore retains the reactive Three.js geometry underneath the scrolling collection. Overview keeps the floating 3D controls. Both scroll views use IntersectionObserver to limit autoplay to three visible YouTube projects on larger screens and two on phones. Offscreen players unmount. Images remain visible for other providers, with the original project viewer and source links available. Reduced-motion and data-saving settings disable automatic player loading.
 
 Media is rendered in HTML, independently of the WebGL canvas. This avoids making original images depend on successful GPU texture uploads. React Three Fiber / Three.js load only in Fun mode. A room environment supplies reflections; rendering happens on demand and suspends in hidden documents and while a project panel is open. Pixel density is capped at 1.75, or 1 in Eco mode. Eco also disables glass transmission. The same worlds keep working with CSS depth and reactive geometric forms if WebGL fails.
 
-Three YouTube IFrame API players are reused across world changes on larger screens; phone and Eco layouts use two. Companion films remain muted. Opening a themed Easter egg pauses the scene films and runs its own temporary player. It starts muted, waits for the provider's PLAYING event before dissolving the local poster, and debounces rapid project switches. Portrait and landscape work use their source aspect ratios. Playback pauses in hidden tabs; opening a project removes the ambient player. Visitors can pause or enable sound. Reduced motion and data-saving preferences disable automatic video loading. A local poster, manual Play button and project/source links remain available when streaming is blocked or fails.
+Up to three YouTube IFrame API players are mounted for visible projects on larger screens; phone layouts use two. Companion films remain muted. Opening a themed Easter egg pauses the scene films and runs its own temporary player. It starts muted, waits for the provider's PLAYING event before dissolving the local poster, and debounces rapid project switches. Portrait and landscape work use their source aspect ratios. Playback pauses in hidden tabs; opening a project removes the ambient player. Visitors can pause or enable sound. Reduced motion and data-saving preferences disable automatic video loading. A local poster, manual Play button and project/source links remain available when streaming is blocked or fails.
 
 Small themed controls open a floating film window after a short pointer dwell, scrolling over them, or tap/keyboard activation. Its treatment matches the trigger: aperture flash, film frame, backstage ticket or retro dialog. Floating 3D forms on Normal also reveal films. Peripheral images open their corresponding film or project. All 79 original project records, source URLs, embeds and 11 AI disclosures are retained. Instagram and Drive use their original provider embeds inside the project viewer. Source links are always available.
 
@@ -20,7 +24,7 @@ Small themed controls open a floating film window after a short pointer dwell, s
 - The `/portfolio/` production build passed TypeScript, both rendering entries and all 89 pre-rendered pages plus 404.
 - The revised project data has been compared with the prior published commit: every project ID, original URL, embed and disclosure matches.
 - The desktop and 390 × 844 phone layouts have been inspected in the browser, including the opening shuffle/stats, glass/brutalist/collage/retro compositions and portrait framing.
-- The compatibility scene renders actual local images rather than empty frames when the browser disables WebGL. Forward wrap (05 → 01) retains two scene compositions; reverse navigation uses the adjacent final world. The final multiple-video pass uses the same bounded player lifecycle.
+- The compatibility scene renders actual local images rather than empty frames when the browser disables WebGL. The complete-scroll update includes a direct coverage check: 79 of 79 project IDs appear exactly once across 15 sections.
 
 The test browser disables WebGL, so hardware rendering and sustained GPU performance still need a physical-device check. The browser loaded YouTube embeds but streaming remained at zero ready state, so successful continuous playback could not be confirmed in this environment. The poster and manual-play fallback were inspected. No field Core Web Vitals score, formal accessibility audit or device battery benchmark is claimed.
 
@@ -41,7 +45,8 @@ The media recovery action now tries genuine larger YouTube thumbnails and preser
 | Media | `public/media/` |
 | Restore or improve posters | GitHub Actions → Restore missing portfolio images |
 | Normal opening | `src/HomeIntro.tsx`, `src/experience.css` |
-| Art worlds and scroll logic | `src/Universe.tsx`, `src/journey.css`, `src/journeyData.ts` |
+| Complete scroll and section layouts | `src/PortfolioScroll.tsx`, `src/portfolioSections.ts`, `src/portfolio-scroll.css` |
+| Explore background | `src/Universe.tsx`, `src/JourneyScene.tsx` |
 | 3D geometry | `src/JourneyScene.tsx` |
 | Reused video player | `src/JourneyPlayer.tsx` |
 | Reactive name | `src/KineticName.tsx` |

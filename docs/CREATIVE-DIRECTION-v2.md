@@ -71,3 +71,10 @@ These external sites are references for particular principles, not claims of Pra
 Show several moving films in every Fun world: three on larger screens, two on phones or Eco mode, with original portrait/landscape proportions. Keep companion audio muted. Reuse the same small player pool across worlds. A discovered film opens in a themed floating window and temporarily pauses the background players. Hover, scroll-over, tap and keyboard activation all reveal it. Normal also has floating, reactive 3D forms that conceal films.
 
 Add a continuously scrolling “Clients & collaborators” strip on the first page, starting Google, Netflix and Lollapalooza. Google is explicitly supplied by the owner; the remaining brands and collaborators come from the original portfolio and résumé. Keep names editable in one JSON list.
+
+
+## Complete portfolio revision · 27 September 2026
+
+Both Overview and Explore must show every project in the main scroll. Lead with the major-name selection, then interleave the remaining projects in varied film, campaign, short-form, YouTube and live-event sections. Keep the searchable All work menu as an additional route. Use up to three visible autoplay players on larger screens and two on phones, with poster fallbacks and original sources retained. Make the opening shuffle run approximately every two seconds and expose the full archive in an animated thumbnail strip.
+
+The public site name is “Prantik Dutta's Portfolio”. All interface copy must describe the work professionally. Internal visual-treatment names must never appear as page headings or navigation labels.

@@ -10,7 +10,7 @@ const origin=(process.env.SITE_URL||'').replace(/\/$/,'');
 async function page(route,filename){
  const p=data.find(p=>route==='/work/'+p.id+'/');
  let html=template.replace('<!--app-html-->',render(route)).replace('{"path":"/"}',JSON.stringify({path:route}));
- const title=p?p.title+' — '+site.name:site.name+' — Creative & Visual Direction';
+ const title=p?p.title+' — '+site.title:site.title;
  html=html.replace(/<title>.*?<\/title>/,'<title>'+escape(title)+'</title>');
  const url=origin?origin+route:'';
  const meta='<meta property="og:title" content="'+escape(title)+'"/><meta property="og:type" content="website"/><meta property="og:description" content="'+escape(p?.description||site.intro)+'"/>'+(url?'<link rel="canonical" href="'+escape(url)+'"/><meta property="og:url" content="'+escape(url)+'"/>':'');

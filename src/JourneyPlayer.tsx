@@ -1,6 +1,7 @@
 import {useEffect,useRef,useState} from 'react';
 import {asset,type Project} from './content';
 import {filmId} from './journeyData';
+import './journey.css';
 type Player={mute:()=>void;unMute:()=>void;playVideo:()=>void;pauseVideo:()=>void;destroy:()=>void;loadVideoById:(id:string)=>void;seekTo:(n:number,allow:boolean)=>void;getVideoData:()=>{video_id?:string}};
 declare global {interface Window {YT?:{Player:new(el:HTMLElement,opts:Record<string,unknown>)=>Player};onYouTubeIframeAPIReady?:()=>void}}
 let apiPromise:Promise<void>|undefined;

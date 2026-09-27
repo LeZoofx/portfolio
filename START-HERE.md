@@ -1,6 +1,6 @@
 # Your portfolio is live
 
-This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has a fast Normal experience and a Fun experience with five looping worlds. Normal mode loads videos on Play. Fun mode plays several muted videos together as you travel (three on larger screens, two on phones/Eco); a poster and Play button remain available when the provider or browser blocks autoplay. Sound is always your choice.
+This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has Overview and Explore views. Both include all 79 projects in the main scroll, across 15 varied sections; All work also provides the searchable index. The main scroll activates several muted videos as they enter view (three on larger screens, two on phones); a poster and Play button remain available when the provider or browser blocks autoplay. Sound is always your choice.
 
 ## Your website and editing links
 
@@ -19,7 +19,7 @@ The site has no public admin page and no password or publishing token in its bro
 1. Open **[Add or update a project](https://github.com/LeZoofx/portfolio/actions/workflows/update-project.yml)** in your repository.
 2. Select **Run workflow**.
 3. Enter a title, project URL and category. Add your role, description and AI disclosure where applicable.
-4. Select **Feature on the home page** if desired. A new featured project moves to the front; the home page displays four.
+4. Select **Feature on the home page** if desired. A new featured project moves to the front; featured work leads the opening selection.
 5. Leave **project_id** empty to add work. To update an existing project, copy its ID from the end of its website address, such as `social-short-format-03`.
 6. Press **Run workflow**. GitHub saves the change, rebuilds the site and publishes it. Wait for a green check under Actions.
 
@@ -27,7 +27,7 @@ When updating a project, enter all the optional text you want to keep: empty opt
 
 The scrolling client/collaborator list is editable in `content/clients.json`. Floating objects reveal extra films on hover, scroll-over or tap.
 
-The opening shuffle has its own short list in `content/showcase.json`: each entry contains an existing project ID, a short display title and a label. The first entry appears first on a fresh visit. Change this list to curate the shuffle; it does not remove anything from the full archive. The two résumé results in the opening are Trunativ’s 5.2M views in one month and Schbang’s 305% viewership growth. The project count updates automatically.
+The opening shuffle has its own short list in `content/showcase.json`: each entry contains an existing project ID, a short display title and a label. The first entry appears first on a fresh visit. The opening shuffles approximately every two seconds, and an animated thumbnail strip exposes the complete archive. Change this list to curate the shuffle; it does not remove anything from the full archive. The two résumé results in the opening are Trunativ’s 5.2M views in one month and Schbang’s 305% viewership growth. The project count updates automatically.
 
 To update your biography, contact details or disciplines, open `content/site.json` in GitHub, click the pencil, change the text between quotation marks and commit. The site publishes automatically. To remove a project, delete its complete object from `content/projects.json`; use GitHub's Preview changes to check the edit. Ask me to handle this if you prefer.
 
@@ -62,7 +62,7 @@ Open the local address printed by Vite. To build the production files, run `npm 
 - Original AI disclosures are preserved. The source showreel was under maintenance, so its page directs visitors to existing projects.
 - Some source links and videos can require a provider login or can stop working later. Each project keeps an original-source link as a fallback. Two original brand TinyURLs could not be resolved during migration and are preserved as supplied.
 - Generic source titles remain where the old site did not supply a specific title. Per-project credits have not been invented. Replace these through the editing workflow when convenient.
-- WebGL uses the full 3D renderer. If a browser cannot create WebGL, Fun keeps the same five worlds and uses CSS depth and reactive shapes. Reduced-motion and data-saving settings turn off automatic playback; visitors can still press Play. The art-world buttons also work with a keyboard.
+- WebGL uses the full 3D renderer. If a browser cannot create WebGL, Explore retains all work and its varied layouts when WebGL is unavailable. Reduced-motion and data-saving settings turn off automatic playback; visitors can still press Play. The category controls and project links also work with a keyboard.
 - **[Restore missing portfolio images](https://github.com/LeZoofx/portfolio/actions/workflows/recover-media.yml)** can recover missing original posters. It also attempts genuine higher-resolution YouTube posters. Existing images remain available if a larger original cannot be fetched; it never enlarges a small image to pretend it is high resolution.
 
 ## Official references
