@@ -10,3 +10,6 @@ for(const p of data){
  for(const key of ['poster','image'])if(p[key]&&!/^https:/.test(p[key])&&!fs.existsSync('public/'+p[key]))throw Error('Missing image: '+p[key]);
 }
 console.log('Validated '+data.length+' projects.');
+
+const metrics=JSON.parse(fs.readFileSync('content/video-metrics.json','utf8'));const videoIds=new Set();
+for(const metric of metrics.videos){const project=data.find(p=>p.id===metric.projectId);if(!project||project.provider!=='youtube'||metric.url!==project.sourceUrl)throw Error('Metric does not match a linked video: '+metric.projectId);if(!Number.isSafeInteger(metric.views)||metric.views<0||videoIds.has(metric.videoId)||!metric.channelId||!Number.isFinite(Date.parse(metric.checkedAt)))throw Error('Invalid metric snapshot: '+metric.projectId);videoIds.add(metric.videoId)}

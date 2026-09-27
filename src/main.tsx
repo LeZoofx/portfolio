@@ -4,6 +4,7 @@ import App from './App';
 import './styles.css';
 import './experience.css';
 import './art-direction.css';
+import './style-worlds.css';
 const node=document.getElementById('root')!;
 const state=JSON.parse(document.getElementById('page-state')?.textContent || '{}');
 const app=<App initialPath={state.path || '/'} />;

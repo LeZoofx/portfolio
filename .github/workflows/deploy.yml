@@ -4,6 +4,8 @@ on:
     branches: [main]
   workflow_dispatch:
   workflow_call:
+  schedule:
+    - cron: '20 3 * * 1'
 permissions:
   contents: read
 concurrency:
@@ -25,6 +27,7 @@ jobs:
         id: pages
       - run: npm ci
       - run: npm test
+      - run: npm run refresh:metrics
       - run: npm run build
         env:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}/

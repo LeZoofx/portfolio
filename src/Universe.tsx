@@ -9,6 +9,8 @@ import KineticName from './KineticName';
 import KineticType from './KineticType';
 import SceneAccents from './SceneAccents';
 import ClientMarquee from './ClientMarquee';
+import PosterType,{KineticCopy} from './PosterType';
+import {posterCopy} from './artStyles';
 import showcase from '../content/showcase.json';
 import positioning from '../content/positioning.json';
 import './journey.css';
@@ -26,12 +28,12 @@ function Discovery({project,onReveal,theme}:{project:Project;onReveal:(p:Project
 }
 function DepthWorld({section,active,autoplay,compact,paused,playing,muted,onProject,onDiscover}:{section:PortfolioSection;active:boolean;autoplay:boolean;compact:boolean;paused:boolean;playing:boolean;muted:boolean;onProject:(p:Project)=>void;onDiscover:(p:Project)=>void}){
  const playable=section.items.filter(p=>p.provider==='youtube').slice(0,compact?2:3).map(p=>p.id);
- return <><SceneAccents theme={section.theme}/><div className="depth-heading">{section.category==='selected'&&section.offset===0?<><p className="depth-specialty">{positioning.eyebrow}</p><h1><KineticName/></h1><p className="depth-intro">{positioning.intro}</p></>:<><p className="depth-specialty">{section.focus}</p><h2><KineticType text={section.title} variant={section.theme}/></h2><p className="depth-intro">{section.summary}</p></>}</div>
+ return <><SceneAccents theme={section.theme} art={section.art}/><div className="depth-heading">{section.category==='selected'&&section.offset===0?<><p className="depth-specialty"><KineticCopy text={positioning.eyebrow}/></p><h1><KineticName/></h1><PosterType lines={posterCopy.selected} art={section.art} className="depth-poster-copy"/></>:<><p className="depth-specialty"><KineticCopy text={section.focus}/></p><h2><KineticType text={section.title} variant={section.theme}/></h2><PosterType lines={posterCopy[section.category]} art={section.art} className="depth-poster-copy"/></>}</div>
  <div className="depth-type-field" aria-hidden="true"><KineticType text={section.category==='selected'?'POST':section.title.toUpperCase()} variant={section.theme}/></div>
  <div className="depth-gallery">{section.items.map((p,i)=><article className={'depth-film slot-'+i+((p.aspect||16/9)<1?' portrait-film':'')} key={p.id} style={{'--film-ratio':p.aspect||16/9,'--tile':i} as CSSProperties}>
-  <div className="depth-film-label"><span>{brandFor(p)||section.title}</span><span className="depth-platform">{platformLabel(p)} <i aria-hidden="true">{section.theme===3?'_ □':'↗'}</i></span></div>
+  <div className="depth-film-label"><span><KineticCopy text={brandFor(p)||section.title}/></span><span className="depth-platform">{platformLabel(p)} <i aria-hidden="true">{section.theme===3?'_ □':'↗'}</i></span></div>
   <div className="depth-film-frame">{active&&autoplay&&playable.includes(p.id)&&!paused?<JourneyPlayer project={p} enabled muted={muted||p.id!==playable[0]} playing={playing} onOpen={()=>onProject(p)}/>:<a className="depth-poster" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}} aria-label={'Watch '+title(p)}>{p.poster?<img src={asset(p.poster)} alt={title(p)} decoding="async"/>:<span>{title(p)}</span>}<span className="depth-play" aria-hidden="true">▶</span></a>}</div>
-  <a className="depth-caption" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}}>{title(p)}<span aria-hidden="true">↗</span></a>
+  <a className="depth-caption" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}}><KineticCopy text={title(p)}/><span aria-hidden="true">↗</span></a>
  </article>)}</div>
  <Discovery project={section.items[Math.min(2,section.items.length-1)]} onReveal={onDiscover} theme={section.theme}/>
  <div className="depth-registration" aria-hidden="true"><i/><i/><i/><i/></div></>;
@@ -68,13 +70,13 @@ export default function Universe({projects,onProject,onIndex,paused,reduced}:{pr
  },[motion,sections,total]);
  useEffect(()=>{wake.current()},[base,paused,reduced,secret,graphics]);
  const visible=[...new Set([modulo(base-1,total),base,modulo(base+1,total)])];
- return <div ref={root} className={'journey depth-journey'+(reduced?' reduced-depth':'')} data-theme={themes[section.theme]} data-category={section.category}>
+ return <div ref={root} className={'journey depth-journey'+(reduced?' reduced-depth':'')} data-theme={themes[section.theme]} data-category={section.category} data-art={section.art}>
   <div ref={scroll} className="depth-scroll" tabIndex={0} aria-label="Scroll through the portfolio in 3D" style={{overflowY:paused||secret?'hidden':'auto'}} onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(['PageDown','ArrowRight'].includes(e.key)){e.preventDefault();navigate.current(current.current+1)}if(['PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();navigate.current(current.current-1)}if(e.key==='Home'){e.preventDefault();navigate.current(0)}}}>
    <div className="depth-track"><div className="depth-stage">
-    <div className="depth-atmosphere" aria-hidden="true">{visible.map(index=><div key={sections[index].id} ref={el=>{if(el)backdropRefs.current.set(index,el);else backdropRefs.current.delete(index)}} className={'depth-backdrop backdrop-'+themes[sections[index].theme]} style={{opacity:index===chapter?1:0}}/>)}</div>
+    <div className="depth-atmosphere" aria-hidden="true">{visible.map(index=><div key={sections[index].id} ref={el=>{if(el)backdropRefs.current.set(index,el);else backdropRefs.current.delete(index)}} className={'depth-backdrop backdrop-'+sections[index].art} style={{opacity:index===chapter?1:0}}/>)}</div>
     <div className="depth-landscape" aria-hidden="true"><div className="depth-floor"/><div className="depth-horizon"/>{Array.from({length:8},(_,i)=><div className={'lowpoly-pillar pillar-'+i} key={i} style={{'--pillar':i} as CSSProperties}><i/><i/><i/></div>)}</div>
-    {graphics&&!reduced&&<GeometryBoundary onFailure={()=>setGraphics(false)}><Suspense fallback={null}><Scene motion={motion} onDiscover={()=>setSecret(section.items[0])} onFailure={()=>setGraphics(false)}/></Suspense></GeometryBoundary>}
-    <div className="depth-worlds">{visible.map(index=><div ref={el=>{if(el)worldRefs.current.set(index,el);else worldRefs.current.delete(index)}} key={sections[index].id} className={'zoom-world zoom-tone-'+themes[sections[index].theme]+' zoom-layout-'+sections[index].layout} data-depth-index={index} aria-label={sections[index].title} style={{opacity:index===chapter?1:0}}><div className="depth-portal" aria-hidden="true"/><DepthWorld section={sections[index]} active={index===chapter} autoplay={!reduced&&!saveData} compact={compact} paused={paused||!!secret} muted={muted} playing={playing} onProject={onProject} onDiscover={setSecret}/></div>)}</div>
+    {graphics&&!reduced&&<GeometryBoundary onFailure={()=>setGraphics(false)}><Suspense fallback={null}><Scene motion={motion} styles={sections.map(s=>s.art)} onDiscover={()=>setSecret(section.items[0])} onFailure={()=>setGraphics(false)}/></Suspense></GeometryBoundary>}
+    <div className="depth-worlds">{visible.map(index=><div ref={el=>{if(el)worldRefs.current.set(index,el);else worldRefs.current.delete(index)}} key={sections[index].id} className={'zoom-world zoom-tone-'+themes[sections[index].theme]+' zoom-layout-'+sections[index].layout} data-depth-index={index} data-art={sections[index].art} aria-label={sections[index].title} style={{opacity:index===chapter?1:0}}><div className="depth-portal" aria-hidden="true"/><DepthWorld section={sections[index]} active={index===chapter} autoplay={!reduced&&!saveData} compact={compact} paused={paused||!!secret} muted={muted} playing={playing} onProject={onProject} onDiscover={setSecret}/></div>)}</div>
    </div></div>
   </div>
   <div className="depth-topbar"><nav aria-label="Portfolio categories">{portfolioCategories.map(c=>{const index=sections.findIndex(s=>s.category===c.id);return <button key={c.id} aria-current={section.category===c.id?'location':undefined} disabled={index<0} onClick={()=>navigate.current(index)}>{c.label}</button>})}</nav><button className="depth-index" onClick={onIndex}>All work ↗</button></div>

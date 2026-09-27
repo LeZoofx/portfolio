@@ -75,3 +75,11 @@ See `docs/BUILD-NOTES.md` for technical details and verification limits.
 
 
 Positioning and rotating results are editable in `content/positioning.json`. Brand and collaborator assignments live in `content/project-brands.json`. Keep numerical claims tied to their source. Public project totals are intentionally omitted.
+
+### Reach figures
+
+The site combines verified public YouTube counters in `content/video-metrics.json` with career results in `content/positioning.json`. Publishing automatically attempts to refresh those counters; a Monday rebuild keeps the public snapshots current. If YouTube is unavailable, the previous dated values remain. The source button beside the result ticker explains the totals. You can run `npm run refresh:metrics` locally before publishing. No API key or password is required.
+
+### Art and typography
+
+`src/artStyles.ts` controls the visual sequence and short poster copy. `src/style-worlds.css` contains the twelve visual treatments. `content/clients.json` remains the only client-name list; the website distributes it into three scrolling rows automatically.
