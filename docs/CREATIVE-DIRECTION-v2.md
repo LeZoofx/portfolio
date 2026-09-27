@@ -64,3 +64,10 @@ Before publication, inspect every world at desktop and phone sizes. Check the na
 - Three.js texture lifecycle: https://threejs.org/docs/pages/Texture.html
 
 These external sites are references for particular principles, not claims of Prantik's endorsement and not templates to copy.
+
+
+## Final owner feedback · 27 September 2026
+
+Show several moving films in every Fun world: three on larger screens, two on phones or Eco mode, with original portrait/landscape proportions. Keep companion audio muted. Reuse the same small player pool across worlds. A discovered film opens in a themed floating window and temporarily pauses the background players. Hover, scroll-over, tap and keyboard activation all reveal it. Normal also has floating, reactive 3D forms that conceal films.
+
+Add a continuously scrolling “Clients & collaborators” strip on the first page, starting Google, Netflix and Lollapalooza. Google is explicitly supplied by the owner; the remaining brands and collaborators come from the original portfolio and résumé. Keep names editable in one JSON list.

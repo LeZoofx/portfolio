@@ -35,10 +35,10 @@ export default function JourneyPlayer({project,enabled,muted,playing,onOpen}:{pr
  useEffect(()=>{if(!ready.current)return;if(muted)player.current?.mute();else player.current?.unMute()},[muted,status]);
  useEffect(()=>{if(!ready.current)return;if(playing&&!document.hidden)player.current?.playVideo();else player.current?.pauseVideo()},[playing]);
  useEffect(()=>{const visibility=()=>{if(!ready.current)return;if(document.hidden)player.current?.pauseVideo();else if(latest.current.playing)player.current?.playVideo()};document.addEventListener('visibilitychange',visibility);return()=>document.removeEventListener('visibilitychange',visibility)},[]);
- function play(){setRequested(true);if(ready.current){player.current?.mute();player.current?.playVideo();startDeadline()}}
+ function play(){if(status==='blocked'){onOpen();return}setRequested(true);if(ready.current){player.current?.mute();player.current?.playVideo();startDeadline()}}
  return <div className={'journey-picture '+(status==='playing'?'is-playing':'')} data-player-state={status}>
   {project.poster&&<img className="journey-poster" src={asset(project.poster)} alt={project.title} decoding="async"/>}
-  <div className="journey-player-host" ref={host}/>
+  <div className="journey-player-host" ref={host} aria-hidden="true"/>
   {(status==='poster'||status==='blocked')&&<button className="ambient-play" onClick={id?play:onOpen} aria-label={'Play '+project.title}><span aria-hidden="true">▶</span></button>}
   <button className="film-expand" aria-label={'Open '+project.title} onClick={onOpen}>↗</button>
  </div>;

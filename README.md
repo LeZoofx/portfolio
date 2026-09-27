@@ -9,8 +9,9 @@ Creative and visual direction, films, campaigns and AI visuals.
 - Two complete experiences: Normal and Fun.
 - React + TypeScript + Vite; lazy Three.js / React Three Fiber scene.
 - Five distinct worlds: Glass, Mass, Cut, 1998 and Afterimage, with bounded, reusable scroll transitions.
-- Curated major-name opening shuffle, résumé-backed results, and cursor-reactive 3D lettering.
-- One reusable, muted video player; landscape and portrait framing; poster-to-playing fades.
+- Curated major-name opening shuffle, résumé-backed results, a client marquee, floating 3D objects and cursor-reactive lettering.
+- Themed hover/scroll/tap Easter eggs open extra films.
+- Multiple reusable, muted video players; landscape and portrait framing; poster-to-playing fades.
 - CSS perspective fallback when WebGL is unavailable; real images remain independent of the 3D renderer.
 - 79 migrated projects, 78 local posters, 42 original video embeds and 11 original AI disclosures.
 - 89 pre-rendered pages plus a 404 page; project deep links work on GitHub Pages.

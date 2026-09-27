@@ -1,6 +1,6 @@
 # Your portfolio is live
 
-This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has a fast Normal experience and a Fun experience with five looping worlds. Normal mode loads videos on Play. Fun mode attempts muted playback as you travel; a poster and Play button remain available when the provider or browser blocks autoplay. Sound is always your choice.
+This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has a fast Normal experience and a Fun experience with five looping worlds. Normal mode loads videos on Play. Fun mode plays several muted videos together as you travel (three on larger screens, two on phones/Eco); a poster and Play button remain available when the provider or browser blocks autoplay. Sound is always your choice.
 
 ## Your website and editing links
 
@@ -24,6 +24,8 @@ The site has no public admin page and no password or publishing token in its bro
 6. Press **Run workflow**. GitHub saves the change, rebuilds the site and publishes it. Wait for a green check under Actions.
 
 When updating a project, enter all the optional text you want to keep: empty optional fields clear the existing text. YouTube posters are fetched automatically. Instagram and Drive additions use a typographic poster until you add an image in `public/media` and set that project's `poster` field in `content/projects.json`.
+
+The scrolling client/collaborator list is editable in `content/clients.json`. Floating objects reveal extra films on hover, scroll-over or tap.
 
 The opening shuffle has its own short list in `content/showcase.json`: each entry contains an existing project ID, a short display title and a label. The first entry appears first on a fresh visit. Change this list to curate the shuffle; it does not remove anything from the full archive. The two résumé results in the opening are Trunativ’s 5.2M views in one month and Schbang’s 305% viewership growth. The project count updates automatically.
 
