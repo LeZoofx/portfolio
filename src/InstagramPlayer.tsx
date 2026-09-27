@@ -1,0 +1,16 @@
+import {useEffect,useRef,useState,type CSSProperties} from 'react';
+import {asset,type Project} from './content';
+export function instagramEmbed(project:Project){const match=new URL(project.sourceUrl).pathname.match(/^\/(?:p|reel|reels|tv)\/([\w-]+)/);return match?'https://www.instagram.com/p/'+match[1]+'/embed/':project.embedUrl||''}
+export default function InstagramPlayer({project,enabled,playing,onOpen}:{project:Project;enabled:boolean;playing:boolean;onOpen?:()=>void}){
+ const root=useRef<HTMLDivElement>(null),[scale,setScale]=useState(1),[loaded,setLoaded]=useState(false),[requested,setRequested]=useState(false),[visible,setVisible]=useState(true);
+ const width=400,height=Math.round(width/(project.aspect||9/16)+120),src=instagramEmbed(project),mount=!!src&&visible&&(enabled||requested)&&(playing||requested);
+ useEffect(()=>{const el=root.current;if(!el)return;const resize=()=>setScale(Math.min(el.clientWidth/width,el.clientHeight/height));const o=new ResizeObserver(resize);o.observe(el);resize();return()=>o.disconnect()},[height]);
+ useEffect(()=>{setLoaded(false);setRequested(false)},[project.id,enabled,playing]);
+ useEffect(()=>{const sync=()=>setVisible(!document.hidden);document.addEventListener('visibilitychange',sync);return()=>document.removeEventListener('visibilitychange',sync)},[]);
+ return <div className={'instagram-player'+(loaded&&mount?' embed-loaded':'')} ref={root} style={{'--ig-scale':scale} as CSSProperties}>
+  {project.poster&&<img className="instagram-poster" src={asset(project.poster)} alt={project.title}/>}
+  {mount?<iframe key={src} src={src} title={project.title+' — Instagram video'} width={width} height={height} style={{width,height}} allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" onLoad={()=>setLoaded(true)}/>:<button className="instagram-load" onClick={()=>setRequested(true)} aria-label={'Play Instagram video: '+project.title}>▶<span>Play video</span></button>}
+  {mount&&!loaded&&<span className="instagram-loading">Loading Instagram…</span>}
+  {onOpen&&<button className="film-expand" aria-label={'Expand video: '+project.title} onClick={onOpen}><span aria-hidden="true">⤢</span><span className="expand-label">Expand</span></button>}
+ </div>;
+}

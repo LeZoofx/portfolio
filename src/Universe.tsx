@@ -1,10 +1,11 @@
 import {Component,Suspense,lazy,useEffect,useMemo,useRef,useState,type CSSProperties,type ReactNode} from 'react';
-import {asset,projectPath,platformLabel,type Project} from './content';
+import {asset,projectPath,platformLabel,selectEmbeds,type Project} from './content';
 import {buildSections,brandFor,portfolioCategories,type PortfolioSection,type WorkSort} from './portfolioSections';
 import type {JourneyMotion} from './journeyData';
 import BrandControls from './BrandControls';
 import {ResultsRibbon} from './Results';
 import JourneyPlayer from './JourneyPlayer';
+import ExpandCue from './ExpandCue';
 import KineticName from './KineticName';
 import KineticType from './KineticType';
 import SceneAccents from './SceneAccents';
@@ -27,12 +28,12 @@ function Discovery({project,onReveal,theme}:{project:Project;onReveal:(p:Project
  return <button className={'depth-discovery discovery-object-'+theme} aria-label={'Discover '+title(project)} onPointerEnter={e=>{if(e.pointerType==='mouse')timer.current=setTimeout(()=>onReveal(project),800)}} onPointerLeave={()=>clearTimeout(timer.current)} onWheel={()=>onReveal(project)} onClick={()=>onReveal(project)}><span className="discovery-solid" aria-hidden="true">{Array.from({length:6},(_,i)=><i key={i}/>)}</span></button>
 }
 function DepthWorld({section,active,autoplay,compact,paused,playing,muted,onProject,onDiscover}:{section:PortfolioSection;active:boolean;autoplay:boolean;compact:boolean;paused:boolean;playing:boolean;muted:boolean;onProject:(p:Project)=>void;onDiscover:(p:Project)=>void}){
- const playable=section.items.filter(p=>p.provider==='youtube').slice(0,compact?2:3).map(p=>p.id);
+ const playable=selectEmbeds(section.items,compact?2:3);
  return <><SceneAccents theme={section.theme} art={section.art}/><div className="depth-heading">{section.category==='selected'&&section.offset===0?<><p className="depth-specialty"><KineticCopy text={positioning.eyebrow}/></p><h1><KineticName/></h1><PosterType lines={posterCopy.selected} art={section.art} className="depth-poster-copy"/></>:<><p className="depth-specialty"><KineticCopy text={section.focus}/></p><h2><KineticType text={section.title} variant={section.theme}/></h2><PosterType lines={posterCopy[section.category]} art={section.art} className="depth-poster-copy"/></>}</div>
  <div className="depth-type-field" aria-hidden="true"><KineticType text={section.category==='selected'?'POST':section.title.toUpperCase()} variant={section.theme}/></div>
  <div className="depth-gallery">{section.items.map((p,i)=><article className={'depth-film slot-'+i+((p.aspect||16/9)<1?' portrait-film':'')} key={p.id} style={{'--film-ratio':p.aspect||16/9,'--tile':i} as CSSProperties}>
   <div className="depth-film-label"><span><KineticCopy text={brandFor(p)||section.title}/></span><span className="depth-platform">{platformLabel(p)} <i aria-hidden="true">{section.theme===3?'_ □':'↗'}</i></span></div>
-  <div className="depth-film-frame">{active&&autoplay&&playable.includes(p.id)&&!paused?<JourneyPlayer project={p} enabled muted={muted||p.id!==playable[0]} playing={playing} onOpen={()=>onProject(p)}/>:<a className="depth-poster" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}} aria-label={'Watch '+title(p)}>{p.poster?<img src={asset(p.poster)} alt={title(p)} decoding="async"/>:<span>{title(p)}</span>}<span className="depth-play" aria-hidden="true">▶</span></a>}</div>
+  <div className="depth-film-frame">{active&&!paused&&(p.provider==='instagram'||playable.includes(p.id))?<JourneyPlayer project={p} enabled={autoplay&&playable.includes(p.id)} muted={muted||p.id!==playable[0]} playing={playing} onOpen={()=>onProject(p)}/>:<a className="depth-poster" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}} aria-label={'Watch '+title(p)}>{p.poster?<img src={asset(p.poster)} alt={title(p)} decoding="async"/>:<span>{title(p)}</span>}<span className="depth-play" aria-hidden="true">▶</span></a>}<ExpandCue title={title(p)} onOpen={()=>onProject(p)}/></div>
   <a className="depth-caption" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}}><KineticCopy text={title(p)}/><span aria-hidden="true">↗</span></a>
  </article>)}</div>
  <Discovery project={section.items[Math.min(2,section.items.length-1)]} onReveal={onDiscover} theme={section.theme}/>
@@ -57,7 +58,7 @@ export default function Universe({projects,onProject,onIndex,paused,reduced}:{pr
    if(nextBase!==lastBase){lastBase=nextBase;setBase(nextBase)}if(nextChapter!==lastChapter){lastChapter=nextChapter;current.current=nextChapter;setChapter(nextChapter)}
    outer!.style.setProperty('--pointer-x',String(motion.pointerX));outer!.style.setProperty('--pointer-y',String(motion.pointerY));outer!.style.setProperty('--travel-phase',String(p%1));outer!.style.setProperty('--travel-speed',String(Math.min(1,Math.abs(motion.velocity))));
    const ambience=smooth(.22,.75,p%1);backdropRefs.current.forEach((layer,index)=>{layer.style.opacity=String(index===nextBase?1-ambience:index===modulo(nextBase+1,total)?ambience:0)});
-   worldRefs.current.forEach((layer,index)=>{let delta=index-p;delta-=Math.round(delta/total)*total;const nearest=index===nextChapter;let opacity=delta<0?1-smooth(.22,.68,-delta):1-smooth(.8,1.75,delta);if(settings.current.reduced)opacity=nearest?1:0;const travel=settings.current.reduced?0:delta;const x=travel*Math.sin(index*1.9)*90+motion.pointerX*7,y=travel*Math.cos(index*1.3)*45-motion.pointerY*5,depth=-travel*1550;layer.style.transform=`translate3d(${x}px,${y}px,${depth}px) rotateY(${settings.current.reduced?0:travel*Math.sin(index+1)*6+motion.pointerX*.6}deg) rotateZ(${settings.current.reduced?0:travel*Math.cos(index+2)*2}deg)`;layer.style.opacity=String(opacity);layer.style.visibility=opacity<.01?'hidden':'visible';layer.style.pointerEvents=nearest?'auto':'none';layer.inert=!nearest;layer.style.setProperty('--depth',String(travel));layer.style.zIndex=String(Math.round(100-delta*10));});
+   worldRefs.current.forEach((layer,index)=>{let delta=index-p;delta-=Math.round(delta/total)*total;const nearest=index===nextChapter;let opacity=delta<0?1-smooth(.04,.62,-delta):1-smooth(.7,1.45,delta);if(settings.current.reduced)opacity=nearest?1:0;const travel=settings.current.reduced?0:delta,departure=smooth(0,.8,Math.max(0,-travel));const x=travel*Math.sin(index*1.9)*65+departure*(index%2?-160:160)+motion.pointerX*7,y=travel*Math.cos(index*1.3)*30-departure*35-motion.pointerY*5,depth=-Math.abs(travel)*900;layer.style.transform=`translate3d(${x}px,${y}px,${depth}px) rotateY(${settings.current.reduced?0:travel*Math.sin(index+1)*6+motion.pointerX*.6}deg) rotateZ(${settings.current.reduced?0:travel*Math.cos(index+2)*2}deg)`;layer.style.opacity=String(opacity);layer.style.visibility=opacity<.01?'hidden':'visible';layer.style.pointerEvents=nearest?'auto':'none';layer.inert=!nearest;layer.style.setProperty('--depth',String(travel));layer.style.zIndex=String(Math.round(100-delta*10));});
    motion.invalidate();if(Math.abs(motion.target-motion.position)>.0001||Math.abs(px-motion.pointerX)+Math.abs(py-motion.pointerY)>.005)raf=requestAnimationFrame(draw);
   }
   function start(){if(!raf){last=performance.now();raf=requestAnimationFrame(draw)}}wake.current=start;

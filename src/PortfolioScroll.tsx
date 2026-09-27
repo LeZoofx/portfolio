@@ -1,11 +1,12 @@
 import {lazy,Suspense,useEffect,useMemo,useRef,useState,type CSSProperties} from 'react';
-import {asset,projectPath,platformLabel,type Project} from './content';
+import {asset,projectPath,platformLabel,selectEmbeds,type Project} from './content';
 import {buildSections,brandFor,type PortfolioSection,type WorkSort} from './portfolioSections';
 import BrandControls from './BrandControls';
 import KineticName from './KineticName';
 import KineticType from './KineticType';
 import PosterType,{KineticCopy} from './PosterType';
 import SceneAccents from './SceneAccents';
+import ExpandCue from './ExpandCue';
 import {posterCopy} from './artStyles';
 import './portfolio-scroll.css';
 const Player=lazy(()=>import('./JourneyPlayer'));
@@ -28,7 +29,7 @@ export default function PortfolioScroll({projects,onProject,onIndex,paused=false
   board.querySelectorAll<HTMLElement>('.portfolio-card').forEach(el=>cardObserver.observe(el));
   let raf=0;const target=scroller||window;const update=()=>{raf=0;const index=activeRef.current;if(index<0)return;const rect=elements.current[index]!.getBoundingClientRect(),height=scroller?.clientHeight||innerHeight;const progress=Math.max(-1,Math.min(1,(height*.35-rect.top)/Math.max(height,rect.height)));scrollProgress.current=progress;board.style.setProperty('--scroll-offset',String(progress));sectionCallback.current?.(sections[index],index,progress)};const onScroll=()=>{if(!raf)raf=requestAnimationFrame(update)};target.addEventListener('scroll',onScroll,{passive:true});return()=>{sectionObserver.disconnect();cardObserver.disconnect();target.removeEventListener('scroll',onScroll);cancelAnimationFrame(raf);candidates.current.clear()};
  },[sections]);
- const playable=useMemo(()=>{if(paused||reduced||saveData)return [];return visible.map(id=>projects.find(p=>p.id===id)!).filter(p=>p?.provider==='youtube').sort((a,b)=>{const near=sections[active]?.items.map(p=>p.id)||[];return Number(near.includes(b.id))-Number(near.includes(a.id))}).slice(0,compact?2:3).map(p=>p.id)},[visible,active,paused,reduced,saveData,compact,projects,sections]);
+ const playable=useMemo(()=>{if(paused||reduced||saveData)return [];return selectEmbeds(visible.map(id=>projects.find(p=>p.id===id)!).filter(Boolean).sort((a,b)=>{const near=sections[active]?.items.map(p=>p.id)||[];return Number(near.includes(b.id))-Number(near.includes(a.id))}),compact?2:3)},[visible,active,paused,reduced,saveData,compact,projects,sections]);
  function jump(index:number){elements.current[index]?.scrollIntoView({behavior:reduced?'instant':'smooth',block:'start'})}
  const nav=sections.filter((s,i)=>sections.findIndex(x=>x.category===s.category)===i);
  return <div className={'portfolio-scroll'+(immersive?' is-immersive':'')} ref={root}>
@@ -37,7 +38,7 @@ export default function PortfolioScroll({projects,onProject,onIndex,paused=false
    <div className="cluster-heading"><div>{index===0&&immersive&&<h1><KineticName/></h1>}<h2 id={'heading-'+section.id}><KineticType text={section.title} variant={section.theme}/></h2>{section.offset===0&&<><PosterType lines={posterCopy[section.category]} art={section.art} className="category-poster"/><p className="category-focus"><KineticCopy text={section.focus}/></p></>}</div><button className="cluster-discovery" aria-label={'Discover '+section.items[0].title} onPointerEnter={e=>{if(e.pointerType==='mouse')e.currentTarget.dataset.hover='true'}} onPointerLeave={e=>{delete e.currentTarget.dataset.hover}} onAnimationEnd={e=>{if(e.currentTarget.dataset.hover)onDiscover?.(section.items[0])}} onWheel={()=>onDiscover?.(section.items[0])} onClick={()=>onDiscover?.(section.items[0])}><span aria-hidden="true">✳</span></button></div>
    <div className="cluster-grid">{section.items.map((p,i)=><article key={p.id} className={'portfolio-card'+((p.aspect||16/9)<1?' is-portrait':'')+(playable.includes(p.id)?' is-live':'')} data-project-id={p.id} style={{'--film-ratio':p.aspect||16/9,'--card-order':i,'--card-angle':((i%3)-1)*2.5+'deg'} as CSSProperties}>
     <p className="portfolio-brand"><span><KineticCopy text={brandFor(p)||section.title}/></span><span className="platform-tag">{platformLabel(p)}</span></p>{section.theme===3&&<div className="portfolio-windowbar"><span><KineticCopy text={shortTitle(p)}/></span><span aria-hidden="true">_ □</span></div>}
-    <div className="portfolio-media">{playable.includes(p.id)?<Suspense fallback={<img src={asset(p.poster)} alt={p.title}/>}><Player project={p} enabled muted={muted||p.id!==playable[0]} playing={playing&&!paused} onOpen={()=>onProject(p)}/></Suspense>:<a href={projectPath(p.id)} className="portfolio-poster" onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}} aria-label={'Open '+p.title}>{p.poster?<img src={asset(p.poster)} alt={p.title} loading={index===0?'eager':'lazy'} decoding="async"/>:<span className="portfolio-type-poster">{shortTitle(p)}</span>}<span className="portfolio-play" aria-hidden="true">{p.provider==='image'?'↗':'▶'}</span></a>}</div>
+    <div className="portfolio-media">{(playable.includes(p.id)||(p.provider==='instagram'&&visible.includes(p.id)&&!paused))?<Suspense fallback={<img src={asset(p.poster)} alt={p.title}/>}><Player project={p} enabled={playable.includes(p.id)} muted={muted||p.id!==playable[0]} playing={playing&&!paused} onOpen={()=>onProject(p)}/></Suspense>:<a href={projectPath(p.id)} className="portfolio-poster" onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}} aria-label={'Open '+p.title}>{p.poster?<img src={asset(p.poster)} alt={p.title} loading={index===0?'eager':'lazy'} decoding="async"/>:<span className="portfolio-type-poster">{shortTitle(p)}</span>}<span className="portfolio-play" aria-hidden="true">{p.provider==='image'?'↗':'▶'}</span></a>}<ExpandCue title={shortTitle(p)} onOpen={()=>onProject(p)}/></div>
     <a href={projectPath(p.id)} className="portfolio-caption" onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}}><span><KineticCopy text={shortTitle(p)}/></span><span aria-hidden="true">↗</span></a>
    </article>)}</div>
   </section>)}

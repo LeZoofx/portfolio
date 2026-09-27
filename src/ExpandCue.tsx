@@ -1,0 +1,1 @@
+export default function ExpandCue({title,onOpen}:{title:string;onOpen:()=>void}){return <button className="frame-expand-cue" onClick={onOpen} aria-label={'Expand video: '+title}><span className="expand-corners" aria-hidden="true">⤢</span><span>Expand</span></button>}

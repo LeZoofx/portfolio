@@ -13,7 +13,7 @@ export const brandOptions=(projects:Project[])=>[...new Set(projects.flatMap(p=>
 export const matchesBrand=(p:Project,brand:string)=>brand==='all'||brandFor(p)===brand||collaboratorFor(p)===brand;
 export const sortProjects=(projects:Project[],sort:WorkSort)=>sort==='brand'?[...projects].sort((a,b)=>(brandFor(a)||'zzz').localeCompare(brandFor(b)||'zzz')||a.order-b.order):projects;
 export const portfolioCategories:{id:PortfolioCategory;label:string;theme:number}[]=[
- {id:'selected',label:'Highlights',theme:0},{id:'trailers',label:'Film',theme:1},{id:'brands',label:'Campaigns',theme:2},{id:'short-form',label:'Short form',theme:3},{id:'youtube',label:'YouTube',theme:5},{id:'events',label:'Live & comedy',theme:4}
+ {id:'selected',label:'Highlights',theme:0},{id:'trailers',label:'Film',theme:1},{id:'youtube',label:'YouTube',theme:5},{id:'short-form',label:'Short form',theme:3},{id:'events',label:'Live & comedy',theme:4},{id:'brands',label:'Campaigns',theme:2}
 ];
 export const contextFor=(category:PortfolioCategory)=>positioning.categories[category];
 export function buildSections(projects:Project[],sort:WorkSort='curated',brand='all',size=6):PortfolioSection[]{

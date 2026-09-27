@@ -112,3 +112,9 @@ Each category advances through its assigned sequence in both views. Display copy
 Marquee: exactly three independently scrolling rows, alternating direction. Interleave every original client/collaborator name across rows; Google, Netflix and Lollapalooza open the three tracks. No separate lead row or client-list drawer. All rows are user-pausable and become manually scrollable with reduced motion.
 
 Reach: public watch-page counters from linked uploads, deduplicated by video ID. Combined views are plays, never unique viewers. Distinct publishing channels are not labelled managed channels. Present individual video reach, combined reach, channel count and sourced career outcomes together. A source drawer exposes exact counts and capture dates. Unavailable and Instagram counters are excluded. No invented retention percentages. Weekly GitHub builds refresh public counters without credentials and retain dated snapshots on failure. No public project count.
+
+## Playback and camera refinement
+
+Chronology is Highlights → Film → YouTube → Short form → Live & comedy → Campaigns in both views and the work filters. The first item remains the hero; supporting frames have larger, legible controls. Instagram uses its native embedded player for visible slots, with missing embed URLs derived only from each existing source URL. Instagram's own player controls playback; no undocumented autoplay control or extracted media URLs are used. Idle slots can be activated inline; the shared initial load budget is three players on desktop and two on mobile.
+
+Both arriving and departing media planes remain at or behind the settled viewing plane. Departing worlds recede and move sideways while fading; no video crosses the camera. Persistent animated Expand cues open a viewport-filling viewer with an explicit native Fullscreen control. Reduced motion disables attention pulses.

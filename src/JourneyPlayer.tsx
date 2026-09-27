@@ -1,6 +1,7 @@
 import {useEffect,useRef,useState} from 'react';
 import {asset,type Project} from './content';
 import {filmId} from './journeyData';
+import InstagramPlayer from './InstagramPlayer';
 import './journey.css';
 type Player={mute:()=>void;unMute:()=>void;playVideo:()=>void;pauseVideo:()=>void;destroy:()=>void;loadVideoById:(id:string)=>void;seekTo:(n:number,allow:boolean)=>void;getVideoData:()=>{video_id?:string}};
 declare global {interface Window {YT?:{Player:new(el:HTMLElement,opts:Record<string,unknown>)=>Player};onYouTubeIframeAPIReady?:()=>void}}
@@ -12,7 +13,7 @@ function playerAPI(){
   const script=document.createElement('script');script.src='https://www.youtube.com/iframe_api';script.async=true;script.onerror=()=>{apiPromise=undefined;reject(new Error('Player unavailable'))};document.head.appendChild(script);
  });return apiPromise;
 }
-export default function JourneyPlayer({project,enabled,muted,playing,onOpen}:{project:Project;enabled:boolean;muted:boolean;playing:boolean;onOpen:()=>void}){
+function YouTubePlayer({project,enabled,muted,playing,onOpen}:{project:Project;enabled:boolean;muted:boolean;playing:boolean;onOpen:()=>void}){
  const host=useRef<HTMLDivElement>(null),player=useRef<Player|null>(null),ready=useRef(false),latest=useRef({project,muted,playing});latest.current={project,muted,playing};
  const [status,setStatus]=useState<'poster'|'loading'|'playing'|'blocked'>('poster');
  const [requested,setRequested]=useState(false),currentId=useRef(''),timeout=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
@@ -41,6 +42,8 @@ export default function JourneyPlayer({project,enabled,muted,playing,onOpen}:{pr
   {project.poster&&<img className="journey-poster" src={asset(project.poster)} alt={project.title} decoding="async"/>}
   <div className="journey-player-host" ref={host} aria-hidden="true"/>
   {(status==='poster'||status==='blocked')&&<button className="ambient-play" onClick={id?play:onOpen} aria-label={'Play '+project.title}><span aria-hidden="true">▶</span></button>}
-  <button className="film-expand" aria-label={'Open '+project.title} onClick={onOpen}>↗</button>
+  <button className="film-expand" aria-label={'Expand video: '+project.title} onClick={onOpen}><span aria-hidden="true">⤢</span><span className="expand-label">Expand</span></button>
  </div>;
 }
+
+export default function JourneyPlayer(props:{project:Project;enabled:boolean;muted:boolean;playing:boolean;onOpen:()=>void}){return props.project.provider==='instagram'?<InstagramPlayer {...props}/>:<YouTubePlayer {...props}/>;}
