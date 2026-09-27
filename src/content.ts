@@ -19,3 +19,11 @@ export const categories: {id:Category;label:string;short:string;route:string}[] 
 export const asset = (path: string|undefined) => path ? (/^https?:/.test(path) ? path : import.meta.env.BASE_URL + path.replace(/^\//,'')) : '';
 export const href = (path='') => import.meta.env.BASE_URL + path.replace(/^\//,'');
 export const projectPath = (id:string) => href('work/'+id+'/');
+
+export function platformLabel(project:Project):string {
+ const host=new URL(project.sourceUrl).hostname.replace(/^www\./,'');
+ if(host==='instagram.com')return 'Instagram';
+ if(host==='youtube.com'||host==='youtu.be'||host==='youtube-nocookie.com')return 'YouTube';
+ if(host==='drive.google.com')return 'Google Drive';
+ return project.provider==='image'?'Image':'Project';
+}

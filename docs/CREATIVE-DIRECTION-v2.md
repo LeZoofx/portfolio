@@ -91,3 +91,12 @@ Typography is part of the art direction: cursor-reactive 3D letters for the name
 The public navigation is **Highlights, Film, Campaigns, Short form, YouTube, Live & comedy** with **All brands** filtering and **Brand A–Z** sorting. The complete source collection appears along the journey and in Overview/All work; highlights may also recur in their own category. Keep category sections contiguous. The labels Glass, Mass, Cut, Desktop and Afterimage are internal material names only.
 
 Premium motion means the camera eases, media settles into a usable view, correct aspect ratios are preserved, and typography does not obstruct video. Several films may play together. Keep streams mounted only for the active scene, mute by default, dissolve only once playback starts, and preserve posters/source links when a provider blocks autoplay. Touch, keyboard, reduced motion and WebGL fallback retain a usable composition. Stats, positioning and brand/context labels are visible in Explore too, not only on an About page.
+
+
+## Platform correction and stronger visual separation
+
+Instagram source URLs must never be classified as YouTube. The seven Instagram promotions originally listed inside the source portfolio's Social (YT) page are now Short form. Platform labels derive from the canonical source host and appear independently of category and brand. The validator rejects future category/provider mismatches; original project IDs and source URLs remain unchanged.
+
+The six environments now differ across the entire viewport: glacial ink and translucent frost; pale architectural Film with black slab lettering; cobalt/acid Campaigns with registered type fragments and halftone marks; green CRT Short form with bevelled windows and terminal type; warm photographic contact sheets with scanned serif lettering; and paper/red editorial YouTube with baseline rules. Long categories also vary material treatment between scenes. The background crossfades with camera depth. No public style names are used.
+
+The opening name uses sculptural condensed capitals, an outlined second line and the existing reactive 3D reverse faces. Category headings use per-glyph reveal, registration, scanner and folding behaviours instead of one generic fade. The complete moving clients/collaborators ribbon is visible in both Overview and Explore, beginning Google, Netflix, Lollapalooza. It remains alongside the rotating results in Explore and has its own pause control.

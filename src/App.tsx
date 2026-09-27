@@ -1,5 +1,5 @@
 import {Component, Suspense, lazy, useEffect, useRef, useState, type ReactNode, type MouseEvent} from 'react';
-import {asset, categories, href, projects, projectPath, site, type Project} from './content';
+import {asset, categories, href, projects, projectPath, site, platformLabel, type Project} from './content';
 import HomeIntro from './HomeIntro';
 import PortfolioScroll from './PortfolioScroll';
 import KineticName from './KineticName';
@@ -21,7 +21,7 @@ class SceneBoundary extends Component<{children:ReactNode;fallback:ReactNode},{f
 function Card({p,i,onOpen,featured=false}:{p:Project;i:number;onOpen:(p:Project)=>void;featured?:boolean}){
  return <a href={projectPath(p.id)} className={'work-card'+(featured?' featured-card':'')} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onOpen(p);}}}>
  <div className="card-image">{p.poster?<img src={asset(p.poster)} alt={p.title} loading="lazy" decoding="async"/>:<div className="type-poster" aria-hidden="true"><span>{label(p.category)}</span><b>▶</b></div>}<span className="card-open" aria-hidden="true">{p.provider==='image'?'↗':'▶'}</span></div>
- <div className="card-meta"><span>{brandFor(p)||label(p.category)}</span><span>{p.provider.toUpperCase()}</span></div><h3>{p.title}</h3></a>;
+ <div className="card-meta"><span>{brandFor(p)||label(p.category)}</span><span>{platformLabel(p)}</span></div><h3>{p.title}</h3></a>;
 }
 function Index({onOpen,filter,setFilter}:{onOpen:(p:Project)=>void;filter:string;setFilter:(v:string)=>void}){
  const [query,setQuery]=useState(''),[brand,setBrand]=useState('all'),[sort,setSort]=useState<WorkSort>('curated');
@@ -37,7 +37,7 @@ function Media({p}:{p:Project}){
  useEffect(()=>{setActive(false);setLoaded(false)},[p.id]);
  let embed=p.embedUrl||'';
  if(p.provider==='youtube'){const id=embed.match(/embed\/([^?\/]+)/)?.[1];if(id)embed='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&playsinline=1&rel=0';}
- const provider=p.provider==='drive'?'Google Drive':p.provider==='youtube'?'YouTube':p.provider==='instagram'?'Instagram':'original source';
+ const provider=platformLabel(p)==='Project'?'original source':platformLabel(p);
  return <div className="project-media"><div className={'media-stage'+((p.aspect||1.778)<1?' vertical':'')} style={{aspectRatio:String(p.aspect||1.778)}}>{p.provider==='image'?<img src={asset(p.image||p.poster)} alt={p.title}/>:active&&embed?<><iframe src={embed} title={p.title} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" onLoad={()=>setLoaded(true)}/>{!loaded&&<p className="player-loading">Opening player…</p>}</>:<button className="media-facade" onClick={()=>embed?setActive(true):window.open(p.sourceUrl,'_blank','noopener,noreferrer')} aria-label={'Play '+p.title}>{p.poster&&<img src={asset(p.poster)} alt=""/>}<span className="play-disc">▶</span><span className="play-label">{embed?'PLAY FILM':'OPEN PROJECT'}</span></button>}</div>{p.provider!=='image'&&<a className="source-link" href={p.sourceUrl} target="_blank" rel="noopener noreferrer">Open on {provider} ↗</a>}</div>;
 }
 function Overlay({children,title,onClose,className=''}:{children:ReactNode;title:string;onClose:()=>void;className?:string}){
