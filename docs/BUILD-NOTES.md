@@ -53,3 +53,12 @@ The media recovery action now tries genuine larger YouTube thumbnails and preser
 | Deployment | `.github/workflows/deploy.yml` |
 
 Source recovery inventory: 41 original YouTube embeds, one original Drive embed and 37 linked image records, subsequently linked to their original providers. There are 78 local posters; one stand-up record has a type fallback. The original showreel was under maintenance and has not been invented. Two original brand TinyURLs could not be resolved during migration and are kept unchanged. Platform login, geographic restrictions and later source removals remain under the providers' control.
+
+
+## Infinite journey restoration — September 27
+
+Explore now uses native scrolling with recycled depth panels, a smooth camera approach and a continuous loop across every category. Category jumps, brand filtering and sorting share the same complete content source as Overview and All work. The Three scene reuses five zones of low-poly platforms, faceted objects, film cameras, CRT monitors and gateways; CSS perspective and faceted geometry preserve the interaction when WebGL is unavailable.
+
+Desktop scenes mount up to three official YouTube players; narrow scenes mount two. Non-active streams unmount, and all media retain posters and source links. Rendering is demand-driven and capped at DPR 1.5; hidden tabs and overlays suspend motion and playback. Scroll settles at a viewing position after travel.
+
+`content/positioning.json` holds six results and three short process write-ups grounded in the supplied résumé. A retention percentage is not supplied and has not been invented. Known brand/channel mappings come from the original portfolio headings and the recovered publisher metadata; unmapped work remains visible under All brands. Public project counts are removed.

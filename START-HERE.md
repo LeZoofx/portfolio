@@ -1,6 +1,6 @@
 # Your portfolio is live
 
-This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has Overview and Explore views. Both include all 79 projects in the main scroll, across 15 varied sections; All work also provides the searchable index. The main scroll activates several muted videos as they enter view (three on larger screens, two on phones); a poster and Play button remain available when the provider or browser blocks autoplay. Sound is always your choice.
+This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has Overview and Explore views. Both include the complete collection, grouped by category, with brand filtering and sorting. Explore travels through a repeating low-poly scene; All work also provides the searchable index. The main scroll activates several muted videos as they enter view (three on larger screens, two on phones); a poster and Play button remain available when the provider or browser blocks autoplay. Sound is always your choice.
 
 ## Your website and editing links
 
@@ -72,3 +72,6 @@ Open the local address printed by Vite. To build the production files, run `npm 
 - GitHub Pages setup API: https://docs.github.com/en/rest/pages/pages
 
 See `docs/BUILD-NOTES.md` for technical details and verification limits.
+
+
+Positioning and rotating results are editable in `content/positioning.json`. Brand and collaborator assignments live in `content/project-brands.json`. Keep numerical claims tied to their source. Public project totals are intentionally omitted.

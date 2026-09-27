@@ -1,6 +1,6 @@
 # Prantik Dutta's Portfolio
 
-Creative and visual direction, films, campaigns and AI visuals.
+Senior post-production artist. Editing, motion design, VFX and AI, with expertise in audience reach and retention.
 
 **[Visit the portfolio](https://lezoofx.github.io/portfolio/)** · **[Add or update a project](https://github.com/LeZoofx/portfolio/actions/workflows/update-project.yml)**
 
@@ -8,7 +8,9 @@ Creative and visual direction, films, campaigns and AI visuals.
 
 - Two views: Overview and Explore, each showing the complete portfolio in the main scroll.
 - React + TypeScript + Vite; lazy Three.js / React Three Fiber scene.
-- All 79 projects across 15 mixed-layout sections, with professional work-category labels.
+- Complete category sections: Highlights, Film, Campaigns, Short form, YouTube, Live & comedy; brand filtering and Brand A–Z sorting.
+- Explore is a continuous, looping camera flight through floating media, low-poly platforms, film cameras, CRT objects and polygonal gates.
+- Six rotating résumé-backed results and concise campaign/retention write-ups; no project totals in the public UI.
 - Curated major-name opening shuffle, résumé-backed results, a client marquee, floating 3D objects and cursor-reactive lettering.
 - Themed hover/scroll/tap Easter eggs open extra films.
 - Viewport-controlled, muted video players; landscape and portrait framing; poster-to-playing fades.

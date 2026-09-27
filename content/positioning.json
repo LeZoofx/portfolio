@@ -1,0 +1,27 @@
+{
+  "eyebrow": "POST-PRODUCTION SPECIALIST / REACH & RETENTION",
+  "headline": "The craft behind the cut. The thinking behind the performance.",
+  "intro": "I bring editing, motion design, VFX and AI into one post-production process — built around the hook, the pacing and the reason to keep watching.",
+  "statistics": [
+    {"value":"5.2M","label":"Views in one month","brand":"Trunativ","detail":"From 2.5K views, following in-house content I scripted, shot, rendered and edited."},
+    {"value":"+305%","label":"Viewership growth","brand":"Schbang","detail":"Training the team to script and edit around audience behaviour."},
+    {"value":"+207,900%","label":"Growth in monthly views","brand":"Trunativ","detail":"The increase from 2.5K to 5.2M views in one month."},
+    {"value":"Up to 20","label":"Deliverables a day","brand":"Schbang","detail":"High-volume post-production across simultaneous campaigns."},
+    {"value":"4-person","label":"Team managed","brand":"Schbang","detail":"Setting priorities, training editors and maintaining quality across the team."},
+    {"value":"₹3L → crores","label":"Post-production budgets","brand":"OML","detail":"Overseeing efficient use of budgets across projects of very different scales."}
+  ],
+  "stories": [
+    {"brand":"Trunativ","title":"A content approach that found its audience.","outcome":"2.5K → 5.2M monthly views","text":"I scripted, shot, rendered and edited in-house content, built the explainer format and visual identity, and led 3D marketing campaigns. Competition and audience research informed the creative direction."},
+    {"brand":"Schbang","title":"Audience behaviour, built into the edit.","outcome":"305% viewership growth","text":"I trained teammates to script and edit around social viewing habits, while managing a four-person team across brand, event and film campaigns. The work balanced turnaround, quality and platform fit."},
+    {"brand":"BuzzFeed / Creator Engine","title":"Retention is an editorial decision.","outcome":"Hooks. Structure. Pacing. Payoff.","text":"At BuzzFeed I set edit and visual direction for high-reach YouTube work and guided junior editors. At Creator Engine I shape editorial structure and AI shot priorities, reviewing work against each channel’s retention goals."}
+  ],
+  "categories": {
+    "selected":{"title":"Highlights","summary":"Post-production for films, brands and audiences. Selected work across Netflix, Prime Video, Mumbai Indians and Lollapalooza.","focus":"Editing · Motion design · VFX · AI"},
+    "trailers":{"title":"Film","summary":"Trailer and teaser campaigns shaped around story, tension and reveal. Editorial structure, visual treatment and sound work together to earn the next moment.","focus":"Trailers · Teasers · Sound & picture"},
+    "brands":{"title":"Campaigns","summary":"From a brand’s visual identity to the final cut: campaign direction, editing, motion design and 3D, adapted to the platform and the audience.","focus":"Brand identity · Campaign post · 3D"},
+    "short-form":{"title":"Short form","summary":"Immediate hooks, controlled pacing and distinctive images. AI-generated shots, compositing and lip-sync extend the ideas that can be made on a short-form schedule.","focus":"Reels · AI visuals · Compositing"},
+    "youtube":{"title":"YouTube","summary":"Editorial structure that carries a viewer from the opening hook to the payoff. Long-form entertainment, interviews and food content, with pacing and visual identity built for the channel.","focus":"Reach · Retention · Editorial structure"},
+    "events":{"title":"Live & comedy","summary":"Comedy that keeps its timing. Festival and stand-up work that preserves the performance, builds anticipation and carries the energy into the campaign.","focus":"Performance · Timing · Event campaigns"}
+  },
+  "source":"Prantik_Dutta_Creative_Producer_Resume (2).pdf, supplied September 2026. Viewership figures are career results reported in the résumé; no retention percentage has been inferred."
+}

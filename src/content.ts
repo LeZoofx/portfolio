@@ -10,11 +10,11 @@ export type Project = {
 export const projects = projectData as Project[];
 export {site};
 export const categories: {id:Category;label:string;short:string;route:string}[] = [
- {id:'short-form',label:'AI & short format',short:'SHORT FORM',route:'social-short-format'},
- {id:'brands',label:'Brand campaigns',short:'CAMPAIGNS',route:'brands'},
+ {id:'trailers',label:'Film',short:'FILM',route:'videos'},
+ {id:'brands',label:'Campaigns',short:'CAMPAIGNS',route:'brands'},
+ {id:'short-form',label:'Short form',short:'SHORT FORM',route:'social-short-format'},
  {id:'youtube',label:'YouTube',short:'YOUTUBE',route:'social'},
- {id:'trailers',label:'Trailers',short:'TRAILERS',route:'videos'},
- {id:'events',label:'Stand-up & events',short:'LIVE',route:'stand-up-events'},
+ {id:'events',label:'Live & comedy',short:'LIVE',route:'stand-up-events'},
 ];
 export const asset = (path: string|undefined) => path ? (/^https?:/.test(path) ? path : import.meta.env.BASE_URL + path.replace(/^\//,'')) : '';
 export const href = (path='') => import.meta.env.BASE_URL + path.replace(/^\//,'');

@@ -6,7 +6,7 @@ Act as Prantik Dutta's art director and creative developer. Revise the existing 
 
 The first version failed artistically and functionally: a repeated collage layout is not a journey through different visual languages; unreadable texture zoom and empty frames are unacceptable. Resolve those failures structurally before adding effects.
 
-Lead the opening selection with the major work already present in the portfolio: Netflix trailers, Prime Video comedy, Mumbai Indians, Lollapalooza and the major YouTube work. Shuffle only this curated set; start with Darlings. Keep every original project ID, source URL, embed URL and disclosure intact. Use the supplied résumé only for relevant creative-production positioning and two clearly attributed performance figures: Trunativ's 5.2 million views in one month, and Schbang's 305% viewership growth. Do not reproduce the résumé's address, employment history or unrelated claims. The third opening statistic is the actual archive count.
+Lead the opening selection with the major work already present in the portfolio: Netflix trailers, Prime Video comedy, Mumbai Indians, Lollapalooza and the major YouTube work. Shuffle only this curated set; start with Darlings. Keep every original project ID, source URL, embed URL and disclosure intact. Use the supplied résumé only for relevant creative-production positioning and the relevant, attributed results in content/positioning.json. Do not reproduce the résumé's address or unrelated claims. Do not display a project count.
 
 ## Art direction
 
@@ -35,7 +35,7 @@ Worlds are visual environments, not category filters. Use relevant existing work
 
 - Keep crisp images, typography and official video players in the DOM; use WebGL for spatial geometry and lighting. An iframe is not a video texture.
 - Choose the media frame from the project's real aspect ratio. Portrait work must not be stretched into a landscape box or hidden behind oversized crops. The frame may move, but the film stays correctly proportioned and readable.
-- In Fun, use a single reusable YouTube player for the selected film. Request muted inline playback, wait for the playing event, then dissolve from the poster to the film. Never fade in an empty white iframe.
+- In Explore, use up to three simultaneously visible YouTube players on desktop and two on mobile. Request muted inline playback, wait for the playing event, then dissolve from the poster to the film. Never fade in an empty white iframe.
 - Scrolling into the next world may select its film; retain the current player when the selected project is unchanged. Debounce fast travel so passing a chapter does not create a new stream for every scroll event.
 - Sound requires an explicit control. Pause when the page is hidden or a project overlay is open. Respect reduced-motion and data-saving preferences with a poster and explicit Play action.
 - Autoplay is a request, not a guarantee. If blocked or unavailable, keep the real poster, a usable Play control and the original-source link. Instagram/Drive items retain their supported players or source links; do not pretend their autoplay behaviour matches YouTube.
@@ -78,3 +78,16 @@ Add a continuously scrolling “Clients & collaborators” strip on the first pa
 Both Overview and Explore must show every project in the main scroll. Lead with the major-name selection, then interleave the remaining projects in varied film, campaign, short-form, YouTube and live-event sections. Keep the searchable All work menu as an additional route. Use up to three visible autoplay players on larger screens and two on phones, with poster fallbacks and original sources retained. Make the opening shuffle run approximately every two seconds and expose the full archive in an animated thumbnail strip.
 
 The public site name is “Prantik Dutta's Portfolio”. All interface copy must describe the work professionally. Internal visual-treatment names must never appear as page headings or navigation labels.
+
+
+## September 27: binding recap and correction
+
+The user positions himself as a **post-production specialist with reach and retention expertise**. Restore that context with concise process writing and résumé-backed outcomes; do not invent a retention percentage. Rotate all relevant statistics, including audience growth, delivery capacity, team leadership and managed budget scale. Remove project totals, progress fractions and numbered project cards from the public experience.
+
+The existing elegant materials and different art directions must be developed into an actual low-poly game-like flight: faceted terrain, architectural platforms, physical film cameras, CRT objects, polygonal gates, a moving camera and reactive 3D props. Scroll travels through depth and loops continuously; a background canvas behind a flat archive does not satisfy this. Reuse React Three Fiber, shared geometry, official players and existing assets. No imported asset licence or new game engine is required.
+
+Typography is part of the art direction: cursor-reactive 3D letters for the name, heavy condensed slab reveals for Film, offset registration and fragmented letter movement for Campaigns, stepped terminal reveals for Short form, restrained serif depth for Highlights/YouTube, and a scan-like reveal for Live & comedy. Text always resolves to readable professional headings. Use visual techniques from the user's cursedweb, anti-design micrographics and scanography preferences; do not add unrelated heart imagery, random chrome, random scribbles or nonsense words.
+
+The public navigation is **Highlights, Film, Campaigns, Short form, YouTube, Live & comedy** with **All brands** filtering and **Brand A–Z** sorting. The complete source collection appears along the journey and in Overview/All work; highlights may also recur in their own category. Keep category sections contiguous. The labels Glass, Mass, Cut, Desktop and Afterimage are internal material names only.
+
+Premium motion means the camera eases, media settles into a usable view, correct aspect ratios are preserved, and typography does not obstruct video. Several films may play together. Keep streams mounted only for the active scene, mute by default, dissolve only once playback starts, and preserve posters/source links when a provider blocks autoplay. Touch, keyboard, reduced motion and WebGL fallback retain a usable composition. Stats, positioning and brand/context labels are visible in Explore too, not only on an About page.

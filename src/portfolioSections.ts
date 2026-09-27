@@ -1,21 +1,26 @@
 import type {Category,Project} from './content';
-export type PortfolioSection={id:string;category:Category|'selected';title:string;items:Project[];theme:number;layout:number;offset:number};
-const groups:{category:Category;title:string;theme:number}[]=[
- {category:'trailers',title:'Trailers & film',theme:1},
- {category:'brands',title:'Brand campaigns',theme:2},
- {category:'short-form',title:'Short form & AI',theme:3},
- {category:'youtube',title:'YouTube & entertainment',theme:0},
- {category:'events',title:'Comedy & live events',theme:4},
+import brandData from '../content/project-brands.json';
+import positioning from '../content/positioning.json';
+import showcase from '../content/showcase.json';
+export type PortfolioCategory=Category|'selected';
+export type PortfolioSection={id:string;category:PortfolioCategory;title:string;summary:string;focus:string;items:Project[];theme:number;layout:number;offset:number};
+export type WorkSort='curated'|'brand';
+const metadata=brandData as Record<string,{brand:string;collaborator?:string}>;
+export const brandFor=(p:Project)=>metadata[p.id]?.brand||'';
+export const collaboratorFor=(p:Project)=>metadata[p.id]?.collaborator||'';
+export const brandOptions=(projects:Project[])=>[...new Set(projects.flatMap(p=>[brandFor(p),collaboratorFor(p)]).filter(Boolean))].sort((a,b)=>a.localeCompare(b));
+export const matchesBrand=(p:Project,brand:string)=>brand==='all'||brandFor(p)===brand||collaboratorFor(p)===brand;
+export const sortProjects=(projects:Project[],sort:WorkSort)=>sort==='brand'?[...projects].sort((a,b)=>(brandFor(a)||'zzz').localeCompare(brandFor(b)||'zzz')||a.order-b.order):projects;
+export const portfolioCategories:{id:PortfolioCategory;label:string;theme:number}[]=[
+ {id:'selected',label:'Highlights',theme:0},{id:'trailers',label:'Film',theme:1},{id:'brands',label:'Campaigns',theme:2},{id:'short-form',label:'Short form',theme:3},{id:'youtube',label:'YouTube',theme:0},{id:'events',label:'Live & comedy',theme:4}
 ];
-export function buildSections(projects:Project[]):PortfolioSection[]{
- const lead=[...projects.filter(p=>p.featured),...projects].filter((p,i,a)=>a.findIndex(x=>x.id===p.id)===i).slice(0,7);
- const included=new Set(lead.map(p=>p.id));
- const sections:PortfolioSection[]=[{id:'selected',category:'selected',title:'Selected work',items:lead,theme:0,layout:0,offset:0}];
- const queues=groups.map(g=>({...g,items:projects.filter(p=>p.category===g.category&&!included.has(p.id)),page:0}));
- let offset=lead.length,round=0;
- while(queues.some(q=>q.items.length)){
-  for(const q of queues){if(!q.items.length)continue;const items=q.items.splice(0,6);q.page++;sections.push({id:q.category+'-'+q.page,category:q.category,title:q.title,items,theme:q.theme,layout:(sections.length+round)%6,offset});offset+=items.length;}
-  round++;
+export const contextFor=(category:PortfolioCategory)=>positioning.categories[category];
+export function buildSections(projects:Project[],sort:WorkSort='curated',brand='all',size=6):PortfolioSection[]{
+ const filtered=projects.filter(p=>matchesBrand(p,brand)),sections:PortfolioSection[]=[];
+ for(const group of portfolioCategories){
+  const source=group.id==='selected'?showcase.slice(0,6).map(item=>filtered.find(p=>p.id===item.id)).filter((p):p is Project=>!!p):filtered.filter(p=>p.category===group.id);
+  const list=sortProjects(source,sort),context=contextFor(group.id);
+  for(let start=0;start<list.length;start+=size)sections.push({id:group.id+'-'+start,category:group.id,title:context.title,summary:context.summary,focus:context.focus,items:list.slice(start,start+size),theme:group.theme,layout:(sections.length+group.theme)%6,offset:start});
  }
  return sections;
 }
