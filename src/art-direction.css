@@ -39,3 +39,9 @@
 }
 .home-intro{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)}.home-intro .intro-identity,.home-intro .showcase-deck{min-width:0}
 @media(max-width:650px){.home-intro{grid-template-columns:minmax(0,1fr)}.home-intro .intro-identity h1{font-size:28vw}.home-intro .intro-positioning,.home-intro .intro-specialty{max-width:100%}.home-intro .showcase-deck{width:100%}}
+/* Letterforms participate in camera travel, then settle for reading. */
+.depth-journey .zoom-world .glyph-front{transform:translate3d(calc(var(--type-x)*var(--parity)*3px + var(--depth,0)*var(--parity)*10px),calc(var(--type-y)*var(--parity)*7px + var(--depth,0)*16px),calc(var(--depth,0)*var(--parity)*26px)) rotateX(calc(var(--depth,0)*-26deg)) rotateY(calc(var(--type-x)*var(--parity)*24deg + var(--depth,0)*var(--parity)*22deg));transition:transform .1s linear}
+.depth-journey .zoom-tone-mass .glyph-front{transform:translateY(calc(var(--depth,0)*var(--parity)*20px)) scaleY(calc(1 + var(--depth,0)*.35))}
+.depth-journey .zoom-tone-cut .glyph-front{transform:translate(calc(var(--depth,0)*var(--parity)*21px),calc(var(--type-y)*var(--parity)*7px)) skewX(calc(var(--depth,0)*var(--parity)*10deg))}
+.depth-journey .zoom-tone-afterimage .glyph-front{transform:translateY(calc(var(--depth,0)*var(--parity)*12px)) scaleY(calc(1 + var(--depth,0)*.23))}
+@media(prefers-reduced-motion:reduce){.depth-journey .zoom-world .glyph-front{transform:none!important;transition:none!important}}
