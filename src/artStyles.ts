@@ -5,7 +5,7 @@ export const artSequence:Record<string,ArtStyle[]>={
  'short-form':['pixel','curse','sigil','retro'],youtube:['aero','retro','anti','baroque'],events:['noir','sigil']
 };
 export const posterCopy:Record<string,string[]>={
- selected:['Editing. Motion.','VFX + AI.','The hook. The pacing.','The reason to keep watching.'],
+ selected:['I set the direction.','Then lead the work.','Shooting / editing / AI / VFX.','Research. Teams. Reach & retention.'],
  trailers:['Story. Tension.','Reveal.','Trailers + teasers.','Picture and sound. Working together.'],
  brands:['The identity.','The campaign.','Direction / editing / motion / 3D.','Built for the platform.'],
  'short-form':['Hook immediately.','Hold attention.','AI / compositing / lip-sync.','Distinctive images. Controlled pacing.'],

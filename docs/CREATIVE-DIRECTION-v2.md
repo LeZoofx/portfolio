@@ -117,11 +117,20 @@ Reach: public watch-page counters from linked uploads, deduplicated by video ID.
 
 Chronology is Highlights → Film → YouTube → Short form → Live & comedy → Campaigns in both views and the work filters. The first item remains the hero; supporting frames have larger, legible controls. Instagram uses its native embedded player for visible slots, with missing embed URLs derived only from each existing source URL. Instagram's own player controls playback; no undocumented autoplay control or extracted media URLs are used. Idle slots can be activated inline; the shared initial load budget is three players on desktop. Phone browsing loads no video player until a project is opened.
 
-Both arriving and departing media planes remain at or behind the settled viewing plane. Arriving worlds advance from depth. Departing frames keep their settled size and disperse individually past the viewport edges, revealing the next world behind. They never recede or cross the camera. Persistent animated Expand cues open a viewport-filling viewer with an explicit native Fullscreen control. Reduced motion disables attention pulses.
+Arriving and departing worlds follow one continuous exponential depth-and-radial path. Outward drift begins during approach, carries through the resting plane and continues past the viewport edges to reveal the next world. Forward travel approaches a bounded 220px asymptote with the camera at 1200px; frames cannot collide with it. Native scroll is damped without an automatic snap. Persistent animated Expand cues open a viewport-filling viewer with an explicit native Fullscreen control. Reduced motion disables attention pulses.
 
 
 ## Depth focus and simple mobile viewing
 
-Desktop Explore uses restrained depth blur (up to 3.2px, less on lower-powered devices) and brightness falloff. The settled main player stays sharp, supporting frames are slightly dimmer, and hover or keyboard focus restores full clarity. The camera and outward dispersal paths remain unchanged.
+Desktop Explore uses up to 7px of depth blur (3px on lower-powered devices) and brightness falloff on media, with a sharp settled hero and slightly softer supporting frames. Hover or keyboard focus restores full clarity. Expand controls and captions remain legible outside the media filter. Explicitly sized inner media viewports and contain fitting preserve the full image and native aspect ratio.
 
-Phones automatically use the normal document view, including links that request Explore. Keep every project, category order, brand filter, client row and statistic. Use single-column cards, native video aspect ratios, lazy poster loading and on-demand playback in the large viewer. Do not load the 3D scene, inline autoplay players, duplicated image strip or ornamental scene nodes on phones. Disable pointer motion, floating objects, typography loops and automatic image shuffling; keep the inexpensive client and results ribbons and manual shuffle control. Show the work before the longer career write-ups on mobile. Desktop retains both experiences.
+Phones automatically use the normal document view, including links that request Explore. Keep every project, category order, brand filter, client row and statistic. Use single-column cards, native video aspect ratios, lazy poster loading and on-demand playback in the large viewer. Do not load WebGL, inline autoplay players or the duplicated image strip on phones. Use an inexpensive CSS discovery cube, tap-responsive name, finite typography entrances, active-section art accents and a 4.2-second shuffle that pauses offscreen or for Save-Data and reduced motion. Keep the client and results ribbons and manual shuffle control. Show the work before the longer career write-ups on mobile. Desktop retains both experiences.
+
+
+## Creative leadership and process evidence
+
+Use the September 2026 résumé to position Prantik as a creative producer and post-production supervisor who leads research, direction, shooting, editing, AI/VFX and teams. Opening lines are short, first-person descriptions of work. Keep titles and credit claims tied to evidence.
+
+The Project Development panel and downloadable PDF are generated from `content/development-sample.json`. “Why does this shot look fake?” is an original, proposed production sample with a sourced research matrix, treatment, shot plan, AI/VFX direction, team schedule, edit handoff and measurement plan. Do not present it as a commissioned or completed project or assign it fabricated outcomes.
+
+Regenerate the PDF with `python3 -m pip install reportlab fonttools brotli`, then `python3 scripts/build-development-pack.py`. The script uses the repository fonts and writes `public/downloads/Prantik-Dutta-Development-Sample.pdf`.

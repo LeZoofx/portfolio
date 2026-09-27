@@ -1,0 +1,149 @@
+{
+  "title": "Why does this shot look fake?",
+  "status": "Original development sample · September 2026",
+  "intro": "A short film about the small decisions that make an image believable. This is a proposed production, built to show how I connect research, direction, shooting, editing, AI, VFX and team management. The tests, shoot and audience results have not been carried out.",
+  "scope": ["4-minute film", "3 vertical cutdowns", "1 controlled shoot", "Research to delivery"],
+  "sections": [
+    {
+      "id": "brief",
+      "title": "Work out what we are making.",
+      "kicker": "01 / CREATIVE BRIEF",
+      "lead": "Make the audience notice what is wrong with a shot before explaining it. Then fix it in front of them, one decision at a time.",
+      "points": [
+        "Audience: visually curious viewers, creators and commissioning teams who can recognise an unconvincing image but may not have the language to explain why.",
+        "Editorial question: which camera and compositing decisions make the same setup feel more coherent? Believability is a viewer judgement, not a technical detector of AI.",
+        "The film follows one person, one action and one room. Keep the person and setting stable so each change can actually be compared.",
+        "My proposed responsibility: research and creative direction, script and visual treatment, shoot direction, editorial supervision, AI/VFX decisions, team briefs and final review.",
+        "Outputs: a four-minute 16:9 master, three separately written 9:16 cutdowns, caption files, a thumbnail pair and a source note. This pack defines the production; it does not claim those films already exist."
+      ],
+      "headers": ["Decision", "Reason"],
+      "rows": [["One repeated action", "Fewer changing variables; easier visual comparison."],["Reveal before explanation", "Give the viewer a concrete reason to listen."],["Keep a photographed reference", "A stable target for direction, generation and compositing."],["Show the limits", "A convincing image is not evidence that an event happened."]]
+    },
+    {
+      "id": "research",
+      "title": "Research the actual problem.",
+      "kicker": "02 / EVIDENCE & TEST PLAN",
+      "lead": "Separate technical facts, creative choices and things we still need to test. Each claim has a source or a planned demonstration.",
+      "headers": ["Question / source", "Planned demonstration"],
+      "rows": [["Perspective / Nikon [1]", "Repeat the face-and-background composition from two camera distances. Keep the position fixed for a second lens comparison. Explain which variable changed."],["Motion blur / RED [2]", "At 25 fps, repeat the same hand movement at 1/50 and 1/100. Match exposure with light or ND; keep aperture, focus and white balance locked."],["Texture integration / Adobe [3]", "Compare the same composite before and after a restrained grain match. Review in motion and after the final delivery encode, not just on a still."],["Light and contact / production hypothesis", "Record a real object touching the table and its shadow. Compare the inserted object against that reference; do not invent a universal realism score."],["Perceived believability / untested", "Show unlabelled A/B clips to a small test group, randomise order and ask what looks inconsistent. Treat responses as directional feedback."]],
+      "points": [
+        "Capture the URL, access date, exact supported claim and intended use before a line enters the script. A source about a tool is not proof that a generated shot is accurate.",
+        "The first three rows have published technical support. Lighting choices and audience response remain production tests. No test results or retention percentages have been invented.",
+        "Source access date: 28 September 2026. References are listed at the end of this pack."
+      ]
+    },
+    {
+      "id": "treatment",
+      "title": "Show it before naming it.",
+      "kicker": "03 / TREATMENT & EDITORIAL STRUCTURE",
+      "lead": "The opening is a held frame, not a title card. A hand enters, puts down a glass and leaves. Something feels wrong. The edit then shows exactly what changed.",
+      "headers": ["Time", "Picture / editorial purpose"],
+      "rows": [["00:00-00:12", "A/B action at normal speed. Ask the viewer which shot feels wrong. Do not reveal the labels yet."],["00:12-00:35", "Show the photographed reference and the controlled setup. Establish what is being kept constant."],["00:35-01:15", "Perspective comparison. Freeze only long enough to mark the face/background relationship, then return to moving footage."],["01:15-01:55", "Repeat the gesture with two shutter settings. Name the settings after the visual difference is clear."],["01:55-02:45", "Light, contact and composite edges. Show the plate, matte and integrated result in the same crop."],["02:45-03:30", "Texture and movement pass. Review the final encode, including hands, hair, reflections and stable background detail."],["03:30-04:00", "Return to the opening pair. Explain the decisions and the limit: believable does not mean authentic."]],
+      "points": [
+        "Opening draft: 'Same person. Same room. Watch the hand. One of these shots feels wrong. Before I tell you what changed, watch it again.'",
+        "Treatment: observational camera, neutral skin, one motivated light direction, imperfect but controlled framing. Keep fine texture and highlight behaviour; avoid an automatic beauty finish.",
+        "Typography labels the decision being made. Short condensed statements, small technical notes, occasional poster-scale emphasis. No wall of software names over the demonstration.",
+        "Sound follows physical action: sleeve movement, glass contact, chair and room tone. Use the real sync reference to judge weight and timing."
+      ]
+    },
+    {
+      "id": "shots",
+      "title": "Plan the coverage.",
+      "kicker": "04 / SHOT LIST & BLOCKING",
+      "lead": "Proposed setup: a consented performer at a table near a practical window or controllable source. A plain glass, chair, textured clothing and a background with stable straight lines provide useful reference.",
+      "headers": ["Shot", "Direction / technical brief"],
+      "rows": [["S01 / locked medium", "Reference action. Mark chair, hand landing point and glass position. Hold clean frames before and after. Shoot repeatable takes."],["S02 / face detail", "Capture three-quarter and profile reference in the same light. Include hairline and ear detail. Do not retouch the reference skin."],["S03 / contact insert", "Hand places the glass down. Record contact shadow, reflection and finger overlap. Keep a locked plate without the hand."],["S04 / perspective pair", "Record camera height, distance and lens setting. Match subject size for the distance test; then compare focal lengths from one fixed position."],["S05 / motion pair", "Repeat the same gesture at 25 fps: 1/50, then 1/100. Match exposure while keeping the depth of field and colour balance stable."],["S06 / moving wide", "A short lateral move with foreground and background references. Capture a clean pass and a reference object for tracking and light."],["S07 / breakdown", "Record the timeline, plate, matte and composite at the same frame range. Use labelled versions so the comparison can be reproduced."]],
+      "points": [
+        "Record 4K where practical; compose with both 16:9 and 9:16 extraction in mind. Reframe the vertical edit deliberately rather than letting an automatic crop choose the subject.",
+        "Proposed kit: one 4K camera, lens coverage around 35-50mm full-frame equivalent, tripod, one controllable source, diffusion/negative fill, lav or boom and a grey card. Confirm actual equipment before locking the shot plan.",
+        "Continuity sheet: take ID, camera height/distance, lens, exposure, colour balance, light position, prop marks and selected action take. Record these before moving the setup."
+      ]
+    },
+    {
+      "id": "ai-vfx",
+      "title": "Brief the shot, not the tool.",
+      "kicker": "05 / AI & VFX HANDOFF",
+      "lead": "Keep the base plate intact wherever the shot does not need a change. Every generated or composited element has a specific job and a photographed reference.",
+      "headers": ["Stage", "Instruction / review gate"],
+      "rows": [["Reference order", "Approved base frame first, identity angles second, material/lighting references third. Name what each reference controls."],["Locked attributes", "Frame, camera position, pose, costume, identity, skin tone, props and background layout. Log intentional changes explicitly."],["Generation brief", "Describe the required action and its contact points. Specify light direction, material response, depth falloff and motion behaviour. Generate only the required element or shot."],["Composite", "Check track, lens behaviour, occlusion, contact shadow, edge treatment and motion blur against the plate. Match grain after the image relationship is working."],["Review in motion", "Inspect hands, hair, eyes, reflection timing and background stability at normal speed and frame by frame. Reject identity drift and detail morphing."],["Fallback", "If the generated action fails continuity, use the practical take or a smaller compositing intervention. Do not hide a broken action under effects."]],
+      "points": [
+        "Example shot brief: 'Use S03_T02 as the fixed plate. Add only the approved glass treatment. Keep the hand, framing and table unchanged. Match the recorded shadow direction, reflection and blur. The glass must meet the table at the marked contact frame.'",
+        "Delivery to the editor: approved shot, handles, alpha/matte where needed, clean plate, source reference, frame range, version ID and a note identifying generated changes.",
+        "Performer consent and permission to use identity references are production prerequisites. Mark generated imagery in the finished demonstration and retain a shot-level provenance note."
+      ]
+    },
+    {
+      "id": "team",
+      "title": "Give the team a usable plan.",
+      "kicker": "06 / OWNERSHIP, RESOURCES & SCHEDULE",
+      "lead": "Planning assumptions for a small original production. These are proposed roles and allocations, not historical crew credits or a supplier quote.",
+      "headers": ["Owner / allocation", "Responsibility & approval"],
+      "rows": [["Creative lead / 16 hours", "Research, treatment, shoot direction, team briefing and final creative sign-off. Own changes to the brief."],["Camera + assistant / 8-hour shoot", "Coverage, light and camera log, clean plates, reference passes and two verified media copies before wrap."],["Editor / 20 hours", "Assembly, structure, sound, captions and three cutdowns. Flag missing coverage before picture lock."],["AI/VFX artist / 16 hours", "Shot feasibility, tests, approved generation, tracking/compositing and versioned deliveries."],["Sound + finishing / 6 hours", "Dialogue/room consistency, mix, grade and delivery checks. Escalate source problems before the final export."],["Contingency / 12 hours", "Reserved for a failed generated shot, pickup or delivery issue. A larger creative change requires a new allocation."]],
+      "points": [
+        "Schedule: day 1 research and script; day 2 treatment, tests and lock; day 3 shoot and selects; days 4-5 edit/VFX in parallel against agreed shot ranges; day 6 picture lock, finish and exports.",
+        "Critical path: approved question → treatment → feasibility test → shoot → assembly → locked shot ranges → final VFX → finish. Do not spend final-render time on an unapproved change.",
+        "One person consolidates feedback. Round 1 covers story and structure; round 2 covers execution. Corrections remain open, but a new concept is a scope change.",
+        "Cash budget is deliberately unpriced until crew, location, equipment, licensing and AI-use requirements are confirmed. Allocate resources by the shot that needs them, not by making every shot equally expensive."
+      ]
+    },
+    {
+      "id": "post",
+      "title": "Keep the edit and assets in sync.",
+      "kicker": "07 / POST-PRODUCTION CONTROL",
+      "lead": "The team works from one review link, one approved timeline reference and a shot register. Every request says whether it changes the story, the image or the delivery.",
+      "headers": ["Gate", "Definition of ready"],
+      "rows": [["Assembly", "All argument beats represented. Missing footage and unresolved claims are labelled. Temp sound and VFX are identified."],["Structure review", "Opening, ordering, explanation and payoff approved. The feedback list names the owner and exact timecode."],["Shot-range lock", "Editor publishes reference export with burn-in, frame rate and handles. VFX confirms the matching timeline version before final work."],["Picture lock", "No unlogged duration changes. Any reopened shot includes an impact note for sound, captions, graphics and versions."],["Finish", "Approved composite versions, colour, sound, captions, source credits and generated-shot labels are present."],["Delivery", "Watch the export end to end. Check phone legibility, title-safe areas, audio, thumbnail, metadata and final links."]],
+      "points": [
+        "Naming example: FAKE_S03_comp_v003_WIP. The approval register, not a file called FINAL, determines whether a shot is cleared.",
+        "Feedback example: '01:58:12 — S03 contact shadow slips on landing. VFX to compare with reference take 02. Execution fix; no duration change. Review against edit v006.' Timecode assumes the proposed 25 fps timeline.",
+        "Handoff bundle: project file, media map, fonts/licence notes, proxies or consolidated media, colour notes, mix stems, captions, approved shot register and delivery manifest."
+      ]
+    },
+    {
+      "id": "audience",
+      "title": "Plan what we will learn.",
+      "kicker": "08 / PACKAGING & RETENTION",
+      "lead": "A retention plan is a set of decisions to examine after publication. It is not a promised percentage or a score assigned to an unfinished film.",
+      "headers": ["Test", "Decision it informs"],
+      "rows": [["Opening A / opening B", "A starts on the repeated action; B starts on the before/after pair. Compare like-for-like distribution where available."],["Title pair", "'Why does this shot look fake?' versus 'The details that make a shot believable'. Both must accurately describe the finished demonstration."],["Thumbnail pair", "Same frame with one visible contradiction versus a clearly labelled before/after. Do not fabricate an outcome for the thumbnail."],["Viewer behaviour", "Review opening retention, key explanation dips, average view duration and rewatch points against comparable uploads and traffic sources."],["Qualitative notes", "Ask which change viewers noticed and whether the explanation answered their question. Record confusion separately from dislike."],["Short-form cutdowns", "One decision per cutdown: perspective, contact, motion/texture. Each needs its own opening and conclusion, not just a crop of the master."]],
+      "points": [
+        "Build curiosity with a question the film actually answers. Do not delay the explanation with an unrelated montage.",
+        "Mark the intended question and payoff in the edit review. Use graphics only where they clarify the difference being discussed.",
+        "After release, log what changed, when, where traffic came from and what happened. Do not assign growth to a single edit choice without evidence."
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "Show the decisions behind the work.",
+      "kicker": "09 / PORTFOLIO EVIDENCE",
+      "lead": "The strongest companion material is a small number of real project records with clear responsibility. Finished films show taste; these records show what I led.",
+      "points": [
+        "Trunativ case study: an approved research brief, visual treatment or script/shot document, one finished film, the exact scope of my role and dated analytics supporting the reported growth. The résumé describes research, scripting, shooting, 3D and post; publish only records cleared for sharing.",
+        "A direction-to-delivery case from Sorted or Creator Engine: the initial brief, my treatment or visual standards, team handoff, an annotated review and the resulting work. Make my decisions distinct from the wider team's credits.",
+        "A before/after breakdown: reference plate, work-in-progress and final AI/VFX shot, with concise notes on the constraint, decision and contribution. Label generated material and keep performer/client permissions in place.",
+        "A team workflow example: an anonymised role map, schedule, shot register and feedback sheet. Show how the system resolved a real production constraint without publishing private team conversations.",
+        "One specific testimonial or approved credit from a producer, client or collaborator that describes responsibility and judgement. Obtain the actual quote; do not generate an endorsement."
+      ],
+      "headers": ["Already established by the supplied résumé", "Material that would strengthen it"],
+      "rows": [["Head of Video / Sorted", "Approved treatment plus credited output."],["Visual/post direction / Creator Engine", "Channel visual brief and a decision breakdown."],["Four-person team / Schbang", "Anonymised schedule and an approved team credit."],["Research through post / Trunativ", "Development record and dated source analytics."]]
+    },
+    {
+      "id": "sources",
+      "title": "Keep the evidence attached.",
+      "kicker": "10 / SOURCE REGISTER & STATUS",
+      "lead": "This development sample is a newly prepared concept. It is not a claim of completed client work, a performed shoot or measured audience results.",
+      "points": [
+        "[1] Nikon Support, 'Choosing the right lenses - Perspective': camera position determines perspective; changing focal length often accompanies a position change. Used for the controlled perspective test.",
+        "[2] RED, 'Shutter Angles & Creative Control': exposure duration changes the amount of captured motion blur. Used to plan the two shutter settings; the film will show its own recorded comparison.",
+        "[3] Adobe After Effects Help, 'Noise and Grain effects': Match Grain uses the texture of a reference layer; grain can help integrate elements. Used for the finishing brief, not as proof of perceptual realism.",
+        "Professional role context comes from the supplied September 2026 résumé. Private conversations, employer feedback and unapproved client materials are excluded.",
+        "Next production gate: approve the question and treatment, confirm performer/location permissions, run the controlled tests, then update the script with the actual observations."
+      ]
+    }
+  ],
+  "sources": [
+    {"id":1,"title":"Nikon — Choosing the right lenses: Perspective","url":"https://www.nikonimgsupport.com/na/NSG_article?articleNo=000047395&lang=en_SG"},
+    {"id":2,"title":"RED — Shutter Angles & Creative Control","url":"https://www.reddigitalcinema.com/red-101/shutter-angle-tutorial"},
+    {"id":3,"title":"Adobe — Noise and Grain effects","url":"https://helpx.adobe.com/after-effects/desktop/apply-effects-and-animation-presets/list-of-effects/noise-grain-effects.html"}
+  ]
+}

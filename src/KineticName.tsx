@@ -1,7 +1,8 @@
-import {useRef, type PointerEvent} from 'react';
+import {useRef,useState,useEffect,type CSSProperties, type PointerEvent} from 'react';
 
 export default function KineticName({compact=false}:{compact?:boolean}) {
- const root=useRef<HTMLSpanElement>(null);
+ const root=useRef<HTMLSpanElement>(null),[tapped,setTapped]=useState(false),reset=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
+ useEffect(()=>()=>clearTimeout(reset.current),[]);
  function move(e:PointerEvent<HTMLSpanElement>) {
   if(e.pointerType==='touch'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const letters=root.current?.querySelectorAll<HTMLElement>('.name-letter');
@@ -13,7 +14,7 @@ export default function KineticName({compact=false}:{compact?:boolean}) {
   });
  }
  function clear(){root.current?.querySelectorAll<HTMLElement>('.name-letter').forEach(el=>{el.style.setProperty('--letter-flip','0deg');el.style.setProperty('--letter-lift','0px')})}
- return <span className={'kinetic-name'+(compact?' compact-name':'')} aria-label="Prantik Dutta" ref={root} onPointerMove={move} onPointerLeave={clear}>
-  {['Prantik','Dutta'].map(word=><span className="name-word" key={word} aria-hidden="true">{[...word].map((letter,i)=><span className="name-letter" key={i}><span>{letter}</span><span className="letter-reverse">{letter}</span></span>)}</span>)}
+ return <span className={'kinetic-name'+(compact?' compact-name':'')+(tapped?' is-tapped':'')} aria-label="Prantik Dutta" ref={root} onPointerDown={e=>{if(e.pointerType==='touch'&&!matchMedia('(prefers-reduced-motion: reduce)').matches){setTapped(true);clearTimeout(reset.current);reset.current=setTimeout(()=>setTapped(false),900)}}} onPointerMove={move} onPointerLeave={clear}>
+  {['Prantik','Dutta'].map(word=><span className="name-word" key={word} aria-hidden="true">{[...word].map((letter,i)=><span className="name-letter" key={i} style={{'--letter':i} as CSSProperties}><span>{letter}</span><span className="letter-reverse">{letter}</span></span>)}</span>)}
  </span>;
 }

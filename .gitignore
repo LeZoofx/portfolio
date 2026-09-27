@@ -7,3 +7,4 @@ qa/
 _qa.html
 _preview/
 __pycache__/
+tmp/
