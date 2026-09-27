@@ -8,8 +8,10 @@ Creative and visual direction, films, campaigns and AI visuals.
 
 - Two complete experiences: Normal and Fun.
 - React + TypeScript + Vite; lazy Three.js / React Three Fiber scene.
-- Five low-poly worlds with bounded, reusable zoom transitions.
-- CSS perspective fallback when WebGL is unavailable.
+- Five distinct worlds: Glass, Mass, Cut, 1998 and Afterimage, with bounded, reusable scroll transitions.
+- Curated major-name opening shuffle, résumé-backed results, and cursor-reactive 3D lettering.
+- One reusable, muted video player; landscape and portrait framing; poster-to-playing fades.
+- CSS perspective fallback when WebGL is unavailable; real images remain independent of the 3D renderer.
 - 79 migrated projects, 78 local posters, 42 original video embeds and 11 original AI disclosures.
 - 89 pre-rendered pages plus a 404 page; project deep links work on GitHub Pages.
 - Owner-only GitHub Actions forms for updating content and publishing.
@@ -24,3 +26,5 @@ npm run build
 GitHub Actions sets the correct base path for either `username.github.io` or a project repository. No backend, paid service or API key is needed by the site.
 
 Source content and media come from https://prantikdutta.myportfolio.com/ . Third-party artwork, films, logos and platform content retain their respective ownership. See [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md).
+
+The revised creative and technical brief is in [docs/CREATIVE-DIRECTION-v2.md](docs/CREATIVE-DIRECTION-v2.md).

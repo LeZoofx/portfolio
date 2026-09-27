@@ -1,109 +1,57 @@
-import {Canvas, createPortal, useFrame, useThree} from '@react-three/fiber';
-import {useEffect,useMemo,useRef,useState} from 'react';
-import * as THREE from 'three';
+import {Component,Suspense,lazy,useEffect,useMemo,useRef,useState,type CSSProperties,type ReactNode} from 'react';
 import {asset,type Project} from './content';
-
-const names=['THE ARCHIVE','THE IMPRESSION','THE COLLAGE','THE LANGUAGE','THE FRAME'];
-const colors=['#dfff00','#f5442c','#385bff','#dfff00','#f5442c'];
-const mod=(n:number)=>((n%5)+5)%5;
-type Motion={chapter:number;position:number;target:number;pointer:THREE.Vector2;dirty:boolean;paused:boolean;reduced:boolean;low:boolean};
+import {worlds,wrap,type JourneyMotion} from './journeyData';
+import JourneyPlayer from './JourneyPlayer';
+import KineticName from './KineticName';
+import './journey.css';
+const Scene=lazy(()=>import('./JourneyScene'));
+class GeometryBoundary extends Component<{children:ReactNode;onFailure:()=>void},{failed:boolean}>{state={failed:false};static getDerivedStateFromError(){return {failed:true}}componentDidCatch(){this.props.onFailure()}render(){return this.state.failed?null:this.props.children}}
 type Props={projects:Project[];onProject:(p:Project)=>void;onIndex:()=>void;paused:boolean;reduced:boolean};
-function textTexture(text:string,color:string,bg:string,width=1024,height=256){
- const c=document.createElement('canvas');c.width=width;c.height=height;
- const x=c.getContext('2d')!;x.fillStyle=bg;x.fillRect(0,0,width,height);x.fillStyle=color;
- x.font='700 '+Math.round(height*.8)+'px Display, Impact, sans-serif';x.textBaseline='middle';
- const w=x.measureText(text).width;x.save();x.scale(Math.min(1,(width-32)/w),1);x.fillText(text,16,height*.48);x.restore();
- const t=new THREE.CanvasTexture(c);t.colorSpace=THREE.SRGBColorSpace;return t;
+const ease=(a:number,b:number,x:number)=>{const t=Math.max(0,Math.min(1,(x-a)/(b-a)));return t*t*(3-2*t)};
+function Discovery({project,kind,onReveal}:{project:Project;kind:string;onReveal:(p:Project)=>void}){
+ const timer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);useEffect(()=>()=>clearTimeout(timer.current),[]);
+ return <button className={'discovery discovery-'+kind} aria-label={'Discover '+project.title} onPointerEnter={e=>{if(e.pointerType==='mouse')timer.current=setTimeout(()=>onReveal(project),600)}} onPointerLeave={()=>clearTimeout(timer.current)} onClick={()=>onReveal(project)}><svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.2">{kind==='aperture'?<><circle cx="16" cy="16" r="12"/><path d="m16 4 8 16H8zm10 5-18 4m18 10-16-9M16 28l8-15"/></>:kind==='film'?<><rect x="4" y="9" width="24" height="18" rx="1"/><path d="m4 9 22-6 2 6M9 8l3-5m5 3 3-4M4 15h24m-14 4 7 4-7 4z"/></>:kind==='ticket'?<><path d="M3 9h26v5a3 3 0 0 0 0 6v5H3v-5a3 3 0 0 0 0-6z"/><path d="M10 9v3m0 3v3m0 3v4m7-10h7m-7 5h5"/></>:kind==='window'?<><rect x="3" y="5" width="26" height="22"/><path d="M3 11h26m-5-3h2M9 16l4 3-4 3m7 0h7"/></>:<><rect x="6" y="3" width="20" height="26"/><path d="M9 9h14v14H9zM10 6h3m6 0h3m-12 20h3m6 0h3"/></>}</svg></button>;
 }
-function Label({text,color='#f1f0ea',bg='#181818',pos=[0,0,0],size=[15,3],rot=0}:{text:string;color?:string;bg?:string;pos?:[number,number,number];size?:[number,number];rot?:number}){
- const t=useMemo(()=>textTexture(text,color,bg),[text,color,bg]);useEffect(()=>()=>t.dispose(),[t]);
- return <mesh position={pos} rotation={[0,0,rot]}><planeGeometry args={size}/><meshBasicMaterial map={t} toneMapped={false}/></mesh>;
-}
-function usePoster(url:string|undefined){
- const [texture,setTexture]=useState<THREE.Texture|null>(null);const invalidate=useThree(s=>s.invalidate);
- useEffect(()=>{if(!url)return;let valid=true;let t:THREE.Texture|undefined;
- new THREE.TextureLoader().load(asset(url),value=>{t=value;value.colorSpace=THREE.SRGBColorSpace;value.anisotropy=2;if(valid){setTexture(value);invalidate()}else value.dispose()},undefined,()=>invalidate());
- return()=>{valid=false;t?.dispose();setTexture(null)}},[url,invalidate]);return texture;
-}
-function Picture({project,pos,size,rotation=0,onOpen}:{project:Project;pos:[number,number,number];size:[number,number];rotation?:number;onOpen?:()=>void}){
- const texture=usePoster(project.poster);
- useEffect(()=>{if(!texture?.image)return;const im=texture.image as HTMLImageElement;const ratio=im.width/im.height,frame=size[0]/size[1];texture.repeat.set(Math.min(1,frame/ratio),Math.min(1,ratio/frame));texture.offset.set((1-texture.repeat.x)/2,(1-texture.repeat.y)/2);texture.needsUpdate=true},[texture,size[0],size[1]]);
- return <group position={pos} rotation={[0,0,rotation]}>
- <mesh position={[.2,-.2,-.2]}><boxGeometry args={[size[0]+.5,size[1]+.5,.28]}/><meshStandardMaterial color="#3e3e38" roughness={1}/></mesh>
- <mesh onClick={e=>{e.stopPropagation();onOpen?.()}} onPointerOver={()=>{document.body.style.cursor='pointer'}} onPointerOut={()=>{document.body.style.cursor='auto'}}>
- <planeGeometry args={size}/><meshBasicMaterial map={texture} color={texture?'white':'#b6b6a7'} toneMapped={false}/></mesh></group>;
-}
-function Stage({chapter,projects,aspect,onOpen,portal,portalRef}:{chapter:number;projects:Project[];aspect:number;onOpen?:(p:Project)=>void;portal?:THREE.Texture;portalRef?:React.RefObject<THREE.MeshBasicMaterial|null>}){
- const c=mod(chapter),color=colors[c],mobile=aspect<.85,w=mobile?16:29;
- const p=projects[c%projects.length],q=projects[(c+1)%projects.length],r=projects[(c+2)%projects.length];
- if(!p)return null;
- return <group>
- <ambientLight intensity={2}/><directionalLight position={[-8,14,15]} intensity={3}/>
- <mesh position={[0,0,-6]}><planeGeometry args={[250,180]}/><meshBasicMaterial color={c===2?'#162442':c===1?'#252019':'#161817'}/></mesh>
- <mesh position={[0,-12,-1]} rotation={[-.8,0,-.06]}><boxGeometry args={[w*2,10,.5]}/><meshStandardMaterial color={color} roughness={.9}/></mesh>
- <mesh position={[-w*.53,0,-2]} rotation={[0,.55,.03]}><boxGeometry args={[2,25,2]}/><meshStandardMaterial color="#797970" roughness={1}/></mesh>
- <mesh position={[w*.55,0,-2]} rotation={[0,-.5,-.06]}><boxGeometry args={[2,27,2]}/><meshStandardMaterial color="#43483c" roughness={1}/></mesh>
- <Label text={c===0?'PRANTIK':c===1?'IMPRESSION':c===2?'PLAY / REPEAT':c===3?'IDEA → IMAGE':'LOOK CLOSER'} color={color} bg={c===2?'#162442':'#171817'} pos={[0,12,-1]} size={[w*1.35,5.7]} rot={c===2?.05:-.025}/>
- <Picture project={p} pos={[0,.8,-.8]} size={[w*.83,mobile?10:12.5]} rotation={c===2?-.08:.03} onOpen={()=>onOpen?.(p)}/>
- <Picture project={q} pos={[-w*.42,-6,1]} size={[mobile?7:12,7]} rotation={-.14} onOpen={()=>onOpen?.(q)}/>
- <Picture project={r} pos={[w*.43,5,1]} size={[mobile?6:10,6.3]} rotation={.15} onOpen={()=>onOpen?.(r)}/>
- <Label text={p.category.toUpperCase()+' / '+p.id.toUpperCase()} color="#101010" bg={color} pos={[0,-10.7,2]} size={[w*.86,1.3]} rot={-.02}/>
- {c===2&&[0,1,2].map(i=><Label key={i} text="CUT / REFRAME" color={i===1?'#161616':color} bg={i===1?color:'#161616'} pos={[-w*.45+i*2,7-i*3,3]} size={[10,1.3]} rot={-.35}/>)}
- {c===3&&[0,1,2,3].map(i=><Label key={i} text={['DIRECTION','PRODUCTION','POST-PRODUCTION','AI VISUALS'][i]} color={i===2?'#161616':'#efefe4'} bg={i===2?color:'#161616'} pos={[(i%2===0?-1:1)*w*.27,8-i*4,2+i*.25]} size={[mobile?8:12,1.5]} rot={i%2===0?.07:-.07}/>)}
- {c===1&&[0,1,2,3,4,5,6,7].map(i=><mesh key={i} position={[0,9-i*2.5,3-i*.13]} rotation={[0,0,.025*Math.sin(i)]}><planeGeometry args={[w*1.2,.18+i*.02]}/><meshBasicMaterial color={i%2?color:'#edede2'} transparent opacity={.3+i*.07}/></mesh>)}
- {portal&&<mesh position={[0,0,4]} renderOrder={20}><planeGeometry args={[3.2*aspect,3.2]}/><meshBasicMaterial ref={portalRef} map={portal} toneMapped={false} transparent opacity={0}/></mesh>}
- <Label text="PRANTIK DUTTA / CREATIVE & VISUAL DIRECTION" color="#9c9d91" bg="#161817" pos={[0,-15,-2]} size={[w*.95,.95]}/>
- </group>;
-}
-function Runtime({motion,projects,onChapter,onOpen}:{motion:Motion;projects:Project[];onChapter:(n:number)=>void;onOpen:(p:Project)=>void}){
- const {gl,scene,camera,size,invalidate,setDpr}=useThree();const aspect=size.width/size.height;
- const nextScene=useMemo(()=>new THREE.Scene(),[]);const introCamera=useMemo(()=>new THREE.PerspectiveCamera(40,aspect,.1,300),[]);
- const target=useMemo(()=>new THREE.WebGLRenderTarget(Math.min(size.width,1024),Math.min(size.height,1024),{depthBuffer:true}),[size.width,size.height]);
- const material=useRef<THREE.MeshBasicMaterial>(null);const frame=useRef(0);const dirtyFrames=useRef(8);
- const position=useRef(new THREE.Vector2());const [chapter,setChapter]=useState(motion.chapter);
- const end=4+3.2/(2*Math.tan(THREE.MathUtils.degToRad(20))),start=4+(end-4)*10;
- useEffect(()=>()=>target.dispose(),[target]);
- useEffect(()=>{dirtyFrames.current=12;introCamera.aspect=aspect;introCamera.position.set(0,0,start);introCamera.lookAt(0,0,4);introCamera.updateProjectionMatrix();invalidate()},[aspect,chapter,projects,target,introCamera,invalidate,start]);
- useEffect(()=>{const canvas=gl.domElement;const restore=()=>{dirtyFrames.current=12;invalidate()};canvas.addEventListener('webglcontextrestored',restore);return()=>canvas.removeEventListener('webglcontextrestored',restore)},[gl,invalidate]);
- useFrame((state,rawDt)=>{
-  if(motion.paused||document.hidden)return;
-  const dt=Math.min(rawDt,.05);
-  const factor=1-Math.exp(-12*dt);motion.position+=(motion.target-motion.position)*factor;
-  if(Math.abs(motion.target-motion.position)<.0001)motion.position=motion.target;
-  while(motion.position>=1){motion.position-=1;motion.target-=1;motion.chapter++;setChapter(motion.chapter);onChapter(motion.chapter);dirtyFrames.current=12;}
-  while(motion.position<0){motion.position+=1;motion.target+=1;motion.chapter--;setChapter(motion.chapter);onChapter(motion.chapter);dirtyFrames.current=12;}
-  const u=motion.position,fade=1-THREE.MathUtils.smoothstep(u,.6,1);
-  position.current.lerp(motion.pointer,motion.reduced?1:factor);
-  camera.position.set(position.current.x*.75*fade,position.current.y*.4*fade,4+(start-4)*Math.pow(.1,u));
-  camera.lookAt(0,0,4);(camera as THREE.PerspectiveCamera).fov=40;camera.updateProjectionMatrix();
-  if(material.current)material.current.opacity=THREE.MathUtils.smoothstep(u,.02,.15);
-  {gl.setRenderTarget(target);gl.render(nextScene,introCamera);gl.setRenderTarget(null);dirtyFrames.current--;}
-  gl.render(scene,camera);
-  frame.current++;if(frame.current%120===0){setDpr(motion.low?1:Math.min(devicePixelRatio,aspect<.85?1:1.5));}
-  if(import.meta.env.DEV)(window as any).__portfolioStats={chapter:motion.chapter,progress:u,drawCalls:gl.info.render.calls,triangles:gl.info.render.triangles,textures:gl.info.memory.textures,geometries:gl.info.memory.geometries};
-  if(Math.abs(motion.target-motion.position)>.0001||position.current.distanceTo(motion.pointer)>.001||dirtyFrames.current>0)invalidate();
- },1);
- useEffect(()=>{const canvas=gl.domElement;let lastY=0,touch=false;
-  const wheel=(e:WheelEvent)=>{if(e.ctrlKey||e.metaKey||motion.paused||motion.reduced)return;e.preventDefault();motion.target+=THREE.MathUtils.clamp(e.deltaY,-120,120)*.0008;invalidate()};
-  const down=(e:PointerEvent)=>{if(e.pointerType==='touch'){touch=true;lastY=e.clientY}};
-  const move=(e:PointerEvent)=>{if(motion.paused)return;if(touch&&e.pointerType==='touch'&&!motion.reduced){motion.target+=(lastY-e.clientY)*.002;lastY=e.clientY}else{const r=canvas.getBoundingClientRect();motion.pointer.set((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height*2-1))}invalidate()};
-  const up=()=>{touch=false};const wake=()=>invalidate();
-  canvas.addEventListener('wheel',wheel,{passive:false});canvas.addEventListener('pointerdown',down);canvas.addEventListener('pointermove',move);window.addEventListener('pointerup',up);document.addEventListener('visibilitychange',wake);
-  return()=>{canvas.removeEventListener('wheel',wheel);canvas.removeEventListener('pointerdown',down);canvas.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);document.removeEventListener('visibilitychange',wake);document.body.style.cursor='auto'};
- },[gl,motion,invalidate]);
- useEffect(()=>{invalidate()},[motion.target,motion.paused,motion.chapter,invalidate]);
- useEffect(()=>{setDpr(motion.low?1:Math.min(devicePixelRatio,aspect<.85?1:1.5));invalidate()},[motion.low,aspect,setDpr,invalidate]);
- return <><Stage chapter={chapter} projects={projects} aspect={aspect} portal={target.texture} portalRef={material} onOpen={onOpen}/>{createPortal(<Stage chapter={chapter+1} projects={projects} aspect={aspect}/>,nextScene)}</>;
+function ImageTile({p,index,onReveal}:{p:Project;index:number;onReveal:(p:Project)=>void}){return <button className={'world-image image-'+index} onClick={()=>onReveal(p)} aria-label={'Open '+p.title}>{p.poster&&<img src={asset(p.poster)} alt="" decoding="async"/>}<span>{p.title.split(' | ')[0].split(' (Official')[0]}</span></button>}
+function World({index,projects,onReveal}:{index:number;projects:Project[];onReveal:(p:Project)=>void}){
+ const w=worlds[index],cards=w.cards.map(id=>projects.find(p=>p.id===id)).filter(Boolean) as Project[];
+ return <section className={'journey-world world-'+w.kind} data-world-index={index} aria-label={w.name}>
+ {index===0&&<><div className="glass-name"><KineticName/></div><div className="glass-orbit"/><div className="glass-rule"/></>}
+ {index===1&&<><div className="mass-number" aria-hidden="true">02</div><div className="mass-rule"/><span className="mass-caption">TRAILERS / FILM</span></>}
+ {index===2&&<><div className="cut-word" aria-hidden="true">CUT.</div><span className="cut-stamp">LIVE / LOUD</span><div className="cut-reg" aria-hidden="true">+</div></>}
+ {index===3&&<><div className="desktop-wallpaper" style={{backgroundImage:`url(${asset(cards[2]?.poster)})`}}/><div className="desktop-icon"><span>▣</span><span>My work</span></div><div className="desktop-clock">PD / 1998</div></>}
+ {index===4&&<><div className="afterimage-type">After<br/><em>image.</em></div><div className="contact-rule"/></>}
+ <div className="world-images">{cards.map((p,i)=><ImageTile key={p.id} p={p} index={i} onReveal={onReveal}/>)}</div></section>;
 }
 export default function Universe({projects,onProject,onIndex,paused,reduced}:Props){
- const [chapter,setChapter]=useState(0),[low,setLow]=useState(false),[tick,setTick]=useState(0);
- const motion=useMemo<Motion>(()=>({chapter:0,position:0,target:0,pointer:new THREE.Vector2(),dirty:true,paused:false,reduced:false,low:false}),[]);
- motion.paused=paused;motion.reduced=reduced;motion.low=low;
- function go(delta:number){if(reduced){motion.chapter+=delta;motion.position=0;motion.target=0;setChapter(motion.chapter);setTick(t=>t+1)}else{motion.target=Math.floor(motion.position)+delta;setTick(t=>t+1)}}
- const c=mod(chapter),p=projects[c%projects.length];
- return <div className="universe" data-chapter={c} data-tick={tick}><Canvas key={reduced?chapter:'continuous'} frameloop="demand" dpr={low?1:[1,1.5]} camera={{position:[0,0,48],fov:40,near:.1,far:300}} gl={{antialias:true,alpha:false,powerPreference:'high-performance'}} onCreated={({gl})=>{gl.setClearColor('#161817');gl.toneMapping=THREE.NoToneMapping}}><Runtime motion={motion} projects={projects} onChapter={setChapter} onOpen={onProject}/></Canvas>
- <div className="scene-top"><div><p className="mono">PRANTIK DUTTA / {String(c+1).padStart(2,'0')}—05</p><p className="scene-label">{names[c].split(' ')[0]}<br/>{names[c].split(' ').slice(1).join(' ')}</p></div><div className="scene-top-right"><button onClick={onIndex}>WORK INDEX ↗</button><br/><button aria-pressed={low} onClick={()=>setLow(!low)}>{low?'LOW':'AUTO'} QUALITY</button></div></div>
- <div className="scene-caption">{reduced?'USE THE CHAPTER CONTROLS':'SCROLL / DRAG TO GO DEEPER. CLICK A FRAME TO WATCH.'}</div>
- <div className="scene-bottom"><div className="scene-controls" aria-label="Scene navigation"><button aria-label="Previous chapter" onClick={()=>go(-1)}>←</button>{names.map((n,i)=><button key={n} className="chapter-dot" aria-label={n} aria-pressed={c===i} onClick={()=>{if(reduced){motion.chapter+=i-c;motion.position=motion.target=0;setChapter(motion.chapter);setTick(t=>t+1)}else{motion.target+=i-c;setTick(t=>t+1)}}}>{String(i+1).padStart(2,'0')}</button>)}<button aria-label="Next chapter" onClick={()=>go(1)}>→</button></div><p className="mono">A WORLD WITHIN A FRAME.<br/>KEEP GOING. COME BACK. LOOK CLOSER.</p>{p&&<button className="scene-open" onClick={()=>onProject(p)}>OPEN PROJECT ↗<small>{p.title}</small></button>}</div></div>;
+ const root=useRef<HTMLDivElement>(null),scroll=useRef<HTMLDivElement>(null),screen=useRef<HTMLDivElement>(null);
+ const [chapter,setChapter]=useState(0),[pair,setPair]=useState([0,1]),[override,setOverride]=useState<Project|null>(null),[muted,setMuted]=useState(true),[playing,setPlaying]=useState(true),[low,setLow]=useState(false),[graphics,setGraphics]=useState(true),[saveData,setSaveData]=useState(false);
+ const motion=useMemo<JourneyMotion>(()=>({position:0,target:0,pointerX:0,pointerY:0,velocity:0,time:0,active:true,low:false,reduced:false,invalidate:()=>{}}),[]);
+ const settings=useRef({paused,reduced});settings.current={paused,reduced};motion.low=low;motion.reduced=reduced;motion.active=!paused;
+ const wakeRef=useRef<()=>void>(()=>{}),navigateRef=useRef<(index:number)=>void>(()=>{}),currentChapter=useRef(0),jumping=useRef(false);
+ useEffect(()=>{const n=navigator as Navigator&{connection?:{saveData?:boolean};deviceMemory?:number};setSaveData(!!n.connection?.saveData);setLow(!!n.connection?.saveData||(n.deviceMemory||8)<=4||navigator.hardwareConcurrency<=4)},[]);
+ useEffect(()=>{
+ const el=scroll.current,outer=root.current;if(!el||!outer)return;let unit=1,lastRaw=0,raf=0,last=performance.now(),introUntil=last+1800,px=0,py=0,pairKey=0;
+ function resize(){unit=el!.clientHeight*1.4;outer!.style.setProperty('--scroll-unit',unit+'px');jumping.current=true;el!.scrollTop=(wrap(motion.position)+1)*unit;lastRaw=wrap(motion.position);jumping.current=false;wake()}
+ function update(t:number){raf=0;if(settings.current.paused||document.hidden)return;const dt=Math.min((t-last)/1000,.04)||.016;last=t;const old=motion.position;motion.position+=(motion.target-motion.position)*(settings.current.reduced?1:1-Math.exp(-9*dt));if(Math.abs(motion.target-motion.position)<.00015)motion.position=motion.target;motion.velocity=(motion.position-old)/dt;motion.time=t/1000;motion.pointerX+=(px-motion.pointerX)*(1-Math.exp(-7*dt));motion.pointerY+=(py-motion.pointerY)*(1-Math.exp(-7*dt));
+ const phase=wrap(motion.position),a=Math.floor(phase),b=(a+1)%5,blend=ease(.52,1,phase-a);if(a!==pairKey){pairKey=a;setPair([a,b])}const active=blend>.52?b:a;if(currentChapter.current!==active){currentChapter.current=active;setChapter(active);setOverride(null)}outer!.style.setProperty('--pointer-x',String(motion.pointerX));outer!.style.setProperty('--pointer-y',String(motion.pointerY));
+ outer!.querySelectorAll<HTMLElement>('.journey-world').forEach(layer=>{const i=Number(layer.dataset.worldIndex),weight=i===a?1-blend:i===b?blend:0;layer.style.opacity=String(weight);layer.style.pointerEvents=weight>.52?'auto':'none';layer.inert=weight<.52;layer.style.setProperty('--travel',String(settings.current.reduced?0:i===a?-blend:1-blend))});
+ if(screen.current){const xs=[62,62,53,61,63],ys=[48,48,48,45,45],mobile=el!.clientWidth<700,x=mobile?50:xs[a]+(xs[b]-xs[a])*blend,y=mobile?45:ys[a]+(ys[b]-ys[a])*blend;screen.current.style.left=x+'%';screen.current.style.top=y+'%';screen.current.style.setProperty('--film-ry',`${settings.current.reduced?0:Math.sin(phase*Math.PI*2/5)*3+motion.pointerX*1.3}deg`);screen.current.style.setProperty('--film-scale',String(settings.current.reduced?1:1+Math.sin(phase*Math.PI*2/5)*.035));screen.current.style.setProperty('--film-rz',`${settings.current.reduced?0:Math.sin(phase*Math.PI*2/5)*1.3}deg`)}motion.invalidate();if(Math.abs(motion.target-motion.position)>.00015||Math.abs(motion.pointerX-px)+Math.abs(motion.pointerY-py)>.002||t<introUntil)raf=requestAnimationFrame(update)}
+ function wake(){if(!raf){last=performance.now();raf=requestAnimationFrame(update)}}wakeRef.current=wake;navigateRef.current=(index:number)=>{const dest=wrap(index),delta=wrap(dest-wrap(motion.target)+2.5)-2.5;motion.target+=delta;lastRaw=dest;jumping.current=true;el!.scrollTo({top:(dest+1)*unit,behavior:'instant'});jumping.current=false;wake()};
+ function onScroll(){if(jumping.current)return;let raw=el!.scrollTop/unit-1;if(raw>=5){raw-=5;jumping.current=true;el!.scrollTop-=5*unit;jumping.current=false}else if(raw<0){raw+=5;jumping.current=true;el!.scrollTop+=5*unit;jumping.current=false}let delta=raw-lastRaw;if(delta>2.5)delta-=5;if(delta< -2.5)delta+=5;motion.target+=delta;lastRaw=raw;wake()}
+ const onPointer=(e:PointerEvent)=>{if(settings.current.reduced||e.pointerType==='touch')return;const r=outer!.getBoundingClientRect();px=(e.clientX-r.left)/r.width*2-1;py=1-(e.clientY-r.top)/r.height*2;wake()},leave=()=>{px=py=0;wake()};const observer=new ResizeObserver(resize);observer.observe(el);resize();el.addEventListener('scroll',onScroll,{passive:true});outer.addEventListener('pointermove',onPointer,{passive:true});outer.addEventListener('pointerleave',leave);document.addEventListener('visibilitychange',wake);
+ return()=>{observer.disconnect();cancelAnimationFrame(raf);el.removeEventListener('scroll',onScroll);outer.removeEventListener('pointermove',onPointer);outer.removeEventListener('pointerleave',leave);document.removeEventListener('visibilitychange',wake);motion.invalidate=()=>{}};
+ },[motion]);
+ useEffect(()=>{wakeRef.current()},[paused,pair,reduced,override]);
+ function go(index:number){navigateRef.current(index)}
+ function reveal(p:Project){setOverride(p);setPlaying(true);wakeRef.current()}
+ const world=worlds[chapter],project=override||projects.find(p=>p.id===world.film)||projects[0],egg=projects.find(p=>p.id===world.egg)||project;
+ return <div className="journey" ref={root} data-theme={world.kind} data-graphics={graphics?'auto':'compatible'}><div className="journey-scroll" ref={scroll} tabIndex={0} aria-label="Scroll to travel through five art worlds" role="region" onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();go(chapter+1)}if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(chapter-1)}}} style={{overflowY:paused?'hidden':'auto'}}><div className="journey-track"><div className="journey-stage">
+ <div className="world-backgrounds" aria-hidden="true">{pair.map(i=><div key={i} className={'journey-world world-'+worlds[i].kind} data-world-index={i}><div className="world-atmosphere"/></div>)}</div>
+ {graphics&&!reduced&&<GeometryBoundary onFailure={()=>setGraphics(false)}><Suspense fallback={null}><Scene motion={motion} onDiscover={()=>reveal(egg)} onFailure={()=>setGraphics(false)}/></Suspense></GeometryBoundary>}
+ {!graphics&&<div className="compatible-geometry" aria-hidden="true"><div className="compatible-cube">{Array.from({length:6},(_,i)=><i key={i}/>)}</div><div className="compatible-ring"/></div>}
+ {pair.map(i=><World key={i} index={i} projects={projects} onReveal={p=>p.provider==='youtube'?reveal(p):onProject(p)}/>)}
+ <div className={'journey-screen '+((project.aspect||16/9)<1?'portrait-screen':'landscape-screen')} ref={screen} style={{'--film-ratio':project.aspect||16/9} as CSSProperties}>{world.kind==='desktop'&&<div className="retro-titlebar"><span>{project.title}</span><span aria-hidden="true">_ □ ×</span></div>}<div className="screen-shell">{!paused&&<JourneyPlayer project={project} enabled={!reduced&&!saveData} muted={muted} playing={playing} onOpen={()=>onProject(project)}/>}</div><div className="film-caption"><span>{project.title.split(' | ')[0].split(' (Official')[0]}</span><button onClick={()=>onProject(project)} aria-label="Project details">↗</button></div></div>
+ <div className="journey-ui"><div className="journey-top"><span className="world-index">{String(chapter+1).padStart(2,'0')} <i>/</i> {world.name}</span><button className="journey-work" onClick={onIndex}>All work <span>↗</span></button></div><Discovery key={world.kind} project={egg} kind={world.icon} onReveal={reveal}/><div className="journey-bottom"><div className="journey-media-controls"><button aria-pressed={!muted} onClick={()=>setMuted(!muted)}>{muted?'Sound off':'Sound on'}</button><button aria-pressed={!playing} onClick={()=>setPlaying(!playing)}>{playing?'Pause':'Play'}</button><button className="quality-control" aria-pressed={low} onClick={()=>{setLow(!low);motion.low=!low;wakeRef.current()}}>{low?'Eco':'Quality'}</button></div><nav className="world-navigation" aria-label="Art worlds"><button aria-label="Previous world" onClick={()=>go(chapter-1)}>←</button>{worlds.map((w,i)=><button key={w.kind} aria-label={w.name+' world'} aria-current={chapter===i?'step':undefined} onClick={()=>go(i)}><span>{String(i+1).padStart(2,'0')}</span><span className="nav-world-name">{w.name}</span></button>)}<button aria-label="Next world" onClick={()=>go(chapter+1)}>→</button></nav><span className="journey-scroll-cue">Scroll to drift <span>↓</span></span></div></div>
+ </div></div></div></div>;
 }
-

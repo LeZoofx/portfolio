@@ -1,4 +1,4 @@
-"""Restore missing portfolio posters from their original public sources."""
+"""Restore missing posters and replace small YouTube previews with genuine higher-resolution sources."""
 import concurrent.futures
 import io
 import json
@@ -19,14 +19,16 @@ def recover(project):
     if not re.fullmatch(r'media/[A-Za-z0-9_.-]+', poster):
         raise ValueError('Invalid local poster path: ' + poster)
     output = ROOT / 'public' / poster
-    if output.exists():
+    existing_width = Image.open(output).width if output.exists() else 0
+    upgrading = bool(existing_width) and project['provider'] == 'youtube' and existing_width < 1000
+    if existing_width and not upgrading:
         return None
     record = records.get(project['id'], {})
     candidates = [record.get('image_rendition_url'), record.get('image_source_url')]
     if project['provider'] == 'youtube':
         video = re.search(r'/embed/([\w-]{11})', project.get('embedUrl', ''))
         if video:
-            candidates = [f'https://img.youtube.com/vi/{video[1]}/hqdefault.jpg', f'https://img.youtube.com/vi/{video[1]}/mqdefault.jpg']
+            candidates = [f'https://i.ytimg.com/vi/{video[1]}/{quality}.jpg' for quality in (['maxresdefault', 'sddefault'] if upgrading else ['maxresdefault', 'sddefault', 'hqdefault'])]
     elif project['provider'] == 'drive':
         video = re.search(r'/file/d/([\w-]+)', project.get('embedUrl', ''))
         if video:
@@ -41,15 +43,20 @@ def recover(project):
                 if len(data) > 20 * 1024 * 1024:
                     raise ValueError('Image exceeds 20 MiB')
                 picture = Image.open(io.BytesIO(data)).convert('RGB')
+                if upgrading and picture.width <= existing_width:
+                    break
                 if min(picture.size) < 20:
                     raise ValueError('Image is too small')
                 picture.thumbnail((1400, 1400))
                 output.parent.mkdir(parents=True, exist_ok=True)
-                picture.save(output, 'WEBP', quality=82, method=5)
-                print('Restored ' + project['id'], flush=True)
+                picture.save(output, 'WEBP', quality=88, method=5)
+                print(('Upgraded ' if upgrading else 'Restored ') + project['id'] + ' to ' + str(picture.size), flush=True)
                 return None
             except Exception as error:
                 errors.append(str(error))
+    if upgrading:
+        print('Kept original preview: ' + project['id'], flush=True)
+        return None
     return project['id'] + ': ' + '; '.join(errors[-2:])
 
 with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:

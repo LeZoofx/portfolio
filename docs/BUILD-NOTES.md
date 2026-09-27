@@ -1,60 +1,48 @@
 # Build and verification notes
 
-Prepared 26 September 2026.
+Updated 27 September 2026. The implementation brief is [CREATIVE-DIRECTION-v2.md](CREATIVE-DIRECTION-v2.md).
 
 ## Architecture
 
-Normal mode is pre-rendered React HTML with searchable projects, category filters, selected work, About and Contact. React hydrates those pages. GitHub Pages receives only static files, with an explicit HTML page for every project and original category route.
+Normal mode is pre-rendered React HTML with searchable projects, category filters, selected work, About and Contact. GitHub Pages receives 89 static pages plus a 404 page. The opening starts with Darlings and has a randomized seven-project deck. It pauses on hover/focus and under reduced-motion preferences. The résumé contributes two attributed results: 5.2M views in one month at Trunativ and 305% viewership growth at Schbang. The archive count comes from the project data.
 
-Fun mode lazily imports React Three Fiber and Three.js. A perspective camera advances exponentially toward a render-to-texture portal. Crossing the portal rebases camera progress and recycles the stage. Only the current world and the next preview world are retained. Texture, geometry and render-target lifecycles are explicitly managed. Rendering happens on demand and pauses while a project panel is open or the page is hidden. Phone pixel density is capped at 1; desktop at 1.5. The quality control lowers resolution further.
+Fun mode combines native vertical scrolling with five different compositions: frosted Glass, concrete Mass, anti-design Cut, the retro 1998 desktop, and photographic Afterimage. Each composition has different spatial transitions, typography, colors, borders and image treatments. The camera follows a closed curve through low-poly geometry; pointer input affects geometry, frames and individual name characters. A bounded scroll track rebases at its ends, and only two foreground compositions and their backgrounds are retained. Direct navigation takes the shortest route through the loop. Browser zoom remains available.
 
-The five visual chapters are Archive, Impression, Collage, Language and Frame. Their design uses condensed type, warm white/black, acid yellow, red, blue, hard masks, angled project frames, faceted geometry, registration marks and image treatments. This is a code-built interpretation of the creative brief using existing portfolio assets. It does not replace original videos or claim newly commissioned artwork. The Impression chapter applies a high-contrast print/scan treatment; a custom physical scanography artwork can be added later.
+Media is rendered in HTML, independently of the WebGL canvas. This avoids making original images depend on successful GPU texture uploads. React Three Fiber / Three.js load only in Fun mode. A room environment supplies reflections; rendering happens on demand and suspends in hidden documents and while a project panel is open. Pixel density is capped at 1.75, or 1 in Eco mode. Eco also disables glass transmission. The same worlds keep working with CSS depth and reactive geometric forms if WebGL fails.
 
-If WebGL cannot start, the site mounts a complete CSS perspective experience with a bounded two-stage 20× zoom loop. Normal mode remains available. Reduced-motion users get direct chapter changes. The website does not autoplay video, audio or a continuous camera fly-through. Browser zoom gestures remain available.
+A single YouTube IFrame API player is reused across world changes. It starts muted, waits for the provider's PLAYING event before dissolving the local poster, and debounces rapid project switches. Portrait and landscape work use their source aspect ratios. Playback pauses in hidden tabs; opening a project removes the ambient player. Visitors can pause or enable sound. Reduced motion and data-saving preferences disable automatic video loading. A local poster, manual Play button and project/source links remain available when streaming is blocked or fails.
 
-Only one video iframe can be active. YouTube uses its privacy-enhanced embed hostname; Instagram and Drive use their original provider hosts. Every item has an original-source link. AI disclosures remain verbatim.
+Small themed controls reveal existing films after a short pointer dwell, or on tap/keyboard activation. Peripheral images open their corresponding film or project. All 79 original project records, source URLs, embeds and 11 AI disclosures are retained. Instagram and Drive use their original provider embeds inside the project viewer. Source links are always available.
 
-## Verified
+## Verification
 
-- TypeScript compilation and content validation: passed for 79 projects.
-- Production build: 89 pages plus 404; root and `/portfolio/` base paths compile.
-- Subpath build: checked asset URLs, project links, serialized route state and disclosure text. A production project deep link was also opened in the browser and hydrated successfully.
-- Initial server-rendered page: no provider iframe.
-- Four content automation tests: passed (featured ordering, Instagram/disclosure preservation, unsafe URL and unknown ID rejection, safe existing-project update).
-- Browser: Normal homepage, project search and empty state, project modal, YouTube player loading on click, player removed on close, phone layouts at 390 × 844, and Fun compatibility scene.
-- Browser: forward chapter navigation, return from chapter five to chapter one, and two retained CSS stages after looping.
-- Fonts and project posters are self-hosted. One project without a recoverable poster has an intentional type treatment.
-- A fresh clone of the completed GitHub repository passed all four editing tests, content validation, TypeScript compilation and the `/portfolio/` production build. All 78 image files decoded successfully.
+- Content validation passed for all 79 records; all four project-editing tests passed.
+- The `/portfolio/` production build passed TypeScript, both rendering entries and all 89 pre-rendered pages plus 404.
+- The revised project data has been compared with the prior published commit: every project ID, original URL, embed and disclosure matches.
+- The desktop and 390 × 844 phone layouts have been inspected in the browser, including the opening shuffle/stats, glass/brutalist/collage/retro compositions and portrait framing.
+- The compatibility scene renders actual local images rather than empty frames when the browser disables WebGL. Forward wrap (05 → 01) retains two scene compositions and one player; reverse navigation uses the adjacent final world.
 
-The production Normal entry and its shared runtime total approximately 80 KiB compressed. The 3D chunk is approximately 240 KiB compressed and is requested only in Fun mode. These are bundle measurements, not page speed scores.
+The test browser disables WebGL, so hardware rendering and sustained GPU performance still need a physical-device check. The browser loaded YouTube embeds but streaming remained at zero ready state, so successful continuous playback could not be confirmed in this environment. The poster and manual-play fallback were inspected. No field Core Web Vitals score, formal accessibility audit or device battery benchmark is claimed.
 
-## Remaining verification limits
+## Owner editing and automation
 
-The test browser disables WebGL. The WebGL renderer compiles but has not been visually or performance-tested on a graphics-enabled physical phone or laptop. The complete compatibility experience was inspected instead. Browser-level input automation is not a substitute for touch testing on actual iOS/Android devices. No field Core Web Vitals, sustained GPU-memory profile, formal accessibility audit or long-duration device battery measurement is claimed.
+The public GitHub repository is the source of truth; visitors receive no write interface or publishing token. Publishing, media recovery and project editing check `github.actor == github.repository_owner`. No collaborators are added. The publishing workflow tests and builds before deployment. Account and repository permissions remain controlled by the owner.
 
-The repository is published at `https://lezoofx.github.io/portfolio/`, with source at `https://github.com/LeZoofx/portfolio`. GitHub Actions successfully restored and committed all missing posters, then passed dependency installation, tests, production build, artifact upload and deployment. The first live publication completed on 27 September 2026 (India time). The live homepage and Fun compatibility mode were opened in the browser; the initial page contained no provider iframe. The earlier browser connection failure was recovered and no manual setup step remains. The optional local publisher is syntax-checked; its separate authenticated setup path has not run.
-
-## Owner editing
-
-The personal GitHub repository is the source of truth. Public viewers get no write interface or token. Both publishing and content-editing jobs check `github.actor == github.repository_owner`. No collaborators are added by the project. The project-edit workflow serializes updates; the publication workflow serializes deployment. GitHub runs tests and builds before publication. Account and repository permissions remain controlled by the owner.
-
-## Source recovery
-
-79 work records: 41 YouTube embeds, one Drive embed and 37 linked image records. 78 local project posters. 39 public YouTube titles recovered; remaining records retain source section labels or descriptive fallbacks. Eleven AI disclosures preserved. Original source occurrences are mapped in `source-audit.json`; `source-inventory.json` keeps source links and recovery status. The About background is a texture, not a portrait, and is not presented as a personal photograph. No showreel was fabricated.
-
-## Maintenance map
+The media recovery action now tries genuine larger YouTube thumbnails and preserves the current image when a higher-resolution original is unavailable. It does not upscale small originals. Its automatic commit triggers the reusable publishing workflow.
 
 | Change | File or interface |
 | --- | --- |
-| Add/edit a project | GitHub Actions → Add or update a project |
-| Bio/contact/disciplines | `content/site.json` |
-| Project data and poster paths | `content/projects.json` |
+| Add or edit projects | GitHub Actions → Add or update a project |
+| Opening shuffle selection | `content/showcase.json` |
+| Bio, contacts, disciplines | `content/site.json` |
+| Project data and original links | `content/projects.json` |
 | Media | `public/media/` |
-| Restore missing original posters | GitHub Actions → Restore missing portfolio images |
-| Layout and typography | `src/styles.css`, `src/App.tsx` |
-| WebGL scene | `src/Universe.tsx` |
-| Lightweight scene and zoom | `src/ArchiveArt.tsx`, `src/LightUniverse.tsx` |
-| GitHub deployment | `.github/workflows/deploy.yml` |
-| Pre-rendered routes and SEO | `scripts/prerender.mjs` |
+| Restore or improve posters | GitHub Actions → Restore missing portfolio images |
+| Normal opening | `src/HomeIntro.tsx`, `src/experience.css` |
+| Art worlds and scroll logic | `src/Universe.tsx`, `src/journey.css`, `src/journeyData.ts` |
+| 3D geometry | `src/JourneyScene.tsx` |
+| Reused video player | `src/JourneyPlayer.tsx` |
+| Reactive name | `src/KineticName.tsx` |
+| Deployment | `.github/workflows/deploy.yml` |
 
-WebGPU, real-time video textures, post-processing stacks and ambient audio are not enabled in this version. They would add compatibility and resource costs without resolving the core portfolio task.
+Source recovery inventory: 41 original YouTube embeds, one original Drive embed and 37 linked image records, subsequently linked to their original providers. There are 78 local posters; one stand-up record has a type fallback. The original showreel was under maintenance and has not been invented. Two original brand TinyURLs could not be resolved during migration and are kept unchanged. Platform login, geographic restrictions and later source removals remain under the providers' control.

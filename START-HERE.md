@@ -1,12 +1,12 @@
 # Your portfolio is live
 
-This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has a fast Normal experience and a Fun experience with five looping worlds. Videos load only after a visitor presses Play.
+This folder contains the actual website, all recovered project posters, and the automation that publishes it to GitHub Pages. It has a fast Normal experience and a Fun experience with five looping worlds. Normal mode loads videos on Play. Fun mode attempts muted playback as you travel; a poster and Play button remain available when the provider or browser blocks autoplay. Sound is always your choice.
 
 ## Your website and editing links
 
 **Website: [lezoofx.github.io/portfolio](https://lezoofx.github.io/portfolio/)**
 
-Your complete project is at **[github.com/LeZoofx/portfolio](https://github.com/LeZoofx/portfolio)**. The source, fonts and all 78 recovered project posters are uploaded. GitHub Pages is enabled and the first live deployment succeeded on 27 September 2026 (India time). There is no remaining setup step.
+Your complete project is at **[github.com/LeZoofx/portfolio](https://github.com/LeZoofx/portfolio)**. The source, fonts and all 78 recovered project posters are uploaded. The opening selection starts with Darlings and shuffles through Netflix, Prime Video, Mumbai Indians, Lollapalooza and A*Pop work. GitHub Pages is enabled and the first live deployment succeeded on 27 September 2026 (India time). There is no remaining setup step.
 
 Committing an edit publishes the website automatically. For a manual rebuild, open **[Publish portfolio](https://github.com/LeZoofx/portfolio/actions/workflows/deploy.yml)**, select **Run workflow**, keep **main**, and press the green **Run workflow** button. Wait for its green check before checking the updated site.
 
@@ -24,6 +24,8 @@ The site has no public admin page and no password or publishing token in its bro
 6. Press **Run workflow**. GitHub saves the change, rebuilds the site and publishes it. Wait for a green check under Actions.
 
 When updating a project, enter all the optional text you want to keep: empty optional fields clear the existing text. YouTube posters are fetched automatically. Instagram and Drive additions use a typographic poster until you add an image in `public/media` and set that project's `poster` field in `content/projects.json`.
+
+The opening shuffle has its own short list in `content/showcase.json`: each entry contains an existing project ID, a short display title and a label. The first entry appears first on a fresh visit. Change this list to curate the shuffle; it does not remove anything from the full archive. The two résumé results in the opening are Trunativ’s 5.2M views in one month and Schbang’s 305% viewership growth. The project count updates automatically.
 
 To update your biography, contact details or disciplines, open `content/site.json` in GitHub, click the pencil, change the text between quotation marks and commit. The site publishes automatically. To remove a project, delete its complete object from `content/projects.json`; use GitHub's Preview changes to check the edit. Ask me to handle this if you prefer.
 
@@ -58,8 +60,8 @@ Open the local address printed by Vite. To build the production files, run `npm 
 - Original AI disclosures are preserved. The source showreel was under maintenance, so its page directs visitors to existing projects.
 - Some source links and videos can require a provider login or can stop working later. Each project keeps an original-source link as a fallback. Two original brand TinyURLs could not be resolved during migration and are preserved as supplied.
 - Generic source titles remain where the old site did not supply a specific title. Per-project credits have not been invented. Replace these through the editing workflow when convenient.
-- WebGL uses the full 3D renderer. If a browser cannot create WebGL, Fun automatically uses the lightweight zoom view. Reduced-motion settings replace zoom transitions with chapter changes.
-- **[Restore missing portfolio images](https://github.com/LeZoofx/portfolio/actions/workflows/recover-media.yml)** can recover missing original posters. It keeps existing files and uses the original public image sources.
+- WebGL uses the full 3D renderer. If a browser cannot create WebGL, Fun keeps the same five worlds and uses CSS depth and reactive shapes. Reduced-motion and data-saving settings turn off automatic playback; visitors can still press Play. The art-world buttons also work with a keyboard.
+- **[Restore missing portfolio images](https://github.com/LeZoofx/portfolio/actions/workflows/recover-media.yml)** can recover missing original posters. It also attempts genuine higher-resolution YouTube posters. Existing images remain available if a larger original cannot be fetched; it never enlarges a small image to pretend it is high resolution.
 
 ## Official references
 
