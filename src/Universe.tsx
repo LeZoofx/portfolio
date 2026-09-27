@@ -84,6 +84,8 @@ export default function Universe({projects,onProject,onIndex,paused,reduced}:{pr
     // Approach once. After reaching the viewing plane, disperse sideways without retreating or crossing the camera.
     const x=arrival*Math.sin(index*1.9)*65+motion.pointerX*7,y=arrival*Math.cos(index*1.3)*30-motion.pointerY*5,depth=-arrival*900;
     layer.style.transform=`translate3d(${x}px,${y}px,${depth}px) rotateY(${settings.current.reduced?0:arrival*Math.sin(index+1)*6+motion.pointerX*.6}deg) rotateZ(${settings.current.reduced?0:arrival*Math.cos(index+2)*2}deg)`;
+    const focus=settings.current.reduced?0:Math.max(smooth(.06,1.1,arrival),departure*.85);
+    layer.style.setProperty('--scene-blur',`${(focus*(motion.low?1.4:3.2)).toFixed(2)}px`);layer.style.setProperty('--scene-light',String(1-focus*.4));
     layer.style.setProperty('--disperse',String(departure));layer.style.opacity=String(opacity);layer.style.visibility=opacity<.01?'hidden':'visible';layer.style.pointerEvents=nearest?'auto':'none';layer.inert=!nearest;layer.style.setProperty('--depth',String(travel));layer.style.zIndex=String(Math.round(100-delta*10));
    });
    motion.invalidate();if(Math.abs(motion.target-motion.position)>.0001||Math.abs(px-motion.pointerX)+Math.abs(py-motion.pointerY)>.005)raf=requestAnimationFrame(draw);

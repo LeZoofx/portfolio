@@ -1,0 +1,79 @@
+/* Focus follows depth. Active video remains sharp; distant scenes separate softly. */
+@media(min-width:700px){
+ .depth-journey .depth-film{--frame-light:.88}
+ .depth-journey .depth-film.slot-0{--frame-light:1.02}
+ .depth-journey .depth-film-frame{filter:blur(var(--scene-blur,0px)) brightness(calc(var(--scene-light,1)*var(--frame-light,1)));transition:filter .18s ease}
+ .depth-journey .zoom-world:not([inert]) .depth-film:is(:hover,:focus-within) .depth-film-frame{filter:blur(0) brightness(1.04)}
+ .depth-journey .depth-heading{filter:brightness(var(--scene-light,1))}
+}
+
+/* Phones use a native document scroll, readable cards and on-demand playback. */
+@media(max-width:699px),(max-width:1024px) and (pointer:coarse){
+ html[data-mode] body{overflow-x:hidden;overflow-y:auto}
+ [data-app=portfolio]{--gutter:18px}
+ html[data-mode] .site-header{position:relative;height:66px;padding:0 18px;gap:14px;flex-wrap:nowrap;background:#101418;backdrop-filter:none}
+ .site-header .mode-switch{display:none}
+ .site-header nav{display:flex;gap:13px;flex:0 1 auto;justify-content:flex-end;order:0;width:auto}
+ .site-header nav a{font-size:11px;min-height:44px;display:flex;align-items:center}
+ .site-header .brand{gap:8px;flex-shrink:0}
+ .brand-monogram{font-size:25px}
+ .brand-name{font-size:10px}
+ .home-intro{display:grid;grid-template-columns:minmax(0,1fr);min-height:0;padding:24px 18px 0;gap:16px;background:#10171d}
+ .home-intro .intro-identity{padding:0;min-width:0}
+ .home-intro h1{font-size:clamp(38px,11vw,54px);line-height:.95;margin:12px 0 17px}
+ .home-intro h1 .name-word{display:inline}
+ .home-intro h1 .name-word+.name-word{margin-left:.13em}
+ .home-intro .intro-kicker{font-size:9px;line-height:1.5;margin:0}
+ .home-intro .intro-manifesto{font-size:21px;margin:0 0 14px}
+ .home-intro .intro-manifesto .poster-line-2{font-size:1.2em}
+ .home-intro .intro-skills{font-size:16px;margin:0;gap:5px 10px}
+ .home-intro .intro-skills .poster-line{font-size:9px}
+ .home-intro .intro-skills .poster-line-1{font-size:20px}
+ .intro-location{font-size:10px;margin:12px 0}
+ .journey-entry{min-height:44px;padding:8px 0;margin-top:0;border:0;box-shadow:none;background:none;backdrop-filter:none}
+ .entry-prism,.home-floaters,.deck-under,.opening-contact-strip,.portfolio-cluster .scene-accents,.cluster-discovery,.portfolio-playback{display:none!important}
+ .home-intro .showcase-deck{width:100%;margin:0;padding:0;rotate:0;perspective:none;transform:none}
+ .showcase-deck .deck-front{transform:none;rotate:0;border-radius:6px;box-shadow:0 6px 18px #0003}
+ .showcase-deck .deck-front img{object-fit:contain;transform:none}
+ .deck-caption{gap:12px;padding:12px 0}
+ .deck-caption h2{font-size:19px}
+ .shuffle-button{min-height:44px;font-size:11px}
+ .home-intro .results-ribbon{grid-column:1;margin:0 -18px;width:calc(100% + 36px);border-radius:0;backdrop-filter:none;box-shadow:none}
+ .portfolio-controls{top:0;padding:8px 14px;gap:7px;flex-wrap:wrap;background:#10171e;backdrop-filter:none}
+ .portfolio-controls nav{order:0;flex-basis:100%;width:100%;gap:1px;overscroll-behavior-x:contain}
+ .portfolio-controls nav button{min-height:44px;font-size:11px;padding:8px 11px}
+ .portfolio-controls .portfolio-tools{order:1;flex:1;min-width:0;gap:6px}
+ .portfolio-controls .brand-sort{min-height:40px;max-width:140px;font-size:10px}
+ .portfolio-controls .portfolio-index{order:2;min-height:40px;padding:8px 11px;font-size:10px}
+ .portfolio-scroll .portfolio-cluster[data-art]{padding:26px 18px 34px;scroll-margin-top:112px;overflow:clip}
+ .portfolio-cluster .cluster-heading{margin-bottom:22px}
+ .portfolio-cluster[data-art] .cluster-heading h2{font-size:clamp(34px,10vw,52px);line-height:1;max-width:100%;transform:none}
+ .portfolio-cluster[data-art=pixel] .cluster-heading h2{font-size:26px;line-height:1.2}
+ .portfolio-cluster[data-art] .category-poster{font-size:23px;margin:14px 0}
+ .portfolio-cluster .category-focus{font-size:11px;line-height:1.6}
+ .portfolio-cluster[data-art] .cluster-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;perspective:none}
+ .portfolio-cluster[data-art] .portfolio-card:nth-child(n){grid-column:1;grid-row:auto;width:100%;margin:0;padding:0;rotate:0;translate:none;transform:none;animation:none;transition:none;filter:none;border:0}
+ .portfolio-cluster[data-art] .portfolio-card .portfolio-media{width:100%;max-width:none;margin:0;border-width:2px;box-shadow:0 5px 14px #0002;backdrop-filter:none;filter:none}
+ .portfolio-cluster[data-art] .portfolio-card.is-portrait .portfolio-media{width:min(100%,calc(58svh*var(--film-ratio)));margin-inline:auto}
+ .portfolio-cluster[data-art] .portfolio-brand{font-size:11px;margin:0 0 8px;line-height:1.5}
+ .portfolio-cluster[data-art] .portfolio-caption{font-size:14px;line-height:1.4;min-height:44px;padding:10px 2px 0;max-height:none;background:none;color:inherit}
+ .portfolio-cluster .portfolio-poster img{object-fit:contain;animation:none;transform:none}
+ .portfolio-cluster .portfolio-play{width:36px;height:36px;backdrop-filter:none}
+ .portfolio-media .frame-expand-cue{min-height:36px;font-size:9px;padding:5px 10px;animation:none}
+ .frame-expand-cue .expand-corners{animation:none}
+ .portfolio-windowbar{font-size:10px}
+ .portfolio-end{padding:18px 18px 34px;font-size:11px}
+ .work-context{padding:32px 18px}
+ .context-stories{grid-template-columns:minmax(0,1fr)}
+ .work-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+ .work-index,.about-section,.contact-section{padding-inline:18px}
+ .overlay-inner{padding:18px}
+ .project-overlay .media-stage.vertical{height:65svh;max-width:100%}
+ .project-overlay .media-stage{max-height:70svh}
+ .project-overlay .project-title{font-size:28px;line-height:1.1}
+ .project-notes{grid-template-columns:minmax(0,1fr)}
+ .site-header *,.intro-identity *,.portfolio-cluster *,.work-index *,.work-context *,.about-section *,.contact-section *,.project-overlay *{animation:none!important;transition:none!important}
+ .kinetic-type>span,.copy-word,.poster-line,.name-letter{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}
+ .glyph-echo,.letter-reverse{display:none}
+ .client-track,.results-track{will-change:transform}
+}
