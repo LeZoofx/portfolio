@@ -2,7 +2,7 @@
 
 Senior post-production artist. Editing, motion design, VFX and AI, with expertise in audience reach and retention.
 
-**[Visit the portfolio](https://lezoofx.github.io/portfolio/)** · **[Add or update a project](https://github.com/LeZoofx/portfolio/actions/workflows/update-project.yml)**
+**[Visit the portfolio](https://lezoofx.github.io/prantik-dutta-portfolio/)** · **[Add or update a project](https://github.com/LeZoofx/prantik-dutta-portfolio/actions/workflows/update-project.yml)**
 
 **Start with [START-HERE.md](START-HERE.md)** for the beginner publishing and editing guide.
 
