@@ -14,3 +14,4 @@
 @media(prefers-reduced-motion:reduce){.depth-film,.kinetic-type>span,.depth-shuffle img,.depth-scroll-hint i{animation:none!important}.kinetic-type>span{transform:none!important}.depth-portal:after{display:none}}
 
 @media(min-width:700px){.depth-heading h1{font-size:clamp(38px,4vw,65px)}.depth-heading h1 .name-word{display:inline}.depth-heading h1 .name-word+.name-word{margin-left:.12em}}
+@media(min-width:700px){.depth-film.portrait-film.slot-5{left:53%;top:-3%;width:min(10%,calc(20svh*.5625))}}
