@@ -6,3 +6,8 @@
 @media(prefers-reduced-motion:reduce){.frame-expand-cue,.expand-corners{animation:none!important}.instagram-player iframe,.instagram-player .instagram-poster{transition:none}}
 
 .exit-fullscreen{display:none;position:absolute;right:16px;top:16px;z-index:10;background:#0b171ee8;border:1px solid #d3e7f08a;color:#f1f7f8;border-radius:24px;padding:10px 16px;font:11px Mono,monospace}.media-stage:fullscreen .exit-fullscreen,.media-theatre .exit-fullscreen{display:block}
+
+/* Outgoing media keeps its settled size and disperses beyond the viewport. */
+.depth-journey .zoom-world .depth-film{transform:translate3d(calc(var(--disperse,0)*var(--exit-x,0px) + var(--pointer-x)*var(--tile)*1.3px),calc(var(--disperse,0)*var(--exit-y,0px) - var(--pointer-y)*var(--tile)*1px),0)}
+.depth-journey .zoom-world :is(.depth-heading,.depth-discovery,.depth-type-field){translate:calc(var(--disperse,0)*var(--exit-x,0px)) calc(var(--disperse,0)*var(--exit-y,0px))}
+.depth-journey .zoom-world>:is(.depth-portal,.depth-registration,.scene-accents){opacity:calc(1 - var(--disperse,0))}

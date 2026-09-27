@@ -53,12 +53,39 @@ export default function Universe({projects,onProject,onIndex,paused,reduced}:{pr
  useEffect(()=>{if(reduced||held||paused)return;const timer=setInterval(()=>{if(!document.hidden)setShuffle(i=>(i+1+Math.floor(Math.random()*(showcase.length-1)))%showcase.length)},1700);return()=>clearInterval(timer)},[reduced,held,paused]);
  useEffect(()=>{
   const scroller=scroll.current,outer=root.current;if(!scroller||!outer||!total)return;let unit=1,raf=0,last=0,lastRaw=0,px=0,py=0,lastBase=-1,lastChapter=-1,lastDirection=1,snapTimer:ReturnType<typeof setTimeout>|undefined;motion.position=0;motion.target=0;current.current=0;setChapter(0);setBase(0);
+  const exitLayouts=new WeakMap<HTMLDivElement,{width:number;height:number}>();
+  function prepareExits(layer:HTMLDivElement){
+   const width=scroller!.clientWidth,height=scroller!.clientHeight,cached=exitLayouts.get(layer);
+   if(cached?.width===width&&cached.height===height)return;
+   // Measure the resting layout once, so exit paths also fit portrait/mobile frames.
+   layer.querySelectorAll<HTMLElement>('.depth-film,.depth-heading,.depth-discovery,.depth-type-field').forEach(element=>{
+    let x=element.offsetWidth/2,y=element.offsetHeight/2,node:HTMLElement|null=element;
+    while(node&&node!==layer){x+=node.offsetLeft;y+=node.offsetTop;node=node.offsetParent as HTMLElement|null}
+    x+=layer.offsetLeft;y+=layer.offsetTop;
+    let dx=x-width/2,dy=y-height/2;
+    if(Math.hypot(dx/width,dy/height)<.08){dx=width*.25;dy=height*.08}
+    const length=Math.hypot(dx,dy),vx=dx/length,vy=dy/length;
+    const edgeX=Math.abs(vx)<.001?Infinity:((vx>0?width+element.offsetWidth*.75:-element.offsetWidth*.75)-x)/vx;
+    const edgeY=Math.abs(vy)<.001?Infinity:((vy>0?height+element.offsetHeight*.75:-element.offsetHeight*.75)-y)/vy;
+    const distance=Math.max(0,Math.min(edgeX,edgeY))+80;
+    element.style.setProperty('--exit-x',`${vx*distance}px`);element.style.setProperty('--exit-y',`${vy*distance}px`);
+   });
+   exitLayouts.set(layer,{width,height});
+  }
   function draw(t:number){raf=0;if(settings.current.paused||settings.current.secret||document.hidden)return;const dt=Math.min((t-last)/1000,.035)||.016;last=t;const prior=motion.position;motion.position+=(motion.target-motion.position)*(settings.current.reduced?1:1-Math.exp(-8*dt));if(Math.abs(motion.target-motion.position)<.0001)motion.position=motion.target;motion.velocity=(motion.position-prior)/dt;motion.pointerX+=(px-motion.pointerX)*.09;motion.pointerY+=(py-motion.pointerY)*.09;motion.time=t/1000;
    const p=modulo(motion.position,total),nextBase=Math.floor(p),nextChapter=modulo(Math.floor(p+.48),total);
    if(nextBase!==lastBase){lastBase=nextBase;setBase(nextBase)}if(nextChapter!==lastChapter){lastChapter=nextChapter;current.current=nextChapter;setChapter(nextChapter)}
    outer!.style.setProperty('--pointer-x',String(motion.pointerX));outer!.style.setProperty('--pointer-y',String(motion.pointerY));outer!.style.setProperty('--travel-phase',String(p%1));outer!.style.setProperty('--travel-speed',String(Math.min(1,Math.abs(motion.velocity))));
    const ambience=smooth(.22,.75,p%1);backdropRefs.current.forEach((layer,index)=>{layer.style.opacity=String(index===nextBase?1-ambience:index===modulo(nextBase+1,total)?ambience:0)});
-   worldRefs.current.forEach((layer,index)=>{let delta=index-p;delta-=Math.round(delta/total)*total;const nearest=index===nextChapter;let opacity=delta<0?1-smooth(.04,.62,-delta):1-smooth(.7,1.45,delta);if(settings.current.reduced)opacity=nearest?1:0;const travel=settings.current.reduced?0:delta,departure=smooth(0,.8,Math.max(0,-travel));const x=travel*Math.sin(index*1.9)*65+departure*(index%2?-160:160)+motion.pointerX*7,y=travel*Math.cos(index*1.3)*30-departure*35-motion.pointerY*5,depth=-Math.abs(travel)*900;layer.style.transform=`translate3d(${x}px,${y}px,${depth}px) rotateY(${settings.current.reduced?0:travel*Math.sin(index+1)*6+motion.pointerX*.6}deg) rotateZ(${settings.current.reduced?0:travel*Math.cos(index+2)*2}deg)`;layer.style.opacity=String(opacity);layer.style.visibility=opacity<.01?'hidden':'visible';layer.style.pointerEvents=nearest?'auto':'none';layer.inert=!nearest;layer.style.setProperty('--depth',String(travel));layer.style.zIndex=String(Math.round(100-delta*10));});
+   worldRefs.current.forEach((layer,index)=>{
+    prepareExits(layer);let delta=index-p;delta-=Math.round(delta/total)*total;const nearest=index===nextChapter;
+    let opacity=delta<0?1-smooth(.52,.94,-delta):1-smooth(.86,1.5,delta);if(settings.current.reduced)opacity=nearest?1:0;
+    const travel=settings.current.reduced?0:delta,arrival=Math.max(0,travel),departure=smooth(.02,.82,Math.max(0,-travel));
+    // Approach once. After reaching the viewing plane, disperse sideways without retreating or crossing the camera.
+    const x=arrival*Math.sin(index*1.9)*65+motion.pointerX*7,y=arrival*Math.cos(index*1.3)*30-motion.pointerY*5,depth=-arrival*900;
+    layer.style.transform=`translate3d(${x}px,${y}px,${depth}px) rotateY(${settings.current.reduced?0:arrival*Math.sin(index+1)*6+motion.pointerX*.6}deg) rotateZ(${settings.current.reduced?0:arrival*Math.cos(index+2)*2}deg)`;
+    layer.style.setProperty('--disperse',String(departure));layer.style.opacity=String(opacity);layer.style.visibility=opacity<.01?'hidden':'visible';layer.style.pointerEvents=nearest?'auto':'none';layer.inert=!nearest;layer.style.setProperty('--depth',String(travel));layer.style.zIndex=String(Math.round(100-delta*10));
+   });
    motion.invalidate();if(Math.abs(motion.target-motion.position)>.0001||Math.abs(px-motion.pointerX)+Math.abs(py-motion.pointerY)>.005)raf=requestAnimationFrame(draw);
   }
   function start(){if(!raf){last=performance.now();raf=requestAnimationFrame(draw)}}wake.current=start;
