@@ -9,7 +9,7 @@ const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&g
 const origin=(process.env.SITE_URL||'').replace(/\/$/,'');
 async function page(route,filename){
  const p=data.find(p=>route==='/work/'+p.id+'/');
- let html=template.replace('<!--app-html-->',render(route)).replace('{"path":"/"}',JSON.stringify({path:route}));
+ let html=template.replace('<html lang="en">','<html lang="en" data-mode="'+(route==='/'?'fun':'normal')+'">').replace('<!--app-html-->',render(route)).replace('{"path":"/"}',JSON.stringify({path:route}));
  const title=p?p.title+' — '+site.title:site.title;
  html=html.replace(/<title>.*?<\/title>/,'<title>'+escape(title)+'</title>');
  const url=origin?origin+route:'';

@@ -145,3 +145,12 @@ WebGL is a delayed enhancement on full devices only. Balanced devices keep the e
 Depth blur and brightness now treat each entire world as a plane: text, containers, ornaments and registration marks travel together. Supporting video bodies receive a subtler second depth tier, including their labels and frames. Landscape, foreground pillars and WebGL scenery have separate depth treatment. Glass appearance uses translucent gradients and edges instead of one expensive backdrop filter per player. Navigation stays on a crisp foreground plane.
 
 When an Explore scene rests, its existing frames rotate through the main focus every 8.5 seconds on a 1.6-second curved 3D path. Stable DOM keys keep iframes attached. The rotation is nested under the existing camera/dispersal transform, so resumed scrolling composes with an in-progress rotation. Hover, keyboard focus, hidden tabs, reduced motion and paused playback suspend automatic advances. The Rotation control can stop advances without stopping a film. No new archive items, credits or claims are introduced.
+
+
+## Automatic Explore delivery — September 2026 correction
+
+The bare GitHub Pages URL opens Explore directly, including in prerendered HTML. Overview and Explore are the only experience choices. Device quality is assigned automatically; stored mode/Light choices must not override the landing page. Slower devices retain a lighter Explore with the same projects and categories, no automatic video downloads, cheaper spatial motion and no WebGL. Touch devices start with the balanced budget.
+
+Only the initial scene is prerendered. One upcoming scene is prepared after hydration. Optional WebGL is admitted only after actual exploration and an idle period. Never render Overview first or wait for window.load before making the interface interactive.
+
+Resting frames float and orbit through the focal centre. A resting cursor must not stop cycling. Delay rotation only for scrolling, actual pointer press, keyboard focus, hidden tabs, reduced motion or an open viewer. Keep retained video DOM nodes through the orbit. Apply depth to each complete card, including its label, container and caption; all scene typography and environmental planes also participate. Keep navigation sharp. Balanced rendering must retain visible blur rather than zeroing it out.

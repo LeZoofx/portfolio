@@ -1,8 +1,13 @@
 export type Quality='full'|'balanced'|'simple';
-export type Capabilities={supported:boolean;saveData?:boolean;effectiveType?:string;downlink?:number;rtt?:number;memory?:number;cores?:number;reduced?:boolean};
+export function initialExperience(path:string,requested:string|null=null):'normal'|'fun'{
+ if(requested==='normal'||requested==='overview')return 'normal';
+ if(requested==='fun'||requested==='explore')return 'fun';
+ return path.replace(/\/$/,'')===''?'fun':'normal';
+}
+export type Capabilities={supported:boolean;saveData?:boolean;effectiveType?:string;downlink?:number;rtt?:number;memory?:number;cores?:number;reduced?:boolean;coarse?:boolean};
 export function chooseQuality(c:Capabilities):Quality{
  if(!c.supported||c.reduced||c.saveData||['slow-2g','2g','3g'].includes(c.effectiveType||'')||(c.downlink!==undefined&&c.downlink<1.5)||(c.rtt||0)>650||(c.memory!==undefined&&c.memory<=2)||(c.cores!==undefined&&c.cores<=2))return 'simple';
- if((c.memory!==undefined&&c.memory<=4)||(c.cores!==undefined&&c.cores<=4)||(!c.memory&&!c.cores)||(c.downlink!==undefined&&c.downlink<4))return 'balanced';
+ if(c.coarse||(c.memory!==undefined&&c.memory<=4)||(c.cores!==undefined&&c.cores<=4)||(!c.memory&&!c.cores)||(c.downlink!==undefined&&c.downlink<4))return 'balanced';
  return 'full';
 }
 

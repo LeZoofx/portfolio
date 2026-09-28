@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import ts from 'typescript';
 const code=ts.transpileModule(readFileSync(new URL('../src/capabilities.ts',import.meta.url),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2020,module:ts.ModuleKind.ES2022}}).outputText;
-const {chooseQuality,MediaQueue}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
+const {chooseQuality,MediaQueue,initialExperience}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
 test('connection, accessibility and missing browser features override powerful hardware',()=>{
  const strong={supported:true,memory:16,cores:12,downlink:20};
  assert.equal(chooseQuality(strong),'full');
@@ -33,4 +33,13 @@ test('scrolling delays queued players without destroying already playing video',
  queue.configure(2);queue.request(value=>grants.push(['one',value]));queue.request(value=>grants.push(['two',value]));
  queue.configure(2,true);now=2000;callback?.();assert.deepEqual(grants,[['one',true]]);
  queue.configure(2,false);assert.deepEqual(grants,[['one',true],['two',true]]);
+});
+
+test('the root opens Explore and only an explicit Overview request changes the experience',()=>{
+ assert.equal(initialExperience('/'),'fun');
+ assert.equal(initialExperience('/','overview'),'normal');
+ assert.equal(initialExperience('/','normal'),'normal');
+ assert.equal(initialExperience('/work/'),'normal');
+ assert.equal(initialExperience('/work/','fun'),'fun');
+ assert.equal(chooseQuality({supported:true,memory:8,cores:8,coarse:true}),'balanced');
 });
