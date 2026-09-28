@@ -32,6 +32,10 @@ export default function useFrameOrbit(count:number,enabled:boolean,motion:Journe
     {offset:.5,transform:`translate3d(${dx*.47+(incoming?-30:30)}px,${dy*.47-35}px,${incoming?55:-65}px) rotateY(${incoming?-11:11}deg) rotateZ(${rotation*.47}deg) scale(${scale+(1-scale)*.53})`,filter:incoming?'blur(.7px) brightness(.92)':'blur(1.7px) brightness(.72)'},
     {transform:'translate3d(0,0,0) rotateY(0deg) rotateZ(0deg) scale(1)',filter}
    ],{duration:2200,easing:'cubic-bezier(.4,0,.2,1)'}));
+   // Keep labels and playback controls readable while the frame changes scale.
+   body.querySelectorAll<HTMLElement>('.depth-film-label,.depth-caption,.frame-expand-cue').forEach(label=>{
+    animations.current.push(label.animate([{transform:`scale(${1/scale})`},{offset:.5,transform:`scale(${1/(scale+(1-scale)*.53)})`},{transform:'scale(1)'}],{duration:2200,easing:'cubic-bezier(.4,0,.2,1)'}));
+   });
   }
   const world=el.closest<HTMLElement>('.zoom-world');if(world){world.dataset.layoutVersion=String(turn);world.dispatchEvent(new Event('portfolio-layout',{bubbles:true}))}
   before.current.clear();

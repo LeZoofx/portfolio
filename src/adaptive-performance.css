@@ -110,3 +110,7 @@ html[data-quality=simple] .depth-journey .depth-landscape{filter:blur(2px) brigh
  .depth-journey .depth-bottom .compact-clients .client-name{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){.depth-journey .depth-film-float{animation:none}}
+
+.depth-journey .depth-film{will-change:auto}
+.depth-journey .depth-film-label,.depth-journey .depth-caption{transform-origin:top left}
+.depth-journey .frame-expand-cue{transform-origin:bottom right}
