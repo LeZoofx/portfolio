@@ -114,3 +114,5 @@ html[data-quality=simple] .depth-journey .depth-landscape{filter:blur(2px) brigh
 .depth-journey .depth-film{will-change:auto}
 .depth-journey .depth-film-label,.depth-journey .depth-caption{transform-origin:top left}
 .depth-journey .frame-expand-cue{transform-origin:bottom right}
+
+@media(max-width:699px){.depth-journey[data-ready=false] .depth-film:nth-child(n+4){display:none}}

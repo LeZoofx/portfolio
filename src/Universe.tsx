@@ -32,7 +32,10 @@ function Discovery({project,onReveal,theme}:{project:Project;onReveal:(p:Project
 function DepthWorld({section,active,autoplay,compact,paused,playing,muted,onProject,onDiscover,onProcess,motion,rotate}:{motion:JourneyMotion;rotate:boolean;section:PortfolioSection;active:boolean;autoplay:boolean;compact:boolean;paused:boolean;playing:boolean;muted:boolean;onProject:(p:Project)=>void;onDiscover:(p:Project)=>void;onProcess:()=>void}){
  const {maxPlayers,ready,quality}=usePerformance();
  const {gallery,turn}=useFrameOrbit(section.items.length,active&&rotate&&playing&&!paused&&ready,motion);
- const ordered=[...section.items.slice(turn),...section.items.slice(0,turn)];
+ const [playTurn,setPlayTurn]=useState(0);
+ useEffect(()=>{const timer=setTimeout(()=>setPlayTurn(turn),2200);return()=>clearTimeout(timer)},[turn]);
+ // Keep outgoing players alive until their movement finishes; retained frames never restart.
+ const ordered=[...section.items.slice(playTurn),...section.items.slice(0,playTurn)];
  const playable=ordered.filter(p=>p.provider==='youtube'||p.provider==='instagram').slice(0,Math.min(compact?2:3,maxPlayers)).map(p=>p.id);
  return <>{active&&<SceneAccents theme={section.theme} art={section.art}/>}<div className="depth-heading">{section.category==='selected'&&section.offset===0?<><p className="depth-specialty"><KineticCopy text={positioning.eyebrow}/></p><h1><KineticName/></h1><PosterType lines={posterCopy.selected} art={section.art} className="depth-poster-copy"/><button className="process-link" onClick={onProcess}>How I lead a project ↗</button></>:<><p className="depth-specialty"><KineticCopy text={section.focus}/></p><h2><KineticType text={section.title} variant={section.theme}/></h2><PosterType lines={posterCopy[section.category]} art={section.art} className="depth-poster-copy"/></>}</div>
  <div className="depth-type-field" aria-hidden="true"><KineticType text={section.category==='selected'?'CREATE':section.title.toUpperCase()} variant={section.theme}/></div>
