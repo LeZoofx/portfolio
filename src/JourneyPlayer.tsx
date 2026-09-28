@@ -2,6 +2,7 @@ import {useEffect,useRef,useState} from 'react';
 import {asset,type Project} from './content';
 import {filmId} from './journeyData';
 import InstagramPlayer from './InstagramPlayer';
+import {useVideoPermit} from './Performance';
 import './journey.css';
 type Player={mute:()=>void;unMute:()=>void;playVideo:()=>void;pauseVideo:()=>void;destroy:()=>void;loadVideoById:(id:string)=>void;seekTo:(n:number,allow:boolean)=>void;getVideoData:()=>{video_id?:string}};
 declare global {interface Window {YT?:{Player:new(el:HTMLElement,opts:Record<string,unknown>)=>Player};onYouTubeIframeAPIReady?:()=>void}}
@@ -17,7 +18,7 @@ function YouTubePlayer({project,enabled,muted,playing,onOpen}:{project:Project;e
  const host=useRef<HTMLDivElement>(null),player=useRef<Player|null>(null),ready=useRef(false),latest=useRef({project,muted,playing});latest.current={project,muted,playing};
  const [status,setStatus]=useState<'poster'|'loading'|'playing'|'blocked'>('poster');
  const [requested,setRequested]=useState(false),currentId=useRef(''),timeout=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
- const id=filmId(project),allowed=(enabled||requested)&&!!id;
+ const id=filmId(project),allowed=useVideoPermit((enabled||requested)&&!!id);
  function startDeadline(){clearTimeout(timeout.current);timeout.current=setTimeout(()=>setStatus(s=>s==='playing'?s:'blocked'),10000)}
  useEffect(()=>{
   if(!allowed){setStatus('poster');return}
@@ -39,7 +40,7 @@ function YouTubePlayer({project,enabled,muted,playing,onOpen}:{project:Project;e
  useEffect(()=>{const visibility=()=>{if(!ready.current)return;if(document.hidden)player.current?.pauseVideo();else if(latest.current.playing)player.current?.playVideo()};document.addEventListener('visibilitychange',visibility);return()=>document.removeEventListener('visibilitychange',visibility)},[]);
  function play(){if(status==='blocked'){onOpen();return}setRequested(true);if(ready.current){player.current?.mute();player.current?.playVideo();startDeadline()}}
  return <div className={'journey-picture '+(status==='playing'?'is-playing':'')} data-player-state={status}>
-  {project.poster&&<img className="journey-poster" src={asset(project.poster)} alt={project.title} decoding="async"/>}
+  {project.poster&&<img className="journey-poster" src={asset(project.poster)} alt={project.title} loading="lazy" decoding="async"/>}
   <div className="journey-player-host" ref={host} aria-hidden="true"/>
   {(status==='poster'||status==='blocked')&&<button className="ambient-play" onClick={id?play:onOpen} aria-label={'Play '+project.title}><span aria-hidden="true">▶</span></button>}
   <button className="film-expand" aria-label={'Expand video: '+project.title} onClick={onOpen}><span aria-hidden="true">⤢</span><span className="expand-label">Expand</span></button>

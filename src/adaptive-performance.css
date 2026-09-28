@@ -1,0 +1,52 @@
+/* Depth belongs to complete planes, including lettering, edges and ornaments. */
+.depth-journey .zoom-world{filter:blur(var(--scene-blur,0px)) brightness(var(--scene-light,1));perspective:1200px}
+.depth-journey .depth-film-body{position:relative;transform-origin:0 0;transform-style:preserve-3d;filter:blur(var(--card-blur,0px)) brightness(var(--frame-light,1));transition:filter .3s ease}
+.depth-journey .depth-media-surface,.depth-journey .zoom-world:not([inert]) .depth-film:is(:hover,:focus-within) .depth-media-surface{filter:none!important;transition:none}
+.depth-journey .depth-heading{filter:none}
+.depth-journey .zoom-world:not([inert]) .depth-film:is(:hover,:focus-within) .depth-film-body{filter:blur(0) brightness(1.04)}
+.depth-journey .zoom-world[data-art] .depth-film-frame{backdrop-filter:none}
+.depth-journey .depth-film{animation:none!important;transition:none;filter:none!important}
+.depth-journey .scene-accents{filter:blur(.6px) brightness(.8)}
+.depth-journey .depth-type-field{filter:blur(1px) brightness(.78)}
+.depth-journey .depth-registration,.depth-journey .depth-portal{filter:blur(.4px) brightness(.83)}
+.depth-journey .depth-landscape{filter:blur(calc(1px + var(--travel-speed,0)*1.5px)) brightness(.67)}
+.depth-journey .depth-stage>.journey-canvas{filter:blur(calc(.6px + var(--travel-speed,0)*1.2px)) brightness(.78)}
+.depth-journey .lowpoly-pillar{filter:blur(.4px) brightness(.9)}
+.depth-journey .pillar-2,.depth-journey .pillar-3,.depth-journey .pillar-4{filter:blur(1.5px) brightness(.66)}
+.depth-journey .depth-backdrop{filter:brightness(.84)}
+.depth-stage{height:calc(100vh - var(--header-h,84px));height:calc(100svh - var(--header-h,84px))}
+.depth-track{min-height:0}
+
+/* Paint only the visible portion of the archive. Content and native links stay in HTML. */
+.portfolio-cluster{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.portfolio-scroll.is-simple .portfolio-cluster{contain-intrinsic-size:auto 1600px}
+.work-context,.about-section,.contact-section,.process-teaser{content-visibility:auto;contain-intrinsic-size:auto 650px}
+.portfolio-cluster:not(.is-current) *{animation-play-state:paused!important}
+.portfolio-card{animation:none!important}
+.portfolio-cluster:not(.is-current) .portfolio-media{backdrop-filter:none!important;will-change:auto}
+.client-marquee:not(.type-in-view) .client-track,.results-ribbon:not(.type-in-view) .results-track,.home-intro:not(.type-in-view) .floating-art,.opening-contact-strip:not(.type-in-view) .contact-strip-track{animation-play-state:paused!important}
+.copy-word,[data-art] .kinetic-type .type-glyph{animation-iteration-count:1;animation-duration:1.4s;animation-fill-mode:both}
+.site-header nav a,.mode-switch button,.depth-topbar nav button,.portfolio-controls nav button,.depth-navigation>div>span,.portfolio-end button,.footer>span{animation:none}
+html.is-scrolling .copy-word,html.is-scrolling .type-glyph,html.is-scrolling .scene-accents *,html.is-scrolling .client-track,html.is-scrolling .results-track,html.is-scrolling .contact-strip-track{animation-play-state:paused!important}
+html.page-hidden *{animation-play-state:paused!important}
+html:not(.ui-ready) .copy-word,html:not(.ui-ready) .type-glyph,html:not(.ui-ready) .poster-line,html:not(.ui-ready) .name-letter{animation:none!important;opacity:1!important;transform:none!important;filter:none!important}
+html:not(.ui-ready) .home-floaters,html:not(.ui-ready) .scene-accents{visibility:hidden}
+html:not(.ui-ready) .client-track,html:not(.ui-ready) .results-track,html:not(.ui-ready) .contact-strip-track{animation-play-state:paused!important}
+
+/* Light mode keeps the work, palette, type, category controls and full-size viewer. */
+html[data-quality=simple] .copy-word,html[data-quality=simple] .type-glyph,html[data-quality=simple] .name-letter,html.compat-view .copy-word,html.compat-view .type-glyph{animation:none!important;transform:none!important;filter:none!important;opacity:1!important}
+html[data-quality=simple] .home-floaters,html[data-quality=simple] .scene-accents,html[data-quality=simple] .deck-under,html[data-quality=simple] .opening-contact-strip,html[data-quality=simple] .mobile-discovery,html[data-quality=simple] .glyph-echo{display:none!important}
+html[data-quality=simple] .portfolio-cluster *,html[data-quality=simple] .showcase-deck *,html.compat-view .portfolio-cluster *{animation:none!important;backdrop-filter:none!important}
+[data-light=true] .portfolio-cluster[data-art] .cluster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:28px;perspective:none}
+[data-light=true] .portfolio-cluster[data-art] .portfolio-card:nth-child(n){grid-column:auto;grid-row:auto;transform:none;translate:none;rotate:none;margin:0;padding:0;filter:none;border:0;width:100%;transition:none}
+[data-light=true] .portfolio-cluster[data-art] .portfolio-media{backdrop-filter:none;box-shadow:none;margin:0;width:100%;max-width:100%}
+[data-light=true] .portfolio-cluster[data-art] .is-portrait .portfolio-media{width:min(100%,250px);margin-inline:auto}
+html[data-quality=simple] .portfolio-controls,html[data-quality=simple] .site-header,html[data-quality=simple] .results-ribbon{backdrop-filter:none!important}
+html[data-quality=simple] .client-track,html[data-quality=simple] .results-track{animation-duration:70s}
+html[data-quality=balanced] .liquid-lens,html[data-quality=balanced] .aero-orb,html[data-quality=balanced] .cyber-emblem{animation:none;backdrop-filter:none}
+html[data-quality=balanced] .depth-journey .depth-film-body{--card-blur:0px}
+html[data-quality=balanced] .depth-topbar,html[data-quality=balanced] .depth-bottom *,html[data-quality=balanced] .portfolio-media{backdrop-filter:none!important}
+html.compat-view .home-floaters,html.compat-view .mode-switch,html.compat-view .scene-accents{display:none!important}
+@media(prefers-reduced-motion:reduce){.depth-film-body{transition:none}.client-track,.results-track{animation:none!important}}
+
+.mode-switch button:disabled{opacity:.42;cursor:default}

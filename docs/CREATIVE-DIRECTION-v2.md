@@ -134,3 +134,14 @@ Use the September 2026 résumé to position Prantik as a creative producer and p
 The Project Development panel and downloadable PDF are generated from `content/development-sample.json`. “Why does this shot look fake?” is an original, proposed production sample with a sourced research matrix, treatment, shot plan, AI/VFX direction, team schedule, edit handoff and measurement plan. Do not present it as a commissioned or completed project or assign it fabricated outcomes.
 
 Regenerate the PDF with `python3 -m pip install reportlab fonttools brotli`, then `python3 scripts/build-development-pack.py`. The script uses the repository fonts and writes `public/downloads/Prantik-Dutta-Development-Sample.pdf`.
+
+
+## Adaptive delivery and stationary frame rotation — September 2026
+
+The prerendered page and two animation frames precede enhancement. Automatic players wait for page load plus idle time, enter through one shared queue 850ms apart, and stop admitting players during scroll or a hidden tab. Only settled visible sections receive automatic playback. Directly opened films remain user initiated. Full devices allow three players; balanced devices allow one; Light loads none until a project is opened. Save-Data, 2G/3G, low throughput, high latency, limited CPU/memory, reduced motion and missing browser APIs select Light automatically. Sustained slow frames reduce quality at runtime. Light remains manually available. Unknown hardware is conservative. All archive links and native project pages remain present without JavaScript; the compiled target is ES2018.
+
+WebGL is a delayed enhancement on full devices only. Balanced devices keep the existing faceted CSS environment. Inactive archive sections use content visibility, paused animations and no ornamental scene nodes. Typography entrances are finite; the three client rows and results ribbon remain animated while visible. Layout measurements are cached by viewport and layout version instead of repeated during scroll.
+
+Depth blur and brightness now treat each entire world as a plane: text, containers, ornaments and registration marks travel together. Supporting video bodies receive a subtler second depth tier, including their labels and frames. Landscape, foreground pillars and WebGL scenery have separate depth treatment. Glass appearance uses translucent gradients and edges instead of one expensive backdrop filter per player. Navigation stays on a crisp foreground plane.
+
+When an Explore scene rests, its existing frames rotate through the main focus every 8.5 seconds on a 1.6-second curved 3D path. Stable DOM keys keep iframes attached. The rotation is nested under the existing camera/dispersal transform, so resumed scrolling composes with an in-progress rotation. Hover, keyboard focus, hidden tabs, reduced motion and paused playback suspend automatic advances. The Rotation control can stop advances without stopping a film. No new archive items, credits or claims are introduced.

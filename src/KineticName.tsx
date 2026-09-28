@@ -6,8 +6,9 @@ export default function KineticName({compact=false}:{compact?:boolean}) {
  function move(e:PointerEvent<HTMLSpanElement>) {
   if(e.pointerType==='touch'||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const letters=root.current?.querySelectorAll<HTMLElement>('.name-letter');
-  letters?.forEach(letter=>{
-   const r=letter.getBoundingClientRect(),distance=Math.abs(e.clientX-r.left-r.width/2);
+  const measured=Array.from(letters||[]).map(letter=>({letter,r:letter.getBoundingClientRect()}));
+  measured.forEach(({letter,r})=>{
+   const distance=Math.abs(e.clientX-r.left-r.width/2);
    const force=Math.max(0,1-distance/(compact?65:190));
    letter.style.setProperty('--letter-flip',`${force*175}deg`);
    letter.style.setProperty('--letter-lift',`${-force*(compact?2:10)}px`);

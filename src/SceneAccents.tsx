@@ -1,7 +1,8 @@
+import {memo} from 'react';
 import type {ArtStyle} from './artStyles';
 const flourish='M4 76C4 34 26 3 70 4C38 10 32 27 42 35C50 43 66 29 55 22C77 12 91 35 78 48C61 68 34 49 24 70C44 50 57 80 80 65M10 63C15 43 27 33 42 24M15 81C36 65 50 89 83 72';
 const thorn='M150 10 143 50 120 34 135 67 105 61 133 83 111 100 140 98 150 148M150 38 171 14 159 67 195 40 174 81 213 75 177 106 205 123 166 116 150 148M150 148 126 168 134 202 113 185 124 218 99 238 137 226 150 272M150 160 181 183 171 209 202 202 178 229 190 255 159 235 150 272';
-export default function SceneAccents({theme,art}:{theme:number;art?:ArtStyle}){
+function SceneAccents({theme,art}:{theme:number;art?:ArtStyle}){
  return <div className={'scene-accents accents-'+theme} data-decoration={art} aria-hidden="true"><div className="accent-orbit"/><div className="accent-slab"/><div className="accent-halftone"/><div className="accent-cross"/><div className="accent-scan"/><div className="accent-perforations"/><div className="accent-bars">{Array.from({length:9},(_,i)=><i key={i}/>)}</div><div className="accent-pixel"><i/><i/><i/><i/></div>
  {art==='baroque'&&<><svg className="ornament ornament-a" viewBox="0 0 90 90"><path d={flourish}/></svg><svg className="ornament ornament-b" viewBox="0 0 90 90"><path d={flourish}/></svg><div className="ornate-oval"/></>}
  {(art==='sigil'||art==='curse')&&<svg className="cyber-emblem" viewBox="0 0 300 300"><g><path d={thorn}/><path d={thorn} transform="translate(300 0) scale(-1 1)"/><ellipse cx="150" cy="150" rx="24" ry="84"/><path d="M58 150 122 136 150 150 178 136 242 150 178 164 150 150 122 164Z"/></g></svg>}
@@ -16,3 +17,5 @@ export default function SceneAccents({theme,art}:{theme:number;art?:ArtStyle}){
  {art==='brutal'&&<div className="brutal-arrow">↙</div>}
  </div>;
 }
+
+export default memo(SceneAccents);
