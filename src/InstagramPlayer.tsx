@@ -2,14 +2,12 @@ import {useEffect,useRef,useState,type CSSProperties} from 'react';
 import {asset,previewAsset,previewSrcSet,type Project} from './content';
 import {useVideoPermit} from './Performance';
 export function instagramEmbed(project:Project){const match=new URL(project.sourceUrl).pathname.match(/^\/(?:p|reel|reels|tv)\/([\w-]+)/);return match?'https://www.instagram.com/p/'+match[1]+'/embed/':project.embedUrl||''}
-export default function InstagramPlayer({project,enabled,playing,onOpen,explicit=false}:{project:Project;enabled:boolean;playing:boolean;explicit?:boolean;onOpen?:()=>void}){
+export default function InstagramPlayer({project,enabled,onOpen,explicit=false}:{project:Project;enabled:boolean;playing:boolean;explicit?:boolean;onOpen?:()=>void}){
  const root=useRef<HTMLDivElement>(null),[scale,setScale]=useState(1),[loaded,setLoaded]=useState(false),[requested,setRequested]=useState(false);
  const permitted=useVideoPermit(!explicit&&(enabled||requested));
- const [retained,setRetained]=useState(false);
- useEffect(()=>{if(explicit||permitted)setRetained(true)},[explicit,permitted]);
- const width=400,height=Math.round(width/(project.aspect||9/16)+120),src=instagramEmbed(project),mount=!!src&&(explicit||permitted||retained);
+ const width=400,height=Math.round(width/(project.aspect||9/16)+120),src=instagramEmbed(project),mount=!!src&&(explicit||permitted);
  useEffect(()=>{const el=root.current;if(!el)return;const resize=()=>setScale(Math.min(el.clientWidth/width,el.clientHeight/height));resize();if(!window.ResizeObserver){window.addEventListener('resize',resize);return()=>window.removeEventListener('resize',resize)}const o=new ResizeObserver(resize);o.observe(el);return()=>o.disconnect()},[height]);
- useEffect(()=>{setLoaded(false);setRequested(false);setRetained(false)},[project.id]);
+ useEffect(()=>{setLoaded(false);setRequested(false)},[project.id]);
 
  return <div className={'instagram-player'+(loaded&&mount?' embed-loaded':'')} ref={root} style={{'--ig-scale':scale} as CSSProperties}>
   {project.poster&&<img loading="lazy" decoding="async" className="instagram-poster" src={previewAsset(project.poster)} srcSet={previewSrcSet(project.poster)} sizes="(max-width:699px) 75vw, 42vw" alt={project.title}/>}
