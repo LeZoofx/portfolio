@@ -26,18 +26,19 @@ export function PerformanceProvider({children}:{children:ReactNode}){
   const n=navigator as Device;
   // Quality is automatic. Old manual preferences must never change the landing page.
   const sync=()=>{const detected=detect(),order:Quality[]=['simple','balanced','full'];setQuality(order[Math.min(order.indexOf(detected),order.indexOf(ceiling.current))])};sync();const stopMotion=listenMedia(matchMedia('(prefers-reduced-motion: reduce)'),sync);n.connection?.addEventListener?.('change',sync);
-  // The prerendered interface paints before optional media and WebGL are admitted.
+  // The prerendered interface paints before optional media is admitted.
   frame=requestAnimationFrame(()=>{frame=requestAnimationFrame(()=>{if(disposed)return;setReady(true);document.documentElement.classList.add('ui-ready');timer=setTimeout(()=>{if(disposed)return;if('requestIdleCallback' in window)idle=window.requestIdleCallback(()=>{if(!disposed)setMediaReady(true)},{timeout:2000});else setMediaReady(true)},1100)})});
   const nav=window.performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming|undefined;if(!n.connection&&nav&&nav.responseEnd-nav.requestStart>2500){ceiling.current='simple';setQuality('simple')}
   return()=>{disposed=true;stopMotion();cancelAnimationFrame(frame);clearTimeout(timer);if(idle!==undefined)window.cancelIdleCallback?.(idle);n.connection?.removeEventListener?.('change',sync)};
  },[]);
- const maxPlayers=!mediaReady||quality==='simple'?0:quality==='full'?3:1;
+ const maxPlayers=!mediaReady||quality==='simple'?0:quality==='full'?2:1;
  useEffect(()=>{
   const html=document.documentElement;html.dataset.quality=quality;let timer:ReturnType<typeof setTimeout>;
   const sync=()=>{html.classList.toggle('page-hidden',document.hidden);mediaQueue.configure(maxPlayers,document.hidden||html.classList.contains('is-scrolling'))};
   const scroll=()=>{if(!html.classList.contains('is-scrolling')){html.classList.add('is-scrolling');sync()}clearTimeout(timer);timer=setTimeout(()=>{html.classList.remove('is-scrolling');sync()},400)};
-  sync();document.addEventListener('visibilitychange',sync);window.addEventListener('scroll',scroll,{capture:true,passive:true});
-  return()=>{clearTimeout(timer);document.removeEventListener('visibilitychange',sync);window.removeEventListener('scroll',scroll,true);mediaQueue.configure(0,true);html.classList.remove('is-scrolling')};
+  const motion=(event:Event)=>{clearTimeout(timer);if((event as CustomEvent<boolean>).detail){html.classList.add('is-scrolling');sync()}else timer=setTimeout(()=>{html.classList.remove('is-scrolling');sync()},180)};
+  sync();document.addEventListener('visibilitychange',sync);window.addEventListener('scroll',scroll,{capture:true,passive:true});window.addEventListener('portfolio-motion',motion);
+  return()=>{clearTimeout(timer);document.removeEventListener('visibilitychange',sync);window.removeEventListener('scroll',scroll,true);window.removeEventListener('portfolio-motion',motion);mediaQueue.configure(0,true);html.classList.remove('is-scrolling')};
  },[quality,maxPlayers]);
  const value=useMemo(()=>({quality,ready,mediaReady,maxPlayers,reportFrame}),[quality,ready,mediaReady,maxPlayers,reportFrame]);
  return <Context.Provider value={value}>{children}</Context.Provider>;

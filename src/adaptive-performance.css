@@ -116,3 +116,15 @@ html[data-quality=simple] .depth-journey .depth-landscape{filter:blur(2px) brigh
 .depth-journey .frame-expand-cue{transform-origin:bottom right}
 
 @media(max-width:699px){.depth-journey[data-ready=false] .depth-film:nth-child(n+4){display:none}}
+
+/* Keep the same scene, with bounded gesture motion and cached scenery. */
+.depth-scroll{overflow:hidden!important;touch-action:pinch-zoom}
+.depth-track{height:100%!important;min-height:0!important}
+.depth-stage{position:relative}
+.baked-scenery{position:absolute;inset:0;pointer-events:none;opacity:.86;overflow:hidden}
+.baked-scenery img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.depth-journey .zoom-world[data-active=true] .copy-word,.depth-journey .zoom-world[data-active=true] .type-glyph{animation-play-state:running}
+.depth-journey[data-moving=true] .zoom-world *{animation-play-state:paused!important}
+.depth-journey .journey-player-host,.depth-journey .instagram-player iframe{pointer-events:none}
+.depth-journey .depth-backdrop,.depth-journey .depth-landscape{will-change:transform,opacity}
+.depth-journey .depth-film-frame{contain:layout paint}

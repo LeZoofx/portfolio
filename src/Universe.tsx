@@ -1,4 +1,4 @@
-import {Component,Suspense,lazy,memo,useEffect,useMemo,useRef,useState,type CSSProperties,type ReactNode} from 'react';
+import {Suspense,lazy,memo,useEffect,useMemo,useRef,useState,type CSSProperties} from 'react';
 import {asset,href,projectPath,platformLabel,type Project} from './content';
 import {buildSections,brandFor,portfolioCategories,type PortfolioSection,type WorkSort} from './portfolioSections';
 import type {JourneyMotion} from './journeyData';
@@ -18,13 +18,13 @@ import {usePerformance,listenMedia} from './Performance';
 import useFrameOrbit from './useFrameOrbit';
 import './journey.css';
 import './depth-journey.css';
-const Scene=lazy(()=>import('./JourneyScene'));
+import Scene from './JourneyScene';
+import {SceneGesture,wheelPixels,swipePages,advanceTarget} from './scenePaging';
 const SecretPlayer=lazy(()=>import('./SecretPlayer'));
 const themes=['glass','mass','cut','desktop','afterimage','editorial'];
 const modulo=(n:number,total:number)=>((n%total)+total)%total;
 const smooth=(a:number,b:number,value:number)=>{const n=Math.max(0,Math.min(1,(value-a)/(b-a)));return n*n*(3-2*n)};
 const title=(p:Project)=>p.title.split(' | ')[0].replace(/\s*\(Official.*$/i,'').replace(/\s*- Official Trailer$/i,'');
-class GeometryBoundary extends Component<{children:ReactNode;onFailure:()=>void},{failed:boolean}>{state={failed:false};static getDerivedStateFromError(){return {failed:true}}componentDidCatch(){this.props.onFailure()}render(){return this.state.failed?null:this.props.children}}
 function Discovery({project,onReveal,theme}:{project:Project;onReveal:(p:Project)=>void;theme:number}){
  const timer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);useEffect(()=>()=>clearTimeout(timer.current),[]);
  return <button className={'depth-discovery discovery-object-'+theme} aria-label={'Discover '+title(project)} onPointerEnter={e=>{if(e.pointerType==='mouse')timer.current=setTimeout(()=>onReveal(project),800)}} onPointerLeave={()=>clearTimeout(timer.current)} onWheel={()=>onReveal(project)} onClick={()=>onReveal(project)}><span className="discovery-solid" aria-hidden="true">{Array.from({length:6},(_,i)=><i key={i}/>)}</span></button>
@@ -50,8 +50,8 @@ function DepthWorld({section,active,autoplay,compact,paused,playing,muted,onProj
 const MemoDepthWorld=memo(DepthWorld);
 export default function Universe({projects,onProject,onIndex,onProcess,paused,reduced}:{projects:Project[];onProject:(p:Project)=>void;onIndex:()=>void;onProcess:()=>void;paused:boolean;reduced:boolean}){
  const performance=usePerformance();
- const [rotate,setRotate]=useState(true),[graphicsReady,setGraphicsReady]=useState(false),[engaged,setEngaged]=useState(false);
- const [brand,setBrand]=useState('all'),[sort,setSort]=useState<WorkSort>('curated'),[compact,setCompact]=useState(false),[saveData,setSaveData]=useState(false),[graphics,setGraphics]=useState(true);
+ const [rotate,setRotate]=useState(true);
+ const [brand,setBrand]=useState('all'),[sort,setSort]=useState<WorkSort>('curated'),[compact,setCompact]=useState(false),[saveData,setSaveData]=useState(false);
  const sections=useMemo(()=>buildSections(projects,sort,brand,compact?3:6),[projects,sort,brand,compact]);
  const total=sections.length,root=useRef<HTMLDivElement>(null),scroll=useRef<HTMLDivElement>(null),worldRefs=useRef(new Map<number,HTMLDivElement>()),backdropRefs=useRef(new Map<number,HTMLDivElement>());
  const [chapter,setChapter]=useState(0),[base,setBase]=useState(0),[secret,setSecret]=useState<Project|null>(null),[muted,setMuted]=useState(true),[playing,setPlaying]=useState(true),[shuffle,setShuffle]=useState(0),[held,setHeld]=useState(false);
@@ -62,69 +62,99 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
  const shuffleProject=projects.find(p=>p.id===showcase[shuffle%showcase.length].id)||projects[0];
  useEffect(()=>{const mq=matchMedia('(max-width:699px)');const sync=()=>setCompact(mq.matches);sync();const stop=listenMedia(mq,sync);const n=navigator as Navigator&{connection?:{saveData?:boolean};deviceMemory?:number};setSaveData(!!n.connection?.saveData);return stop},[motion]);
  useEffect(()=>{if(!performance.ready||performance.quality==='simple'||reduced||held||paused)return;const timer=setInterval(()=>{if(!document.hidden)setShuffle(i=>(i+1+Math.floor(Math.random()*(showcase.length-1)))%showcase.length)},1700);return()=>clearInterval(timer)},[reduced,held,paused,performance.ready,performance.quality]);
- useEffect(()=>{if(!engaged||!performance.mediaReady||performance.quality!=='full'||reduced){setGraphicsReady(false);return}let idle:number|undefined,timer:ReturnType<typeof setTimeout>;const admit=()=>{if(document.hidden||document.documentElement.classList.contains('is-scrolling')){timer=setTimeout(admit,900);return}if('requestIdleCallback' in window)idle=window.requestIdleCallback(()=>{if(document.documentElement.classList.contains('is-scrolling'))timer=setTimeout(admit,900);else setGraphicsReady(true)},{timeout:5000});else setGraphicsReady(true)};timer=setTimeout(admit,1800);return()=>{clearTimeout(timer);if(idle!==undefined)window.cancelIdleCallback?.(idle)}},[engaged,performance.mediaReady,performance.quality,reduced]);
  useEffect(()=>{
-  const scroller=scroll.current,outer=root.current;if(!scroller||!outer||!total)return;let unit=1,raf=0,last=0,lastRaw=0,px=0,py=0,lastBase=-1,lastChapter=-1;motion.position=0;motion.target=0;current.current=0;setChapter(0);setBase(0);
-  let viewportWidth=scroller.clientWidth,viewportHeight=scroller.clientHeight;
+  const scroller=scroll.current,outer=root.current;if(!scroller||!outer||!total)return;
+  let raf=0,last=0,px=0,py=0,lastBase=-1,lastChapter=-1,scrolling=false;
+  motion.position=0;motion.target=0;current.current=0;setChapter(0);setBase(0);
+  let width=scroller.clientWidth,height=scroller.clientHeight;
+  const gesture=new SceneGesture(),landscape=outer.querySelector<HTMLElement>('.depth-landscape');
   const written=new WeakMap<HTMLElement,Map<string,string>>();
   function write(el:HTMLElement,name:string,value:string){let values=written.get(el);if(!values){values=new Map();written.set(el,values)}if(values.get(name)!==value){el.style.setProperty(name,value);values.set(name,value)}}
-  const exitLayouts=new WeakMap<HTMLDivElement,{width:number;height:number;version:string}>();
-  function prepareExits(layer:HTMLDivElement){
-   const width=viewportWidth,height=viewportHeight,version=layer.dataset.layoutVersion||'',cached=exitLayouts.get(layer);
-   if(cached?.width===width&&cached.height===height&&cached.version===version)return;
-   // Measure the resting layout once, so exit paths also fit portrait/mobile frames.
+  type Exit={element:HTMLElement;x:number;y:number;tile:number;film:boolean};
+  const layouts=new WeakMap<HTMLDivElement,{width:number;height:number;version:string;exits:Exit[]}>();
+  function prepare(layer:HTMLDivElement){
+   const version=layer.dataset.layoutVersion||'',cached=layouts.get(layer);
+   if(cached?.width===width&&cached.height===height&&cached.version===version)return cached.exits;
    const exits=Array.from(layer.querySelectorAll<HTMLElement>('.depth-film,.depth-heading,.depth-discovery,.depth-type-field')).map(element=>{
     let x=element.offsetWidth/2,y=element.offsetHeight/2,node:HTMLElement|null=element;
     while(node&&node!==layer){x+=node.offsetLeft;y+=node.offsetTop;node=node.offsetParent as HTMLElement|null}
-    x+=layer.offsetLeft;y+=layer.offsetTop;
-    let dx=x-width/2,dy=y-height/2;
+    x+=layer.offsetLeft;y+=layer.offsetTop;let dx=x-width/2,dy=y-height/2;
     if(Math.hypot(dx/width,dy/height)<.08){dx=width*.25;dy=height*.08}
     const length=Math.hypot(dx,dy),vx=dx/length,vy=dy/length;
     const edgeX=Math.abs(vx)<.001?Infinity:((vx>0?width+element.offsetWidth*.75:-element.offsetWidth*.75)-x)/vx;
     const edgeY=Math.abs(vy)<.001?Infinity:((vy>0?height+element.offsetHeight*.75:-element.offsetHeight*.75)-y)/vy;
     const distance=Math.max(0,Math.min(edgeX,edgeY))+80;
-    return {element,x:vx*distance,y:vy*distance};
-   });
-   exits.forEach(({element,x,y})=>{element.style.setProperty('--exit-x',`${x}px`);element.style.setProperty('--exit-y',`${y}px`)});
-   exitLayouts.set(layer,{width,height,version});
+    return {element,x:vx*distance,y:vy*distance,tile:Number(element.style.getPropertyValue('--tile'))||0,film:element.classList.contains('depth-film')};
+   });layouts.set(layer,{width,height,version,exits});return exits;
   }
-  function draw(t:number){raf=0;if(settings.current.paused||settings.current.secret||document.hidden)return;const elapsed=t-last;if(Math.abs(motion.target-motion.position)>.001)performance.reportFrame(elapsed);const dt=Math.min(elapsed/1000,.05)||.016;last=t;const prior=motion.position;motion.position+=(motion.target-motion.position)*(settings.current.reduced?1:1-Math.exp(-8*dt));if(Math.abs(motion.target-motion.position)<.0001)motion.position=motion.target;motion.velocity=(motion.position-prior)/dt;motion.pointerX+=(px-motion.pointerX)*.09;motion.pointerY+=(py-motion.pointerY)*.09;motion.time=t/1000;
+  function markMoving(value:boolean){if(value===scrolling)return;scrolling=value;outer!.dataset.moving=String(value);window.dispatchEvent(new CustomEvent('portfolio-motion',{detail:value}))}
+  function draw(t:number){
+   raf=0;if(settings.current.paused||settings.current.secret||document.hidden){markMoving(false);return}
+   // Use elapsed time: capping it makes a slow device replay the motion in slow motion.
+   const elapsed=t-last,dt=Math.max(elapsed/1000,.001);last=t;
+   const prior=motion.position,travelling=Math.abs(motion.target-prior)>.001;
+   if(travelling)performance.reportFrame(elapsed);
+   motion.position+=(motion.target-motion.position)*(settings.current.reduced?1:1-Math.exp(-12*dt));
+   if(Math.abs(motion.target-motion.position)<.001)motion.position=motion.target;
+   motion.velocity=(motion.position-prior)/dt;
+   const response=1-Math.exp(-12*dt);motion.pointerX+=(px-motion.pointerX)*response;motion.pointerY+=(py-motion.pointerY)*response;motion.time=t/1000;
    const p=modulo(motion.position,total),nextBase=Math.floor(p),nextChapter=modulo(Math.floor(p+.48),total);
    if(nextBase!==lastBase){lastBase=nextBase;setBase(nextBase)}if(nextChapter!==lastChapter){lastChapter=nextChapter;current.current=nextChapter;setChapter(nextChapter)}
-   worldRefs.current.forEach(prepareExits);
-   outer!.style.setProperty('--pointer-x',String(motion.pointerX));outer!.style.setProperty('--pointer-y',String(motion.pointerY));outer!.style.setProperty('--travel-phase',String(p%1));outer!.style.setProperty('--travel-speed',String(Math.min(1,Math.abs(motion.velocity))));
-   const ambience=smooth(.22,.75,p%1);backdropRefs.current.forEach((layer,index)=>{layer.style.opacity=String(index===nextBase?1-ambience:index===modulo(nextBase+1,total)?ambience:0)});
-   worldRefs.current.forEach((layer,index)=>{
+   // All layout reads happen before writes, only when a scene/layout actually changes.
+   const planes=Array.from(worldRefs.current,([index,layer])=>({index,layer,exits:prepare(layer)}));
+   const ambience=smooth(.22,.75,p%1);
+   backdropRefs.current.forEach((layer,index)=>{write(layer,'opacity',(index===nextBase?1-ambience:index===modulo(nextBase+1,total)?ambience:0).toFixed(3));write(layer,'transform',`translate3d(${(motion.pointerX*5).toFixed(2)}px,${(motion.pointerY*3).toFixed(2)}px,0) scale(${(1+(p%1)*.035).toFixed(3)})`)});
+   if(landscape)write(landscape,'transform',`translate3d(${(motion.pointerX*7).toFixed(2)}px,${(motion.pointerY*3+(p%1)*15).toFixed(2)}px,0) scale(${(1+(p%1)*.045).toFixed(3)})`);
+   for(const {index,layer,exits} of planes){
     let delta=index-p;delta-=Math.round(delta/total)*total;const nearest=index===nextChapter;
-    let opacity=delta<0?1-smooth(.52,.94,-delta):1-smooth(.86,1.5,delta);if(settings.current.reduced)opacity=nearest?1:0;
-    const light=settings.current.quality==='simple';const travel=settings.current.reduced?0:Math.max(-1.6,Math.min(1.6,delta));
-    // A single smooth fly-through: approach and radial drift overlap on both sides of the viewing plane.
-    const departure=(Math.exp(-1.6*travel)-1)/(Math.exp(1.44)-1);
-    const depth=220*(1-Math.exp(1.75*travel)); // Asymptote stays 980px short of the CSS camera.
+    const opacity=settings.current.reduced?(nearest?1:0):delta<0?1-smooth(.52,.94,-delta):1-smooth(.86,1.5,delta);
+    const light=settings.current.quality==='simple',travel=settings.current.reduced?0:Math.max(-1.6,Math.min(1.6,delta));
+    const departure=(Math.exp(-1.6*travel)-1)/(Math.exp(1.44)-1),depth=220*(1-Math.exp(1.75*travel));
     const x=travel*Math.sin(index*1.9)*24+motion.pointerX*7,y=travel*Math.cos(index*1.3)*12-motion.pointerY*5;
-    layer.style.transform=light?`translate3d(${travel*48}px,${travel*12}px,0) scale(${1-Math.abs(travel)*.035})`:`translate3d(${x}px,${y}px,${depth}px) rotateY(${settings.current.reduced?0:travel*Math.sin(index+1)*3+motion.pointerX*.6}deg) rotateZ(${settings.current.reduced?0:travel*Math.cos(index+2)}deg)`;
+    write(layer,'transform',light?`translate3d(${(travel*48).toFixed(2)}px,${(travel*12).toFixed(2)}px,0) scale(${(1-Math.abs(travel)*.035).toFixed(3)})`:`translate3d(${x.toFixed(2)}px,${y.toFixed(2)}px,${depth.toFixed(2)}px) rotateY(${(settings.current.reduced?0:travel*Math.sin(index+1)*3+motion.pointerX*.6).toFixed(2)}deg) rotateZ(${(settings.current.reduced?0:travel*Math.cos(index+2)).toFixed(2)}deg)`);
     const focus=settings.current.reduced?0:smooth(.06,1.1,Math.abs(travel));
-    write(layer,'--scene-blur',`${(Math.round(focus*(light?2:motion.low?4:8)*4)/4).toFixed(2)}px`);write(layer,'--scene-light',(1-focus*.58).toFixed(2));
-    layer.style.setProperty('--disperse',String(light?departure*.22:departure));layer.style.opacity=String(opacity);layer.style.visibility=opacity<.01?'hidden':'visible';layer.style.pointerEvents=nearest?'auto':'none';layer.inert=!nearest;layer.style.setProperty('--depth',String(travel));layer.style.zIndex=String(Math.round(100-delta*10));
-   });
-   motion.invalidate();if(Math.abs(motion.target-motion.position)>.0001||Math.abs(px-motion.pointerX)+Math.abs(py-motion.pointerY)>.005)raf=requestAnimationFrame(draw);
+    // Quantized focus, scoped to the plane: no inherited variables invalidating every glyph.
+    write(layer,'filter',`blur(${Math.round(focus*(light?2:motion.low?4:8)*2)/2}px) brightness(${(1-Math.round(focus*12)/12*.58).toFixed(2)})`);
+    write(layer,'opacity',opacity.toFixed(3));write(layer,'visibility',opacity<.01?'hidden':'visible');write(layer,'pointer-events',nearest?'auto':'none');
+    if(layer.inert===nearest)layer.inert=!nearest;write(layer,'z-index',String(Math.round(100-delta*10)));
+    const spread=light?departure*.22:departure;
+    for(const {element,x:ex,y:ey,tile,film} of exits){
+     if(film)write(element,'transform',`translate3d(${(spread*ex+motion.pointerX*tile*1.3).toFixed(2)}px,${(spread*ey-motion.pointerY*tile).toFixed(2)}px,0)`);
+     else write(element,'translate',`${(spread*ex).toFixed(2)}px ${(spread*ey).toFixed(2)}px`);
+    }
+   }
+   const moving=Math.abs(motion.target-motion.position)>.001;markMoving(moving);
+   if(moving||Math.abs(px-motion.pointerX)+Math.abs(py-motion.pointerY)>.01)raf=requestAnimationFrame(draw);
+   else motion.velocity=0;
   }
   function start(){if(!raf){last=window.performance.now();raf=requestAnimationFrame(draw)}}wake.current=start;
-  function resize(){viewportWidth=scroller!.clientWidth;viewportHeight=scroller!.clientHeight;unit=viewportHeight*1.55;outer!.style.setProperty('--depth-unit',unit+'px');outer!.style.setProperty('--depth-pages',String(total+2));lastRaw=modulo(motion.target,total);scroller!.scrollTop=(lastRaw+1)*unit;start()}
-  function onScroll(){if(Math.abs(scroller!.scrollTop/unit-1-lastRaw)>.02)setEngaged(true);let raw=scroller!.scrollTop/unit-1;if(Math.abs(raw-Math.round(raw))<.002)raw=Math.round(raw);if(raw>=total){raw-=total;scroller!.scrollTop-=total*unit}else if(raw<0){raw+=total;scroller!.scrollTop+=total*unit}let delta=raw-lastRaw;if(delta>total/2)delta-=total;if(delta< -total/2)delta+=total;motion.target+=delta;lastRaw=raw;start()}
-  navigate.current=(index:number)=>{const dest=modulo(index,total),origin=modulo(motion.position,total);let distance=dest-origin;if(distance>total/2)distance-=total;if(distance< -total/2)distance+=total;motion.target=motion.position+distance;if(Math.abs(distance)>1.2)motion.position=motion.target-Math.sign(distance)*.58;lastRaw=dest;scroller!.scrollTop=(dest+1)*unit;start()};
-  const pointer=(e:PointerEvent)=>{if(settings.current.reduced||settings.current.quality==='simple'||e.pointerType==='touch')return;px=e.clientX/viewportWidth*2-1;py=1-((e.clientY-(innerHeight-viewportHeight))/viewportHeight)*2;start()},leave=()=>{px=py=0;start()},home=()=>navigate.current(0);
-  const observer=window.ResizeObserver?new ResizeObserver(resize):null;observer?.observe(scroller);window.addEventListener('resize',resize);resize();scroller.addEventListener('scroll',onScroll,{passive:true});outer.addEventListener('pointermove',pointer,{passive:true});outer.addEventListener('portfolio-layout',start);outer.addEventListener('pointerleave',leave);document.addEventListener('visibilitychange',start);window.addEventListener('portfolio-home',home);start();
-  return()=>{observer?.disconnect();window.removeEventListener('resize',resize);cancelAnimationFrame(raf);scroller.removeEventListener('scroll',onScroll);outer.removeEventListener('pointermove',pointer);outer.removeEventListener('portfolio-layout',start);outer.removeEventListener('pointerleave',leave);document.removeEventListener('visibilitychange',start);window.removeEventListener('portfolio-home',home)};
+  function advance(step:number){if(!step||settings.current.paused||settings.current.secret)return;motion.target=advanceTarget(motion.position,motion.target,step);markMoving(true);start()}
+  function resize(){width=scroller!.clientWidth;height=scroller!.clientHeight;start()}
+  function wheel(event:WheelEvent){
+   if(event.ctrlKey||event.metaKey||settings.current.paused||settings.current.secret||Math.abs(event.deltaX)>Math.abs(event.deltaY))return;
+   if((event.target as Element)?.closest('select,input,textarea,dialog,.depth-topbar,.depth-toolbar,.depth-discovery'))return;
+   event.preventDefault();advance(gesture.wheel(wheelPixels(event.deltaY,event.deltaMode,height),event.timeStamp,height));
+  }
+  let touch:{x:number;y:number;time:number;committed:number;id:number}|null=null,suppressClickUntil=0;
+  function down(event:PointerEvent){if(event.pointerType!=='touch'||!event.isPrimary||settings.current.paused||settings.current.secret)return;touch={x:event.clientX,y:event.clientY,time:event.timeStamp,committed:0,id:event.pointerId}}
+  function moveTouch(event:PointerEvent){if(!touch||event.pointerId!==touch.id)return;const distance=touch.y-event.clientY;if(Math.abs(distance)<28||Math.abs(distance)<Math.abs(touch.x-event.clientX))return;if(!touch.committed){touch.committed=Math.sign(distance);advance(touch.committed)}suppressClickUntil=event.timeStamp+400}
+  function up(event:PointerEvent){if(!touch||touch.id!==event.pointerId)return;const pages=swipePages(touch.y-event.clientY,event.timeStamp-touch.time,height);if(pages&&Math.sign(pages)===touch.committed)advance(pages-touch.committed);else if(!touch.committed)advance(pages);touch=null}
+  const cancelTouch=()=>{touch=null},click=(event:MouseEvent)=>{if(event.timeStamp<suppressClickUntil){event.preventDefault();event.stopPropagation()}};
+  navigate.current=(index:number)=>{gesture.reset();const dest=modulo(index,total),origin=modulo(motion.position,total);let distance=dest-origin;if(distance>total/2)distance-=total;if(distance< -total/2)distance+=total;motion.target=Math.round(motion.position+distance);if(Math.abs(distance)>3)motion.position=motion.target-Math.sign(distance)*.85;markMoving(true);start()};
+  const pointer=(event:PointerEvent)=>{if(settings.current.reduced||settings.current.quality==='simple'||event.pointerType==='touch')return;px=event.clientX/width*2-1;py=1-((event.clientY-(innerHeight-height))/height)*2;start()},leave=()=>{px=py=0;start()},home=()=>navigate.current(0);
+  const observer=window.ResizeObserver?new ResizeObserver(resize):null;observer?.observe(scroller);window.addEventListener('resize',resize);resize();
+  outer.addEventListener('wheel',wheel,{passive:false});scroller.addEventListener('pointerdown',down,{passive:true});scroller.addEventListener('pointermove',moveTouch,{passive:true});scroller.addEventListener('pointerup',up,{passive:true});scroller.addEventListener('pointercancel',cancelTouch);scroller.addEventListener('click',click,true);
+  outer.addEventListener('pointermove',pointer,{passive:true});outer.addEventListener('portfolio-layout',start);outer.addEventListener('pointerleave',leave);document.addEventListener('visibilitychange',start);window.addEventListener('portfolio-home',home);start();
+  return()=>{observer?.disconnect();window.removeEventListener('resize',resize);cancelAnimationFrame(raf);markMoving(false);outer.removeEventListener('wheel',wheel);scroller.removeEventListener('pointerdown',down);scroller.removeEventListener('pointermove',moveTouch);scroller.removeEventListener('pointerup',up);scroller.removeEventListener('pointercancel',cancelTouch);scroller.removeEventListener('click',click,true);outer.removeEventListener('pointermove',pointer);outer.removeEventListener('portfolio-layout',start);outer.removeEventListener('pointerleave',leave);document.removeEventListener('visibilitychange',start);window.removeEventListener('portfolio-home',home)};
  },[motion,sections,total,performance.reportFrame]);
- useEffect(()=>{wake.current()},[base,paused,reduced,secret,graphics,performance.ready,performance.quality]);
+ useEffect(()=>{wake.current()},[base,paused,reduced,secret,performance.ready,performance.quality]);
  const visible=performance.ready?[...new Set([base,modulo(base+1,total)])]:[base];
  return <div ref={root} className={'journey depth-journey'+(reduced?' reduced-depth':'')} data-ready={performance.ready} data-playing={playing&&!paused&&!secret} data-quality={performance.quality} data-theme={themes[section.theme]} data-category={section.category} data-art={section.art}>
-  <div ref={scroll} className="depth-scroll" tabIndex={0} aria-label="Scroll through the portfolio in 3D" style={{overflowY:paused||secret?'hidden':'auto'}} onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(['PageDown','ArrowRight'].includes(e.key)){e.preventDefault();navigate.current(current.current+1)}if(['PageUp','ArrowLeft'].includes(e.key)){e.preventDefault();navigate.current(current.current-1)}if(e.key==='Home'){e.preventDefault();navigate.current(0)}}}>
+  <div ref={scroll} className="depth-scroll" tabIndex={0} aria-label="Scroll through the portfolio in 3D" style={{overflow:'hidden'}} onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(['PageDown','ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();navigate.current(current.current+1)}if(['PageUp','ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();navigate.current(current.current-1)}if(e.key==='Home'){e.preventDefault();navigate.current(0)}}}>
    <div className="depth-track"><div className="depth-stage">
-    <div className="depth-atmosphere" aria-hidden="true">{visible.map(index=><div key={sections[index].id} ref={el=>{if(el)backdropRefs.current.set(index,el);else backdropRefs.current.delete(index)}} className={'depth-backdrop backdrop-'+sections[index].art} style={{opacity:index===chapter?1:0}}/>)}</div>
+    <div className="depth-atmosphere" aria-hidden="true">{visible.map(index=><div key={sections[index].id} ref={el=>{if(el)backdropRefs.current.set(index,el);else backdropRefs.current.delete(index)}} className={'depth-backdrop backdrop-'+sections[index].art} style={{opacity:index===chapter?1:0}}>{performance.ready&&performance.quality!=='simple'&&<Scene art={sections[index].art}/>}</div>)}</div>
     <div className="depth-landscape" aria-hidden="true"><div className="depth-floor"/><div className="depth-horizon"/>{Array.from({length:8},(_,i)=><div className={'lowpoly-pillar pillar-'+i} key={i} style={{'--pillar':i} as CSSProperties}><i/><i/><i/></div>)}</div>
-    {graphics&&graphicsReady&&!reduced&&<GeometryBoundary onFailure={()=>setGraphics(false)}><Suspense fallback={null}><Scene motion={motion} styles={sections.map(s=>s.art)} onDiscover={()=>setSecret(section.items[0])} onFailure={()=>setGraphics(false)}/></Suspense></GeometryBoundary>}
+
     <div className="depth-worlds">{visible.map(index=><div ref={el=>{if(el)worldRefs.current.set(index,el);else worldRefs.current.delete(index)}} key={sections[index].id} className={'zoom-world zoom-tone-'+themes[sections[index].theme]+' zoom-layout-'+sections[index].layout} inert={index!==chapter} data-active={index===chapter} data-depth-index={index} data-section={sections[index].id} data-art={sections[index].art} aria-label={sections[index].title} style={{opacity:index===chapter?1:0}}><div className="depth-portal" aria-hidden="true"/><MemoDepthWorld motion={motion} rotate={rotate&&!reduced} section={sections[index]} active={index===chapter} autoplay={!reduced&&!saveData&&performance.mediaReady} compact={compact} paused={paused||!!secret} muted={muted} playing={playing} onProject={onProject} onDiscover={setSecret} onProcess={onProcess}/></div>)}</div>
    </div></div>
   </div>

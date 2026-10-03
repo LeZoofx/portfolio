@@ -10,7 +10,7 @@ export default function useFrameOrbit(count:number,enabled:boolean,motion:Journe
   const down=()=>{pressed=true},up=()=>{pressed=false};
   el.addEventListener('pointerdown',down);window.addEventListener('pointerup',up);window.addEventListener('pointercancel',up);
   function rotate(){
-   timer=setTimeout(rotate,5400);
+   timer=setTimeout(rotate,7800);
    // A resting pointer does not freeze the gallery. Hold only during deliberate interaction.
    if(!el||document.hidden||pressed||Math.abs(motion.velocity)>.025||Math.abs(motion.target-motion.position)>.015||el.querySelector(':focus-visible')||animations.current.some(a=>a.playState==='running'))return;
    before.current=new Map(Array.from(el.querySelectorAll<HTMLElement>('.depth-film')).map(card=>[card.dataset.film!,{x:card.offsetLeft,y:card.offsetTop,width:card.offsetWidth,angle:parseFloat(getComputedStyle(card).rotate)||0,filter:getComputedStyle(card.querySelector('.depth-film-body')!).filter}]));
@@ -38,6 +38,7 @@ export default function useFrameOrbit(count:number,enabled:boolean,motion:Journe
    });
   }
   const world=el.closest<HTMLElement>('.zoom-world');if(world){world.dataset.layoutVersion=String(turn);world.dispatchEvent(new Event('portfolio-layout',{bubbles:true}))}
+  animations.current.forEach(animation=>{animation.finished.then(()=>animation.cancel()).catch(()=>{})});
   before.current.clear();
  },[turn]);
  useEffect(()=>()=>animations.current.forEach(a=>a.cancel()),[]);
