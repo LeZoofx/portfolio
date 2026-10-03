@@ -2,24 +2,29 @@ import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import type {JourneyMotion} from './journeyData';
 type Box={x:number;y:number;width:number;angle:number;filter:string};
 export default function useFrameOrbit(count:number,enabled:boolean,motion:JourneyMotion){
- const gallery=useRef<HTMLDivElement>(null),[turn,setTurn]=useState(0),before=useRef(new Map<string,Box>()),animations=useRef<Animation[]>([]);
+ const gallery=useRef<HTMLDivElement>(null),[turn,setTurn]=useState(0),[settledTurn,setSettledTurn]=useState(0),before=useRef(new Map<string,Box>()),animations=useRef<Animation[]>([]);
  useEffect(()=>{
-  if(!enabled||count<2)return;
-  let timer:ReturnType<typeof setTimeout>,pressed=false;
   const el=gallery.current;if(!el)return;
+  let timer:ReturnType<typeof setTimeout>|undefined,pressed=false;
+  const pause=()=>{clearTimeout(timer);for(const a of animations.current)if(a.playState==='running')a.pause()};
+  const resume=()=>{
+   if(!enabled||count<2||document.hidden||motion.scrolling)return;
+   for(const a of animations.current)if(a.playState==='paused')a.play();
+   clearTimeout(timer);timer=setTimeout(rotate,7800);
+  };
   const down=()=>{pressed=true},up=()=>{pressed=false};
-  const moving=(event:Event)=>{for(const animation of animations.current){if((event as CustomEvent<boolean>).detail)animation.pause();else if(animation.playState==='paused')animation.play()}};
-  window.addEventListener('portfolio-motion',moving);
-  el.addEventListener('pointerdown',down);window.addEventListener('pointerup',up);window.addEventListener('pointercancel',up);
+  const moving=(event:Event)=>{if((event as CustomEvent<boolean>).detail)pause()};
+  const visibility=()=>{if(document.hidden)pause()};
   function rotate(){
-   timer=setTimeout(rotate,7800);
-   // A resting pointer does not freeze the gallery. Hold only during deliberate interaction.
-   if(!el||document.hidden||pressed||motion.scrolling||Math.abs(motion.velocity)>.025||Math.abs(motion.target-motion.position)>.015||el.querySelector(':focus-visible')||animations.current.some(a=>a.playState==='running'))return;
+   resume();
+   if(!enabled||!el||document.hidden||pressed||motion.scrolling||Math.abs(motion.velocity)>.025||Math.abs(motion.target-motion.position)>.015||el.querySelector(':focus-visible')||animations.current.some(a=>a.playState==='running'||a.playState==='paused'))return;
    before.current=new Map(Array.from(el.querySelectorAll<HTMLElement>('.depth-film')).map(card=>[card.dataset.film!,{x:card.offsetLeft,y:card.offsetTop,width:card.offsetWidth,angle:parseFloat(getComputedStyle(card).rotate)||0,filter:getComputedStyle(card.querySelector('.depth-film-body')!).filter}]));
    setTurn(value=>(value+1)%count);
   }
-  timer=setTimeout(rotate,2800);
-  return()=>{clearTimeout(timer);window.removeEventListener('portfolio-motion',moving);el.removeEventListener('pointerdown',down);window.removeEventListener('pointerup',up);window.removeEventListener('pointercancel',up)};
+  window.addEventListener('portfolio-motion',moving);window.addEventListener('portfolio-rest',resume);document.addEventListener('visibilitychange',visibility);
+  el.addEventListener('pointerdown',down);window.addEventListener('pointerup',up);window.addEventListener('pointercancel',up);
+  if(enabled&&document.documentElement.dataset.previews==='ready')resume();else pause();
+  return()=>{pause();window.removeEventListener('portfolio-motion',moving);window.removeEventListener('portfolio-rest',resume);document.removeEventListener('visibilitychange',visibility);el.removeEventListener('pointerdown',down);window.removeEventListener('pointerup',up);window.removeEventListener('pointercancel',up)};
  },[count,enabled,motion]);
  useLayoutEffect(()=>{
   const el=gallery.current;if(!el||!before.current.size)return;
@@ -34,15 +39,17 @@ export default function useFrameOrbit(count:number,enabled:boolean,motion:Journe
     {offset:.5,transform:`translate3d(${dx*.47+(incoming?-30:30)}px,${dy*.47-35}px,${incoming?55:-65}px) rotateY(${incoming?-11:11}deg) rotateZ(${rotation*.47}deg) scale(${scale+(1-scale)*.53})`,filter:incoming?'blur(.7px) brightness(.92)':'blur(1.7px) brightness(.72)'},
     {transform:'translate3d(0,0,0) rotateY(0deg) rotateZ(0deg) scale(1)',filter}
    ],{duration:2200,easing:'cubic-bezier(.4,0,.2,1)'}));
-   // Keep labels and playback controls readable while the frame changes scale.
    body.querySelectorAll<HTMLElement>('.depth-film-label,.depth-caption,.frame-expand-cue').forEach(label=>{
     animations.current.push(label.animate([{transform:`scale(${1/scale})`},{offset:.5,transform:`scale(${1/(scale+(1-scale)*.53)})`},{transform:'scale(1)'}],{duration:2200,easing:'cubic-bezier(.4,0,.2,1)'}));
    });
   }
   const world=el.closest<HTMLElement>('.zoom-world');if(world){world.dataset.layoutVersion=String(turn);world.dispatchEvent(new Event('portfolio-layout',{bubbles:true}))}
-  animations.current.forEach(animation=>{animation.finished.then(()=>animation.cancel()).catch(()=>{})});
+  const group=animations.current;
+  // Media changes follow actual animation completion, including any tab/scroll pause.
+  Promise.all(group.map(a=>a.finished)).then(()=>{if(animations.current!==group)return;setSettledTurn(turn);group.forEach(a=>a.cancel());animations.current=[]}).catch(()=>{});
+  if(document.hidden||motion.scrolling||!enabled)group.forEach(a=>a.pause());
   before.current.clear();
  },[turn]);
- useEffect(()=>()=>animations.current.forEach(a=>a.cancel()),[]);
- return {gallery,turn};
+ useEffect(()=>()=>{animations.current.forEach(a=>a.cancel());animations.current=[]},[]);
+ return {gallery,turn,settledTurn};
 }

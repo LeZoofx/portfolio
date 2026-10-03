@@ -43,3 +43,23 @@ test('mobile swipe thresholds are unchanged',()=>{
  assert.equal(swipePages(20,100,800),0);assert.equal(swipePages(300,300,800),1);
  assert.equal(swipePages(-600,250,800),-2);assert.equal(swipePages(600,800,800),1);
 });
+test('a released short gesture advances once; longer native travel keeps its distance',()=>{
+ assert.equal(nativeSnapPage(12.08,60,12,60),13);
+ assert.equal(nativeSnapPage(11.92,60,12,-60),11);
+ assert.equal(nativeSnapPage(12.8,60,12,640),13);
+ assert.equal(nativeSnapPage(15.8,60,12,3040),16);
+ assert.equal(nativeSnapPage(12,60,12,0),12);
+ assert.equal(nativeSnapPage(.01,60,0,-30),0);
+ assert.equal(nativeSnapPage(58.99,60,59,30),59);
+});
+const animationCode=ts.transpileModule(readFileSync(new URL('../src/NativeSceneAnimator.ts',import.meta.url),'utf8'),{compilerOptions:{target:ts.ScriptTarget.ES2020,module:ts.ModuleKind.ES2022}}).outputText;
+const {scenePose,timelineFrames}=await import('data:text/javascript;base64,'+Buffer.from(animationCode).toString('base64'));
+test('native timelines cover a complete cycle and keep every resting scene sharp',()=>{
+ for(const center of [0,1,20,40,59]){
+  const frames=timelineFrames(center,20,d=>scenePose(0,d,false));
+  assert.equal(frames[0].offset,0);assert.equal(frames.at(-1).offset,1);
+  assert.ok(frames.every((frame,i)=>!i||frame.offset>frames[i-1].offset));
+  const resting=frames.find(f=>Math.abs(f.offset-center/59)<1e-8);
+  assert.equal(resting.opacity,1);assert.equal(resting.filter,'blur(0px) brightness(1)');
+ }
+});

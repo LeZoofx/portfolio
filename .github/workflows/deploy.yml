@@ -25,6 +25,8 @@ jobs:
           cache: npm
       - uses: actions/configure-pages@v5
         id: pages
+      - name: Install preview image builder
+        run: python3 -m pip install Pillow==12.3.0
       - run: npm ci
       - run: npm test
       - run: npm run refresh:metrics

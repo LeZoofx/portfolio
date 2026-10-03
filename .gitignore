@@ -9,3 +9,4 @@ _preview/
 __pycache__/
 tmp/
 public/scenery/
+public/previews/

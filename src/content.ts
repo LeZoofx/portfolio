@@ -17,6 +17,8 @@ export const categories: {id:Category;label:string;short:string;route:string}[] 
  {id:'brands',label:'Campaigns',short:'CAMPAIGNS',route:'brands'},
 ];
 export const asset = (path: string|undefined) => path ? (/^https?:/.test(path) ? path : import.meta.env.BASE_URL + path.replace(/^\//,'')) : '';
+export const previewAsset=(path:string|undefined,width=640)=>path?.startsWith('media/')?asset('previews/'+path.slice(path.lastIndexOf('/')+1).replace(/\.[^.]+$/,'')+'-'+width+'.webp'):asset(path);
+export const previewSrcSet=(path:string|undefined)=>path?.startsWith('media/')?[320,640,960].map(width=>previewAsset(path,width)+' '+width+'w').join(', '):undefined;
 export const href = (path='') => import.meta.env.BASE_URL + path.replace(/^\//,'');
 export const projectPath = (id:string) => href('work/'+id+'/');
 
