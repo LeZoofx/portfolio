@@ -1,6 +1,6 @@
 # Explore motion and rendering
 
-Explore keeps the existing category order, art direction, depth, orbiting frames and outward zoom transition. Normal input selects one integer scene target. A 240 ms wheel gap starts a new gesture; only repeated high-energy events within the first 170 ms can earn additional scenes, capped at three. Decaying momentum cannot accumulate more pages. Touch uses distance and velocity, and keyboard/category controls use the same scene transition.
+Explore keeps the existing category order, art direction, depth, orbiting frames and outward zoom transition. Normal input selects one integer scene target. Desktop input rearms on a short wheel gap or renewed acceleration after an inertia tail, without waiting for the zoom to finish. Cumulative energy during a 260 ms attack allows fast trackpad/wheel bursts to advance up to three scenes; coalesced forceful pixel events also work. Decaying momentum alone does not rearm the gesture. These are device-independent heuristics because wheel events do not expose a standard gesture phase. Touch uses its existing distance and velocity thresholds, and keyboard/category controls use the same scene transition.
 
 The wheel input is normalized for pixel, line and page delta modes. Native scrolling stays available in Overview and dialogs. Browser zoom is not intercepted. Explore iframe previews pass pointer input to the scene; the expanded player remains interactive.
 

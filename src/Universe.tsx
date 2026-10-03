@@ -133,7 +133,7 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
   function wheel(event:WheelEvent){
    if(event.ctrlKey||event.metaKey||settings.current.paused||settings.current.secret||Math.abs(event.deltaX)>Math.abs(event.deltaY))return;
    if((event.target as Element)?.closest('select,input,textarea,dialog,.depth-topbar,.depth-toolbar,.depth-discovery'))return;
-   event.preventDefault();advance(gesture.wheel(wheelPixels(event.deltaY,event.deltaMode,height),event.timeStamp,height));
+   event.preventDefault();advance(gesture.wheel(wheelPixels(event.deltaY,event.deltaMode,height),event.timeStamp,height,event.deltaMode));
   }
   let touch:{x:number;y:number;time:number;committed:number;id:number}|null=null,suppressClickUntil=0;
   function down(event:PointerEvent){if(event.pointerType!=='touch'||!event.isPrimary||settings.current.paused||settings.current.secret)return;touch={x:event.clientX,y:event.clientY,time:event.timeStamp,committed:0,id:event.pointerId}}

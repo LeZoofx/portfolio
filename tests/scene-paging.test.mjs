@@ -6,18 +6,34 @@ const code=ts.transpileModule(readFileSync(new URL('../src/scenePaging.ts',impor
 const {SceneGesture,wheelPixels,swipePages,advanceTarget}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
 const run=events=>{const gesture=new SceneGesture();return events.reduce((pages,[delta,time])=>pages+gesture.wheel(delta,time,800),0)};
 
-test('a normal gesture advances once, independent of a single wheel event size',()=>{
- for(const delta of [16,60,120,800,1600])assert.equal(run([[delta,0]]),1);
+test('normal wheel and trackpad gestures advance once',()=>{
+ for(const delta of [16,60,120,240])assert.equal(run([[delta,0]]),1);
  assert.equal(run([40,90,80,60,45,30,20,15,8,4,2,1].map((delta,i)=>[delta,i*40])),1);
- assert.equal(run([120,120,120,120,120,120,120,120].map((delta,i)=>[delta,i*25])),1);
 });
 test('slow intentional input still works, and an inertia tail never becomes another scene',()=>{
  assert.equal(run(Array.from({length:40},(_,i)=>[1,i*25])),1);
  assert.equal(run(Array.from({length:50},(_,i)=>[i<3?70:10,i*35])),1);
 });
-test('only a sustained strong attack earns extra scenes and it is capped at three',()=>{
- assert.equal(run([300,300,300,300].map((delta,i)=>[delta,i*35])),2);
+test('fast trackpad, mouse-wheel and coalesced gestures advance multiple scenes',()=>{
+ assert.equal(run([25,45,60,82,78,68,57,40].map((delta,i)=>[delta,i*16])),2);
+ assert.equal(run(Array.from({length:8},(_,i)=>[120,i*25])),3);
+ assert.equal(run([[800,0]]),2);assert.equal(run([[1600,0]]),3);
  assert.equal(run(Array.from({length:10},(_,i)=>[350,i*15])),3);
+ const pageWheel=new SceneGesture();assert.equal(pageWheel.wheel(800,0,800,2),1);
+});
+test('a second gesture interrupts residual momentum without a release lockout',()=>{
+ const gesture=new SceneGesture();
+ for(const [delta,time] of [[70,0],[60,16],[40,32],[20,48],[8,64]])gesture.wheel(delta,time);
+ assert.equal(gesture.wheel(30,100),1);
+ assert.equal(gesture.wheel(45,116),0);
+ assert.equal(gesture.wheel(60,200),1);
+});
+test('a brief gap and a gentle new push both rearm quickly',()=>{
+ const gesture=new SceneGesture();
+ assert.equal(gesture.wheel(80,0),1);assert.equal(gesture.wheel(80,120),1);
+ const tail=new SceneGesture();
+ for(const [delta,time] of [[60,0],[40,16],[20,32],[4,48],[2,64],[4,90],[8,106]])tail.wheel(delta,time);
+ assert.equal(tail.wheel(16,122),1);
 });
 test('separate gestures work immediately after release and direction reversal responds',()=>{
  const gesture=new SceneGesture();
