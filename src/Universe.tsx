@@ -19,15 +19,17 @@ import useFrameOrbit from './useFrameOrbit';
 import './journey.css';
 import './depth-journey.css';
 import Scene from './JourneyScene';
-import {SceneGesture,wheelPixels,swipePages,advanceTarget} from './scenePaging';
+import {WheelGestures} from 'wheel-gestures';
+import {SceneGesture,ScenePager,swipePages} from './scenePaging';
 const SecretPlayer=lazy(()=>import('./SecretPlayer'));
 const themes=['glass','mass','cut','desktop','afterimage','editorial'];
 const modulo=(n:number,total:number)=>((n%total)+total)%total;
 const smooth=(a:number,b:number,value:number)=>{const n=Math.max(0,Math.min(1,(value-a)/(b-a)));return n*n*(3-2*n)};
 const title=(p:Project)=>p.title.split(' | ')[0].replace(/\s*\(Official.*$/i,'').replace(/\s*- Official Trailer$/i,'');
-function Discovery({project,onReveal,theme}:{project:Project;onReveal:(p:Project)=>void;theme:number}){
- const timer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);useEffect(()=>()=>clearTimeout(timer.current),[]);
- return <button className={'depth-discovery discovery-object-'+theme} aria-label={'Discover '+title(project)} onPointerEnter={e=>{if(e.pointerType==='mouse')timer.current=setTimeout(()=>onReveal(project),800)}} onPointerLeave={()=>clearTimeout(timer.current)} onWheel={()=>onReveal(project)} onClick={()=>onReveal(project)}><span className="discovery-solid" aria-hidden="true">{Array.from({length:6},(_,i)=><i key={i}/>)}</span></button>
+function Discovery({project,onReveal,theme,motion}:{project:Project;onReveal:(p:Project)=>void;theme:number;motion:JourneyMotion}){
+ const timer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
+ useEffect(()=>{const cancel=()=>clearTimeout(timer.current);window.addEventListener('portfolio-motion',cancel);return()=>{cancel();window.removeEventListener('portfolio-motion',cancel)}},[]);
+ return <button className={'depth-discovery discovery-object-'+theme} aria-label={'Discover '+title(project)} onPointerEnter={e=>{if(e.pointerType==='mouse'&&Math.abs(motion.target-motion.position)<.001)timer.current=setTimeout(()=>{if(Math.abs(motion.target-motion.position)<.001)onReveal(project)},800)}} onPointerLeave={()=>clearTimeout(timer.current)} onClick={()=>onReveal(project)}><span className="discovery-solid" aria-hidden="true">{Array.from({length:6},(_,i)=><i key={i}/>)}</span></button>
 }
 function DepthWorld({section,active,autoplay,compact,paused,playing,muted,onProject,onDiscover,onProcess,motion,rotate}:{motion:JourneyMotion;rotate:boolean;section:PortfolioSection;active:boolean;autoplay:boolean;compact:boolean;paused:boolean;playing:boolean;muted:boolean;onProject:(p:Project)=>void;onDiscover:(p:Project)=>void;onProcess:()=>void}){
  const {maxPlayers,ready,quality}=usePerformance();
@@ -44,7 +46,7 @@ function DepthWorld({section,active,autoplay,compact,paused,playing,muted,onProj
   <div className="depth-film-frame"><div className="depth-media-surface">{active&&ready&&quality!=='simple'&&!paused&&(p.provider==='instagram'||p.provider==='youtube')?<JourneyPlayer project={p} enabled={autoplay&&playable.includes(p.id)} muted={muted||p.id!==playable[0]} playing={playing} onOpen={()=>onProject(p)}/>:<a className="depth-poster" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}} aria-label={'Watch '+title(p)}>{p.poster?<img src={asset(p.poster)} alt={title(p)} loading={active?'eager':'lazy'} fetchPriority={active&&i===0?'high':'low'} decoding="async"/>:<span>{title(p)}</span>}<span className="depth-play" aria-hidden="true">▶</span></a>}</div><ExpandCue title={title(p)} onOpen={()=>onProject(p)}/></div>
   <a className="depth-caption" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}}><KineticCopy text={title(p)}/><span aria-hidden="true">↗</span></a>
  </div></div></article>)}</div>
- <Discovery project={section.items[Math.min(2,section.items.length-1)]} onReveal={onDiscover} theme={section.theme}/>
+ <Discovery project={section.items[Math.min(2,section.items.length-1)]} onReveal={onDiscover} theme={section.theme} motion={motion}/>
  <div className="depth-registration" aria-hidden="true"><i/><i/><i/><i/></div></>;
 }
 const MemoDepthWorld=memo(DepthWorld);
@@ -67,7 +69,8 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
   let raf=0,last=0,px=0,py=0,lastBase=-1,lastChapter=-1,scrolling=false;
   motion.position=0;motion.target=0;current.current=0;setChapter(0);setBase(0);
   let width=scroller.clientWidth,height=scroller.clientHeight;
-  const gesture=new SceneGesture(),landscape=outer.querySelector<HTMLElement>('.depth-landscape');
+  const gesture=new SceneGesture(),pager=new ScenePager(),wheelGestures=WheelGestures({reverseSign:false,preventWheelAction:false}),landscape=outer.querySelector<HTMLElement>('.depth-landscape');
+  const stopWheel=wheelGestures.on('wheel',state=>advance(gesture.update(state,height)));
   const written=new WeakMap<HTMLElement,Map<string,string>>();
   function write(el:HTMLElement,name:string,value:string){let values=written.get(el);if(!values){values=new Map();written.set(el,values)}if(values.get(name)!==value){el.style.setProperty(name,value);values.set(name,value)}}
   type Exit={element:HTMLElement;x:number;y:number;tile:number;film:boolean};
@@ -89,13 +92,13 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
   }
   function markMoving(value:boolean){if(value===scrolling)return;scrolling=value;outer!.dataset.moving=String(value);window.dispatchEvent(new CustomEvent('portfolio-motion',{detail:value}))}
   function draw(t:number){
-   raf=0;if(settings.current.paused||settings.current.secret||document.hidden){markMoving(false);return}
+   raf=0;if(document.hidden){markMoving(false);return}
    // Use elapsed time: capping it makes a slow device replay the motion in slow motion.
    const elapsed=t-last,dt=Math.max(elapsed/1000,.001);last=t;
-   const prior=motion.position,travelling=Math.abs(motion.target-prior)>.001;
+   const prior=motion.position,travelling=pager.moving;
    if(travelling)performance.reportFrame(elapsed);
-   motion.position+=(motion.target-motion.position)*(settings.current.reduced?1:1-Math.exp(-12*dt));
-   if(Math.abs(motion.target-motion.position)<.001)motion.position=motion.target;
+   motion.position=settings.current.paused||settings.current.secret?pager.settle():pager.sample(t,settings.current.reduced);
+   motion.target=pager.target;
    motion.velocity=(motion.position-prior)/dt;
    const response=1-Math.exp(-12*dt);motion.pointerX+=(px-motion.pointerX)*response;motion.pointerY+=(py-motion.pointerY)*response;motion.time=t/1000;
    const p=modulo(motion.position,total),nextBase=Math.floor(p),nextChapter=modulo(Math.floor(p+.48),total);
@@ -123,29 +126,30 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
      else write(element,'translate',`${(spread*ex).toFixed(2)}px ${(spread*ey).toFixed(2)}px`);
     }
    }
-   const moving=Math.abs(motion.target-motion.position)>.001;markMoving(moving);
+   const moving=pager.moving;markMoving(moving);
+   outer!.dataset.position=motion.position.toFixed(4);outer!.dataset.target=String(motion.target);
    if(moving||Math.abs(px-motion.pointerX)+Math.abs(py-motion.pointerY)>.01)raf=requestAnimationFrame(draw);
    else motion.velocity=0;
   }
   function start(){if(!raf){last=window.performance.now();raf=requestAnimationFrame(draw)}}wake.current=start;
-  function advance(step:number){if(!step||settings.current.paused||settings.current.secret)return;motion.target=advanceTarget(motion.position,motion.target,step);markMoving(true);start()}
+  function advance(step:number){if(!step||settings.current.paused||settings.current.secret)return;pager.advance(step,window.performance.now());motion.target=pager.target;markMoving(true);start()}
   function resize(){width=scroller!.clientWidth;height=scroller!.clientHeight;start()}
   function wheel(event:WheelEvent){
    if(event.ctrlKey||event.metaKey||settings.current.paused||settings.current.secret||Math.abs(event.deltaX)>Math.abs(event.deltaY))return;
-   if((event.target as Element)?.closest('select,input,textarea,dialog,.depth-topbar,.depth-toolbar,.depth-discovery'))return;
-   event.preventDefault();advance(gesture.wheel(wheelPixels(event.deltaY,event.deltaMode,height),event.timeStamp,height,event.deltaMode));
+   if((event.target as Element)?.closest('select,input,textarea,dialog,.secret-reveal'))return;
+   event.preventDefault();wheelGestures.feedWheel(event);
   }
   let touch:{x:number;y:number;time:number;committed:number;id:number}|null=null,suppressClickUntil=0;
   function down(event:PointerEvent){if(event.pointerType!=='touch'||!event.isPrimary||settings.current.paused||settings.current.secret)return;touch={x:event.clientX,y:event.clientY,time:event.timeStamp,committed:0,id:event.pointerId}}
   function moveTouch(event:PointerEvent){if(!touch||event.pointerId!==touch.id)return;const distance=touch.y-event.clientY;if(Math.abs(distance)<28||Math.abs(distance)<Math.abs(touch.x-event.clientX))return;if(!touch.committed){touch.committed=Math.sign(distance);advance(touch.committed)}suppressClickUntil=event.timeStamp+400}
   function up(event:PointerEvent){if(!touch||touch.id!==event.pointerId)return;const pages=swipePages(touch.y-event.clientY,event.timeStamp-touch.time,height);if(pages&&Math.sign(pages)===touch.committed)advance(pages-touch.committed);else if(!touch.committed)advance(pages);touch=null}
   const cancelTouch=()=>{touch=null},click=(event:MouseEvent)=>{if(event.timeStamp<suppressClickUntil){event.preventDefault();event.stopPropagation()}};
-  navigate.current=(index:number)=>{gesture.reset();const dest=modulo(index,total),origin=modulo(motion.position,total);let distance=dest-origin;if(distance>total/2)distance-=total;if(distance< -total/2)distance+=total;motion.target=Math.round(motion.position+distance);if(Math.abs(distance)>3)motion.position=motion.target-Math.sign(distance)*.85;markMoving(true);start()};
+  navigate.current=(index:number)=>{gesture.reset();const dest=modulo(index,total),origin=modulo(motion.position,total);let distance=dest-origin;if(distance>total/2)distance-=total;if(distance< -total/2)distance+=total;pager.navigate(Math.round(motion.position+distance),window.performance.now());motion.position=pager.position;motion.target=pager.target;markMoving(pager.moving);start()};
   const pointer=(event:PointerEvent)=>{if(settings.current.reduced||settings.current.quality==='simple'||event.pointerType==='touch')return;px=event.clientX/width*2-1;py=1-((event.clientY-(innerHeight-height))/height)*2;start()},leave=()=>{px=py=0;start()},home=()=>navigate.current(0);
   const observer=window.ResizeObserver?new ResizeObserver(resize):null;observer?.observe(scroller);window.addEventListener('resize',resize);resize();
   outer.addEventListener('wheel',wheel,{passive:false});scroller.addEventListener('pointerdown',down,{passive:true});scroller.addEventListener('pointermove',moveTouch,{passive:true});scroller.addEventListener('pointerup',up,{passive:true});scroller.addEventListener('pointercancel',cancelTouch);scroller.addEventListener('click',click,true);
   outer.addEventListener('pointermove',pointer,{passive:true});outer.addEventListener('portfolio-layout',start);outer.addEventListener('pointerleave',leave);document.addEventListener('visibilitychange',start);window.addEventListener('portfolio-home',home);start();
-  return()=>{observer?.disconnect();window.removeEventListener('resize',resize);cancelAnimationFrame(raf);markMoving(false);outer.removeEventListener('wheel',wheel);scroller.removeEventListener('pointerdown',down);scroller.removeEventListener('pointermove',moveTouch);scroller.removeEventListener('pointerup',up);scroller.removeEventListener('pointercancel',cancelTouch);scroller.removeEventListener('click',click,true);outer.removeEventListener('pointermove',pointer);outer.removeEventListener('portfolio-layout',start);outer.removeEventListener('pointerleave',leave);document.removeEventListener('visibilitychange',start);window.removeEventListener('portfolio-home',home)};
+  return()=>{stopWheel();wheelGestures.disconnect();observer?.disconnect();window.removeEventListener('resize',resize);cancelAnimationFrame(raf);markMoving(false);outer.removeEventListener('wheel',wheel);scroller.removeEventListener('pointerdown',down);scroller.removeEventListener('pointermove',moveTouch);scroller.removeEventListener('pointerup',up);scroller.removeEventListener('pointercancel',cancelTouch);scroller.removeEventListener('click',click,true);outer.removeEventListener('pointermove',pointer);outer.removeEventListener('portfolio-layout',start);outer.removeEventListener('pointerleave',leave);document.removeEventListener('visibilitychange',start);window.removeEventListener('portfolio-home',home)};
  },[motion,sections,total,performance.reportFrame]);
  useEffect(()=>{wake.current()},[base,paused,reduced,secret,performance.ready,performance.quality]);
  const visible=performance.ready?[...new Set([base,modulo(base+1,total)])]:[base];
