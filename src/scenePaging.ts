@@ -1,35 +1,8 @@
-import type {WheelEventState} from 'wheel-gestures';
-
-// WheelGestures owns device normalization and momentum recognition. This only selects pages.
-export class SceneGesture {
- private pages=0;private direction=0;private distance=0;private started=0;private last=-Infinity;
- private fastSamples=0;private veryFastSamples=0;private repeated=0;private previousDelta=0;private samples=0;
- update(state:WheelEventState,height=800){
-  if(state.isEnding){this.reset();return 0}
-  const delta=state.axisDelta[1],size=Math.abs(delta),time=state.event.timeStamp,direction=Math.sign(delta);
-  if(!size||state.isMomentum)return 0;
-  const gap=time-this.last;
-  if(state.isStart||gap>120||(direction!==this.direction&&size>=4)){
-   this.reset();this.direction=direction;this.started=time;
-  }
-  this.last=time;if(direction!==this.direction)return 0;
-  this.distance+=size;this.samples++;
-  let next=this.pages||Number(this.distance>=8);
-  // A single large delta is still one gesture. Multiple pages require measured speed over time.
-  const discrete=state.event.deltaMode!==0||(Number.isInteger(delta)&&size>=40);
-  this.repeated=discrete&&delta===this.previousDelta&&gap<=40?this.repeated+1:1;
-  if(this.samples>=4&&time-this.started<=280){
-   const velocity=Math.abs(state.axisVelocity[1]),fast=Math.max(12,Math.min(16,height*.0175));
-   this.fastSamples=velocity>fast?this.fastSamples+1:0;
-   this.veryFastSamples=velocity>fast*1.55?this.veryFastSamples+1:0;
-   if(next&&(this.fastSamples>=2||this.repeated>=4))next=Math.max(next,2);
-   if(next&&(this.veryFastSamples>=2||this.repeated>=8))next=3;
-  }
-  this.previousDelta=delta;
-  const change=next-this.pages;this.pages=next;return change?direction*change:0;
- }
- reset(){this.pages=0;this.direction=0;this.distance=0;this.last=-Infinity;this.fastSamples=0;this.veryFastSamples=0;this.repeated=0;this.previousDelta=0;this.samples=0}
+// Native scroll snap chooses the destination; this only repairs an unfinished rest position.
+export function nativeSnapPage(position:number,count:number){
+ return Math.max(0,Math.min(count-1,Math.round(position)));
 }
+export function recenterPage(page:number,total:number){return total+((page%total)+total)%total}
 
 // Page transactions never depend on the duration of a wheel stream or on an easing epsilon.
 export class ScenePager {

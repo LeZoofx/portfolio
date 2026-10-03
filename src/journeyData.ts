@@ -8,4 +8,4 @@ export const worlds=[
 ] as const;
 export const wrap=(n:number)=>((n%worlds.length)+worlds.length)%worlds.length;
 export const filmId=(p:Project)=>p.provider==='youtube'?p.embedUrl?.match(/embed\/([\w-]{11})/)?.[1]:undefined;
-export type JourneyMotion={position:number;target:number;pointerX:number;pointerY:number;velocity:number;time:number;active:boolean;low:boolean;reduced:boolean;invalidate:()=>void};
+export type JourneyMotion={position:number;target:number;pointerX:number;pointerY:number;velocity:number;time:number;active:boolean;scrolling?:boolean;low:boolean;reduced:boolean;invalidate:()=>void};

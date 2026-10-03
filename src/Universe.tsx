@@ -1,11 +1,11 @@
-import {Suspense,lazy,memo,useEffect,useMemo,useRef,useState,type CSSProperties} from 'react';
+import {Suspense,lazy,memo,useEffect,useMemo,useRef,useState,type CSSProperties,type ReactNode} from 'react';
+import {flushSync} from 'react-dom';
 import {asset,href,projectPath,platformLabel,type Project} from './content';
 import {buildSections,brandFor,portfolioCategories,type PortfolioSection,type WorkSort} from './portfolioSections';
 import type {JourneyMotion} from './journeyData';
 import BrandControls from './BrandControls';
 import {ResultsRibbon} from './Results';
 import JourneyPlayer from './JourneyPlayer';
-import ExpandCue from './ExpandCue';
 import KineticName from './KineticName';
 import KineticType from './KineticType';
 import SceneAccents from './SceneAccents';
@@ -19,8 +19,7 @@ import useFrameOrbit from './useFrameOrbit';
 import './journey.css';
 import './depth-journey.css';
 import Scene from './JourneyScene';
-import {WheelGestures} from 'wheel-gestures';
-import {SceneGesture,ScenePager,swipePages} from './scenePaging';
+import {ScenePager,swipePages,nativeSnapPage,recenterPage} from './scenePaging';
 const SecretPlayer=lazy(()=>import('./SecretPlayer'));
 const themes=['glass','mass','cut','desktop','afterimage','editorial'];
 const modulo=(n:number,total:number)=>((n%total)+total)%total;
@@ -29,7 +28,7 @@ const title=(p:Project)=>p.title.split(' | ')[0].replace(/\s*\(Official.*$/i,'')
 function Discovery({project,onReveal,theme,motion}:{project:Project;onReveal:(p:Project)=>void;theme:number;motion:JourneyMotion}){
  const timer=useRef<ReturnType<typeof setTimeout>|undefined>(undefined);
  useEffect(()=>{const cancel=()=>clearTimeout(timer.current);window.addEventListener('portfolio-motion',cancel);return()=>{cancel();window.removeEventListener('portfolio-motion',cancel)}},[]);
- return <button className={'depth-discovery discovery-object-'+theme} aria-label={'Discover '+title(project)} onPointerEnter={e=>{if(e.pointerType==='mouse'&&Math.abs(motion.target-motion.position)<.001)timer.current=setTimeout(()=>{if(Math.abs(motion.target-motion.position)<.001)onReveal(project)},800)}} onPointerLeave={()=>clearTimeout(timer.current)} onClick={()=>onReveal(project)}><span className="discovery-solid" aria-hidden="true">{Array.from({length:6},(_,i)=><i key={i}/>)}</span></button>
+ return <button className={'depth-discovery discovery-object-'+theme} aria-label={'Discover '+title(project)} onPointerEnter={e=>{if(e.pointerType==='mouse'&&!motion.scrolling&&Math.abs(motion.target-motion.position)<.001)timer.current=setTimeout(()=>{if(!motion.scrolling&&Math.abs(motion.target-motion.position)<.001)onReveal(project)},800)}} onPointerLeave={()=>clearTimeout(timer.current)} onClick={()=>onReveal(project)}><span className="discovery-solid" aria-hidden="true">{Array.from({length:6},(_,i)=><i key={i}/>)}</span></button>
 }
 function DepthWorld({section,active,autoplay,compact,paused,playing,muted,onProject,onDiscover,onProcess,motion,rotate}:{motion:JourneyMotion;rotate:boolean;section:PortfolioSection;active:boolean;autoplay:boolean;compact:boolean;paused:boolean;playing:boolean;muted:boolean;onProject:(p:Project)=>void;onDiscover:(p:Project)=>void;onProcess:()=>void}){
  const {maxPlayers,ready,quality}=usePerformance();
@@ -43,14 +42,14 @@ function DepthWorld({section,active,autoplay,compact,paused,playing,muted,onProj
  <div className="depth-type-field" aria-hidden="true"><KineticType text={section.category==='selected'?'CREATE':section.title.toUpperCase()} variant={section.theme}/></div>
  <div className="depth-gallery" ref={gallery}>{section.items.map((p,i)=><article data-film={p.id} className={'depth-film slot-'+modulo(i-turn,section.items.length)+((p.aspect||16/9)<1?' portrait-film':'')} key={p.id} style={{'--film-ratio':p.aspect||16/9,'--tile':i} as CSSProperties}>
   <div className="depth-film-body"><div className="depth-film-float"><div className="depth-film-label"><span><KineticCopy text={brandFor(p)||section.title}/></span><span className="depth-platform">{platformLabel(p)} <i aria-hidden="true">{section.theme===3?'_ □':'↗'}</i></span></div>
-  <div className="depth-film-frame"><div className="depth-media-surface">{active&&ready&&quality!=='simple'&&!paused&&(p.provider==='instagram'||p.provider==='youtube')?<JourneyPlayer project={p} enabled={autoplay&&playable.includes(p.id)} muted={muted||p.id!==playable[0]} playing={playing} onOpen={()=>onProject(p)}/>:<a className="depth-poster" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}} aria-label={'Watch '+title(p)}>{p.poster?<img src={asset(p.poster)} alt={title(p)} loading={active?'eager':'lazy'} fetchPriority={active&&i===0?'high':'low'} decoding="async"/>:<span>{title(p)}</span>}<span className="depth-play" aria-hidden="true">▶</span></a>}</div><ExpandCue title={title(p)} onOpen={()=>onProject(p)}/></div>
+  <div className="depth-film-frame"><div className="depth-media-surface" inert>{active&&ready&&quality!=='simple'&&!paused&&(p.provider==='instagram'||p.provider==='youtube')?<JourneyPlayer project={p} enabled={autoplay&&playable.includes(p.id)} muted={muted||p.id!==playable[0]} playing={playing} onOpen={()=>onProject(p)}/>:<a className="depth-poster" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}} aria-label={'Watch '+title(p)}>{p.poster?<img src={asset(p.poster)} alt={title(p)} loading={active?'eager':'lazy'} fetchPriority={active&&i===0?'high':'low'} decoding="async"/>:<span>{title(p)}</span>}<span className="depth-play" aria-hidden="true">▶</span></a>}</div><a className="depth-video-hitarea" href={projectPath(p.id)} aria-label={'Expand video: '+title(p)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!e.altKey){e.preventDefault();onProject(p)}}}><span className="frame-expand-cue" aria-hidden="true"><span className="expand-corners">⤢</span><span>Expand</span></span></a></div>
   <a className="depth-caption" href={projectPath(p.id)} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onProject(p)}}}><KineticCopy text={title(p)}/><span aria-hidden="true">↗</span></a>
  </div></div></article>)}</div>
  <Discovery project={section.items[Math.min(2,section.items.length-1)]} onReveal={onDiscover} theme={section.theme} motion={motion}/>
  <div className="depth-registration" aria-hidden="true"><i/><i/><i/><i/></div></>;
 }
 const MemoDepthWorld=memo(DepthWorld);
-export default function Universe({projects,onProject,onIndex,onProcess,paused,reduced}:{projects:Project[];onProject:(p:Project)=>void;onIndex:()=>void;onProcess:()=>void;paused:boolean;reduced:boolean}){
+export default function Universe({header,projects,onProject,onIndex,onProcess,paused,reduced}:{header:ReactNode;projects:Project[];onProject:(p:Project)=>void;onIndex:()=>void;onProcess:()=>void;paused:boolean;reduced:boolean}){
  const performance=usePerformance();
  const [rotate,setRotate]=useState(true);
  const [brand,setBrand]=useState('all'),[sort,setSort]=useState<WorkSort>('curated'),[compact,setCompact]=useState(false),[saveData,setSaveData]=useState(false);
@@ -61,6 +60,8 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
  const settings=useRef({paused,reduced,secret:!!secret,quality:performance.quality});settings.current={paused,reduced,secret:!!secret,quality:performance.quality};motion.active=!paused&&!secret;motion.reduced=reduced;motion.low=performance.quality!=='full';
  const wake=useRef(()=>{}),navigate=useRef<(index:number)=>void>(()=>{}),current=useRef(0);
  const section=sections[modulo(chapter,total)]||sections[0];
+ const availableCategories=portfolioCategories.filter(category=>sections.some(s=>s.category===category.id));
+ const nextCategory=availableCategories[(availableCategories.findIndex(category=>category.id===section.category)+1)%availableCategories.length];
  const shuffleProject=projects.find(p=>p.id===showcase[shuffle%showcase.length].id)||projects[0];
  useEffect(()=>{const mq=matchMedia('(max-width:699px)');const sync=()=>setCompact(mq.matches);sync();const stop=listenMedia(mq,sync);const n=navigator as Navigator&{connection?:{saveData?:boolean};deviceMemory?:number};setSaveData(!!n.connection?.saveData);return stop},[motion]);
  useEffect(()=>{if(!performance.ready||performance.quality==='simple'||reduced||held||paused)return;const timer=setInterval(()=>{if(!document.hidden)setShuffle(i=>(i+1+Math.floor(Math.random()*(showcase.length-1)))%showcase.length)},1700);return()=>clearInterval(timer)},[reduced,held,paused,performance.ready,performance.quality]);
@@ -68,9 +69,44 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
   const scroller=scroll.current,outer=root.current;if(!scroller||!outer||!total)return;
   let raf=0,last=0,px=0,py=0,lastBase=-1,lastChapter=-1,scrolling=false;
   motion.position=0;motion.target=0;current.current=0;setChapter(0);setBase(0);
-  let width=scroller.clientWidth,height=scroller.clientHeight;
-  const gesture=new SceneGesture(),pager=new ScenePager(),wheelGestures=WheelGestures({reverseSign:false,preventWheelAction:false}),landscape=outer.querySelector<HTMLElement>('.depth-landscape');
-  const stopWheel=wheelGestures.on('wheel',state=>advance(gesture.update(state,height)));
+  const stage=outer.querySelector<HTMLElement>('.depth-stage')!;
+  let width=scroller.clientWidth,height=stage.clientHeight,pageHeight=scroller.clientHeight;
+  const native=!matchMedia('(pointer:coarse)').matches||innerWidth>=700;
+  outer.dataset.native=String(native);
+  const pager=new ScenePager(),landscape=outer.querySelector<HTMLElement>('.depth-landscape');
+  const supportsScrollEnd='onscrollend' in scroller;
+  let nativeInitialised=false,settleTimer:ReturnType<typeof setTimeout>|undefined,noTravelTimer:ReturnType<typeof setTimeout>|undefined;
+  let rebasedTop:number|null=null;
+  const physicalPage=()=>scroller!.scrollTop/Math.max(1,pageHeight);
+  function idleFallback(){clearTimeout(settleTimer);if(!supportsScrollEnd)settleTimer=setTimeout(settleNative,180)}
+  function settleNative(){
+   if(!native)return;
+   clearTimeout(settleTimer);clearTimeout(noTravelTimer);
+   if(settings.current.paused||settings.current.secret){markMoving(false);return}
+   const position=physicalPage(),page=nativeSnapPage(position,total*3);
+   if(Math.abs(scroller!.scrollTop-page*pageHeight)>.75){
+    scroller!.scrollTo({top:page*pageHeight,behavior:settings.current.reduced?'instant':'smooth'});
+    idleFallback();return;
+   }
+
+   const centered=recenterPage(page,total);
+   if(centered!==page){rebasedTop=centered*pageHeight;scroller!.scrollTo({top:rebasedTop,behavior:'instant'})}
+   motion.position=centered-total;motion.target=motion.position;motion.velocity=0;markMoving(false);start();
+  }
+  function nativeScroll(){
+   if(!native)return;
+   clearTimeout(noTravelTimer);
+   if(rebasedTop!==null){const unchanged=Math.abs(scroller!.scrollTop-rebasedTop)<.75;rebasedTop=null;if(unchanged){start();return}}
+   markMoving(true);idleFallback();start();
+  }
+  function noteWheel(event:WheelEvent){
+   if(!native||event.ctrlKey||event.metaKey||!event.deltaY||settings.current.paused||settings.current.secret)return;
+   if((event.target as Element)?.closest('select,input,textarea,dialog,.secret-reveal'))return;
+   markMoving(true);clearTimeout(noTravelTimer);
+   // Wheel input that caused no travel emits no scrollend. Release the motion
+   // flag only; never turn an inertia tail into another programmatic page move.
+   noTravelTimer=setTimeout(()=>{markMoving(false);start()},180);start();
+  }
   const written=new WeakMap<HTMLElement,Map<string,string>>();
   function write(el:HTMLElement,name:string,value:string){let values=written.get(el);if(!values){values=new Map();written.set(el,values)}if(values.get(name)!==value){el.style.setProperty(name,value);values.set(name,value)}}
   type Exit={element:HTMLElement;x:number;y:number;tile:number;film:boolean};
@@ -90,19 +126,29 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
     return {element,x:vx*distance,y:vy*distance,tile:Number(element.style.getPropertyValue('--tile'))||0,film:element.classList.contains('depth-film')};
    });layouts.set(layer,{width,height,version,exits});return exits;
   }
-  function markMoving(value:boolean){if(value===scrolling)return;scrolling=value;outer!.dataset.moving=String(value);window.dispatchEvent(new CustomEvent('portfolio-motion',{detail:value}))}
+  function markMoving(value:boolean){motion.scrolling=value;if(value===scrolling)return;scrolling=value;outer!.dataset.moving=String(value);window.dispatchEvent(new CustomEvent('portfolio-motion',{detail:value}))}
   function draw(t:number){
    raf=0;if(document.hidden){markMoving(false);return}
    // Use elapsed time: capping it makes a slow device replay the motion in slow motion.
    const elapsed=t-last,dt=Math.max(elapsed/1000,.001);last=t;
-   const prior=motion.position,travelling=pager.moving;
+   if(native&&(settings.current.paused||settings.current.secret)){
+    clearTimeout(settleTimer);clearTimeout(noTravelTimer);
+    const top=Math.round(physicalPage())*pageHeight;
+    if(Math.abs(scroller!.scrollTop-top)>.75){rebasedTop=top;scroller!.scrollTo({top,behavior:'instant'})}
+    markMoving(false);
+   }
+   const prior=motion.position,travelling=native?scrolling:pager.moving;
    if(travelling)performance.reportFrame(elapsed);
-   motion.position=settings.current.paused||settings.current.secret?pager.settle():pager.sample(t,settings.current.reduced);
-   motion.target=pager.target;
+   if(native){const raw=physicalPage()-total;motion.position=Math.abs(raw-Math.round(raw))<.001?Math.round(raw):raw;motion.target=Math.round(motion.position)}
+   else{motion.position=settings.current.paused||settings.current.secret?pager.settle():pager.sample(t,settings.current.reduced);motion.target=pager.target}
    motion.velocity=(motion.position-prior)/dt;
    const response=1-Math.exp(-12*dt);motion.pointerX+=(px-motion.pointerX)*response;motion.pointerY+=(py-motion.pointerY)*response;motion.time=t/1000;
    const p=modulo(motion.position,total),nextBase=Math.floor(p),nextChapter=modulo(Math.floor(p+.48),total);
-   if(nextBase!==lastBase){lastBase=nextBase;setBase(nextBase)}if(nextChapter!==lastChapter){lastChapter=nextChapter;current.current=nextChapter;setChapter(nextChapter)}
+   if(nextBase!==lastBase||nextChapter!==lastChapter){
+    lastBase=nextBase;lastChapter=nextChapter;current.current=nextChapter;
+    // Mount the next plane before this frame is painted; never show an empty stale scene.
+    flushSync(()=>{setBase(nextBase);setChapter(nextChapter)});
+   }
    // All layout reads happen before writes, only when a scene/layout actually changes.
    const planes=Array.from(worldRefs.current,([index,layer])=>({index,layer,exits:prepare(layer)}));
    const ambience=smooth(.22,.75,p%1);
@@ -126,45 +172,53 @@ export default function Universe({projects,onProject,onIndex,onProcess,paused,re
      else write(element,'translate',`${(spread*ex).toFixed(2)}px ${(spread*ey).toFixed(2)}px`);
     }
    }
-   const moving=pager.moving;markMoving(moving);
+   const moving=native?scrolling:pager.moving;markMoving(moving);
    outer!.dataset.position=motion.position.toFixed(4);outer!.dataset.target=String(motion.target);
    if(moving||Math.abs(px-motion.pointerX)+Math.abs(py-motion.pointerY)>.01)raf=requestAnimationFrame(draw);
    else motion.velocity=0;
   }
   function start(){if(!raf){last=window.performance.now();raf=requestAnimationFrame(draw)}}wake.current=start;
   function advance(step:number){if(!step||settings.current.paused||settings.current.secret)return;pager.advance(step,window.performance.now());motion.target=pager.target;markMoving(true);start()}
-  function resize(){width=scroller!.clientWidth;height=scroller!.clientHeight;start()}
-  function wheel(event:WheelEvent){
-   if(event.ctrlKey||event.metaKey||settings.current.paused||settings.current.secret||Math.abs(event.deltaX)>Math.abs(event.deltaY))return;
-   if((event.target as Element)?.closest('select,input,textarea,dialog,.secret-reveal'))return;
-   event.preventDefault();wheelGestures.feedWheel(event);
+  function resize(){
+   if(nativeInitialised&&width===scroller!.clientWidth&&pageHeight===scroller!.clientHeight)return;
+   const page=nativeInitialised?Math.round(physicalPage()):total;
+   width=scroller!.clientWidth;pageHeight=scroller!.clientHeight;
+   outer!.style.setProperty('--page-height',pageHeight+'px');height=stage.clientHeight;
+   if(native){rebasedTop=page*pageHeight;scroller!.scrollTo({top:rebasedTop,behavior:'instant'});nativeInitialised=true}
+   start();
   }
   let touch:{x:number;y:number;time:number;committed:number;id:number}|null=null,suppressClickUntil=0;
-  function down(event:PointerEvent){if(event.pointerType!=='touch'||!event.isPrimary||settings.current.paused||settings.current.secret)return;touch={x:event.clientX,y:event.clientY,time:event.timeStamp,committed:0,id:event.pointerId}}
+  function down(event:PointerEvent){if(native||event.pointerType!=='touch'||!event.isPrimary||settings.current.paused||settings.current.secret)return;touch={x:event.clientX,y:event.clientY,time:event.timeStamp,committed:0,id:event.pointerId}}
   function moveTouch(event:PointerEvent){if(!touch||event.pointerId!==touch.id)return;const distance=touch.y-event.clientY;if(Math.abs(distance)<28||Math.abs(distance)<Math.abs(touch.x-event.clientX))return;if(!touch.committed){touch.committed=Math.sign(distance);advance(touch.committed)}suppressClickUntil=event.timeStamp+400}
   function up(event:PointerEvent){if(!touch||touch.id!==event.pointerId)return;const pages=swipePages(touch.y-event.clientY,event.timeStamp-touch.time,height);if(pages&&Math.sign(pages)===touch.committed)advance(pages-touch.committed);else if(!touch.committed)advance(pages);touch=null}
   const cancelTouch=()=>{touch=null},click=(event:MouseEvent)=>{if(event.timeStamp<suppressClickUntil){event.preventDefault();event.stopPropagation()}};
-  navigate.current=(index:number)=>{gesture.reset();const dest=modulo(index,total),origin=modulo(motion.position,total);let distance=dest-origin;if(distance>total/2)distance-=total;if(distance< -total/2)distance+=total;pager.navigate(Math.round(motion.position+distance),window.performance.now());motion.position=pager.position;motion.target=pager.target;markMoving(pager.moving);start()};
+  navigate.current=(index:number)=>{
+   const position=native?physicalPage()-total:motion.position,dest=modulo(index,total),origin=modulo(position,total);
+   let distance=dest-origin;if(distance>total/2)distance-=total;if(distance< -total/2)distance+=total;
+   const target=Math.round(position+distance);
+   if(native){clearTimeout(noTravelTimer);scroller!.scrollTo({top:(total+target)*pageHeight,behavior:settings.current.reduced?'instant':'smooth'});nativeScroll();if(Math.abs(physicalPage()-(total+target))<.001)settleNative();return}
+   pager.navigate(target,window.performance.now());motion.position=pager.position;motion.target=pager.target;markMoving(pager.moving);start();
+  };
   const pointer=(event:PointerEvent)=>{if(settings.current.reduced||settings.current.quality==='simple'||event.pointerType==='touch')return;px=event.clientX/width*2-1;py=1-((event.clientY-(innerHeight-height))/height)*2;start()},leave=()=>{px=py=0;start()},home=()=>navigate.current(0);
   const observer=window.ResizeObserver?new ResizeObserver(resize):null;observer?.observe(scroller);window.addEventListener('resize',resize);resize();
-  outer.addEventListener('wheel',wheel,{passive:false});scroller.addEventListener('pointerdown',down,{passive:true});scroller.addEventListener('pointermove',moveTouch,{passive:true});scroller.addEventListener('pointerup',up,{passive:true});scroller.addEventListener('pointercancel',cancelTouch);scroller.addEventListener('click',click,true);
+  scroller.addEventListener('wheel',noteWheel,{passive:true});scroller.addEventListener('scroll',nativeScroll,{passive:true});scroller.addEventListener('scrollend',settleNative);scroller.addEventListener('pointerdown',down,{passive:true});scroller.addEventListener('pointermove',moveTouch,{passive:true});scroller.addEventListener('pointerup',up,{passive:true});scroller.addEventListener('pointercancel',cancelTouch);scroller.addEventListener('click',click,true);
   outer.addEventListener('pointermove',pointer,{passive:true});outer.addEventListener('portfolio-layout',start);outer.addEventListener('pointerleave',leave);document.addEventListener('visibilitychange',start);window.addEventListener('portfolio-home',home);start();
-  return()=>{stopWheel();wheelGestures.disconnect();observer?.disconnect();window.removeEventListener('resize',resize);cancelAnimationFrame(raf);markMoving(false);outer.removeEventListener('wheel',wheel);scroller.removeEventListener('pointerdown',down);scroller.removeEventListener('pointermove',moveTouch);scroller.removeEventListener('pointerup',up);scroller.removeEventListener('pointercancel',cancelTouch);scroller.removeEventListener('click',click,true);outer.removeEventListener('pointermove',pointer);outer.removeEventListener('portfolio-layout',start);outer.removeEventListener('pointerleave',leave);document.removeEventListener('visibilitychange',start);window.removeEventListener('portfolio-home',home)};
+  return()=>{clearTimeout(settleTimer);clearTimeout(noTravelTimer);scroller.removeEventListener('wheel',noteWheel);scroller.removeEventListener('scroll',nativeScroll);scroller.removeEventListener('scrollend',settleNative);observer?.disconnect();window.removeEventListener('resize',resize);cancelAnimationFrame(raf);markMoving(false);scroller.removeEventListener('pointerdown',down);scroller.removeEventListener('pointermove',moveTouch);scroller.removeEventListener('pointerup',up);scroller.removeEventListener('pointercancel',cancelTouch);scroller.removeEventListener('click',click,true);outer.removeEventListener('pointermove',pointer);outer.removeEventListener('portfolio-layout',start);outer.removeEventListener('pointerleave',leave);document.removeEventListener('visibilitychange',start);window.removeEventListener('portfolio-home',home)};
  },[motion,sections,total,performance.reportFrame]);
  useEffect(()=>{wake.current()},[base,paused,reduced,secret,performance.ready,performance.quality]);
  const visible=performance.ready?[...new Set([base,modulo(base+1,total)])]:[base];
- return <div ref={root} className={'journey depth-journey'+(reduced?' reduced-depth':'')} data-ready={performance.ready} data-playing={playing&&!paused&&!secret} data-quality={performance.quality} data-theme={themes[section.theme]} data-category={section.category} data-art={section.art}>
-  <div ref={scroll} className="depth-scroll" tabIndex={0} aria-label="Scroll through the portfolio in 3D" style={{overflow:'hidden'}} onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(['PageDown','ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();navigate.current(current.current+1)}if(['PageUp','ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();navigate.current(current.current-1)}if(e.key==='Home'){e.preventDefault();navigate.current(0)}}}>
-   <div className="depth-track"><div className="depth-stage">
+ return <div ref={root} className={'journey depth-journey'+(reduced?' reduced-depth':'')} data-paused={paused||!!secret} data-ready={performance.ready} data-playing={playing&&!paused&&!secret} data-quality={performance.quality} data-theme={themes[section.theme]} data-category={section.category} data-art={section.art}>
+  <div ref={scroll} className="depth-scroll" tabIndex={0} aria-label="Scroll through the portfolio in 3D" onKeyDown={e=>{if(e.target!==e.currentTarget)return;if(['PageDown','ArrowRight','ArrowDown',' '].includes(e.key)){e.preventDefault();navigate.current(current.current+1)}if(['PageUp','ArrowLeft','ArrowUp'].includes(e.key)){e.preventDefault();navigate.current(current.current-1)}if(e.key==='Home'){e.preventDefault();navigate.current(0)}}}>
+   <div className="depth-track" style={{'--native-pages':total*3} as CSSProperties}>{Array.from({length:total*3},(_,i)=><div key={i} className="native-snap-point" aria-hidden="true" style={{top:`calc(var(--page-height) * ${i})`}}/>)}<div className="depth-page">{header}<div className="depth-stage">
     <div className="depth-atmosphere" aria-hidden="true">{visible.map(index=><div key={sections[index].id} ref={el=>{if(el)backdropRefs.current.set(index,el);else backdropRefs.current.delete(index)}} className={'depth-backdrop backdrop-'+sections[index].art} style={{opacity:index===chapter?1:0}}>{performance.ready&&performance.quality!=='simple'&&<Scene art={sections[index].art}/>}</div>)}</div>
     <div className="depth-landscape" aria-hidden="true"><div className="depth-floor"/><div className="depth-horizon"/>{Array.from({length:8},(_,i)=><div className={'lowpoly-pillar pillar-'+i} key={i} style={{'--pillar':i} as CSSProperties}><i/><i/><i/></div>)}</div>
 
     <div className="depth-worlds">{visible.map(index=><div ref={el=>{if(el)worldRefs.current.set(index,el);else worldRefs.current.delete(index)}} key={sections[index].id} className={'zoom-world zoom-tone-'+themes[sections[index].theme]+' zoom-layout-'+sections[index].layout} inert={index!==chapter} data-active={index===chapter} data-depth-index={index} data-section={sections[index].id} data-art={sections[index].art} aria-label={sections[index].title} style={{opacity:index===chapter?1:0}}><div className="depth-portal" aria-hidden="true"/><MemoDepthWorld motion={motion} rotate={rotate&&!reduced} section={sections[index]} active={index===chapter} autoplay={!reduced&&!saveData&&performance.mediaReady} compact={compact} paused={paused||!!secret} muted={muted} playing={playing} onProject={onProject} onDiscover={setSecret} onProcess={onProcess}/></div>)}</div>
-   </div></div>
-  </div>
   <div className="depth-topbar"><nav aria-label="Portfolio categories">{portfolioCategories.map(c=>{const index=sections.findIndex(s=>s.category===c.id);return <button key={c.id} aria-current={section.category===c.id?'location':undefined} disabled={index<0} onClick={()=>navigate.current(index)}>{c.label}</button>})}</nav><a className="depth-index" href={href('work/')} onClick={e=>{if(!e.metaKey&&!e.ctrlKey){e.preventDefault();onIndex()}}}>All work ↗</a></div>
   <div className="depth-toolbar"><BrandControls projects={projects} brand={brand} onBrand={setBrand} sort={sort} onSort={setSort}/>{section.category==='selected'&&<button className="depth-shuffle" onMouseEnter={()=>setHeld(true)} onMouseLeave={()=>setHeld(false)} onFocus={()=>setHeld(true)} onBlur={()=>setHeld(false)} onClick={()=>onProject(shuffleProject)} aria-label={'Open '+title(shuffleProject)}><img key={shuffleProject.id} src={asset(shuffleProject.poster)} alt=""/><span>{showcase[shuffle%showcase.length].title}</span><i aria-hidden="true">⇄</i></button>}</div>
-  <div className="depth-bottom"><ClientMarquee compact/><ResultsRibbon compact/><div className="depth-navigation"><div><button aria-label="Previous scene" onClick={()=>navigate.current(current.current-1)}>←</button><span>{section.title}</span><button aria-label="Next scene" onClick={()=>navigate.current(current.current+1)}>→</button></div><span className="depth-scroll-hint">Scroll to explore <i aria-hidden="true">↓</i></span><div><button onClick={()=>setRotate(!rotate)} aria-pressed={rotate}>{rotate?'Rotation on':'Rotation off'}</button><button onClick={()=>setMuted(!muted)} aria-pressed={!muted}>{muted?'Sound off':'Sound on'}</button><button onClick={()=>setPlaying(!playing)} aria-pressed={!playing}>{playing?'Pause films':'Play films'}</button></div></div></div>
+  <div className="depth-bottom"><ClientMarquee compact/><ResultsRibbon compact/><div className="depth-navigation"><div><button aria-label="Previous scene" onClick={()=>navigate.current(current.current-1)}>←</button><span>{section.title}</span><button aria-label="Next scene" onClick={()=>navigate.current(current.current+1)}>→</button></div><button className="depth-next-category depth-scroll-hint" onClick={()=>navigate.current(sections.findIndex(s=>s.category===nextCategory.id))} aria-label={'Explore '+nextCategory.label}><span>Next up</span><strong>{nextCategory.label}</strong><i aria-hidden="true">↗</i></button><div><button onClick={()=>setRotate(!rotate)} aria-pressed={rotate}>{rotate?'Rotation on':'Rotation off'}</button><button onClick={()=>setMuted(!muted)} aria-pressed={!muted}>{muted?'Sound off':'Sound on'}</button><button onClick={()=>setPlaying(!playing)} aria-pressed={!playing}>{playing?'Pause films':'Play films'}</button></div></div></div>
+   </div></div></div>
+  </div>
   {secret&&!paused&&<Suspense fallback={null}><SecretPlayer project={secret} kind={['aperture','film','ticket','window','frame','aperture'][section.theme]} onClose={()=>setSecret(null)} onOpen={()=>{setSecret(null);onProject(secret)}}/></Suspense>}
  </div>;
 }

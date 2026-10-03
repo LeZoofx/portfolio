@@ -8,16 +8,18 @@ export default function useFrameOrbit(count:number,enabled:boolean,motion:Journe
   let timer:ReturnType<typeof setTimeout>,pressed=false;
   const el=gallery.current;if(!el)return;
   const down=()=>{pressed=true},up=()=>{pressed=false};
+  const moving=(event:Event)=>{for(const animation of animations.current){if((event as CustomEvent<boolean>).detail)animation.pause();else if(animation.playState==='paused')animation.play()}};
+  window.addEventListener('portfolio-motion',moving);
   el.addEventListener('pointerdown',down);window.addEventListener('pointerup',up);window.addEventListener('pointercancel',up);
   function rotate(){
    timer=setTimeout(rotate,7800);
    // A resting pointer does not freeze the gallery. Hold only during deliberate interaction.
-   if(!el||document.hidden||pressed||Math.abs(motion.velocity)>.025||Math.abs(motion.target-motion.position)>.015||el.querySelector(':focus-visible')||animations.current.some(a=>a.playState==='running'))return;
+   if(!el||document.hidden||pressed||motion.scrolling||Math.abs(motion.velocity)>.025||Math.abs(motion.target-motion.position)>.015||el.querySelector(':focus-visible')||animations.current.some(a=>a.playState==='running'))return;
    before.current=new Map(Array.from(el.querySelectorAll<HTMLElement>('.depth-film')).map(card=>[card.dataset.film!,{x:card.offsetLeft,y:card.offsetTop,width:card.offsetWidth,angle:parseFloat(getComputedStyle(card).rotate)||0,filter:getComputedStyle(card.querySelector('.depth-film-body')!).filter}]));
    setTurn(value=>(value+1)%count);
   }
   timer=setTimeout(rotate,2800);
-  return()=>{clearTimeout(timer);el.removeEventListener('pointerdown',down);window.removeEventListener('pointerup',up);window.removeEventListener('pointercancel',up)};
+  return()=>{clearTimeout(timer);window.removeEventListener('portfolio-motion',moving);el.removeEventListener('pointerdown',down);window.removeEventListener('pointerup',up);window.removeEventListener('pointercancel',up)};
  },[count,enabled,motion]);
  useLayoutEffect(()=>{
   const el=gallery.current;if(!el||!before.current.size)return;
